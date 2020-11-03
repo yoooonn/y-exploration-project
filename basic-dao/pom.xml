@@ -10,19 +10,26 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>mybatis-3.5.x</artifactId>
+  <artifactId>basic-dao</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <description>mybatis framework solo</description>
 
   <properties>
     <mybatis.version>3.5.3</mybatis.version>
+    <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>com.ycourlee.demo</groupId>
-      <artifactId>basic-dao</artifactId>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${mybatis.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql-connector-java.version}</version>
     </dependency>
   </dependencies>
+
 </project>

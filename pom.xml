@@ -11,25 +11,62 @@
 
   <modules>
     <module>mybatis-3.5.x</module>
+    <module>basic-dao</module>
   </modules>
 
   <properties>
     <skipTests>true</skipTests>
     <java.version>1.8</java.version>
 
+    <basic-dao.version>1.0.0-SNAPSHOT</basic-dao.version>
+    <mybatis-3.5.x.version>1.0.0-SNAPSHOT</mybatis-3.5.x.version>
+
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <junit.version>4.13</junit.version>
+    <lombok.version>1.18.12</lombok.version>
+    <fastjson.version>1.2.72</fastjson.version>
+    <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
   </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-logging</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>${fastjson.version}</version>
+    </dependency>
+  </dependencies>
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>com.ycourlee.demo</groupId>
+        <artifactId>basic-dao</artifactId>
+        <version>${basic-dao.version}</version>
+      </dependency>
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>${junit.version}</version>
         <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
       </dependency>
     </dependencies>
   </dependencyManagement>

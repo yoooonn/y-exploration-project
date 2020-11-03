@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycourlee.demo.basicdao.core.dao.GroupMapper">
+  <resultMap id="BaseResultMap" type="com.ycourlee.demo.basicdao.core.po.Group">
+    <!--@mbg.generated-->
+    <!--@Table `group`-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="establishment_time" jdbcType="TIMESTAMP" property="establishmentTime" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="is_del" jdbcType="TINYINT" property="isDel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, establishment_time, addr, remark, modified_time, create_time, is_del
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from `group`
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from `group`
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.demo.basicdao.core.po.Group" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `group` (`name`, establishment_time, addr, 
+      remark, modified_time, create_time, 
+      is_del)
+    values (#{name,jdbcType=VARCHAR}, #{establishmentTime,jdbcType=TIMESTAMP}, #{addr,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{modifiedTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{isDel,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.demo.basicdao.core.po.Group" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `group`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="establishmentTime != null">
+        establishment_time,
+      </if>
+      <if test="addr != null">
+        addr,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="modifiedTime != null">
+        modified_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="establishmentTime != null">
+        #{establishmentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedTime != null">
+        #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ycourlee.demo.basicdao.core.po.Group">
+    <!--@mbg.generated-->
+    update `group`
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="establishmentTime != null">
+        establishment_time = #{establishmentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addr != null">
+        addr = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedTime != null">
+        modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ycourlee.demo.basicdao.core.po.Group">
+    <!--@mbg.generated-->
+    update `group`
+    set `name` = #{name,jdbcType=VARCHAR},
+      establishment_time = #{establishmentTime,jdbcType=TIMESTAMP},
+      addr = #{addr,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      is_del = #{isDel,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
