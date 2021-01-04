@@ -5,13 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.ycourlee.demo</groupId>
-    <artifactId>y-demo-project</artifactId>
+    <groupId>com.ycourlee.explore</groupId>
+    <artifactId>y-exploration-project</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
   <artifactId>basic-dao</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>${parent.version}</version>
   <packaging>jar</packaging>
 
   <properties>

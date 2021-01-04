@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.ycourlee.demo</groupId>
-  <artifactId>y-demo-project</artifactId>
+  <groupId>com.ycourlee.explore</groupId>
+  <artifactId>y-exploration-project</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -17,9 +17,7 @@
   <properties>
     <skipTests>true</skipTests>
     <java.version>1.8</java.version>
-
-    <basic-dao.version>1.0.0-SNAPSHOT</basic-dao.version>
-    <mybatis-3.5.x.version>1.0.0-SNAPSHOT</mybatis-3.5.x.version>
+    <y-exploration-project.version>1.0.0-SNAPSHOT</y-exploration-project.version>
 
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -51,9 +49,9 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>com.ycourlee.demo</groupId>
+        <groupId>com.ycourlee.explore</groupId>
         <artifactId>basic-dao</artifactId>
-        <version>${basic-dao.version}</version>
+        <version>${y-exploration-project.version}</version>
       </dependency>
       <dependency>
         <groupId>junit</groupId>
