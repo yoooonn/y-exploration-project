@@ -33,3 +33,4 @@ build/
 **/target/
 **/*.iml
 **/.DS_Store
+applogs

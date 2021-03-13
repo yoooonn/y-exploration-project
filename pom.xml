@@ -1,27 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.ycourlee.explore</groupId>
   <artifactId>y-exploration-project</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>${revision}</version>
   <packaging>pom</packaging>
 
   <modules>
-    <module>mybatis-3.5.x</module>
     <module>basic-dao</module>
+    <module>exploration-jmh-java-bench</module>
+    <module>exploration-xxl-job</module>
+    <module>exploration-zookeeper-springboot-dubbo-consumer</module>
+    <module>exploration-zookeeper-springboot-dubbo-provider</module>
+    <module>exploration-spring-boot-starting-process</module>
+    <module>mybatis-3.5.x</module>
   </modules>
 
   <properties>
+    <exploration-project.version>1.0.0-SNAPSHOT</exploration-project.version>
+    <revision>${exploration-project.version}</revision>
     <skipTests>true</skipTests>
     <java.version>1.8</java.version>
     <y-exploration-project.version>1.0.0-SNAPSHOT</y-exploration-project.version>
 
     <maven.compiler.source>${java.version}</maven.compiler.source>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.target>${java.version}</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <mybatis-spring-boot-starter.version>2.1.2</mybatis-spring-boot-starter.version>
     <junit.version>4.13</junit.version>
     <lombok.version>1.18.12</lombok.version>
     <fastjson.version>1.2.72</fastjson.version>
@@ -60,6 +68,11 @@
         <scope>test</scope>
       </dependency>
       <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis-spring-boot-starter.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
         <version>${spring-boot.version}</version>
@@ -68,34 +81,4 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
-
-  <repositories>
-    <repository>
-      <id>public</id>
-      <name>aliyun nexus</name>
-      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-      <layout>default</layout>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>public</id>
-      <name>aliyun nexus</name>
-      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
 </project>

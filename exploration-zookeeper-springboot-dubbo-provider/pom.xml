@@ -10,24 +10,14 @@
     <version>${revision}</version>
   </parent>
 
-  <artifactId>basic-dao</artifactId>
-
-  <properties>
-    <mybatis.version>3.5.3</mybatis.version>
-    <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
-  </properties>
+  <artifactId>exploration-zookeeper-springboot-dubbo-provider</artifactId>
+  <name>exploration zookeeper springboot dubbo provider</name>
+  <description>exploration of zookeeper springboot dubbo provider</description>
 
   <dependencies>
     <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis</artifactId>
-      <version>${mybatis.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>${mysql-connector-java.version}</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
   </dependencies>
-
 </project>
