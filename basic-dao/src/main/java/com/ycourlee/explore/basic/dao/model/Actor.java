@@ -33,7 +33,7 @@ public class Actor {
     /**
      * 1 female; 2 mail
      */
-    private Byte    sex;
+    private Byte    gender;
     /**
      * 生日
      */

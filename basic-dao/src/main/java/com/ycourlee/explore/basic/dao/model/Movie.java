@@ -27,9 +27,17 @@ public class Movie {
      */
     private String name;
     /**
+     * 别名
+     */
+    private String alias;
+    /**
+     * 导演
+     */
+    private String director;
+    /**
      * 电影类型
      */
-    private Byte   type;
+    private String type;
     /**
      * 描述
      */

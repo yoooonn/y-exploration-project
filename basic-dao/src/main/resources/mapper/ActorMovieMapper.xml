@@ -7,7 +7,7 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="actor_id" jdbcType="BIGINT" property="actorId" />
     <result column="movie_id" jdbcType="BIGINT" property="movieId" />
-    <result column="memo" jdbcType="LONGVARCHAR" property="memo" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="was_delete" jdbcType="TINYINT" property="wasDelete" />
@@ -33,7 +33,7 @@
     insert into actor_movie (actor_id, movie_id, memo, 
       create_time, update_time, was_delete
       )
-    values (#{actorId,jdbcType=BIGINT}, #{movieId,jdbcType=BIGINT}, #{memo,jdbcType=LONGVARCHAR}, 
+    values (#{actorId,jdbcType=BIGINT}, #{movieId,jdbcType=BIGINT}, #{memo,jdbcType=VARCHAR},
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=TINYINT}
       )
   </insert>
@@ -68,7 +68,7 @@
         #{movieId,jdbcType=BIGINT},
       </if>
       <if test="memo != null">
-        #{memo,jdbcType=LONGVARCHAR},
+        #{memo,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -92,7 +92,7 @@
         movie_id = #{movieId,jdbcType=BIGINT},
       </if>
       <if test="memo != null">
-        memo = #{memo,jdbcType=LONGVARCHAR},
+        memo = #{memo,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -111,7 +111,7 @@
     update actor_movie
     set actor_id = #{actorId,jdbcType=BIGINT},
       movie_id = #{movieId,jdbcType=BIGINT},
-      memo = #{memo,jdbcType=LONGVARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       was_delete = #{wasDelete,jdbcType=TINYINT}

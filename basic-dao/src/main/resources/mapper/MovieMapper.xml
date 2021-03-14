@@ -7,7 +7,7 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="code" jdbcType="VARCHAR" property="code" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="memo" jdbcType="LONGVARCHAR" property="memo" />
     <result column="release_datetime" jdbcType="TIMESTAMP" property="releaseDatetime" />
     <result column="post_date" jdbcType="DATE" property="postDate" />
@@ -38,7 +38,7 @@
       memo, release_datetime, post_date, 
       create_time, update_time, was_delete
       )
-    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, 
+    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR},
       #{memo,jdbcType=LONGVARCHAR}, #{releaseDatetime,jdbcType=TIMESTAMP}, #{postDate,jdbcType=DATE}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=TINYINT}
       )
@@ -83,7 +83,7 @@
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
-        #{type,jdbcType=TINYINT},
+        #{type,jdbcType=VARCHAR},
       </if>
       <if test="memo != null">
         #{memo,jdbcType=LONGVARCHAR},
@@ -116,7 +116,7 @@
         `name` = #{name,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
-        `type` = #{type,jdbcType=TINYINT},
+        `type` = #{type,jdbcType=VARCHAR},
       </if>
       <if test="memo != null">
         memo = #{memo,jdbcType=LONGVARCHAR},
@@ -144,7 +144,7 @@
     update movie
     set code = #{code,jdbcType=VARCHAR},
       `name` = #{name,jdbcType=VARCHAR},
-      `type` = #{type,jdbcType=TINYINT},
+      `type` = #{type,jdbcType=VARCHAR},
       memo = #{memo,jdbcType=LONGVARCHAR},
       release_datetime = #{releaseDatetime,jdbcType=TIMESTAMP},
       post_date = #{postDate,jdbcType=DATE},
