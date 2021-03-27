@@ -152,4 +152,30 @@
     was_delete = #{wasDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByGenderAndMinAgeOpt" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from actor
+    <where>
+      <if test="gender != null and gender > 0">
+        and gender = #{gender,jdbcType=INTEGER}
+      </if>
+      <if test="minAge != null and minAge > 0">
+        and age >= #{minAge,jdbcType=INTEGER}
+      </if>
+    </where>
+  </select>
+
+  <select id="selectByGenderAndMinAgeOptNoAnnotated" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from actor
+    <where>
+      <if test="genderCode != null and genderCode > 0">
+        and gender = #{genderCode,jdbcType=INTEGER}
+      </if>
+      <if test="minAge != null and minAge > 0">
+        and age >= #{minAge,jdbcType=INTEGER}
+      </if>
+    </where>
+  </select>
 </mapper>

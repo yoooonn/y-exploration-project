@@ -11,6 +11,7 @@
   </parent>
 
   <artifactId>basic-dao</artifactId>
+  <name>basic dao</name>
 
   <properties>
     <mybatis.version>3.5.3</mybatis.version>

@@ -1,6 +1,9 @@
 package com.ycourlee.explore.basic.dao;
 
 import com.ycourlee.explore.basic.dao.model.Actor;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author yongjiang
@@ -19,4 +22,14 @@ public interface ActorMapper {
     int updateByPrimaryKeySelective(Actor record);
 
     int updateByPrimaryKey(Actor record);
+
+    /**
+     *
+     * @param genderCode
+     * @param minAge
+     * @return
+     */
+    List<Actor> selectByGenderAndMinAgeOpt(@Param("gender") Integer genderCode, @Param("minAge") Integer minAge);
+
+    List<Actor> selectByGenderAndMinAgeOptNoAnnotated(Integer genderCode, Integer minAge);
 }
