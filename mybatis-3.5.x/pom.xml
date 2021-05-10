@@ -15,7 +15,7 @@
   <description>mybatis framework solo</description>
 
   <properties>
-    <dynamic.mybatis.version>3.5.6</dynamic.mybatis.version>
+    <dynamic.mybatis.version>3.4.3</dynamic.mybatis.version>
   </properties>
 
   <dependencies>

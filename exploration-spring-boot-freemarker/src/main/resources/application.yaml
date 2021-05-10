@@ -1,0 +1,16 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: explore spring boot freemarker
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+    charset: UTF-8
+    content-type: text/html
+    enabled: true
+    suffix: .ftl

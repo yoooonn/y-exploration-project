@@ -15,22 +15,33 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jmh-core.version>1.27</jmh-core.version>
-    <jmh-generator.version>1.27</jmh-generator.version>
     <uberjar.name>benchmarks</uberjar.name>
   </properties>
 
   <dependencies>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.openjdk.jmh</groupId>
       <artifactId>jmh-core</artifactId>
-      <version>${jmh-core.version}</version>
     </dependency>
     <dependency>
       <groupId>org.openjdk.jmh</groupId>
       <artifactId>jmh-generator-annprocess</artifactId>
-      <version>${jmh-generator.version}</version>
-      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.ycourlee.root</groupId>
+      <artifactId>yonn-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ycourlee.root.mocks</groupId>
+      <artifactId>yonn-handy-unit-test</artifactId>
     </dependency>
   </dependencies>
 
@@ -39,7 +50,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>2.2</version>
         <executions>
           <execution>
             <phase>package</phase>

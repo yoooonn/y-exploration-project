@@ -5,6 +5,7 @@ import com.ycourlee.explore.basic.dao.ActorMapper;
 import com.ycourlee.explore.basic.dao.model.Actor;
 import com.ycourlee.explore.mybatis.EnvUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.reflection.ParamNameResolver;
 import org.junit.Test;
 
@@ -67,7 +68,11 @@ public class ParamNameResolverTest extends EnvUtil {
     }
 
     /**
+     * 不使用注解{@link Param}
      * 3.5.3: params = {arg1=20, arg0=1, param1=1, param2=20}
+     * 3.5.4: params = {genderCode=1, minAge=20, param1=1, param2=20}
+     * 3.5.5: params = {genderCode=1, minAge=20, param1=1, param2=20}
+     * 3.5.6: params = {genderCode=1, minAge=20, param1=1, param2=20}
      *
      * @throws NoSuchMethodException e
      */

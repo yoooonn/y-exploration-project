@@ -2,6 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.3.3.RELEASE</version>
+  </parent>
+
   <groupId>com.ycourlee.explore</groupId>
   <artifactId>y-exploration-project</artifactId>
   <version>${revision}</version>
@@ -10,34 +16,41 @@
 
   <modules>
     <module>basic-dao</module>
-    <module>exploration-asciidoctor-maven-plugin</module>
-    <module>exploration-checkstyle-maven-plugin</module>
+    <module>exploration-google-findbugs-jsr305</module>
     <module>exploration-java8</module>
+    <module>exploration-java-spi</module>
     <module>exploration-jmh-java-bench</module>
+    <module>exploration-maven-plugin-asciidoctor</module>
+    <module>exploration-maven-plugin-checkstyle</module>
     <module>exploration-spring-boot-freemarker</module>
     <module>exploration-spring-boot-starting-process</module>
     <module>exploration-xxl-job</module>
     <module>exploration-zookeeper-springboot-dubbo-consumer</module>
     <module>exploration-zookeeper-springboot-dubbo-provider</module>
     <module>mybatis-3.5.x</module>
+    <module>exploration-spring-redis</module>
   </modules>
 
   <properties>
     <exploration-project.version>1.0.0-SNAPSHOT</exploration-project.version>
     <revision>1.0.0-SNAPSHOT</revision>
+    <changelist>${spring-boot.version}</changelist>
     <skipTests>true</skipTests>
-    <java.version>1.8</java.version>
-
-    <maven.compiler.source>${java.version}</maven.compiler.source>
-    <maven.compiler.target>${java.version}</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <mybatis-spring-boot-starter.version>2.1.2</mybatis-spring-boot-starter.version>
     <junit.version>4.13</junit.version>
     <lombok.version>1.18.12</lombok.version>
     <fastjson.version>1.2.72</fastjson.version>
     <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
-    <yonn.version>1.0.2-RELEASE</yonn.version>
+    <flatten-maven-plugin.version>1.2.5</flatten-maven-plugin.version>
+    <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
+    <xml-maven-plugin.version>1.0.2</xml-maven-plugin.version>
+    <jmh-core.version>1.27</jmh-core.version>
+    <jmh-generator.version>1.27</jmh-generator.version>
+    <findbugs.version>3.0.1</findbugs.version>
+    <maven-shade-plugin.version>2.2</maven-shade-plugin.version>
+    <yonn.version>1.0.6.RELEASE</yonn.version>
+    <guava.version>28.2-jre</guava.version>
   </properties>
 
   <dependencies>
@@ -61,8 +74,23 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.root</groupId>
+        <artifactId>yonn-util</artifactId>
+        <version>${yonn.version}</version>
+      </dependency>
+      <dependency>
         <groupId>com.ycourlee.root</groupId>
         <artifactId>yonn-core</artifactId>
+        <version>${yonn.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.root.mocks</groupId>
+        <artifactId>yonn-handy-unit-test</artifactId>
         <version>${yonn.version}</version>
       </dependency>
       <dependency>
@@ -82,14 +110,164 @@
         <version>${mybatis-spring-boot-starter.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>${spring-boot.version}</version>
-        <scope>import</scope>
-        <type>pom</type>
+        <groupId>org.openjdk.jmh</groupId>
+        <artifactId>jmh-core</artifactId>
+        <version>${jmh-core.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openjdk.jmh</groupId>
+        <artifactId>jmh-generator-annprocess</artifactId>
+        <version>${jmh-generator.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.google.code.findbugs</groupId>
+        <artifactId>findbugs</artifactId>
+        <version>${findbugs.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <version>${flatten-maven-plugin.version}</version>
+        <configuration>
+          <updatePomFile>true</updatePomFile>
+          <flattenMode>oss</flattenMode>
+        </configuration>
+        <executions>
+          <execution>
+            <id>flatten</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>flatten</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/effective-pom</outputDirectory>
+              <flattenedPomFilename>${project.artifactId}.xml</flattenedPomFilename>
+              <pomElements>
+                <repositories>remove</repositories>
+                <pluginRepositories>remove</pluginRepositories>
+                <distributionManagement>remove</distributionManagement>
+              </pomElements>
+            </configuration>
+          </execution>
+          <execution>
+            <id>flatten-clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>xml-maven-plugin</artifactId>
+        <!-- make sub-module not inherit transformationSets stylesheet -->
+        <inherited>false</inherited>
+        <executions>
+          <execution>
+            <!-- Cleanup the effective POM -->
+            <id>post-process-effective-pom</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>transform</goal>
+            </goals>
+            <configuration>
+              <transformationSets>
+                <transformationSet>
+                  <dir>${project.build.directory}/effective-pom</dir>
+                  <outputDir>${project.build.directory}/effective-pom</outputDir>
+                  <stylesheet>src/main/xslt/post-process-flattened-pom.xsl</stylesheet>
+                  <outputProperties>
+                    <outputProperty>
+                      <name>indent</name>
+                      <value>yes</value>
+                    </outputProperty>
+                  </outputProperties>
+                </transformationSet>
+              </transformationSets>
+            </configuration>
+          </execution>
+          <execution>
+            <!-- Cleanup the flattened project POM -->
+            <id>post-process-flattened-pom</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>transform</goal>
+            </goals>
+            <configuration>
+              <transformationSets>
+                <transformationSet>
+                  <dir>${project.basedir}</dir>
+                  <outputDir>${project.basedir}</outputDir>
+                  <includes>.flattened-pom.xml</includes>
+                  <stylesheet>src/main/xslt/post-process-flattened-pom.xsl</stylesheet>
+                  <outputProperties>
+                    <outputProperty>
+                      <name>indent</name>
+                      <value>yes</value>
+                    </outputProperty>
+                  </outputProperties>
+                </transformationSet>
+              </transformationSets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <inherited>false</inherited>
+        <executions>
+          <execution>
+            <!-- Attach effective POM -->
+            <id>attach-artifacts</id>
+            <phase>package</phase>
+            <goals>
+              <goal>attach-artifact</goal>
+            </goals>
+            <configuration>
+              <artifacts>
+                <artifact>
+                  <file>${project.build.directory}/effective-pom/${project.artifactId}.xml</file>
+                  <type>effective-pom</type>
+                </artifact>
+              </artifacts>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+          <compilerArgument>-parameters</compilerArgument>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
+        <configuration>
+          <includes>
+            <include>**/*Tests.java</include>
+            <include>**/*Test.java</include>
+          </includes>
+          <excludes>
+            <exclude>**/Abstract*.java</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
   <repositories>
     <repository>

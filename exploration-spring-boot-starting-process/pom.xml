@@ -15,5 +15,37 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.ycourlee.root</groupId>
+      <artifactId>yonn-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ycourlee.explore</groupId>
+      <artifactId>basic-dao</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+    </dependency>
   </dependencies>
+
+  <build>
+    <resources>
+    <resource>
+      <directory>${basedir}/src/main/resources</directory>
+      <includes>
+        <include>**/application*.yml</include>
+        <include>**/application*.yaml</include>
+        <include>**/application*.properties</include>
+        <include>mybatis-configuration.xml</include>
+      </includes>
+    </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
 </project>
