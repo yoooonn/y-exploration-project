@@ -4,10 +4,8 @@ import com.ycourlee.explore.basic.dao.model.ActorMovie;
 
 /**
  * @author yongjiang
- * @date 2021.03.14
  */
 public interface ActorMovieMapper {
-
     int deleteByPrimaryKey(Long id);
 
     int insert(ActorMovie record);

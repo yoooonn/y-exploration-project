@@ -14,3 +14,8 @@ spring:
     content-type: text/html
     enabled: true
     suffix: .ftl
+
+  redis:
+    port: 6379
+    database: 0
+    host: localhost

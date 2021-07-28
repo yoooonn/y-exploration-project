@@ -1,14 +1,18 @@
 package com.ycourlee.explore.basic.dao.model;
 
-import lombok.*;
-
 import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+/**
+ * @author yongjiang
+ */
 
 /**
  * 国家表
- *
- * @author yongjiang
- * @date 2021.03.14
  */
 @Getter
 @Setter
@@ -16,38 +20,45 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Country {
-
     private Integer id;
+
     /**
      * 编码
      */
-    private String  code;
+    private String code;
+
     /**
      * 使用语言
      */
-    private String  language;
+    private String language;
+
     /**
      * 首都
      */
-    private String  capital;
+    private String capital;
+
     /**
      * 世界地理区域
      */
-    private String  universalRegion;
+    private String universalRegion;
+
     /**
      * 备注
      */
-    private String  memo;
+    private String memo;
+
     /**
      * 记录创建时间
      */
-    private Date    createTime;
+    private Date createTime;
+
     /**
      * 记录更新时间
      */
-    private Date    updateTime;
+    private Date updateTime;
+
     /**
-     * 记录是否删除
+     * 已删除
      */
-    private Byte    wasDelete;
+    private Boolean wasDelete;
 }

@@ -16,7 +16,7 @@ ij_smart_tabs               = false
 ij_wrap_on_typing           = false
 
 [*.java]
-ij_wrap_on_typing                                               = true
+# ij_wrap_on_typing                                               = false
 ij_java_align_consecutive_assignments                           = false
 ij_java_align_consecutive_variable_declarations                 = false
 ij_java_align_group_field_declarations                          = true
@@ -310,6 +310,9 @@ ij_yaml_spaces_within_brackets      = true
 
 [*.sql]
 max_line_length = 200
+
+[application.properties]
+ij_properties_align_group_field_declarations = false
 
 [*.xml]
 indent_size = 2

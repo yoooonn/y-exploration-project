@@ -20,6 +20,23 @@ public class OneTest extends SpringTestEnv {
     }
 
     @Test
+    public void get2Test() {
+        String hasdf = (String) redisTemplate.opsForHash().get("hasdf", "12");
+
+        System.out.println("hasdf = " + hasdf);
+
+        Object a = null;
+
+        String b = (String) a;
+
+        System.out.println("b = " + b);
+
+    }
+
+
+
+
+    @Test
     public void incrTest() {
         System.out.println("redisTemplate.opsForValue().increment(\"hello\", 1) = " + redisTemplate.opsForValue().increment("hello", 1));
     }

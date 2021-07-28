@@ -14,43 +14,61 @@
   <name>y exploration project</name>
   <packaging>pom</packaging>
 
+  <url>https://yalden.github.io/spring-boot/y-exploration-project</url>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>ycourlee</name>
+      <email>ycourleee@gmail.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <url>https://github.com/yalden/y-exploration-project</url>
+  </scm>
+
   <modules>
     <module>basic-dao</module>
     <module>exploration-google-findbugs-jsr305</module>
+    <module>exploration-groovy</module>
     <module>exploration-java8</module>
     <module>exploration-java-spi</module>
     <module>exploration-jmh-java-bench</module>
     <module>exploration-maven-plugin-asciidoctor</module>
     <module>exploration-maven-plugin-checkstyle</module>
+    <module>exploration-mybatis-3.5.x</module>
     <module>exploration-spring-boot-freemarker</module>
     <module>exploration-spring-boot-starting-process</module>
     <module>exploration-xxl-job</module>
     <module>exploration-zookeeper-springboot-dubbo-consumer</module>
     <module>exploration-zookeeper-springboot-dubbo-provider</module>
-    <module>mybatis-3.5.x</module>
     <module>exploration-spring-redis</module>
+    <module>exploration-parent</module>
   </modules>
 
   <properties>
-    <exploration-project.version>1.0.0-SNAPSHOT</exploration-project.version>
+    <changelist>${revision}</changelist>
+    <exploration-project.version>${revision}</exploration-project.version>
     <revision>1.0.0-SNAPSHOT</revision>
-    <changelist>${spring-boot.version}</changelist>
     <skipTests>true</skipTests>
 
-    <mybatis-spring-boot-starter.version>2.1.2</mybatis-spring-boot-starter.version>
-    <junit.version>4.13</junit.version>
-    <lombok.version>1.18.12</lombok.version>
     <fastjson.version>1.2.72</fastjson.version>
-    <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
-    <flatten-maven-plugin.version>1.2.5</flatten-maven-plugin.version>
-    <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
-    <xml-maven-plugin.version>1.0.2</xml-maven-plugin.version>
+    <findbugs.version>3.0.1</findbugs.version>
+    <groovy.version>3.0.7</groovy.version>
+    <guava.version>28.2-jre</guava.version>
     <jmh-core.version>1.27</jmh-core.version>
     <jmh-generator.version>1.27</jmh-generator.version>
-    <findbugs.version>3.0.1</findbugs.version>
-    <maven-shade-plugin.version>2.2</maven-shade-plugin.version>
-    <yonn.version>1.0.6.RELEASE</yonn.version>
-    <guava.version>28.2-jre</guava.version>
+    <junit.version>4.13</junit.version>
+    <lombok.version>1.18.12</lombok.version>
+    <mybatis-spring-boot-starter.version>2.1.2</mybatis-spring-boot-starter.version>
+    <micro.version>1.2.0-SNAPSHOT</micro.version>
+    <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
+    <yonn.snapshot.version>1.0.9-SNAPSHOT</yonn.snapshot.version>
+    <yonn.version>${yonn.snapshot.version}</yonn.version>
   </properties>
 
   <dependencies>
@@ -74,6 +92,16 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>com.gxjiaotong</groupId>
+        <artifactId>micro-except</artifactId>
+        <version>${micro.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy</artifactId>
+        <version>${groovy.version}</version>
+      </dependency>
+      <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
         <version>${guava.version}</version>
@@ -87,6 +115,11 @@
         <groupId>com.ycourlee.root</groupId>
         <artifactId>yonn-core</artifactId>
         <version>${yonn.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.root</groupId>
+        <artifactId>yonn-quick-minio</artifactId>
+        <version>${yonn.snapshot.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.root.mocks</groupId>
@@ -124,6 +157,31 @@
         <groupId>com.google.code.findbugs</groupId>
         <artifactId>findbugs</artifactId>
         <version>${findbugs.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.explore</groupId>
+        <artifactId>exploration-google-findbugs-jsr305</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.explore</groupId>
+        <artifactId>exploration-spring-boot-freemarker</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.explore</groupId>
+        <artifactId>exploration-spring-boot-starting-process</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.explore</groupId>
+        <artifactId>exploration-xxl-job</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.explore</groupId>
+        <artifactId>exploration-spring-redis</artifactId>
+        <version>${revision}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -167,6 +225,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>xml-maven-plugin</artifactId>
+        <version>${xml-maven-plugin.version}</version>
         <!-- make sub-module not inherit transformationSets stylesheet -->
         <inherited>false</inherited>
         <executions>
@@ -222,6 +281,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
+        <version>${build-helper-maven-plugin.version}</version>
         <inherited>false</inherited>
         <executions>
           <execution>
@@ -264,6 +324,20 @@
           <excludes>
             <exclude>**/Abstract*.java</exclude>
           </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${maven-javadoc-plugin.version}</version>
+        <configuration>
+          <tags>
+            <tag>
+              <name>date</name>
+              <placement>t</placement>
+              <head>Created On:</head>
+            </tag>
+          </tags>
         </configuration>
       </plugin>
     </plugins>

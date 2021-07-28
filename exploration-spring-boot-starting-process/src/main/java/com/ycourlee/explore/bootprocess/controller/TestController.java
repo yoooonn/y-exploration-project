@@ -1,5 +1,6 @@
 package com.ycourlee.explore.bootprocess.controller;
 
+import com.gxjiaotong.micro.core.error.ServerException;
 import com.ycourlee.explore.bootprocess.service.TestService;
 import com.ycourlee.root.core.domain.context.Rtm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,21 @@ public class TestController {
     @Autowired
     private TestService testService;
 
+    @PostMapping("/test/{title}")
+    public Rtm testTitle(@PathVariable String title)  {
+        if (title.length() == 5) {
+            throw new ServerException(-1, "not good title.");
+        }
+        return Rtm.success();
+    }
+
     @PostMapping("/transaction-verify/{rid}")
     public Rtm transactionVerify(@PathVariable Integer rid) {
         return Rtm.success(testService.deleteStatementTransactionVerify(rid));
+    }
+
+    @PostMapping("/test-oss")
+    public Rtm testOss() throws Exception {
+        return Rtm.success();
     }
 }

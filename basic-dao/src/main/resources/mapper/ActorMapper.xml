@@ -4,16 +4,16 @@
   <resultMap id="BaseResultMap" type="com.ycourlee.explore.basic.dao.model.Actor">
     <!--@mbg.generated-->
     <!--@Table actor-->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="code" jdbcType="VARCHAR" property="code" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="age" jdbcType="INTEGER" property="age" />
-    <result column="gender" jdbcType="TINYINT" property="gender" />
-    <result column="birthday" jdbcType="DATE" property="birthday" />
-    <result column="memo" jdbcType="VARCHAR" property="memo" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="was_delete" jdbcType="TINYINT" property="wasDelete" />
+    <id column="id" jdbcType="BIGINT" property="id"/>
+    <result column="code" jdbcType="VARCHAR" property="code"/>
+    <result column="name" jdbcType="VARCHAR" property="name"/>
+    <result column="age" jdbcType="INTEGER" property="age"/>
+    <result column="gender" jdbcType="TINYINT" property="gender"/>
+    <result column="birthday" jdbcType="DATE" property="birthday"/>
+    <result column="memo" jdbcType="VARCHAR" property="memo"/>
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    <result column="was_delete" jdbcType="BOOLEAN" property="wasDelete"/>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
@@ -21,26 +21,25 @@
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
+    select
+    <include refid="Base_Column_List"/>
     from actor
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--@mbg.generated-->
-    delete from actor
+    delete
+    from actor
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.Actor" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into actor (code, `name`, age,
-    gender, birthday, memo,
-    create_time, update_time, was_delete
-    )
+                       gender, birthday, memo,
+                       create_time, update_time, was_delete)
     values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
-    #{gender,jdbcType=TINYINT}, #{birthday,jdbcType=DATE}, #{memo,jdbcType=VARCHAR},
-    #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=TINYINT}
-    )
+            #{gender,jdbcType=TINYINT}, #{birthday,jdbcType=DATE}, #{memo,jdbcType=VARCHAR},
+            #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=BOOLEAN})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.Actor" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -100,7 +99,7 @@
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="wasDelete != null">
-        #{wasDelete,jdbcType=TINYINT},
+        #{wasDelete,jdbcType=BOOLEAN},
       </if>
     </trim>
   </insert>
@@ -133,7 +132,7 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="wasDelete != null">
-        was_delete = #{wasDelete,jdbcType=TINYINT},
+        was_delete = #{wasDelete,jdbcType=BOOLEAN},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -141,40 +140,42 @@
   <update id="updateByPrimaryKey" parameterType="com.ycourlee.explore.basic.dao.model.Actor">
     <!--@mbg.generated-->
     update actor
-    set code = #{code,jdbcType=VARCHAR},
-    `name` = #{name,jdbcType=VARCHAR},
-    age = #{age,jdbcType=INTEGER},
-    gender = #{gender,jdbcType=TINYINT},
-    birthday = #{birthday,jdbcType=DATE},
-    memo = #{memo,jdbcType=VARCHAR},
-    create_time = #{createTime,jdbcType=TIMESTAMP},
-    update_time = #{updateTime,jdbcType=TIMESTAMP},
-    was_delete = #{wasDelete,jdbcType=TINYINT}
+    set code        = #{code,jdbcType=VARCHAR},
+        `name`      = #{name,jdbcType=VARCHAR},
+        age         = #{age,jdbcType=INTEGER},
+        gender      = #{gender,jdbcType=TINYINT},
+        birthday    = #{birthday,jdbcType=DATE},
+        memo        = #{memo,jdbcType=VARCHAR},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        was_delete  = #{wasDelete,jdbcType=BOOLEAN}
     where id = #{id,jdbcType=BIGINT}
   </update>
 
   <select id="selectByGenderAndMinAgeOpt" resultMap="BaseResultMap">
-    select <include refid="Base_Column_List" />
+    select
+    <include refid="Base_Column_List"/>
     from actor
     <where>
-      <if test="gender != null and gender > 0">
+      <if test="gender != null and gender &gt; 0">
         and gender = #{gender,jdbcType=INTEGER}
       </if>
-      <if test="minAge != null and minAge > 0">
-        and age >= #{minAge,jdbcType=INTEGER}
+      <if test="minAge != null and minAge &gt; 0">
+        and age &gt;= #{minAge,jdbcType=INTEGER}
       </if>
     </where>
   </select>
 
   <select id="selectByGenderAndMinAgeOptNoAnnotated" resultMap="BaseResultMap">
-    select <include refid="Base_Column_List" />
+    select
+    <include refid="Base_Column_List"/>
     from actor
     <where>
-      <if test="genderCode != null and genderCode > 0">
+      <if test="genderCode != null and genderCode &gt; 0">
         and gender = #{genderCode,jdbcType=INTEGER}
       </if>
-      <if test="minAge != null and minAge > 0">
-        and age >= #{minAge,jdbcType=INTEGER}
+      <if test="minAge != null and minAge &gt; 0">
+        and age &gt;= #{minAge,jdbcType=INTEGER}
       </if>
     </where>
   </select>

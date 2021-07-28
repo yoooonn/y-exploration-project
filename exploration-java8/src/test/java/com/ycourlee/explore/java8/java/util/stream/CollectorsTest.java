@@ -1,4 +1,4 @@
-package com.ycourlee.explore.java8.java.lang.util.stream;
+package com.ycourlee.explore.java8.java.util.stream;
 
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;

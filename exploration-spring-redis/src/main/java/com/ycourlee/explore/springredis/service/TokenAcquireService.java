@@ -5,7 +5,9 @@ package com.ycourlee.explore.springredis.service;
  */
 public interface TokenAcquireService {
 
-    String availableTokenBySynchronizedLock();
+    String availableTokenByDistributeLock();
+
+    String availableTokenByDistributeLock2();
 
     String availableTokenBySynchronizedLock2();
 }

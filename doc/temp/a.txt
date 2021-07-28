@@ -1,0 +1,67 @@
+# JMH version: 1.27
+# VM version: JDK 1.8.0_271, Java HotSpot(TM) 64-Bit Server VM, 25.271-b09
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/bin/java
+# VM options: -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=55008:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8
+# JMH blackhole mode: full blackhole + dont-inline hint
+# Warmup: 3 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 5 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.ycourlee.explore.jmhjavabench.runner.other.TemplateConvert2RunnerBmRunner.defineSelfConverterBenchmark
+
+# Run progress: 0.00% complete, ETA 00:00:12
+# Fork: 1 of 1
+# Warmup Iteration   1: 23.558 ±(99.9%) 13.159 ms/op
+# Warmup Iteration   2: 11.197 ±(99.9%) 0.298 ms/op
+# Warmup Iteration   3: 8.480 ±(99.9%) 0.265 ms/op
+Iteration   1: 7.279 ±(99.9%) 0.088 ms/op
+Iteration   2: 6.900 ±(99.9%) 0.163 ms/op
+Iteration   3: 6.687 ±(99.9%) 0.204 ms/op
+
+
+Result "com.ycourlee.explore.jmhjavabench.runner.other.TemplateConvert2RunnerBmRunner.defineSelfConverterBenchmark":
+  6.955 ±(99.9%) 5.473 ms/op [Average]
+  (min, avg, max) = (6.687, 6.955, 7.279), stdev = 0.300
+  CI (99.9%): [1.482, 12.429] (assumes normal distribution)
+
+
+# JMH version: 1.27
+# VM version: JDK 1.8.0_271, Java HotSpot(TM) 64-Bit Server VM, 25.271-b09
+# VM invoker: /Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home/jre/bin/java
+# VM options: -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=55008:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8
+# JMH blackhole mode: full blackhole + dont-inline hint
+# Warmup: 3 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 5 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.ycourlee.explore.jmhjavabench.runner.other.TemplateConvert2RunnerBmRunner.freemarkerConverterBenchmark
+
+# Run progress: 50.00% complete, ETA 00:00:07
+# Fork: 1 of 1
+# Warmup Iteration   1: 2.636 ±(99.9%) 0.767 ms/op
+# Warmup Iteration   2: 1.669 ±(99.9%) 0.046 ms/op
+# Warmup Iteration   3: 1.567 ±(99.9%) 0.017 ms/op
+Iteration   1: 1.443 ±(99.9%) 0.020 ms/op
+Iteration   2: 1.327 ±(99.9%) 0.010 ms/op
+Iteration   3: 1.763 ±(99.9%) 0.025 ms/op
+
+
+Result "com.ycourlee.explore.jmhjavabench.runner.other.TemplateConvert2RunnerBmRunner.freemarkerConverterBenchmark":
+  1.511 ±(99.9%) 4.117 ms/op [Average]
+  (min, avg, max) = (1.327, 1.511, 1.763), stdev = 0.226
+  CI (99.9%): [≈ 0, 5.628] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:00:13
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                                                    Mode  Cnt  Score   Error  Units
+TemplateConvert2RunnerBmRunner.defineSelfConverterBenchmark  avgt    3  6.955 ± 5.473  ms/op
+TemplateConvert2RunnerBmRunner.freemarkerConverterBenchmark  avgt    3  1.511 ± 4.117  ms/op

@@ -1,14 +1,18 @@
 package com.ycourlee.explore.basic.dao.model;
 
-import lombok.*;
-
 import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+/**
+ * @author yongjiang
+ */
 
 /**
  * 演员表
- *
- * @author yongjiang
- * @date 2021.03.14
  */
 @Getter
 @Setter
@@ -16,42 +20,50 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Actor {
+    private Long id;
 
-    private Long    id;
     /**
      * 编号
      */
-    private String  code;
+    private String code;
+
     /**
      * 姓名
      */
-    private String  name;
+    private String name;
+
     /**
      * 年龄
      */
     private Integer age;
+
     /**
      * 1 female; 2 mail
      */
-    private Byte    gender;
+    private Byte gender;
+
     /**
      * 生日
      */
-    private Date    birthday;
+    private Date birthday;
+
     /**
      * 备注
      */
-    private String  memo;
+    private String memo;
+
     /**
      * 记录创建时间
      */
-    private Date    createTime;
+    private Date createTime;
+
     /**
      * 记录更新时间
      */
-    private Date    updateTime;
+    private Date updateTime;
+
     /**
-     * 记录是否删除
+     * 已删除
      */
-    private Byte    wasDelete;
+    private Boolean wasDelete;
 }

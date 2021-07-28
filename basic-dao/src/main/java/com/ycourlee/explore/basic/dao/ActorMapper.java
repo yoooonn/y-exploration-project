@@ -1,16 +1,11 @@
 package com.ycourlee.explore.basic.dao;
 
-import com.ycourlee.explore.basic.dao.model.Actor;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
+import com.ycourlee.explore.basic.dao.model.Actor;import org.apache.ibatis.annotations.Param;import java.util.List;
 
 /**
  * @author yongjiang
- * @date 2021.03.14
  */
 public interface ActorMapper {
-
     int deleteByPrimaryKey(Long id);
 
     int insert(Actor record);
@@ -23,10 +18,11 @@ public interface ActorMapper {
 
     int updateByPrimaryKey(Actor record);
 
+    Actor selectByPrimaryKeyNoDel(Long id);
+
     /**
-     *
-     * @param genderCode
-     * @param minAge
+     * @param genderCode gender code
+     * @param minAge     min age
      * @return
      */
     List<Actor> selectByGenderAndMinAgeOpt(@Param("gender") Integer genderCode, @Param("minAge") Integer minAge);

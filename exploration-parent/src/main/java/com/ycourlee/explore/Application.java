@@ -1,4 +1,4 @@
-package com.ycourlee.explore.springredis;
+package com.ycourlee.explore;
 
 /**
  * @author jiangyong

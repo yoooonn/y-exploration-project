@@ -20,6 +20,10 @@
 
   <dependencies>
     <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beans</artifactId>
     </dependency>
@@ -42,6 +46,10 @@
     <dependency>
       <groupId>com.ycourlee.root.mocks</groupId>
       <artifactId>yonn-handy-unit-test</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ycourlee.explore</groupId>
+      <artifactId>exploration-spring-boot-freemarker</artifactId>
     </dependency>
   </dependencies>
 
