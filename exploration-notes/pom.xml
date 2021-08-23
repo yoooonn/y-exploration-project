@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>y-exploration-project</artifactId>
+    <groupId>com.ycourlee.explore</groupId>
+    <version>${revision}</version>
+  </parent>
+
+  <groupId>com.ycourlee.explore.notes</groupId>
+  <artifactId>exploration-notes</artifactId>
+  <name>exploration notes</name>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>exploration-feign</module>
+    <module>exploration-google-findbugs-jsr305</module>
+    <module>exploration-groovy</module>
+    <module>exploration-java-spi</module>
+    <module>exploration-jmh-java-bench</module>
+    <module>exploration-mybatis-3.5.x</module>
+    <module>exploration-okhttp</module>
+    <module>exploration-spring-boot-freemarker</module>
+    <module>exploration-spring-boot-starting-process</module>
+    <module>exploration-spring-kafka</module>
+    <module>exploration-spring-redis</module>
+    <module>exploration-xxl-job</module>
+    <module>exploration-zookeeper-springboot-dubbo-consumer</module>
+    <module>exploration-zookeeper-springboot-dubbo-provider</module>
+  </modules>
+</project>
