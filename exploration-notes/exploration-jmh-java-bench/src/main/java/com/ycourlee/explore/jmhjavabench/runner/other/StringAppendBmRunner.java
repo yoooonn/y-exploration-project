@@ -1,4 +1,4 @@
-package com.ycourlee.explore.jmhjavabench.other;
+package com.ycourlee.explore.jmhjavabench.runner.other;
 
 import com.ycourlee.root.mocks.UnitTestResource;
 import org.openjdk.jmh.annotations.*;

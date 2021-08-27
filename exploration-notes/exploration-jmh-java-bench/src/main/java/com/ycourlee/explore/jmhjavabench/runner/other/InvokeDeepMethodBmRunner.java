@@ -1,4 +1,4 @@
-package com.ycourlee.explore.jmhjavabench.other;
+package com.ycourlee.explore.jmhjavabench.runner.other;
 
 import com.ycourlee.explore.jmhjavabench.GlobalVariablesAndMethods;
 import com.ycourlee.explore.jmhjavabench.model.RtmWrapper;

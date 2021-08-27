@@ -1,4 +1,4 @@
-package com.ycourlee.explore.jmhjavabench.other;
+package com.ycourlee.explore.jmhjavabench.runner.other;
 
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;
