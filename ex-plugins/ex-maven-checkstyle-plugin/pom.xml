@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>com.ycourlee.explore.plugins</groupId>
+    <artifactId>ex-plugins</artifactId>
+    <version>${revision}</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>ex-maven-checkstyle-plugin</artifactId>
+  <name>ex checkstyle maven plugin</name>
+
+  <properties>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+    <disable.checks>false</disable.checks>
+
+    <spring-cloud-build.version>3.0.3-RELEASE</spring-cloud-build.version>
+    <!-- for backwards compatibility, use maven-checkstyle-plugin.version -->
+    <checkstyle.version>${maven-checkstyle-plugin.version}</checkstyle.version>
+    <puppycrawl-tools-checkstyle.version>8.29</puppycrawl-tools-checkstyle.version>
+    <spring-javaformat.version>0.0.25</spring-javaformat.version>
+    <spring-javaformat-checkstyle.version>0.0.25</spring-javaformat-checkstyle.version>
+    <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>findbugs</artifactId>
+    </dependency>
+  </dependencies>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>3.0.5</version>
+        <configuration>
+          <!-- Optional directory to put findbugs xml report -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${maven-checkstyle-plugin.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>8.45</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>verify-style</id>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <logViolationsToConsole>true</logViolationsToConsole>
+          <checkstyleRules>
+            <module name="Checker">
+
+              <!-- Checks for Size Violations.                    -->
+              <!-- See http://checkstyle.sf.net/config_sizes.html -->
+              <module name="FileLength">
+                <property name="max" value="3500"/>
+                <property name="fileExtensions" value="java"/>
+              </module>
+
+              <!-- Checks for whitespace                               -->
+              <!-- See http://checkstyle.sf.net/config_whitespace.html -->
+              <module name="FileTabCharacter"/>
+
+              <module name="TreeWalker">
+                <module name="StaticVariableName"/>
+                <module name="TypeName">
+                  <property name="format" value="^_?[A-Z][a-zA-Z0-9]*$"/>
+                </module>
+              </module>
+            </module>
+          </checkstyleRules>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,6 @@
+:toc: left
+:sectnums:
+:sectnumlevels: 2
+:toclevels: 3
+:source-highlighter: pygments
+:pygments-linenums-mode: inline

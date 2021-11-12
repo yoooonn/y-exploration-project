@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+  <!-- 应用名称 -->
+  <property name="APP_NAME" value="normal-usage-explore"/>
+  <!-- 日志输出格式 -->
+  <property name="ENCODER_PATTERN" value="%msg%n"/>
+  <contextName>${APP_NAME}</contextName>
+
+  <!-- 控制台日志：输出全部日志到控制台 -->
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <Pattern>${ENCODER_PATTERN}</Pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <logger name="ch.qos.logback" level="off" />
+  <root>
+    <level value="DEBUG"/>
+    <appender-ref ref="STDOUT"/>
+    <!--    <appender-ref ref="FILE"/>-->
+    <!--    <appender-ref ref="ERROR_FILE"/>-->
+  </root>
+</configuration>

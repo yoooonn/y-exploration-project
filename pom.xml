@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <version>2.3.6.RELEASE</version>
+  </parent>
 
   <groupId>com.ycourlee.explore</groupId>
   <artifactId>y-exploration-project</artifactId>
@@ -9,11 +16,12 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>basic-dao</module>
-    <module>exploration-java8</module>
-    <module>exploration-notes</module>
-    <module>exploration-plugins</module>
-    <module>exploration-starters</module>
+    <module>ex-java8</module>
+    <module>ex-java-lib</module>
+    <module>ex-notes</module>
+    <module>ex-plugins</module>
+    <module>ex-solution-bin</module>
+    <module>ex-starters</module>
   </modules>
   <developers>
     <developer>
@@ -23,25 +31,35 @@
   </developers>
 
   <properties>
+    <doc.name>doc</doc.name>
     <java.version>1.8</java.version>
+    <main.basedir>${project.basedir}</main.basedir>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <revision>${exploration-project.version}</revision>
     <exploration-project.version>1.0.0-SNAPSHOT</exploration-project.version>
+    <base.version>1.0.0-SNAPSHOT</base.version>
     <skipTests>true</skipTests>
 
+    <asciidoctor.maven.plugin.version>2.2.1</asciidoctor.maven.plugin.version>
+    <asciidoctorj.pdf.version>1.6.0</asciidoctorj.pdf.version>
+    <asciidoctorj.version>2.5.2</asciidoctorj.version>
     <commons-jexl3.version>3.2.1</commons-jexl3.version>
+    <druid-starter.version>1.2.6</druid-starter.version>
     <fastjson.version>1.2.72</fastjson.version>
     <findbugs.version>3.0.1</findbugs.version>
     <flatten-maven-plugin.version>1.2.4</flatten-maven-plugin.version>
     <groovy.version>3.0.7</groovy.version>
     <guava.version>28.2-jre</guava.version>
+    <jjwt-splited.version>0.11.2</jjwt-splited.version>
     <jmh-core.version>1.27</jmh-core.version>
     <jmh-generator.version>1.27</jmh-generator.version>
+    <jruby.version>9.2.17.0</jruby.version>
     <junit.version>4.13</junit.version>
     <lombok.version>1.18.12</lombok.version>
+    <mapstruct.version>1.4.2.Final</mapstruct.version>
 
     <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
@@ -54,7 +72,7 @@
     <micro.version>1.2.0-SNAPSHOT</micro.version>
     <okhttp-bom.version>4.9.1</okhttp-bom.version>
     <reflectasm.version>1.11.9</reflectasm.version>
-    <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
+    <spring-boot.version>2.3.6.RELEASE</spring-boot.version>
     <spring-cloud.version>Hoxton.SR11</spring-cloud.version>
     <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
     <yonn.snapshot.version>1.0.9-SNAPSHOT</yonn.snapshot.version>
@@ -88,21 +106,11 @@
         <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>${spring-boot.version}</version>
+        <groupId>com.ycourlee.explore.base</groupId>
+        <artifactId>base</artifactId>
+        <version>${base.version}</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.esotericsoftware</groupId>
-        <artifactId>reflectasm</artifactId>
-        <version>${reflectasm.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.codehaus.groovy</groupId>
-        <artifactId>groovy</artifactId>
-        <version>${groovy.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
@@ -110,14 +118,81 @@
         <version>${commons-jexl3.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>${guava.version}</version>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>${druid-starter.version}</version>
       </dependency>
       <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>fastjson</artifactId>
         <version>${fastjson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.code.findbugs</groupId>
+        <artifactId>findbugs</artifactId>
+        <version>${findbugs.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy</artifactId>
+        <version>${groovy.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-api</artifactId>
+        <version>${jjwt-splited.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-impl</artifactId>
+        <version>${jjwt-splited.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-jackson</artifactId>
+        <version>${jjwt-splited.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openjdk.jmh</groupId>
+        <artifactId>jmh-core</artifactId>
+        <version>${jmh-core.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openjdk.jmh</groupId>
+        <artifactId>jmh-generator-annprocess</artifactId>
+        <version>${jmh-generator.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>${mapstruct.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct-processor</artifactId>
+        <version>${mapstruct.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis-spring-boot-starter.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.esotericsoftware</groupId>
+        <artifactId>reflectasm</artifactId>
+        <version>${reflectasm.version}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.root</groupId>
@@ -140,60 +215,28 @@
         <version>${yonn.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.ycourlee.explore</groupId>
-        <artifactId>basic-dao</artifactId>
-        <version>${exploration-project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.mybatis.spring.boot</groupId>
-        <artifactId>mybatis-spring-boot-starter</artifactId>
-        <version>${mybatis-spring-boot-starter.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openjdk.jmh</groupId>
-        <artifactId>jmh-core</artifactId>
-        <version>${jmh-core.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openjdk.jmh</groupId>
-        <artifactId>jmh-generator-annprocess</artifactId>
-        <version>${jmh-generator.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.google.code.findbugs</groupId>
-        <artifactId>findbugs</artifactId>
-        <version>${findbugs.version}</version>
-      </dependency>
-      <dependency>
         <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>exploration-google-findbugs-jsr305</artifactId>
+        <artifactId>ex-google-findbugs-jsr305</artifactId>
         <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>exploration-spring-boot-freemarker</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>exploration-spring-boot-starting-process</artifactId>
+        <artifactId>ex-spring-boot-freemarker</artifactId>
         <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>exploration-xxl-job</artifactId>
+        <artifactId>ex-spring-boot-starting-process</artifactId>
         <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>exploration-spring-redis</artifactId>
+        <artifactId>ex-xxl-job</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.explore.notes</groupId>
+        <artifactId>ex-spring-redis</artifactId>
         <version>${revision}</version>
       </dependency>
     </dependencies>
@@ -201,19 +244,77 @@
 
   <profiles>
     <profile>
-      <id>revision</id>
-      <activation>
-        <property>
-          <name>revise</name>
-          <value>true</value>
-        </property>
-      </activation>
+      <id>document</id>
       <build>
         <plugins>
           <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>versions-maven-plugin</artifactId>
-            <version>${versions-maven-plugin.version}</version>
+            <groupId>org.asciidoctor</groupId>
+            <artifactId>asciidoctor-maven-plugin</artifactId>
+            <version>${asciidoctor.maven.plugin.version}</version>
+            <dependencies>
+              <dependency>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctorj-pdf</artifactId>
+                <version>${asciidoctorj.pdf.version}</version>
+              </dependency>
+              <!-- Comment this section to use the default jruby artifact provided by the plugin -->
+              <dependency>
+                <groupId>org.jruby</groupId>
+                <artifactId>jruby-complete</artifactId>
+                <version>${jruby.version}</version>
+              </dependency>
+              <!-- Comment this section to use the default AsciidoctorJ artifact provided by the plugin -->
+              <dependency>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctorj</artifactId>
+                <version>${asciidoctorj.version}</version>
+              </dependency>
+            </dependencies>
+            <configuration>
+              <sourceDocumentName>${doc.name}.adoc</sourceDocumentName>
+              <attributes>
+                <mapstructVersion>${project.version}</mapstructVersion>
+                <icons>font</icons>
+              </attributes>
+            </configuration>
+            <executions>
+              <execution>
+                <id>output-html</id>
+                <phase>generate-resources</phase>
+                <goals>
+                  <goal>process-asciidoc</goal>
+                </goals>
+                <configuration>
+                  <backend>html</backend>
+                  <attributes>
+                    <source-highlighter>coderay</source-highlighter>
+                  </attributes>
+                </configuration>
+              </execution>
+              <execution>
+                <id>generate-pdf-doc-custom-theme</id>
+                <phase>generate-resources</phase>
+                <goals>
+                  <goal>process-asciidoc</goal>
+                </goals>
+                <configuration>
+                  <backend>pdf</backend>
+                  <!-- Use `book` docType to enable title page generation -->
+                  <doctype>book</doctype>
+                  <attributes>
+                    <source-highlighter>coderay</source-highlighter>
+                    <pdf-stylesdir>${main.basedir}/src/theme</pdf-stylesdir>
+                    <pdf-fontsdir>${main.basedir}/src/theme/fonts</pdf-fontsdir>
+                    <pdf-style>custom</pdf-style>
+                    <icons>font</icons>
+                    <pagenums/>
+                    <toc/>
+                    <idprefix/>
+                    <idseparator>-</idseparator>
+                  </attributes>
+                </configuration>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>
@@ -244,28 +345,15 @@
         </plugins>
       </build>
     </profile>
+    <profile>
+      <id>base-include</id>
+      <modules>
+        <module>base</module>
+      </modules>
+    </profile>
   </profiles>
 
   <build>
-    <resources>
-      <resource>
-        <filtering>true</filtering>
-        <directory>${basedir}/src/main/resources</directory>
-        <includes>
-          <include>**/application*.yml</include>
-          <include>**/application*.yaml</include>
-          <include>**/application*.properties</include>
-        </includes>
-      </resource>
-      <resource>
-        <directory>${basedir}/src/main/resources</directory>
-        <excludes>
-          <exclude>**/application*.yml</exclude>
-          <exclude>**/application*.yaml</exclude>
-          <exclude>**/application*.properties</exclude>
-        </excludes>
-      </resource>
-    </resources>
     <plugins>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -303,17 +391,6 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven-compiler-plugin.version}</version>
-        <configuration>
-          <source>${maven.compiler.source}</source>
-          <target>${maven.compiler.target}</target>
-          <encoding>${project.build.sourceEncoding}</encoding>
-          <compilerArgument>-parameters</compilerArgument>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
         <configuration>
@@ -331,9 +408,9 @@
     <pluginManagement>
       <plugins>
         <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>${maven-shade-plugin.version}</version>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>${maven-shade-plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>

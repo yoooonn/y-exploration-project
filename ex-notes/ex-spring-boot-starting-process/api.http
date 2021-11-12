@@ -1,0 +1,27 @@
+POST {{host}}/transaction-verify/1000000
+Content-Type: application/json
+
+{}
+
+###
+POST {{host}}/generic/ping/a
+Content-Type: application/json
+body: {{bodyBase64Encode}}
+
+{}
+
+
+###
+POST {{host}}/generic/base64/encode/{{bodyPlaintext}}
+Content-Type: application/json
+Accept: application/json
+
+> {%
+ client.global.set("bodyBase64Encode", response.body.data)
+ %}
+
+###
+GET {{host}}/actuator/health
+Accept: application/json
+
+###

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.ycourlee.explore</groupId>
+    <artifactId>y-exploration-project</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <groupId>com.ycourlee.explore.notes</groupId>
+  <artifactId>ex-notes</artifactId>
+  <name>ex notes</name>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>ex-feign</module>
+    <module>ex-google-findbugs-jsr305</module>
+    <module>ex-groovy</module>
+    <module>ex-java-spi</module>
+    <module>ex-jmh-java-bench</module>
+    <module>ex-mapstruct</module>
+    <module>ex-mybatis-3.5.x</module>
+    <module>ex-okhttp</module>
+    <module>ex-spring-boot-freemarker</module>
+    <module>ex-spring-boot-starting-process</module>
+    <module>ex-spring-kafka</module>
+    <module>ex-spring-redis</module>
+    <module>ex-xxl-job</module>
+    <module>ex-zookeeper-springboot-dubbo-consumer</module>
+    <module>ex-zookeeper-springboot-dubbo-provider</module>
+    <module>ex-maven-dependence</module>
+  </modules>
+
+  <properties>
+    <main.basedir>${project.basedir}/..</main.basedir>
+  </properties>
+</project>

@@ -1,1 +1,1 @@
-# y-demo-project
+# y-exploration-project

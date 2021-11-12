@@ -30,7 +30,6 @@ build/
 !**/.mvn/wrapper/maven-wrapper.jar
 
 # Created by ycourlee
-**/target/
-**/*.iml
-**/.DS_Store
+target/
+.DS_Store
 applogs
