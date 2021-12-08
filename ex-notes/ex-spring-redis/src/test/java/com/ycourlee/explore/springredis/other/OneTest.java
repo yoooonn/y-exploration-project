@@ -2,16 +2,28 @@ package com.ycourlee.explore.springredis.other;
 
 import com.ycourlee.explore.springredis.SpringTestEnv;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
+
+import java.util.Arrays;
 
 /**
  * @author yongjiang
  */
 public class OneTest extends SpringTestEnv {
 
+    private static final Logger log = LoggerFactory.getLogger(OneTest.class);
+
     @Autowired
     private StringRedisTemplate redisTemplate;
+
+    @Test
+    public void countExistingKeysTest() {
+        Long keys = redisTemplate.countExistingKeys(Arrays.asList("hello", "world"));
+        log.info("keys: {}", keys);
+    }
 
     @Test
     public void getTest() {
@@ -37,8 +49,6 @@ public class OneTest extends SpringTestEnv {
     public void hsetTest() {
         redisTemplate.opsForHash().delete("hello:world", "345");
     }
-
-
 
 
     @Test

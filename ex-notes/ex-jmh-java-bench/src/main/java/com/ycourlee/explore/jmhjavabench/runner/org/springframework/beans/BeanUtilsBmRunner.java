@@ -1,7 +1,7 @@
 package com.ycourlee.explore.jmhjavabench.runner.org.springframework.beans;
 
+import com.ycourlee.explore.jmhjavabench.GlobalVariablesAndMethods;
 import com.ycourlee.explore.jmhjavabench.model.MultiFieldEntity;
-import com.ycourlee.root.mocks.UnitTestResource;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -16,14 +16,16 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author yongjiang
  */
-@Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-public class BeanUtilsBmRunner extends UnitTestResource {
+@Warmup(iterations = 50, time = 1, timeUnit = TimeUnit.MILLISECONDS)
+@Measurement(iterations = 500, time = 1, timeUnit = TimeUnit.MILLISECONDS)
+public class BeanUtilsBmRunner extends GlobalVariablesAndMethods {
 
     static final List<MultiFieldEntity> data = new ArrayList<>();
 
+    static final int CASE = 100;
+
     static {
-        for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++) {
+        for (int i = 0; i < CASE; i++) {
             MultiFieldEntity entity = new MultiFieldEntity();
             entity.setField1(1024);
             entity.setField2("1024");
@@ -40,9 +42,9 @@ public class BeanUtilsBmRunner extends UnitTestResource {
     }
 
     @Benchmark
-    @BenchmarkMode(Mode.AverageTime)
-    @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void settterBenchmark() {
+    @BenchmarkMode(Mode.Throughput)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    public void setterBenchmark() {
         for (int i = 0; i < data.size(); i++) {
             MultiFieldEntity temp = new MultiFieldEntity();
             temp.setField1(data.get(i).getField1());
@@ -59,8 +61,8 @@ public class BeanUtilsBmRunner extends UnitTestResource {
     }
 
     @Benchmark
-    @BenchmarkMode(Mode.AverageTime)
-    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    @BenchmarkMode(Mode.Throughput)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
     public void copyPropertiesBenchmark() {
         for (int i = 0; i < data.size(); i++) {
             MultiFieldEntity temp = new MultiFieldEntity();
@@ -69,14 +71,6 @@ public class BeanUtilsBmRunner extends UnitTestResource {
     }
 
     /**
-     * 10,000的测试量
-     * <pre>
-     * Benchmark                     Mode  Cnt     Score     Error  Units
-     * BeanUtilsBmRunner.aBenchmark  avgt    5   219.461 ±   8.784  us/op
-     * BeanUtilsBmRunner.bBenchmark  avgt    5  3157.425 ± 142.380  us/op
-     * </pre>
-     * 可以看出
-     *
      * @param args
      * @throws RunnerException
      */
@@ -84,6 +78,9 @@ public class BeanUtilsBmRunner extends UnitTestResource {
         Options opt = new OptionsBuilder()
                 .include(BeanUtilsBmRunner.class.getSimpleName())
                 .forks(1)
+                .threads(10)
+                .syncIterations(false)
+                .output(outputFile(BeanUtilsBmRunner.class.getSimpleName(), CASE, 10))
                 .build();
         new Runner(opt).run();
     }

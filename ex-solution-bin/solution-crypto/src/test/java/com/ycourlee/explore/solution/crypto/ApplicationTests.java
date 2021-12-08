@@ -1,4 +1,4 @@
-package com.ycourlee.explore.solution;
+package com.ycourlee.explore.solution.crypto;
 
 /**
  * @author jiangyong

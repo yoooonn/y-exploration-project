@@ -1,4 +1,4 @@
-package com.ycourlee.explore.solution.annotation;
+package com.ycourlee.explore.solution.excel.annotation;
 
 import javax.validation.Constraint;
 import javax.validation.ConstraintValidator;
@@ -7,13 +7,19 @@ import javax.validation.Payload;
 import java.lang.annotation.*;
 
 /**
+ * 验证目标元素的空格特征，当Level为
+ * <ul>
+ *     <li>NORMAL：只检查前导空格和后导空格，如果存在空格，不通过</li>
+ *     <li>ALL：检查目标元素的每一个字符，如果存在空格，不通过</li>
+ * </ul>
+ *
  * @author yongjiang
  * @date 2021.09.10
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.METHOD})
-@Constraint(validatedBy = NoSpace.TrimValidator.class)
+@Constraint(validatedBy = NoSpace.NoSpaceValidator.class)
 public @interface NoSpace {
 
     Level level() default Level.NORMAL;
@@ -35,7 +41,7 @@ public @interface NoSpace {
         ALL
     }
 
-    class TrimValidator implements ConstraintValidator<NoSpace, CharSequence> {
+    class NoSpaceValidator implements ConstraintValidator<NoSpace, CharSequence> {
 
         private Level level;
 

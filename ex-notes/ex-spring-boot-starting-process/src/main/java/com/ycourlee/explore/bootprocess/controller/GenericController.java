@@ -1,52 +1,44 @@
 package com.ycourlee.explore.bootprocess.controller;
 
-import com.ycourlee.explore.bootprocess.service.GenericService;
+import com.ycourlee.explore.bootprocess.chain.followchain.ChainDelegator;
+import com.ycourlee.explore.bootprocess.chain.followchain.RuleData;
+import com.ycourlee.explore.bootprocess.model.Wrapper;
+import com.ycourlee.explore.bootprocess.model.request.FollowRequest;
+import com.ycourlee.explore.bootprocess.model.request.HeadlessRequest;
 import com.ycourlee.root.core.domain.context.Rtm;
-import lombok.SneakyThrows;
-import org.apache.commons.codec.binary.Base64;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.NonNull;
-import org.springframework.util.StreamUtils;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.nio.charset.StandardCharsets;
 
 /**
  * @author yongjiang
- * @date 2021.10.21
+ * @date 2021.11.22
  */
 @RestController
 @RequestMapping("/generic")
 public class GenericController {
 
-    private static final Logger log = LoggerFactory.getLogger(GenericController.class);
-
     @Autowired
-    private GenericService genericService;
+    private ChainDelegator chainDelegator;
 
-    @SneakyThrows
-    @PostMapping("/ping/{message}")
-    public Rtm ping(@PathVariable(required = false) String message, HttpServletRequest request, HttpServletResponse response) {
-        log.info("StreamUtils.copyToByteArray(request.getInputStream()): {}", new String(StreamUtils.copyToByteArray(request.getInputStream())));
-        return genericService.ping(message);
+    @PostMapping("/wrapped-request-body")
+    public Rtm wrappedRequestBody(@RequestBody Wrapper<HeadlessRequest> request) {
+        return Rtm.success();
     }
 
-    @PostMapping("/base64/encode/{plaintext}")
-    public Rtm base64Encode(@NonNull @PathVariable String plaintext,
-                            HttpServletRequest request, HttpServletResponse response) {
-        return Rtm.success(Base64.encodeBase64URLSafe(plaintext.getBytes(StandardCharsets.UTF_8)));
-    }
-
-    @PostMapping("/base64/decode/{ciphertext}")
-    public Rtm base64Decode(@NonNull @PathVariable String ciphertext,
-                            HttpServletRequest request, HttpServletResponse response) {
-        return Rtm.success(Base64.decodeBase64(ciphertext.getBytes(StandardCharsets.UTF_8)));
+    @PostMapping("/follow")
+    public Rtm follow(@RequestBody FollowRequest request, HttpServletRequest servletRequest, HttpServletResponse servletResponse) {
+        Rtm response = Rtm.success();
+        chainDelegator.doExecute(response, new RuleData()
+                .setRequest(request)
+                .setServletRequest(servletRequest)
+                .setServletResponse(servletResponse)
+        );
+        return response;
     }
 }

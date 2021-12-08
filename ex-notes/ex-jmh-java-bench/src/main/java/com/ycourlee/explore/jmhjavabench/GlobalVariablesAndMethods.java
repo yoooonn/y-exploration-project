@@ -2,13 +2,9 @@ package com.ycourlee.explore.jmhjavabench;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONReader;
-import com.ycourlee.explore.jmhjavabench.runner.java.util.stream.StreamForeachBmRunner;
 import com.ycourlee.root.mocks.UnitTestResource;
 import lombok.extern.slf4j.Slf4j;
-import org.openjdk.jmh.runner.Runner;
-import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
-import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -53,5 +49,30 @@ public abstract class GlobalVariablesAndMethods extends UnitTestResource {
             }
         }
         return new JSONObject(0);
+    }
+
+    protected static String outputFile(String classname, long cases) {
+        return outputFile(classname, cases, 1);
+    }
+
+    protected static String outputFile(String classname, long cases, int threads) {
+        return outputFile(classname, cases, threads, 0);
+    }
+
+    protected static String outputFile(String classname, long cases, int threads, int scenes) {
+        File file = new File(TEMP_DIR);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        String caseSuffix = "_" + cases + "_cases";
+        String threadSuffix = "";
+        String sceneSuffix = "";
+        if (threads > 0) {
+            threadSuffix = "_" + threads + "_threads";
+        }
+        if (scenes > 0) {
+            sceneSuffix = "_" + scenes;
+        }
+        return TEMP_DIR + File.separator + classname + sceneSuffix + threadSuffix + caseSuffix + ".txt";
     }
 }

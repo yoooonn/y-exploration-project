@@ -33,3 +33,4 @@ build/
 target/
 .DS_Store
 applogs
+doc/temp

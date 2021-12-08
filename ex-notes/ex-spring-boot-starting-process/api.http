@@ -1,18 +1,33 @@
+POST {{host}}/generic/follow
+Content-Type: application/json
+
+{
+    "follows": {
+        "headless": "hello world"
+    }
+}
+
+###
+POST {{host}}/generic/wrapped-request-body
+Content-Type: application/json
+
+{
+    "wrapped": {
+        "headless": "hello world"
+    }
+}
+
+###
 POST {{host}}/transaction-verify/1000000
 Content-Type: application/json
 
-{}
-
 ###
-POST {{host}}/generic/ping/a
+POST {{host}}/common/ping/a
 Content-Type: application/json
 body: {{bodyBase64Encode}}
 
-{}
-
-
 ###
-POST {{host}}/generic/base64/encode/{{bodyPlaintext}}
+POST {{host}}/common/base64/encode/{{bodyPlaintext}}
 Content-Type: application/json
 Accept: application/json
 

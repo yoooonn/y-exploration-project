@@ -4,8 +4,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.3.6.RELEASE</version>
   </parent>
 
@@ -215,28 +215,33 @@
         <version>${yonn.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-google-findbugs-jsr305</artifactId>
+        <groupId>com.ycourlee.explore</groupId>
+        <artifactId>ex-java8</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.explore</groupId>
+        <artifactId>ex-java-lib</artifactId>
         <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-spring-boot-freemarker</artifactId>
+        <artifactId>ex-notes</artifactId>
         <version>${revision}</version>
       </dependency>
       <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-spring-boot-starting-process</artifactId>
+        <groupId>com.ycourlee.explore.plugins</groupId>
+        <artifactId>ex-plugins</artifactId>
         <version>${revision}</version>
       </dependency>
       <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-xxl-job</artifactId>
+        <groupId>com.ycourlee.explore.solution</groupId>
+        <artifactId>ex-solution-bin</artifactId>
         <version>${revision}</version>
       </dependency>
       <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-spring-redis</artifactId>
+        <groupId>com.ycourlee.explore.starters</groupId>
+        <artifactId>ex-starters</artifactId>
         <version>${revision}</version>
       </dependency>
     </dependencies>
@@ -273,7 +278,7 @@
             <configuration>
               <sourceDocumentName>${doc.name}.adoc</sourceDocumentName>
               <attributes>
-                <mapstructVersion>${project.version}</mapstructVersion>
+                <!--                <mapstructVersion>${project.version}</mapstructVersion>-->
                 <icons>font</icons>
               </attributes>
             </configuration>
@@ -371,9 +376,10 @@
               <goal>flatten</goal>
             </goals>
             <configuration>
-              <outputDirectory>${project.build.directory}/effective-pom</outputDirectory>
+              <outputDirectory>${project.build.directory}/flatten-pom</outputDirectory>
               <flattenedPomFilename>${project.artifactId}.xml</flattenedPomFilename>
               <pomElements>
+                <dependencyManagement>expand</dependencyManagement>
                 <repositories>remove</repositories>
                 <pluginRepositories>remove</pluginRepositories>
                 <distributionManagement>remove</distributionManagement>

@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
 public class StreamToMapBmRunner extends GlobalVariablesAndMethods {
 
-    static final int CASE_AMOUNT = 1;
+    static final int CASE_AMOUNT = 10000;
 
     static final List<User> data = new ArrayList<>();
 
@@ -55,7 +55,8 @@ public class StreamToMapBmRunner extends GlobalVariablesAndMethods {
         Options opt = new OptionsBuilder()
                 .include(StreamToMapBmRunner.class.getSimpleName())
                 .forks(1)
-                .output(TEMP_DIR + "/benchmarks/" + StreamToMapBmRunner.class.getSimpleName() + "_" + CASE_AMOUNT + ".txt")
+                .threads(50)
+                .output(outputFile(StreamToMapBmRunner.class.getSimpleName(), CASE_AMOUNT))
                 .build();
         new Runner(opt).run();
     }
