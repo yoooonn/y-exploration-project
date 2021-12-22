@@ -1,0 +1,62 @@
+:toc: left
+:sectnums:
+:sectnumlevels: 2
+:toclevels: 3
+:source-highlighter: pygments
+:pygments-linenums-mode: inline
+
+
+== install
+
+brew install gh
+
+https://formulae.brew.sh/formula/gh[gh formulae page]
+
+gh依赖go环境
+
+== manual
+
+=== gh auth login
+
+该命令以交互式的方式进行登陆，在初次使用时，将会引导进行protocol的选择等。
+
+=== gh repo list
+
+显示当前登录用户的所有仓库
+
+==== -L int
+
+列表展示的最大数量，默认30
+
+detail: --limit int
+
+==== --public
+
+仅显示public仓库
+
+==== --private
+
+仅显示private仓库
+
+==== --source
+
+仅显示non-fork仓库
+
+==== --fork
+
+仅显示fork仓库
+
+==== -l string
+
+过滤语言
+
+detail: --language string
+
+==== --archived
+
+仅显示archived状态（归档，归档的repo不再维护，不再提交）的仓库
+
+==== --no-archived
+
+仅显示no-archived状态的仓库
+

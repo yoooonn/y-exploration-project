@@ -1,0 +1,16 @@
+#!/usr/bin/expect
+
+set timeout -1
+set project PROJECT_NAME
+set container_ip CONTAINER_IP
+set host_ip HOST_IP
+
+spawn ssh jps
+
+expect {
+    "Opt> " { send "$host_ip\r"}
+}
+expect {
+    "~]$ " { send "cd /data/logs/$project\_$container_ip\r" }
+}
+interact

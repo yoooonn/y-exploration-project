@@ -1,0 +1,9 @@
+@startuml
+' detach keyword
+start
+:Some activity;
+(A)
+detach
+(A)
+:Other activity;
+@enduml

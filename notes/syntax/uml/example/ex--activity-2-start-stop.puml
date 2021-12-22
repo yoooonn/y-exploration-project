@@ -1,0 +1,15 @@
+@startuml
+start
+:Hello world;
+:This is defined on
+several **lines**;
+stop
+
+'stop和end的样式不同
+
+start
+:Hello world;
+:This is defined on
+several **lines**;
+end
+@enduml

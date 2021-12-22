@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.ycourlee.explore.notes</groupId>
@@ -11,7 +12,8 @@
   <name>ex spring boot starting process</name>
 
   <properties>
-<!--    <spring-boot.version>2.4.6</spring-boot.version>-->
+    <main.basedir>${project.basedir}/../..</main.basedir>
+    <doc.name>spring-boot</doc.name>
   </properties>
 
   <dependencies>
@@ -20,8 +22,8 @@
       <artifactId>mapstruct</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.mapstruct</groupId>
-      <artifactId>mapstruct-processor</artifactId>
+      <groupId>com.ycourlee.explore.solution</groupId>
+      <artifactId>solution-crypto</artifactId>
     </dependency>
     <dependency>
       <groupId>com.ycourlee.explore.solution</groupId>
@@ -77,15 +79,15 @@
 
   <build>
     <resources>
-    <resource>
-      <directory>src/main/resources</directory>
-      <includes>
-        <include>**/application*.yml</include>
-        <include>**/application*.yaml</include>
-        <include>**/application*.properties</include>
-        <include>mybatis-configuration.xml</include>
-      </includes>
-    </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/application*.yml</include>
+          <include>**/application*.yaml</include>
+          <include>**/application*.properties</include>
+          <include>mybatis-configuration.xml</include>
+        </includes>
+      </resource>
     </resources>
     <plugins>
       <plugin>
@@ -96,6 +98,35 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <compilerArguments>
+            <!--              <code>-Djps.track.ap.dependencies=enable</code>-->
+          </compilerArguments>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>${mapstruct.version}</version>
+            </path>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${lombok.version}</version>
+            </path>
+            <!--              <path>-->
+            <!--                <groupId>org.projectlombok</groupId>-->
+            <!--                <artifactId>lombok-mapstruct-binding</artifactId>-->
+            <!--                <version>0.1.0</version>-->
+            <!--              </path>-->
+          </annotationProcessorPaths>
+        </configuration>
       </plugin>
     </plugins>
   </build>

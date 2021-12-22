@@ -1,0 +1,11 @@
+@startuml
+
+' 控制符号的格式
+
+skinparam guillemet false
+participant "Famous Bob" as Bob << Generated >>
+participant Alice << (C,#ADD1B2)>>
+
+Bob->Alice: First message
+
+@enduml

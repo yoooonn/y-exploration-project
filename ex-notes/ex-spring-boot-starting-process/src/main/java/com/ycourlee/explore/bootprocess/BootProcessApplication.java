@@ -27,7 +27,7 @@ public class BootProcessApplication {
 
         // Spring 容器管理的所有bean的name
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
-        Arrays.stream(beanDefinitionNames).forEach(beanName -> log.debug("{}" + beanName));
+        Arrays.stream(beanDefinitionNames).sorted().forEach(beanName -> log.debug("{}", beanName));
 
         ConfigurableEnvironment environment = applicationContext.getEnvironment();
 

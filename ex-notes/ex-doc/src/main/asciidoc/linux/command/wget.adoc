@@ -1,0 +1,26 @@
+
+
+确认安装，否则yum install -y wget
+
+wget --help 查看用法[:link:](../../document/ordinary/output-wget-help.md)
+
+常用
+
+- wget URL
+
+  普通下载
+
+- wget -b URL
+
+  --background, 后台下载
+
+- wget -O FILE URL
+
+  --output-document=FILE, 输出文档至FILE
+
+  -o 则是 --output-file=FILE, 是将日志信息输出到FILE
+
+- wget -c URL
+
+  --continue, 断点续传的方式下载文件
+

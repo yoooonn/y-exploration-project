@@ -8,7 +8,7 @@
   </parent>
 
   <artifactId>solution-crypto</artifactId>
-  <name>solution crypto</name>
+  <name>ex solution crypto</name>
 
   <dependencies>
     <dependency>
@@ -16,12 +16,30 @@
       <artifactId>bcprov-jdk15on</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-configuration-processor</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-autoconfigure</artifactId>
+      <artifactId>spring-boot-autoconfigure-processor</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-aop</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.ycourlee.root</groupId>
+      <artifactId>yonn-core</artifactId>
     </dependency>
   </dependencies>
 </project>

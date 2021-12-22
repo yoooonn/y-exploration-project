@@ -1,0 +1,16 @@
+== book
+
+:doctype: book
+:toclevels: 3
+:toc: left
+:assets-dir: ./assets
+
+[[book]]
+
+reference.
+
+:numbered:
+
+
+include::linux/linux.adoc[]
+

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.ycourlee.explore</groupId>
@@ -14,6 +13,7 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>ex-doc</module>
     <module>ex-feign</module>
     <module>ex-google-findbugs-jsr305</module>
     <module>ex-groovy</module>
@@ -39,6 +39,16 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>${mapstruct.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.explore.solution</groupId>
+        <artifactId>solution-crypto</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
         <groupId>com.ycourlee.explore.solution</groupId>
         <artifactId>solution-excel</artifactId>
         <version>${revision}</version>
@@ -46,82 +56,13 @@
 
       <dependency>
         <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-feign</artifactId>
+        <artifactId>ex-doc</artifactId>
         <version>${revision}</version>
       </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-google-findbugs-jsr305</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-groovy</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-java-spi</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-jmh-java-bench</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-mapstruct</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-maven-dependence</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-mybatis-3.5.x</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-okhttp</artifactId>
-        <version>${revision}</version>
-      </dependency>
+
       <dependency>
         <groupId>com.ycourlee.explore.notes</groupId>
         <artifactId>ex-spring-boot-freemarker</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-spring-boot-starting-process</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-spring-kafka</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-spring-redis</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-xxl-job</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-zookeeper-springboot-dubbo-consumer</artifactId>
-        <version>${revision}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-zookeeper-springboot-dubbo-provider</artifactId>
         <version>${revision}</version>
       </dependency>
     </dependencies>

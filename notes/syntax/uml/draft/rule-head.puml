@@ -1,0 +1,8 @@
+@startmindmap
+
+'较长的节点可以通过:和;来达到换行的效果, 没有换行就不能使用.
+'比如**:other template <typename T>
+'  class cname{
+'  ...
+'  };
+@endmindmap

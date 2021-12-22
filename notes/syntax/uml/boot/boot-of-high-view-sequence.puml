@@ -1,0 +1,41 @@
+@startuml
+hide footbox
+
+header Page Header
+footer Page %page% of %lastpage%
+
+title example
+
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+skinparam CircledCharacterFontColor blue
+
+skinparam sequence {
+    ArrowColor DeepSkyBlue
+    ArrowFontName Segoe Print
+
+    LifeLineBorderColor blue
+    LifeLineBackgroundColor #A9DCDF
+
+    ParticipantBorderColor DeepSkyBlue
+    ParticipantBackgroundColor DodgerBlue
+    ParticipantFontSize 14
+    ParticipantFontColor #EEEBDC
+    ParticipantFontStyle bold
+
+    ActorBorderColor DeepSkyBlue
+    ActorBackgroundColor aqua
+    ActorFontColor DeepSkyBlue
+    ActorFontSize 17
+    ActorFontStyle bold
+    ActorFontName Aapex
+}
+
+actor User as U
+participant A
+participant B
+participant C
+
+
+@enduml

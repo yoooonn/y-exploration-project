@@ -1,0 +1,9 @@
+@startuml
+
+
+participant B << (C,#ADD1B2) >>
+participant A << (C,#ADD1B2) >>
+
+B->A: First message
+
+@enduml

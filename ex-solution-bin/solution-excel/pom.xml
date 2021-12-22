@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>solution-excel</artifactId>
-  <name>solution excel</name>
+  <name>ex solution excel</name>
 
   <dependencies>
 <!--    <dependency>-->

@@ -1,0 +1,25 @@
+@startmindmap
+
+skinparam backgroundColor #EEEBDC
+
+*[#lightblue] grep\n(GNU grep) 3.1
+** Output control
+*** -b, -byte-offset          打印匹配行之前, 打印改行首字符在文件中的字节偏移量, 偏移量为 0, 说明是文件首字符.
+*** -c, --count               打印匹配的总行数.
+*** -m, --max-count=NUM       匹配NUM行后, 停止匹配.
+*** -n, --line-number         打印匹配行之前, 打印匹配行在文件中的行号, 从 1 开始.
+*** -o, --only-matching       只显示行内匹配的部分.
+*** -r, --recursive           当对目录使用grep时, 要指定递归行为. 此参数的效果和指定"-d recurse"参数相同.
+*** -R, --exclude-dir=DIR     还有别的用法, 不过排除一个文件夹较常用.
+
+** Context control
+*** -A, --after-context=NUM       打印匹配行, 再打印匹配行下文的NUMBER行.
+*** -B, --before-context=NUM      打印匹配行, 再打印匹配行上文的NUMBER行.
+*** -C, --context=NUM             打印匹配行, 再打印匹配行的上下文, 上下文各NUMBER行.
+*** -NUM, --context=NUM           同上.
+** Pattern selection and interpretation
+*** -e, --regexp=PATTERN    直接跟正则表达式, 此时grep的PATTERN要省略, 不然会被当作文件或目录.
+*** -P, --perl-regexp       说明grep最后跟的PATTERN是perl表达式.
+*** -i, --ignore-case       匹配时, 忽略大小写, 对 -e 后跟的 PATTERN 也有效.
+
+@endmindmap

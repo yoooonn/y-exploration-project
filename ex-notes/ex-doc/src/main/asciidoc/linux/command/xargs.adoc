@@ -1,0 +1,30 @@
+:sectnums: 2
+:sectnumlevels: 3
+:doctype: article
+:toclevels: 3
+:toc:
+
+
+=== xargs
+
+man xargs显示用法，默认安装的是BSD版本
+
+==== samples
+
+find . -name 'bus*.png' | xargs -t -L 1 -I "[]" mv "[]" ../draft-at-work/uml::
+
+将当前文件夹下形如 `bus*.png` 的文件移动到 `../draft-at-work/uml`，且每次移动一个文件、每次移动前打印指令、使用 `[]` 作为占位符
+
+==== options
+
+-t::
+
+每次执行前，先显示要执行的指令
+
+-I <replstr>::
+
+用于占位的字符串，
+
+-L <n>::
+
+每次处理n个指令

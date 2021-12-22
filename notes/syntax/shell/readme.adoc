@@ -1,0 +1,142 @@
+:toc:
+:toclevels:5
+
+== shell 变量
+
+shell变量以**_英文字母开始_**，**_往后_**可使用**_数字和下划线_**
+
+shell变量命名时，*_等号与变量名和值之间不能有空格_*
+
+变量的使用使用$var_name或${var_name}的方式，后者更被推荐，带上花括号容易界定变量名
+
+== Shell test
+
+test命令用于数值、字符、文件的相关条件是否成立
+
+=== 数值测试
+
+[cols="1,3"]
+|===
+|参数 |说明
+
+|-eq
+|等于，equal
+
+|-ne
+|不等于，not equal
+
+|-gt
+|大于，greater than
+
+|-ge
+|大于等于，greater or equal
+
+|-lt
+|小于，less than
+
+|-le
+|小于等于，less or equal
+|===
+
+=== 字符串测试
+
+== shell 流程控制
+
+shell的流程控制块不可为空，即不能出现空的if或else代码块（如果代码块是空的，就省略这个代码块）
+
+=== if
+
+[source,bash,indent=0]
+----
+if condition
+then
+  cmd...
+fi
+----
+
+=== if else
+
+[source,bash,indent=0]
+----
+if condition
+then
+  cmd...
+else
+  cmd...
+fi
+----
+
+=== if else-if else
+
+[source,bash,indent=0]
+----
+if condition
+then
+  cmd...
+elif condition
+then
+  cmd...
+else
+  cmd...
+fi
+----
+
+== $* 和 $@ 的区别
+
+$* 和 $@ 都表示传递给函数或脚本的所有参数，不被双引号(" ")包含时，都以"$1" "$2" … "$n" 的形式输出所有参数。
+
+但是当它们被双引号(" ")包含时，"$*" 会将所有的参数作为一个整体，以"$1 $2 … $n"的形式输出所有参数；"$@" 会将各个参数分开，以"$1" "$2" … "$n" 的形式输出所有参数。
+
+下面的例子可以清楚的看到 $* 和 $@ 的区别：
+
+[source,bash,indent=0]
+----
+#!/bin/bash
+
+echo "\$*=" $*
+echo "\"\$*\"=" "$*"
+echo "\$@=" $@
+echo "\"\$@\"=" "$@"
+echo "print each param from \$*"
+for var in $*
+do
+echo "$var"
+done
+echo "print each param from \$@"
+for var in $@
+do
+echo "$var"
+done
+echo "print each param from \"\$*\""
+for var in "$*"
+do
+echo "$var"
+done
+echo "print each param from \"\$@\""
+for var in "$@"
+do
+echo "$var"
+done
+执行 ./test.sh "a" "b" "c" "d"，看到下面的结果：
+$*=  a b c d
+"$*"= a b c d
+$@=  a b c d
+"$@"= a b c d
+print each param from $*
+a
+b
+c
+d
+print each param from $@
+a
+b
+c
+d
+print each param from "$*"
+a b c d
+print each param from "$@"
+a
+b
+c
+d
+----

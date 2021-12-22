@@ -1,0 +1,81 @@
+> vmstat, ***report virtual memory statistics***, 报告虚拟内存统计数据
+
+##### 用法
+
+**vmstat** *[options] [delay [count]]*
+
+```bash
+[root@02b71dfcc79a /]# vmstat --help
+
+Usage:
+ vmstat [options] [delay [count]]
+
+Options:
+ -a, --active           active/inactive memory, 活跃/不活跃内存
+ -f, --forks            number of forks since boot, 自启动, 系统fork操作的计数
+ -m, --slabs            slabinfo
+ -n, --one-header       do not redisplay header
+ -s, --stats            event counter statistics
+ -d, --disk             disk statistics
+ -D, --disk-sum         summarize disk statistics
+ -p, --partition <dev>  partition specific statistics
+ -S, --unit <char>      define display unit 使用指定单位显示。参数有 k 、K 、m 、M ，分别代表1000、1024、1000000、1048576字节（byte）。默认单位为K（1024 bytes）
+ -w, --wide             wide output
+ -t, --timestamp        show timestamp
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see vmstat(8).
+```
+
+比如
+
+每次间隔5秒, 报告3次
+
+```bash
+[root@02b71dfcc79a /]# vmstat 5 3
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 1  0      0 1108728  14208 403424    0    0     7     0   30  314  0  1 99  0  0
+ 0  0      0 1108720  14208 403552    0    0     0     0   64  684  0  1 99  0  0
+ 0  0      0 1108752  14208 403456    0    0     0     0   57  637  0  1 99  0  0
+```
+
+##### 列说明
+
+###### procs 进程
+
+- r: 在运行队列中等待的进程数
+- b: 在等待 IO 的进程数
+
+###### memory 部分
+
+- swpd: 使用虚拟内存的大小
+- free: 可用内存大小
+- buff: 用作缓冲的内存大小
+- cache: 用作缓存的内存大小
+
+###### swap 部分
+
+- si: 每秒从交换区写到内存的大小
+- so: 每秒写入交换区的内存大小
+
+###### IO 部分
+
+- bi: 每秒读取的块数
+- bo: 每秒写入的块数
+
+###### system 部分
+
+- in: 每秒中断数, 包括时钟中断
+- cs: 每秒的上下文切换次数
+
+###### 对于 cpu 部分
+
+- us: 用户进程使用的 cpu 时间 (%)
+- sy: 系统进程使用的 cpu 时间 (%)
+- id: cpu 空闲时间 (%)
+- wa: 等待 IO 所消耗的 cpu 时间 (%)
+- st: steal time, 虚拟 cpu 等待实际 cpu 的时间的百分比
+

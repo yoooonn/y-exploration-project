@@ -1,0 +1,60 @@
+:sectnums: 2
+:sectnumlevels: 3
+:doctype: article
+:toclevels: 3
+:toc: curl
+
+== curl
+
+> curl [options...] <url>
+
+=== options
+
+==== -G, --get
+
+==== -X, --request <command>
+
+Specify request command to use
+
+==== -d, --data
+
+==== -H, --header
+
+==== -o, --output <file>
+
+Write to file instead of stdout
+
+==== -O, --remote-name
+
+Write output to a file named as the remote file
+
+=== samples
+
+保存文件，文件名称根据响应的内置
+
+[source,shell script,indent=0]
+----
+curl -O URL
+----
+
+保存响应到a.html文件
+
+[source,shell script,indent=0]
+----
+curl -o a.html URL
+----
+
+
+发送json格式请求体的post请求
+
+[source,shell script,indent=0]
+----
+curl -H "content-Type:application/json" -X POST \
+-d '{
+  "msgtype": "text",
+  "text": {
+    "content": "下班"
+  }
+}' \
+'https://oapi.dingtalk.com/robot/send?access_token=asdf'
+----

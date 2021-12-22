@@ -1,0 +1,24 @@
+:sectnums: 2
+:sectnumlevels: 3
+:doctype: article
+:toclevels: 3
+:toc:
+
+=== find
+
+==== samples
+
+find . -cmin <n>::
+
+查找当前目录n分钟内变化过的文件
+
+find . -type f -print0 | xargs -0 perl -pi -e "s/TARGET_STRING/REPLACEMENT/g"::
+
+查找当前目录下的所有文件，并在每个文件的每一行中匹配``TARGET_STRING``，匹配到则将其替换为``REPLACEMENT``
+
+==== options
+
+-cmin <n>::
+
+最近n分钟被更改的文件
+

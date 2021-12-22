@@ -1,0 +1,16 @@
+:toc: left
+:sectnums:
+:sectnumlevels: 4
+:toclevels: 3
+:source-highlighter: pygments
+:pygments-linenums-mode: inline
+
+== 注入
+
+=== field
+
+==== @Autowired
+
+被bean后置处理器``AutowiredAnnotationBeanPostProcessor``处理，该后置处理器同时处理注解@org.springframework.beans.factory.annotation.Value、@javax.inject.Inject
+
+=== constructor

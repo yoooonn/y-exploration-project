@@ -30,7 +30,7 @@ public class JexlTest {
 
         context.set("say", "hello");
         context.set("age", 18);
-        context.set("cat", new Cat("world"));
+        context.set("cat", new Cat("world", "red"));
 
         log.info("JSON.toJSONString(context): {}", context.get("cat.name()"));
 

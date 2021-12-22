@@ -1,0 +1,4 @@
+task hello << {
+    println 'Hello world!'
+//    leftShift() 被弃用
+}

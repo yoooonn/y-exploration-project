@@ -1,0 +1,10 @@
+version: '3'
+services:
+  mysql:
+    image: redis:3.0
+    container_name: rd-longuse-3.0
+    command: redis-server --appendonly yes
+    ports:
+      - 6379:6379
+    volumes:
+      - ~/sharing/redis-long-3.0/data:/data #数据文件挂载

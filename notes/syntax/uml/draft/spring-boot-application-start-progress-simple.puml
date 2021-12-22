@@ -1,0 +1,216 @@
+@startuml
+'hide footbox
+skinparam backgroundColor #EEEBDC
+skinparam handwritten false
+
+skinparam Participant {
+    BorderColor DeepSkyBlue
+    BackgroundColor DodgerBlue
+    FontSize 14
+    FontColor #EEEBDC
+    FontStyle bold
+}
+
+skinparam Actor {
+    BorderColor DeepSkyBlue
+    BackgroundColor aqua
+    FontColor DeepSkyBlue
+    FontSize 17
+    FontStyle bold
+    FontName Aapex
+}
+
+skinparam sequence {
+    CircledCharacterFontColor blue
+    ArrowColor DeepSkyBlue
+    ArrowFontName Consolas
+
+    LifeLineBorderColor blue
+    LifeLineBackgroundColor #A9DCDF
+}
+
+actor User as U
+participant "Application" as A << (C, blue) >>
+participant "Spring Application" as SA << (C, blue) >>
+participant "new Spring Application()" as NSA << (C, darkGreen) >>
+participant "WebApplicationType" as WebType << (C, blue) >> order 1000
+participant "SpringFactoriesLoader" as SpringFactoriesLoader << (C,blue) >> order 990
+participant "AnnotationAwareOrderComparator" as AnnotationAwareOrderComparator << (C,blue) >> order 995
+
+
+autoactivate on
+
+U -> A: main(String[], args)
+
+A -> SA: SpringApplication\n.run(Application.class, args)
+
+SA -> NSA: **1** new SpringApplication(primarySources)
+note over SA
+
+end note
+
+return an SpringApplication instance
+
+SA -> NSA: **2** run(args)
+
+NSA -> NSA: this(null, primarySources)
+
+group 内部调用构造函数this(null, primarySources)
+note over NSA #GoldenRod
+
+end note
+note over NSA
+
+end note
+note over NSA
+
+end note
+note over NSA
+
+end note
+note over NSA
+
+end note
+note right of NSA
+
+end note
+NSA -> WebType: WebApplicationType.deduceFromClasspath()
+note over WebType
+
+end note
+return enum of WebApplicationType\nrepresenting current web application type
+
+note over NSA
+
+end note
+note right of NSA
+
+end note
+NSA -> NSA: setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class));
+group setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class))
+note over NSA #GoldenRod
+
+end note
+note over NSA
+
+end note
+note right of NSA
+
+end note
+NSA -> NSA: getSpringFactoriesInstances(ApplicationContextInitializer.class)
+group getSpringFactoriesInstances(ApplicationContextInitializer.class)
+NSA -> NSA: getSpringFactoriesInstances(type, new Class<?>[] {})
+note over NSA  #GoldenRod
+
+end note
+note over NSA
+
+end note
+note right of NSA
+
+end note
+note right of NSA
+
+end note
+note over NSA
+
+end note
+note right of NSA
+
+end note
+NSA -> SpringFactoriesLoader: SpringFactoriesLoader.loadFactoryNames(type, classLoader)
+group loadFactoryNames(type, classLoader)
+note over SpringFactoriesLoader #GoldenRod
+
+end note
+note over SpringFactoriesLoader
+
+end note
+note over SpringFactoriesLoader
+
+end note
+note right of NSA
+
+end note
+SpringFactoriesLoader -> SpringFactoriesLoader: return loadSpringFactories(classLoader).getOrDefault(factoryTypeName, Collections.emptyList());
+group return loadSpringFactories(classLoader).getOrDefault(factoryTypeName, Collections.emptyList());
+note over SpringFactoriesLoader
+
+end note
+SpringFactoriesLoader -> SpringFactoriesLoader: loadSpringFactories(classLoader)
+group loadSpringFactories(classLoader)
+note over SpringFactoriesLoader #GoldenRod
+
+end note
+note over SpringFactoriesLoader
+
+end note
+return Map<String, List<String>>\n-- <factoryTypeName, factoryManagedClassList>
+end
+note over SpringFactoriesLoader
+
+end note
+return List<String>\n-- full class name of current factory type managed class
+end
+return List<String>\n-- full class name of current factory type managed class
+end
+note over NSA
+
+end note
+note right of NSA
+
+end note
+NSA -> NSA: createSpringFactoriesInstances(type, parameterTypes, classLoader, args, names)
+group createSpringFactoriesInstances(type, parameterTypes, classLoader, args, names)
+note over NSA #GoldenRod
+
+end note
+
+note over NSA
+
+end note
+return List<T>\n-- instance list of every sub class of given type.
+end
+note over NSA
+
+end note
+note right of NSA
+
+end note
+NSA -> AnnotationAwareOrderComparator: AnnotationAwareOrderComparator.sort(instances)
+group AnnotationAwareOrderComparator.sort(instances)
+note over AnnotationAwareOrderComparator
+
+end note
+return
+end
+return List<T>\n-- sorted instance list of every sub class of given type.
+end
+note over NSA
+
+end note
+note right of NSA
+
+end note
+end
+note over NSA
+
+end note
+note right of NSA
+
+end note
+NSA -> NSA: setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class))
+group setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class))
+note over NSA
+
+end note
+end
+note over NSA
+
+end note
+return
+end
+NSA --> SA: application starting...
+SA --> A: application starting...
+A --> U: print output about application starting... in console
+@enduml

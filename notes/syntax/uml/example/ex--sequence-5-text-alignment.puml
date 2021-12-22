@@ -1,0 +1,9 @@
+@startuml
+' You can put the text of the response message below the arrow, with the skinparam responseMessageBelowArrow true command.
+' 你可以用命令skinparam responseMessageBelowArrow true，将返回的消息文本放到箭头下方
+
+skinparam responseMessageBelowArrow true
+Bob -> Alice : hello
+Alice -> Bob : ok
+
+@enduml

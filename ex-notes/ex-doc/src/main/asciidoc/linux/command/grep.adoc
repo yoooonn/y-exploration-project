@@ -1,0 +1,207 @@
+:sectnums: 2
+:sectnumlevels: 3
+:doctype: article
+:toclevels: 3
+:toc:
+
+=== used
+
+==== grep -n 'text' a.file
+
+==== grep -n '2019-10-24 00:01:11' *.log
+
+==== grep -i -C 'text' b.file
+
+==== grep -i -A 'error' c.file
+
+==== find / -type f -name "*.log" | xargs grep "ERROR"
+
+=== grep
+
+[source,text,indent=0]
+----
+2.20版本.
+
+grep [OPTION]... PATTERN [FILE]...
+
+grep [-abcEFGhHilLnqrsvVwxy] [-A<显示列数>] [-B<显示列数>] [-C<显示列数>] [-d<进行动作>] [-e<范本样式>] [-f<范本文件>] [--help] [范本样式] [文件或目录...]
+----
+
+==== 无参的option
+
+-b::
+--byte-offset
+
+打印匹配行之前, 打印匹配到的行 行首字符在文件中的字节偏移量, 偏移量为 0, 说明是文件首字符.
+
+-c::
+--count
+
+打印匹配的总行数.
+
+-h::
+--no-filename
+
+打印符合行之前, 不打印改行所属文件名称.
+
+-H::
+--with-filename
+
+打印符合行之前, 打印改行所属文件名称.
+
+-i::
+--ignore-case
+
+忽略大小写, 对 -e 后跟的 PATTERN 也有效.
+
+-n::
+--line-number
+
+打印匹配行之前, 打印匹配行在文件中的行号, 从 1 开始.
+
+-n::
+--line-buffered
+
+一个动态的文件，它不断地添加信息到文件的尾部，不断输出包含某些信息的行。即持续的grep一个动态的流.
+
+-o::
+--only-matching
+
+只显示匹配PATTERN部分, 优先级高于 context 相关的 option.
+
+-r::
+--recursive
+
+当对目录使用grep时, 要指定递归行为. 此参数的效果和指定"-d recurse"参数相同.
+
+-R::
+
+[source,text,indent=0]
+----
+--dereference-recursive    likewise, but follow all symlinks
+--include=FILE_PATTERN     search only files that match FILE_PATTERN
+--exclude=FILE_PATTERN     skip files and directories matching FILE_PATTERN
+--exclude-from=FILE        skip files matching any file pattern from a FILE
+--exclude-dir=PATTERN      directories that match PATTERN will be skipped
+
+----
+
+-v::
+--invert-match
+
+打印不包含匹配文本的行.
+
+==== 有参的option
+
+-A NUMBER::
+--after-context=NUMBER
+
+打印匹配行, 再打印匹配行下文的NUMBER行.
+
+-B NUMBER::
+--before-context=NUMBER
+
+打印匹配行, 再打印匹配行上文的NUMBER行.
+
+-C NUMBER::
+--context=NUMBER
+
+打印匹配行, 再打印匹配行的上下文, 上下文各NUMBER行.
+
+-e PATTERN::
+--regexp=PATTERN
+
+指定一个正则作为范文, 此时grep命令的PATTERN要省略, 不然会被当作文件或目录.
+
+
+
+
+附录
+
+[source,text,indent=0]
+----
+$ grep --help
+Usage: grep [OPTION]... PATTERN [FILE]...
+Search for PATTERN in each FILE or standard input.
+PATTERN is, by default, a basic regular expression (BRE).
+Example: grep -i 'hello world' menu.h main.c
+
+Regexp selection and interpretation:
+  -E, --extended-regexp     PATTERN is an extended regular expression (ERE)
+  -F, --fixed-strings       PATTERN is a set of newline-separated fixed strings
+  -G, --basic-regexp        PATTERN is a basic regular expression (BRE)
+  -P, --perl-regexp         PATTERN is a Perl regular expression
+  -e, --regexp=PATTERN      use PATTERN for matching
+  -f, --file=FILE           obtain PATTERN from FILE
+  -i, --ignore-case         ignore case distinctions
+  -w, --word-regexp         force PATTERN to match only whole words
+  -x, --line-regexp         force PATTERN to match only whole lines
+  -z, --null-data           a data line ends in 0 byte, not newline
+
+Miscellaneous:
+  -s, --no-messages         suppress error messages
+  -v, --invert-match        select non-matching lines
+  -V, --version             display version information and exit
+      --help                display this help text and exit
+
+Output control:
+  -m, --max-count=NUM       stop after NUM matches
+  -b, --byte-offset         print the byte offset with output lines
+  -n, --line-number         print line number with output lines
+      --line-buffered       flush output on every line
+  -H, --with-filename       print the file name for each match
+  -h, --no-filename         suppress the file name prefix on output
+      --label=LABEL         use LABEL as the standard input file name prefix
+  -o, --only-matching       show only the part of a line matching PATTERN
+  -q, --quiet, --silent     suppress all normal output
+      --binary-files=TYPE   assume that binary files are TYPE;
+                            TYPE is 'binary', 'text', or 'without-match'
+  -a, --text                equivalent to --binary-files=text
+  -I                        equivalent to --binary-files=without-match
+  -d, --directories=ACTION  how to handle directories;
+                            ACTION is 'read', 'recurse', or 'skip'
+  -D, --devices=ACTION      how to handle devices, FIFOs and sockets;
+                            ACTION is 'read' or 'skip'
+  -r, --recursive           like --directories=recurse
+  -R, --dereference-recursive
+                            likewise, but follow all symlinks
+      --include=FILE_PATTERN
+                            search only files that match FILE_PATTERN
+      --exclude=FILE_PATTERN
+                            skip files and directories matching FILE_PATTERN
+      --exclude-from=FILE   skip files matching any file pattern from FILE
+      --exclude-dir=PATTERN directories that match PATTERN will be skipped.
+  -L, --files-without-match print only names of FILEs containing no match
+  -l, --files-with-matches  print only names of FILEs containing matches
+  -c, --count               print only a count of matching lines per FILE
+  -T, --initial-tab         make tabs line up (if needed)
+  -Z, --null                print 0 byte after FILE name
+
+Context control:
+  -B, --before-context=NUM  print NUM lines of leading context
+  -A, --after-context=NUM   print NUM lines of trailing context
+  -C, --context=NUM         print NUM lines of output context
+  -NUM                      same as --context=NUM
+      --group-separator=SEP use SEP as a group separator
+      --no-group-separator  use empty string as a group separator
+      --color[=WHEN],
+      --colour[=WHEN]       use markers to highlight the matching strings;
+                            WHEN is 'always', 'never', or 'auto'
+  -U, --binary              do not strip CR characters at EOL (MSDOS/Windows)
+  -u, --unix-byte-offsets   report offsets as if CRs were not there
+                            (MSDOS/Windows)
+
+'egrep' means 'grep -E'.  'fgrep' means 'grep -F'.
+Direct invocation as either 'egrep' or 'fgrep' is deprecated.
+When FILE is -, read standard input.  With no FILE, read . if a command-line
+-r is given, - otherwise.  If fewer than two FILEs are given, assume -h.
+Exit status is 0 if any line is selected, 1 otherwise;
+if any error occurs and -q is not given, the exit status is 2.
+
+Report bugs to: bug-grep@gnu.org
+GNU Grep home page: <http://www.gnu.org/software/grep/>
+General help using GNU software: <http://www.gnu.org/gethelp/>
+----
+
+.graph
+image::../assets/linux_cli_grep.png[linux cli grep]

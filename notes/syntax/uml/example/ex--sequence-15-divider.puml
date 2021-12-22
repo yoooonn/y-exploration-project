@@ -1,0 +1,17 @@
+@startuml
+
+' If you want, you can split a diagram using == separator to divide your diagram into logical steps.
+' 你乐意的话，也可以用==将图标分为有逻辑步骤
+
+
+== Initialization ==
+
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+== Repetition ==
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+
+@enduml

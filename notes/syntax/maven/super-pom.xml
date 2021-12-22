@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<!-- START SNIPPET: superpom -->
+<project>
+<!--  每个maven model都会继承下面每个配置 除非将标签重写，把其覆盖-->
+<!--  maven model的版本-->
+  <modelVersion>4.0.0</modelVersion>
+
+<!--  定义依赖的仓库，没错，就是那个中央仓库-->
+  <repositories>
+    <repository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+<!--  定义找寻插件的仓库-->
+  <pluginRepositories>
+    <pluginRepository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+    </pluginRepository>
+  </pluginRepositories>
+
+<!--  定义构建规则-->
+  <build>
+    <!--
+      下面标签定义时用到的属性有:
+      project.basedir: 经验证这个属性是pom.xml所在路径位置, 如果感兴趣可改变一个项目的pom.xml,
+                       使用mvn的-f选项编译查看target的位置
+      project.build.directory: 自引用, 记得在pom.xml中除了parent标签不可自引用，其他都是可以的
+      project.artifactId: 自引用, 但artifactId在maven model的pom.xml中才会声明
+      project.version: 自引用, 声明时间同上-->
+
+<!--    定义directory标签，其实就是变量的作用，下面称为变量的作用基本同此-->
+    <directory>${project.basedir}/target</directory>
+
+<!--    源文件的编译产物的位置，源文件在sourceDirectory-->
+    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+
+<!--    定义package这个goal的产物的文件名称不包含dot和后缀-->
+    <finalName>${project.artifactId}-${project.version}</finalName>
+
+<!--    测试文件的编译产物位置，测试文件在testSourceDirectory-->
+    <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
+
+<!--    源文件的位置，编译后的文件在outputDirectory-->
+    <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+
+<!--    脚本源文件的位置，脚本是可执行的，不会被编译，没有对应的outputDirectory-->
+    <scriptSourceDirectory>${project.basedir}/src/main/scripts</scriptSourceDirectory>
+
+<!--    测试文件的位置，编译后的文件在testOutputDirectory-->
+    <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+
+<!--    源文件用到的资源文件，资源不需要被编译，通常按需拷贝，和其他过程（过滤）-->
+    <resources>
+
+<!--      一组资源文件-->
+      <resource>
+
+<!--        资源文件的位置-->
+        <directory>${project.basedir}/src/main/resources</directory>
+
+<!--        下面四个tag，super pom没有定义，但用法重要-->
+<!--        是否过滤，默认false，不过滤。关于过滤在./resource.filtering.md有讨论-->
+<!--        <filtering></filtering>-->
+
+<!--        拷贝时包含文件，指明拷贝(filtering为true时，还要过滤)哪些文件-->
+<!--        <includes></includes>-->
+
+<!--        拷贝时排除文件，指明不拷贝哪些文件，言外之意，剩下的都要拷贝-->
+<!--        <excludes></excludes>-->
+
+<!--        拷贝到哪里 默认是${project.build.outputDirectory}，
+                    测试文件需要的资源文件默认是${project.build.testOutputDirectory}-->
+<!--        <targetPath></targetPath>-->
+      </resource>
+    </resources>
+
+<!--    测试文件用到的资源文件，资源不需要被编译，通常按需拷贝，和其他过程（过滤）-->
+    <testResources>
+
+<!--      一组资源文件-->
+      <testResource>
+
+<!--        用法同上-->
+        <directory>${project.basedir}/src/test/resources</directory>
+      </testResource>
+    </testResources>
+
+<!--    插件管理单元，只声明-->
+    <pluginManagement>
+      <!-- NOTE: These plugins will be removed from future versions of the super POM -->
+      <!-- They are kept for the moment as they are very unlikely to conflict with lifecycle mappings (MNG-4453) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.3</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.2-beta-5</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.8</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.5.3</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+<!--  报告-->
+  <reporting>
+
+<!--    报告输出位置-->
+    <outputDirectory>${project.build.directory}/site</outputDirectory>
+  </reporting>
+
+<!--  profile，默认release-profile-->
+  <profiles>
+    <!-- NOTE: The release profile will be removed from future versions of the super POM -->
+    <profile>
+      <id>release-profile</id>
+
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>
+
+      <build>
+        <plugins>
+          <plugin>
+            <inherited>true</inherited>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <inherited>true</inherited>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <inherited>true</inherited>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <configuration>
+              <updateReleaseInfo>true</updateReleaseInfo>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
+  <!-- END SNIPPET: superpom -->

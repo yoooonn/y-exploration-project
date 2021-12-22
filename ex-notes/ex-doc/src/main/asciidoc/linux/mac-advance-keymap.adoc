@@ -1,0 +1,21 @@
+:toc:
+:toclevels: 3
+:sectnums:
+:sectnumlevels: 3
+
+
+==== open
+
+==== pbcopy、pbpaste
+
+==== mdfind
+
+==== screencapture
+
+==== launchctl
+
+==== say
+
+==== diskutil
+
+==== brew
