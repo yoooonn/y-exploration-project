@@ -1,7 +1,9 @@
 package com.ycourlee.explore.solution.crypto.aes;
 
-import com.ycourlee.explore.solution.crypto.exception.CryptoException;
 import com.ycourlee.explore.solution.crypto.autoconfiguration.CryptoProperties;
+import com.ycourlee.explore.solution.crypto.exception.CryptoException;
+
+import java.util.Map;
 
 /**
  * @author yongjiang
@@ -9,12 +11,12 @@ import com.ycourlee.explore.solution.crypto.autoconfiguration.CryptoProperties;
  */
 public class AesCrypto {
 
-    private CryptoProperties cryptoProperties;
+    private Map<String, CryptoProperties.AesPropInternal> propGroup;
 
     private AesCryptoExecutor aesCryptoExecutor;
 
     public AesCrypto(CryptoProperties cryptoProperties, AesCryptoExecutor aesCryptoExecutor) {
-        this.cryptoProperties = cryptoProperties;
+        this.propGroup = cryptoProperties.getCipher().getAes().getGroup();
         this.aesCryptoExecutor = aesCryptoExecutor;
     }
 
@@ -31,8 +33,9 @@ public class AesCrypto {
     }
 
     public String ciphertext(String plaintext, String group, boolean urlSafely) {
-        CryptoProperties.AesProp aesProp = retrieveGroupProp(group);
-        return aesCryptoExecutor.ciphertext(plaintext, aesProp.getRawKey(), aesProp.getTransform(), urlSafely);
+        CryptoProperties.AesPropInternal prop = retrieveGroupProp(group);
+        return aesCryptoExecutor.ciphertext(plaintext, prop.getRawKey(),
+                AesCryptoExecutor.transformOf(prop.getAlgMode(), prop.getAlgPadding()), urlSafely);
     }
 
     public String plaintext(String ciphertext) {
@@ -48,15 +51,16 @@ public class AesCrypto {
     }
 
     public String plaintext(String ciphertext, String group, boolean urlSafely) {
-        CryptoProperties.AesProp aesProp = retrieveGroupProp(group);
-        return aesCryptoExecutor.plaintext(ciphertext, aesProp.getRawKey(), aesProp.getTransform(), urlSafely);
+        CryptoProperties.AesPropInternal prop = retrieveGroupProp(group);
+        return aesCryptoExecutor.plaintext(ciphertext, prop.getRawKey(),
+                AesCryptoExecutor.transformOf(prop.getAlgMode(), prop.getAlgPadding()), urlSafely);
     }
 
-    private CryptoProperties.AesProp retrieveGroupProp(String group) {
-        CryptoProperties.AesProp aesProp = cryptoProperties.getAes().get(group);
-        if (aesProp == null) {
+    private CryptoProperties.AesPropInternal retrieveGroupProp(String group) {
+        CryptoProperties.AesPropInternal prop;
+        if (propGroup == null || (prop = propGroup.get(group)) == null) {
             throw new CryptoException("Not found aes key group: " + group);
         }
-        return aesProp;
+        return prop;
     }
 }

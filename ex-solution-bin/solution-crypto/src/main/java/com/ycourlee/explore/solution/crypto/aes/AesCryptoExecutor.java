@@ -1,8 +1,12 @@
 package com.ycourlee.explore.solution.crypto.aes;
 
+import com.ycourlee.explore.solution.crypto.Algorithms;
+import com.ycourlee.explore.solution.crypto.CipherAlgMode;
+import com.ycourlee.explore.solution.crypto.CipherAlgPadding;
+import com.ycourlee.explore.solution.crypto.Constant;
 import com.ycourlee.explore.solution.crypto.exception.CryptoException;
 import com.ycourlee.explore.solution.crypto.factories.Factory;
-import com.ycourlee.root.util.Assert;
+import com.ycourlee.explore.solution.crypto.util.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,11 +24,15 @@ public class AesCryptoExecutor {
     /**
      * 默认密钥
      */
-    public final         String defaultRawKey;
+    public final String           rawKey;
     /**
      * 算法/加密模式/补码填充方式
      */
-    private final        String defaultTransform;
+    private      String           defaultTransform;
+    private      CipherAlgMode    defaultCipherAlgMode;
+    private      CipherAlgPadding defaultCipherAlgPadding;
+    private      String           defaultCipherAlgCbcModeIv;
+
     private static final Logger log = LoggerFactory.getLogger(AesCryptoExecutor.class);
 
     private Factory<Cipher, CipherParam> cipherFactory;
@@ -32,15 +40,20 @@ public class AesCryptoExecutor {
 
     public AesCryptoExecutor(Factory<Cipher, CipherParam> cipherFactory,
                              Factory<SecretKey, String> aesSecretKeyFactory,
-                             String defaultRawKey, String defaultTransform) {
+                             String defaultRawKey, CipherAlgMode defaultCipherAlgMode,
+                             CipherAlgPadding defaultCipherAlgPadding,
+                             String defaultCipherAlgCbcModeIv) {
         this.cipherFactory = cipherFactory;
         this.aesSecretKeyFactory = aesSecretKeyFactory;
-        this.defaultRawKey = defaultRawKey;
-        this.defaultTransform = defaultTransform;
+        this.rawKey = defaultRawKey;
+        this.defaultCipherAlgMode = defaultCipherAlgMode;
+        this.defaultCipherAlgPadding = defaultCipherAlgPadding;
+        this.defaultCipherAlgCbcModeIv = defaultCipherAlgCbcModeIv;
+        this.defaultTransform = transformOf(defaultCipherAlgMode, defaultCipherAlgPadding);
     }
 
     public String ciphertext(String plaintext) {
-        return ciphertext(plaintext, defaultRawKey, defaultTransform, false);
+        return ciphertext(plaintext, rawKey, defaultTransform, false);
     }
 
     public String ciphertext(String plaintext, String rawKey) {
@@ -52,7 +65,7 @@ public class AesCryptoExecutor {
     }
 
     public String ciphertext(String plaintext, boolean urlSafely) {
-        return ciphertext(plaintext, defaultRawKey, defaultTransform, urlSafely);
+        return ciphertext(plaintext, rawKey, defaultTransform, urlSafely);
     }
 
     public String ciphertext(String plaintext, String rawKey, boolean urlSafely) {
@@ -79,7 +92,7 @@ public class AesCryptoExecutor {
     }
 
     public String plaintext(String ciphertext) {
-        return plaintext(ciphertext, defaultRawKey, defaultTransform, false);
+        return plaintext(ciphertext, rawKey, defaultTransform, false);
     }
 
     public String plaintext(String ciphertext, String rawKey) {
@@ -91,7 +104,7 @@ public class AesCryptoExecutor {
     }
 
     public String plaintext(String ciphertext, boolean urlSafely) {
-        return plaintext(ciphertext, defaultRawKey, defaultTransform, urlSafely);
+        return plaintext(ciphertext, rawKey, defaultTransform, urlSafely);
     }
 
     public String plaintext(String ciphertext, String rawKey, boolean urlSafely) {
@@ -166,11 +179,11 @@ public class AesCryptoExecutor {
             cipherParam.setMode(mode);
             cipherParam.setSecretKey(aesSecretKeyFactory.generate(rawKey));
             cipherParam.setTransform(transform);
+            cipherParam.setCbcModeIv(defaultCipherAlgCbcModeIv);
             Cipher cipher = cipherFactory.generate(cipherParam);
             return cipher.doFinal(data);
         } catch (Exception e) {
-            log.error("Aes crypto doFinal(...) error", e);
-            throw new CryptoException(e.getMessage());
+            throw new CryptoException(e);
         }
     }
 
@@ -184,8 +197,7 @@ public class AesCryptoExecutor {
             Cipher cipher = cipherFactory.generate(cipherParam);
             return cipher.update(data);
         } catch (Exception e) {
-            log.error("Aes crypto update(...) error", e);
-            throw new CryptoException(e.getMessage());
+            throw new CryptoException(e);
         }
     }
 
@@ -195,5 +207,31 @@ public class AesCryptoExecutor {
 
     private Base64.Encoder encoder(boolean urlSafely) {
         return urlSafely ? Base64.getUrlEncoder() : Base64.getEncoder();
+    }
+
+    public void setCipherAlgModePadding(CipherAlgMode cipherAlgMode, CipherAlgPadding cipherAlgPadding) {
+        this.defaultCipherAlgMode = cipherAlgMode;
+        this.defaultCipherAlgPadding = cipherAlgPadding;
+        this.defaultTransform = transformOf(cipherAlgMode, cipherAlgPadding);
+    }
+
+    public void setCipherAlgCbcModeIv(String cipherAlgCbcModeIv) {
+        if (!CipherAlgMode.CBC.equals(defaultCipherAlgMode)) {
+            log.warn("Current cipher algorithm mode is not CBC, ignore CBC Mode Iv param.");
+            return;
+        }
+        this.defaultCipherAlgCbcModeIv = cipherAlgCbcModeIv;
+    }
+
+    public CipherAlgMode getCipherAlgMode() {
+        return defaultCipherAlgMode;
+    }
+
+    public CipherAlgPadding getCipherAlgPadding() {
+        return defaultCipherAlgPadding;
+    }
+
+    public static String transformOf(CipherAlgMode mode, CipherAlgPadding padding) {
+        return Algorithms.AES.name() + Constant.SLASH + mode.name() + Constant.SLASH + padding.name();
     }
 }

@@ -13,8 +13,12 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 在标注{@link Crypto}注解的方法return前，进行加密/解密
+ *
  * @author yongjiang
  * @date 2021.12.06
+ * @see com.ycourlee.explore.solution.crypto.annotation.Ciphertext
+ * @see com.ycourlee.explore.solution.crypto.annotation.Plaintext
  */
 @Aspect
 public class CryptoAspect {

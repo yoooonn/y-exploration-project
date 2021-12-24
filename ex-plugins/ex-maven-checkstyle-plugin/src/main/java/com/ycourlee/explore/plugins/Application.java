@@ -1,7 +1,5 @@
 package com.ycourlee.explore.plugins;
 
-import lombok.NonNull;
-
 import javax.annotation.Nonnull;
 
 /**
@@ -10,11 +8,13 @@ import javax.annotation.Nonnull;
  */
 public class Application {
 
+    @SuppressWarnings("all")
     public static void main(String[] args) {
         print("hello");
         print(null);
     }
 
+    @SuppressWarnings("NullableProblems")
     public static void print(@Nonnull String s) {
         System.out.println("s = " + s);
     }

@@ -11,6 +11,6 @@ import lombok.Setter;
 @Getter
 public class PlaintextKeyGroupTest {
 
-    @Plaintext(keyGroup = "group1")
+    @Plaintext(keyGroup = "1")
     private String hello;
 }

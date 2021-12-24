@@ -1,6 +1,7 @@
 package com.ycourlee.explore.solution.crypto.factories;
 
 import com.ycourlee.explore.solution.crypto.Algorithms;
+import com.ycourlee.explore.solution.crypto.util.Assert;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -18,6 +19,7 @@ public class DefaultAesSecretKeyFactory implements Factory<SecretKey, String> {
 
     @Override
     public SecretKey generate(String rawKey) {
+        Assert.notNull(rawKey, "raw key must not be null, you can see 'crypto.cipher-aes-default-raw-key'");
         SecretKey cache = secretKeyCaches.get(rawKey);
         if (cache != null) {
             return cache;

@@ -37,9 +37,5 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>com.ycourlee.root</groupId>
-      <artifactId>yonn-core</artifactId>
-    </dependency>
   </dependencies>
 </project>

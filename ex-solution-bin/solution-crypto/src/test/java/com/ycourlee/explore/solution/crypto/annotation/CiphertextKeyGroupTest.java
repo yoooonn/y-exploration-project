@@ -11,6 +11,6 @@ import lombok.Setter;
 @Getter
 public class CiphertextKeyGroupTest {
 
-    @Ciphertext(keyGroup = "group1")
+    @Ciphertext(keyGroup = "1")
     private String hello;
 }

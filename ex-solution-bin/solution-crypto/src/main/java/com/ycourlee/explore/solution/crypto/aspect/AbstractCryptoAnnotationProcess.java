@@ -21,7 +21,7 @@ import java.util.Map;
  * @author yongjiang
  * @date 2021.12.17
  */
-public abstract class AbstractCryptoAnnotationProcess implements CryptoAnnotationProcess {
+abstract class AbstractCryptoAnnotationProcess implements CryptoAnnotationProcess {
 
     protected AesCrypto aesCrypto;
 
@@ -47,7 +47,6 @@ public abstract class AbstractCryptoAnnotationProcess implements CryptoAnnotatio
         return fields;
     }
 
-
     protected String transfer(String content, CryptoAnnotationMetadata annoMeta) {
         String result;
         if (Algorithms.AES.equals(annoMeta.getAlgorithm())) {
@@ -59,7 +58,7 @@ public abstract class AbstractCryptoAnnotationProcess implements CryptoAnnotatio
                         aesCrypto.plaintext(content, annoMeta.getKeyGroup(), annoMeta.getUrlSafely());
             }
         } else {
-            throw new CryptoException("Beta version, only support AES algorithm now");
+            throw new CryptoException("Beta version, only support Cipher Algorithm AES now");
         }
         return result;
     }

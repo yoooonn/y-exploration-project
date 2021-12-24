@@ -6,6 +6,12 @@ package com.ycourlee.explore.solution.crypto;
  */
 public enum Algorithms {
 
+    /**
+     * Signature Algorithms: SHA256withRSA
+     */
     RSA,
+    /**
+     * Cipher Algorithm: AES
+     */
     AES,
 }

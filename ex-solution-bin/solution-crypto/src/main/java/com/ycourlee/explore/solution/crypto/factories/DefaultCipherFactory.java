@@ -1,8 +1,9 @@
 package com.ycourlee.explore.solution.crypto.factories;
 
 import com.ycourlee.explore.solution.crypto.BCJcaJceHelperHolder;
+import com.ycourlee.explore.solution.crypto.CipherAlgMode;
 import com.ycourlee.explore.solution.crypto.aes.CipherParam;
-import com.ycourlee.root.util.Assert;
+import com.ycourlee.explore.solution.crypto.util.Assert;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -20,7 +21,12 @@ public class DefaultCipherFactory extends BCJcaJceHelperHolder implements Factor
         Assert.notNull(cipherParam.getMode(), "No cipher mode given");
         Assert.notNull(cipherParam.getSecretKey(), "No secret key given");
         Cipher cipher = helper.createCipher(cipherParam.getTransform());
-        cipher.init(cipherParam.getMode(), cipherParam.getSecretKey(), new IvParameterSpec("asdf".getBytes(StandardCharsets.UTF_8)));
+        if (CipherAlgMode.CBC.equals(cipherParam.extractMode())) {
+            Assert.notNull(cipherParam.getCbcModeIv(), "No cbc mode IV");
+            cipher.init(cipherParam.getMode(), cipherParam.getSecretKey(), new IvParameterSpec(cipherParam.getCbcModeIv().getBytes(StandardCharsets.UTF_8)));
+        } else {
+            cipher.init(cipherParam.getMode(), cipherParam.getSecretKey());
+        }
         return cipher;
     }
 }

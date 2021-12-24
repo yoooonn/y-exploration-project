@@ -9,11 +9,11 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public class CiphertextGroupTest {
+public class PlaintextCryptoEnableGroupTest {
 
-    @Ciphertext(group = "1")
+    @Plaintext(group = "1")
     private String hello;
 
-    @Ciphertext(group = "2")
+    @Plaintext(group = "2")
     private String world;
 }
