@@ -1,7 +1,7 @@
 package com.ycourlee.explore.springredis.other;
 
 import com.ycourlee.explore.springredis.SpringTestEnv;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,19 +20,19 @@ public class OneTest extends SpringTestEnv {
     private StringRedisTemplate redisTemplate;
 
     @Test
-    public void countExistingKeysTest() {
+    void countExistingKeysTest() {
         Long keys = redisTemplate.countExistingKeys(Arrays.asList("hello", "world"));
         log.info("keys: {}", keys);
     }
 
     @Test
-    public void getTest() {
+    void getTest() {
         String jy = redisTemplate.opsForValue().get("jy");
         System.out.println("redisTemplate.opsForValue().get(\"hello\") = " + jy);
     }
 
     @Test
-    public void get2Test() {
+    void get2Test() {
         String hasdf = (String) redisTemplate.opsForHash().get("hasdf", "12");
 
         System.out.println("hasdf = " + hasdf);
@@ -46,13 +46,13 @@ public class OneTest extends SpringTestEnv {
     }
 
     @Test
-    public void hsetTest() {
+    void hsetTest() {
         redisTemplate.opsForHash().delete("hello:world", "345");
     }
 
 
     @Test
-    public void incrTest() {
+    void incrTest() {
         System.out.println("redisTemplate.opsForValue().increment(\"hello\", 1) = " + redisTemplate.opsForValue().increment("hello", 1));
     }
 }

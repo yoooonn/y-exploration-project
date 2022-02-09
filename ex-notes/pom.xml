@@ -30,6 +30,7 @@
     <module>ex-xxl-job</module>
     <module>ex-zookeeper-springboot-dubbo-consumer</module>
     <module>ex-zookeeper-springboot-dubbo-provider</module>
+    <module>ex-spring-boot-h2</module>
   </modules>
 
   <properties>
@@ -41,6 +42,11 @@
       <dependency>
         <groupId>org.mapstruct</groupId>
         <artifactId>mapstruct</artifactId>
+        <version>${mapstruct.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct-processor</artifactId>
         <version>${mapstruct.version}</version>
       </dependency>
       <dependency>

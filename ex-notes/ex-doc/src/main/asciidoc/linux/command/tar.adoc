@@ -1,19 +1,15 @@
-:sectnums: 2
-:sectnumlevels: 3
-:doctype: article
-:toclevels: 3
-:toc:
+==== tar
 
 对于 tar 系列的压缩文件作一个小结：
 
-== 1  对于.tar结尾的文件
+===== 1  对于.tar结尾的文件
 
 [source]
 ----
 tar -xf all.tar
 ----
 
-== 2  对于 .gz 结尾的文件
+===== 2  对于 .gz 结尾的文件
 
 [source]
 ----
@@ -21,7 +17,7 @@ gzip -d all.gz
 gunzip all.gz
 ----
 
-== 3 对于 .tgz 或 .tar.gz 结尾的文件
+===== 3 对于 .tgz 或 .tar.gz 结尾的文件
 
 [source]
 ----
@@ -29,7 +25,7 @@ tar -xzf all.tar.gz
 tar -xzf all.tgz
 ----
 
-== 4  对于 .bz2 结尾的文件
+===== 4  对于 .bz2 结尾的文件
 
 [source]
 ----
@@ -37,21 +33,21 @@ bzip2 -d all.bz2
 bunzip2 all.bz2
 ----
 
-== 5  对于 tar.bz2 结尾的文件
+===== 5  对于 tar.bz2 结尾的文件
 
 [source]
 ----
 tar -xjf all.tar.bz2
 ----
 
-== 6  对于 .Z 结尾的文件
+===== 6  对于 .Z 结尾的文件
 
 [source]
 ----
 uncompress all.Z
 ----
 
-== 7  对于 .tar.Z 结尾的文件
+===== 7  对于 .tar.Z 结尾的文件
 
 [source]
 ----

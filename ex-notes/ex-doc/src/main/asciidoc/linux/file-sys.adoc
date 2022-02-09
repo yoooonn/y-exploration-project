@@ -1,7 +1,4 @@
-
-:assets-dir: ../assets
-
-=== linux
+=== linux file system introduce
 
 ==== 系统启动必须
 
@@ -62,4 +59,4 @@
 - **/srv**: 存放服务启动后需要提取的数据**(不用服务器就是空)**
 
 .graph
-image::{assets-dir}/linux_file_system.png[linux file system]
+image::{attachmentsdir}/linux_file_system.png[linux file system]

@@ -13,4 +13,12 @@ import lombok.ToString;
 @ToString
 public class Wrapper<T> {
     private T wrapped;
+
+    private Wrapper(T wrapped) {
+        this.wrapped = wrapped;
+    }
+
+    public static <T> Wrapper<T> wrapped(T wrapped) {
+        return new Wrapper<>(wrapped);
+    }
 }

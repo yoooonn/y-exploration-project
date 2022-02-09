@@ -28,4 +28,12 @@ public class ListTest extends AbstractTest {
         List<Long> dates = Arrays.asList(date.getTime(), date1.getTime(), date2.getTime());
         dates.sort((d1, d2) -> ((int) (d2 - d1)));
     }
+
+    @Test
+    public void chineseCharacterSortTest() {
+        List<String> strings = Arrays.asList("波", "涌", "的", "次", "啊", "得");
+        strings.sort(String::compareTo);
+        strings.forEach(System.out::println);
+        strings.forEach(s->System.out.println());
+    }
 }

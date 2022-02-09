@@ -1,6 +1,6 @@
-=== set
+==== set
 
-==== set -eux
+===== set -eux
 
 [source,text,indent=0]
 ----

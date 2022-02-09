@@ -5,6 +5,22 @@
 :source-highlighter: pygments
 :pygments-linenums-mode: inline
 
+
+spring转换组件（序列化组件）暴露一个共享实例org.springframework.boot.convert.ApplicationConversionService.getSharedInstance，该实例在prepareContext阶段被设置于ConfigurableBeanFactory
+
+spring web中request handler的参数被``org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues``方法解析
+
+spring web默认request handler参数解析器由方法``org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.getDefaultArgumentResolvers``提供
+
+
+PropertySourcesPlaceholderResolver
+
+
+PropertyPlaceholderHelper
+
+
+
+
 == 注入
 
 === field

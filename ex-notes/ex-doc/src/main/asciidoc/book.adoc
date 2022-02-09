@@ -1,16 +1,44 @@
-== book
+= 知识笔记
 
 :doctype: book
-:toclevels: 3
+:toclevels: 4
+:sectnums: 2
+:sectnumlevels: 4
 :toc: left
-:assets-dir: ./assets
+:attachmentsdir: ./assets
 
 [[book]]
 
-reference.
-
 :numbered:
 
+== linux
 
-include::linux/linux.adoc[]
+=== command
+include::linux/command/curl.adoc[]
+include::linux/command/du.adoc[]
+include::linux/command/find.adoc[]
+include::linux/command/grep.adoc[]
+include::linux/command/set.adoc[]
+include::linux/command/tar.adoc[]
+include::linux/command/tar-advanced.adoc[]
+include::linux/command/vmstat.adoc[]
+include::linux/command/wget.adoc[]
+include::linux/command/xargs.adoc[]
 
+include::linux/file-sys.adoc[]
+include::linux/mac-advance-keymap.adoc[]
+include::linux/user-group.adoc[]
+
+=== shell
+include::linux/shell/shell-operator.adoc[]
+include::linux/shell/shell-param-transit.adoc[]
+
+== maven
+
+=== plugins
+
+include::maven/plugins.adoc[]
+
+== syntax
+
+include::syntax/asciidoctor.adoc

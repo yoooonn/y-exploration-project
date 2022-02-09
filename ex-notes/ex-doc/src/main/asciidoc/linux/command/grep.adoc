@@ -1,22 +1,18 @@
-:sectnums: 2
-:sectnumlevels: 3
-:doctype: article
-:toclevels: 3
-:toc:
+==== grep
 
-=== used
+===== used
 
-==== grep -n 'text' a.file
+====== grep -n 'text' a.file
 
-==== grep -n '2019-10-24 00:01:11' *.log
+====== grep -n '2019-10-24 00:01:11' *.log
 
-==== grep -i -C 'text' b.file
+====== grep -i -C 'text' b.file
 
-==== grep -i -A 'error' c.file
+====== grep -i -A 'error' c.file
 
-==== find / -type f -name "*.log" | xargs grep "ERROR"
+====== find / -type f -name "*.log" | xargs grep "ERROR"
 
-=== grep
+===== grep
 
 [source,text,indent=0]
 ----
@@ -27,7 +23,7 @@ grep [OPTION]... PATTERN [FILE]...
 grep [-abcEFGhHilLnqrsvVwxy] [-A<显示列数>] [-B<显示列数>] [-C<显示列数>] [-d<进行动作>] [-e<范本样式>] [-f<范本文件>] [--help] [范本样式] [文件或目录...]
 ----
 
-==== 无参的option
+====== 无参的option
 
 -b::
 --byte-offset
@@ -91,7 +87,7 @@ grep [-abcEFGhHilLnqrsvVwxy] [-A<显示列数>] [-B<显示列数>] [-C<显示列
 
 打印不包含匹配文本的行.
 
-==== 有参的option
+====== 有参的option
 
 -A NUMBER::
 --after-context=NUMBER
@@ -204,4 +200,4 @@ General help using GNU software: <http://www.gnu.org/gethelp/>
 ----
 
 .graph
-image::../assets/linux_cli_grep.png[linux cli grep]
+image::{attachmentsdir}/linux_cli_grep.png[linux cli grep]

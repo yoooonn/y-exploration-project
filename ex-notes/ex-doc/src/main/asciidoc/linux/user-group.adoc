@@ -1,8 +1,8 @@
-#### 用户和用户组
+=== 用户和用户组
 
 > /etc/passwd, /etc/shadow, /etc/group 三个洗头膏文件包含用户及用户组的配置
 
-##### useradd *option username*
+==== useradd *option username*
 
 > useradd -d /home/ycourlee -m sam -g main -G root
 
@@ -23,19 +23,19 @@ option 有:
 - -s Shell文件 指定用户的登录Shell
 - -u 用户号 指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号
 
-##### userdel *option username*
+==== userdel *option username*
 
 > userdel -r ycourlee
 
 - -r 表示一同删除用户home目录
 
-##### usermod *option username*
+==== usermod *option username*
 
 > usermod -d /home/y -m ycourlee
 
 option 同 useradd 的, 意义也相同, 有些系统还有 -l newUsername
 
-##### passwd *option username*
+==== passwd *option username*
 
 > passwd
 
@@ -52,26 +52,20 @@ option:
 
 为用户指定空口令时，执行下列形式的命令：
 
-```bash
-# passwd -d sam
-```
+[source,bash,indent=0]
+----
+$ passwd -d sam
+----
 
 此命令将用户 sam 的口令删除，这样用户 sam 下一次登录时，系统就不再允许该用户登录了。
 
 passwd 命令还可以用 -l(lock) 选项锁定某一用户，使其不能登录，例如：
 
-```bash
-# passwd -l sam
-```
-
-------
+[source,bash,indent=0]
+----
+$ passwd -l sam
+----
 
 - [ ] group about
 
-
-
-
-
-------
-
-上文摘录总结于 [:link:](https://www.runoob.com/linux/linux-user-manage.html)
+上文from https://www.runoob.com/linux/linux-user-manage.html[Linux用户管理]

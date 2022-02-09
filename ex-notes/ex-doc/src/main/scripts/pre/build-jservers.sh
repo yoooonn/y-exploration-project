@@ -12,10 +12,8 @@ set -eu
 
 writeServerScript() {
 
-  if [ -e "templates" ]
-  then
-    if [ -d "templates" ]
-    then
+  if [ -e "templates" ]; then
+    if [ -d "templates" ]; then
       cd templates
     fi
   else
@@ -23,8 +21,7 @@ writeServerScript() {
     exit 1
   fi
 
-  if [ -e "jserver" ]
-  then
+  if [ -e "jserver" ]; then
     mkdir -p ../stages/"$1"
     cp jserver ../stages/"$1"/jserver
   else
@@ -39,20 +36,17 @@ writeServerScript() {
 
   mv jserver "$1$2"
 
-  chmod u+x "$1$2"
+  chmod 775 "$1$2"
 
   printf "\n"
   echo "Generate stages about $1 $2, you can do next command to use:"
 
-  printf "sudo mkdir -p /usr/local/Manual/scripts && \\
-  cp -n stages/%s/%s /usr/local/Manual/scripts/%s && \\
-  ln -s /usr/local/Manual/scripts/%s /usr/local/bin/%s" "$1" "$1$2" "$1$2" "$1$2" "$1$2"
+  printf "sudo mkdir -p /usr/local/Manual/scripts && sudo cp -n $(pwd)/%s /usr/local/Manual/scripts/%s && sudo chown $(whoami) /usr/local/Manual/scripts/%s && sudo ln -s ../Manual/scripts/%s /usr/local/bin/%s\n" "$1$2" "$1$2" "$1$2" "$1$2" "$1$2"
   exit 0
 }
 
-if [ "$#" -lt 4 ]
-then
-  echo "${GREEN}Usage:$RESET $0 ProjectName Env ContainerIp HostIp"
+if [ "$#" -lt 4 ]; then
+  echo "${GREEN}Usage:$RESET build-jservers ProjectName Env ContainerIp HostIp"
   exit 1
 fi
 
@@ -67,7 +61,7 @@ if [[ -n "${project}" && -n "${env}" && -n "${containerIp}" && -n "${hostIp}" ]]
   echo "yes/no (no)? "
   read -r input
   if [[ -n "${input}" && ("y" == "${input}" || "yes" == "${input}") ]]; then
-    writeServerScript  "${project}" "${env}" "${containerIp}" "${hostIp}"
+    writeServerScript "${project}" "${env}" "${containerIp}" "${hostIp}"
   else
     echo "Bye..."
   fi

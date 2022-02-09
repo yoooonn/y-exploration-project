@@ -1,6 +1,6 @@
 package com.ycourlee.explore.bootprocess.filter;
 
-import com.ycourlee.explore.bootprocess.infrastructure.BodySerialHttpServletRequestWrapper;
+import com.ycourlee.explore.bootprocess.wrapper.BodySerialHttpServletRequestWrapper;
 import org.springframework.boot.web.servlet.filter.OrderedFilter;
 import org.springframework.lang.NonNull;
 import org.springframework.web.filter.OncePerRequestFilter;

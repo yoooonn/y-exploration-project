@@ -1,8 +1,4 @@
-:toc:
-:toclevels: 3
-:sectnums:
-:sectnumlevels: 3
-
+=== mac commands
 
 ==== open
 
@@ -19,3 +15,14 @@
 ==== diskutil
 
 ==== brew
+
+[source,text,indent=0]
+----
+-- 检查更新：brew outdated
+-- 搜索：brew search TEXT
+-- 查看：brew info FORMULA
+-- 安装：brew install FORMULA
+-- 一键升级：brew upgrade
+-- 卸载旧版本：brew cleanup
+-- 查看已安装的依赖：brew list
+----

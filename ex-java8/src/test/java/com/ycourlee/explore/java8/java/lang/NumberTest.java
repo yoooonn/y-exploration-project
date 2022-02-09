@@ -11,5 +11,6 @@ public class NumberTest {
     @Test
     public void doubleIntegerTest() {
         boolean a = 0D == 0;
+        System.out.println("a = " + a);
     }
 }

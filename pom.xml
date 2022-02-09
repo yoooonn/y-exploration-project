@@ -107,6 +107,13 @@
         <scope>import</scope>
       </dependency>
       <dependency>
+        <groupId>com.ycourlee.tranquil</groupId>
+        <artifactId>tranquil-dependencies</artifactId>
+        <version>lv</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
         <groupId>com.ycourlee.explore.base</groupId>
         <artifactId>base</artifactId>
         <version>${base.version}</version>

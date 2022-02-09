@@ -7,7 +7,6 @@ import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.afterturn.easypoi.excel.entity.result.ExcelImportResult;
 import org.apache.poi.ss.usermodel.Workbook;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collection;
@@ -18,6 +17,7 @@ import java.util.List;
  * @date 2021.11.12
  */
 public class ExcelGateway {
+
 
     public static <T> List<T> importExcel(InputStream inputStream, Class<? extends ExcelRowModel> annotatedClass, ImportParams importParams) throws Exception {
         return ExcelImportUtil.importExcel(inputStream, annotatedClass, importParams);

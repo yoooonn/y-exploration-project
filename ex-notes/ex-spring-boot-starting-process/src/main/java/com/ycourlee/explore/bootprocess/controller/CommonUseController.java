@@ -1,5 +1,7 @@
 package com.ycourlee.explore.bootprocess.controller;
 
+import com.ycourlee.explore.bootprocess.context.ApplicationContext;
+import com.ycourlee.explore.bootprocess.event.SimpleTransactionalEvent;
 import com.ycourlee.explore.bootprocess.service.GenericService;
 import com.ycourlee.root.core.domain.context.Rtm;
 import lombok.SneakyThrows;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -35,7 +39,13 @@ public class CommonUseController {
     @PostMapping("/ping/{message}")
     public Rtm ping(@PathVariable(required = false) String message, HttpServletRequest request, HttpServletResponse response) {
         log.info("StreamUtils.copyToByteArray(request.getInputStream()): {}", new String(StreamUtils.copyToByteArray(request.getInputStream())));
-        return genericService.ping(message);
+
+        Rtm ping = genericService.ping(message);
+
+        ApplicationContext.publishEvent(new SimpleTransactionalEvent("receive an request, uri: /ping/{message}"));
+
+        ping.pin("big_decimal_0_scale", new BigDecimal("14241234.1215251").setScale(2, RoundingMode.HALF_UP));
+        return ping;
     }
 
     @PostMapping("/base64/encode/{plaintext}")

@@ -1,11 +1,8 @@
 package com.ycourlee.explore.basic.dao.model;
 
+import lombok.*;
+
 import java.util.Date;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 /**
  * @author yongjiang
@@ -16,6 +13,7 @@ import lombok.ToString;
  */
 @Getter
 @Setter
+@Builder
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor

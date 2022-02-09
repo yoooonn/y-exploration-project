@@ -1,18 +1,12 @@
-:sectnums: 2
-:sectnumlevels: 3
-:doctype: article
-:toclevels: 3
-:toc:
-
-== tar
+==== tar advance
 
 最常用的打包命令是 tar，使用 tar 程序打出来的包我们常称为 tar 包，tar 包文件的命令通常都是以 .tar 结尾的。生成 tar 包后，就可以用其它的程序来进行压缩了，所以首先就来讲讲 tar 命令的基本用法。
 
 tar 命令的选项有很多(用 man tar 可以查看到)，但常用的就那么几个选项，下面来举例说明一下：
 
-=== 1. 基础
+===== 1. 基础
 
-==== 1) 将所有 .jpg 的文件打成一个名为 all.tar 的包。
+====== 1) 将所有 .jpg 的文件打成一个名为 all.tar 的包。
 
 > -c 是表示产生新的包，-f 指定包的文件名。
 
@@ -21,28 +15,28 @@ tar 命令的选项有很多(用 man tar 可以查看到)，但常用的就那�
 tar -cf all.tar *.jpg
 ----
 
-==== 2) 将所有 .gif 的文件增加到 all.tar 的包里面去，-r 是表示增加文件的意思。
+====== 2) 将所有 .gif 的文件增加到 all.tar 的包里面去，-r 是表示增加文件的意思。
 
 [source]
 ----
 tar -rf all.tar *.gif
 ----
 
-==== 3) 更新原来 tar 包 all.tar 中 logo.gif 文件，-u 是表示更新文件的意思。
+====== 3) 更新原来 tar 包 all.tar 中 logo.gif 文件，-u 是表示更新文件的意思。
 
 [source]
 ----
 tar -uf all.tar logo.gif
 ----
 
-==== 4) 列出 all.tar 包中所有文件，-t 是列出文件的意思。
+====== 4) 列出 all.tar 包中所有文件，-t 是列出文件的意思。
 
 [source]
 ----
 tar -tf all.tar
 ----
 
-==== 5) 解出 all.tar 包中所有文件，-x 是解开的意思。
+====== 5) 解出 all.tar 包中所有文件，-x 是解开的意思。
 
 [source]
 ----
@@ -51,11 +45,11 @@ tar -xf all.tar
 
 以上就是 tar 的最基本的用法。为了方便用户在打包解包的同时可以压缩或解压文件，tar 提供了一种特殊的功能。这就是 tar 可以在打包或解包的同时调用其它的压缩程序，比如调用 gzip、bzip2 等。
 
-=== 2. tar调用
+===== 2. tar调用
 
 gzip 是 GNU 组织开发的一个压缩程序，.gz 结尾的文件就是 gzip 压缩的结果。与 gzip 相对的解压程序是 gunzip。tar 中使用 -z 这个参数来调用gzip。下面来举例说明一下：
 
-==== 将所有 .jpg 的文件打成一个 tar 包，并且将其用 gzip 压缩
+====== 将所有 .jpg 的文件打成一个 tar 包，并且将其用 gzip 压缩
 
 ____
 生成一个 gzip 压缩过的包，包名为 all.tar.gz。
@@ -67,20 +61,20 @@ ____
 tar -czf all.tar.gz *.jpg
 ----
 
-==== 将上面产生的包解开。
+====== 将上面产生的包解开。
 
 [source]
 ----
 tar -xzf all.tar.gz
 ----
 
-=== 3. tar 调用 bzip2
+===== 3. tar 调用 bzip2
 
 bzip2 是一个压缩能力更强的压缩程序，.bz2 结尾的文件就是 bzip2 压缩的结果。
 
 与 bzip2 相对的解压程序是 bunzip2。tar 中使用 -j 这个参数来调用 gzip。下面来举例说明一下：
 
-==== 将所有 .jpg 的文件打成一个 tar 包，并且将其用 bzip2 压缩
+====== 将所有 .jpg 的文件打成一个 tar 包，并且将其用 bzip2 压缩
 
 ____
 生成一个 bzip2 压缩过的包，包名为 all.tar.bz2
@@ -91,18 +85,18 @@ ____
 tar -cjf all.tar.bz2 *.jpg
 ----
 
-==== 将上面产生的包解开。
+====== 将上面产生的包解开。
 
 [source]
 ----
 tar -xjf all.tar.bz2
 ----
 
-=== 4. tar 调用 compress
+===== 4. tar 调用 compress
 
 compress 也是一个压缩程序，但是好象使用 compress 的人不如 gzip 和 bzip2 的人多。.Z 结尾的文件就是 bzip2 压缩的结果。与 compress 相对的解压程序是 uncompress。tar 中使用 -Z 这个参数来调用 compress。下面来举例说明一下：
 
-==== 将所有 .jpg 的文件打成一个 tar 包，并且将其用 compress 压缩
+====== 将所有 .jpg 的文件打成一个 tar 包，并且将其用 compress 压缩
 
 > 生成一个 uncompress 压缩过的包，包名为 all.tar.Z。
 
@@ -111,25 +105,25 @@ compress 也是一个压缩程序，但是好象使用 compress 的人不如 gzi
 tar -cZf all.tar.Z *.jpg
 ----
 
-==== 将上面产生的包解开。
+====== 将上面产生的包解开。
 
 [source]
 ----
 tar -xZf all.tar.Z
 ----
 
-=== 5. 总结
+===== 5. 总结
 
 有了上面的知识，你应该可以解开多种压缩文件了，下面对于 tar 系列的压缩文件作一个小结：
 
-==== 1) 对于.tar结尾的文件
+====== 1) 对于.tar结尾的文件
 
 [source]
 ----
 tar -xf all.tar
 ----
 
-==== 2) 对于 .gz 结尾的文件
+====== 2) 对于 .gz 结尾的文件
 
 [source]
 ----
@@ -137,7 +131,7 @@ gzip -d all.gz
 gunzip all.gz
 ----
 
-==== 3) 对于 .tgz 或 .tar.gz 结尾的文件
+====== 3) 对于 .tgz 或 .tar.gz 结尾的文件
 
 [source]
 ----
@@ -145,7 +139,7 @@ tar -xzf all.tar.gz
 tar -xzf all.tgz
 ----
 
-==== 4) 对于 .bz2 结尾的文件
+====== 4) 对于 .bz2 结尾的文件
 
 [source]
 ----
@@ -153,50 +147,50 @@ bzip2 -d all.bz2
 bunzip2 all.bz2
 ----
 
-==== 5) 对于 tar.bz2 结尾的文件
+====== 5) 对于 tar.bz2 结尾的文件
 
 [source]
 ----
 tar -xjf all.tar.bz2
 ----
 
-==== 6) 对于 .Z 结尾的文件
+====== 6) 对于 .Z 结尾的文件
 
 [source]
 ----
 uncompress all.Z
 ----
 
-==== 7) 对于 .tar.Z 结尾的文件
+====== 7) 对于 .tar.Z 结尾的文件
 
 [source]
 ----
 tar -xZf all.tar.z
 ----
 
-=== 6. .zip 和 .rar
+===== 6. .zip 和 .rar
 
 另外对于 Windows 下的常见压缩文件 .zip 和 .rar，Linux 也有相应的方法来解压它们：
 
-==== 1) 对于 .zip
+====== 1) 对于 .zip
 
 linux 下提供了 zip 和 unzip 程序，zip 是压缩程序，unzip 是解压程序。它们的参数选项很多，这里只做简单介绍，依旧举例说明一下其用法：
 
-====#将所有 .jpg 的文件压缩成一个 zip 包
+===== 将所有 .jpg 的文件压缩成一个 zip 包
 
 [source]
 ----
 zip all.zip *.jpg
 ----
 
-====#将 all.zip 中的所有文件解压出来。
+===== 将 all.zip 中的所有文件解压出来。
 
 [source]
 ----
 unzip all.zip
 ----
 
-==== 2) 对于 .rar
+====== 2) 对于 .rar
 
 要在 linux 下处理 .rar 文件，需要安装 RAR for Linux。下载地址：http://www.rarsoft.com/download.htm，下载后安装即可。
 
@@ -209,7 +203,7 @@ make
 
 这样就安装好了，安装后就有了 rar 和 unrar 这两个程序，rar 是压缩程序，unrar 是解压程序。它们的参数选项很多，这里只做简单介绍，依旧举例说明一下其用法
 
-==== 将所有 .jpg 的文件压缩成一个 rar 包，名为 all.rar
+====== 将所有 .jpg 的文件压缩成一个 rar 包，名为 all.rar
 
 > 该程序会将 .rar 扩展名将自动附加到包名后。
 
@@ -218,14 +212,14 @@ make
 rar a all *.jpg
 ----
 
-====#将 all.rar 中的所有文件解压出来：
+===== 将 all.rar 中的所有文件解压出来：
 
 [source]
 ----
 unrar e all.rar
 ----
 
-== 扩展内容
+==== 扩展内容
 
 tar
 

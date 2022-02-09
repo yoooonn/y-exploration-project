@@ -16,6 +16,7 @@
   <properties>
     <mybatis.version>3.5.3</mybatis.version>
     <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
+    <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
   </properties>
 
   <dependencies>
@@ -30,5 +31,23 @@
       <version>${mysql-connector-java.version}</version>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>${maven-source-plugin.version}</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

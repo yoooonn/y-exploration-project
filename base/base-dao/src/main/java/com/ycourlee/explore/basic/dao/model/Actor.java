@@ -1,11 +1,8 @@
 package com.ycourlee.explore.basic.dao.model;
 
+import lombok.*;
+
 import java.util.Date;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 /**
  * @author yongjiang
@@ -14,11 +11,12 @@ import lombok.ToString;
 /**
  * 演员表
  */
-@Getter
 @Setter
+@Getter
+@Builder
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Actor {
     private Long id;
 

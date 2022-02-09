@@ -1,0 +1,20 @@
+=== asciidoctor
+
+==== 锚点
+
+[source,text,indent=0]
+----
+// 声明锚点DESCRIPTOR
+[#DESCRIPTOR]
+
+// 引用DESCRIPTOR锚点
+<<DESCRIPTOR, PLAIN>>
+----
+
+==== 表格格式
+
+[source,text,indent=0]
+----
+// 放至表头
+[cols="2,3,5",indent=4]
+----

@@ -21,9 +21,10 @@ public class BodyGlanceForDebugInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-
-        log.info("true: {}", true);
-
+        log.debug("Body glance interceptor entered");
+        RequestContext.builder()
+                .uri(request.getRequestURL().toString())
+                .build();
         return super.preHandle(request, response, handler);
     }
 
@@ -35,5 +36,6 @@ public class BodyGlanceForDebugInterceptor extends HandlerInterceptorAdapter {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) throws Exception {
         super.afterCompletion(request, response, handler, ex);
+        RequestContext.clean();
     }
 }

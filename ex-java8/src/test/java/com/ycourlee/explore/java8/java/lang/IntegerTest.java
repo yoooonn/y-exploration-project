@@ -17,6 +17,11 @@ public class IntegerTest {
     private static final Logger log = LoggerFactory.getLogger(IntegerTest.class);
 
     @Test
+    public void main2Test() {
+        System.out.println("48,60,64,79,83,104,119,127,132,133,143,145,155,166,193,199,209,214,217,225,227,229,269,279,284,293,306,324,326,329,340,360,362,372,376,384,398,404,415,428,457,459,468,473,476,496,499,501,509,515,533,535,539,545,554,560,564,571,574,581,602,605,610,613,625,687,743,745,752,767,772,773,786,803,805,813,827,857,863,887".split(",").length);
+    }
+
+    @Test
     public void draftTest() {
         List<String> strings = Arrays.asList("23",
                 "06",
