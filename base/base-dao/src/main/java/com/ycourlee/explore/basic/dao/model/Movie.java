@@ -49,6 +49,7 @@ public class Movie {
     /**
      * 描述
      */
+    @Builder.Default
     private String memo = "";
 
     /**
