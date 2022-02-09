@@ -4,25 +4,25 @@
   <resultMap id="BaseResultMap" type="com.ycourlee.explore.basic.dao.model.Country">
     <!--@mbg.generated-->
     <!--@Table country-->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="code" jdbcType="VARCHAR" property="code" />
-    <result column="language" jdbcType="VARCHAR" property="language" />
-    <result column="capital" jdbcType="VARCHAR" property="capital" />
-    <result column="universal_region" jdbcType="VARCHAR" property="universalRegion" />
-    <result column="memo" jdbcType="VARCHAR" property="memo" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="was_delete" jdbcType="BOOLEAN" property="wasDelete" />
+    <id column="id" jdbcType="INTEGER" property="id"/>
+    <result column="code" jdbcType="VARCHAR" property="code"/>
+    <result column="language" jdbcType="VARCHAR" property="language"/>
+    <result column="capital" jdbcType="VARCHAR" property="capital"/>
+    <result column="universal_region" jdbcType="VARCHAR" property="universalRegion"/>
+    <result column="memo" jdbcType="VARCHAR" property="memo"/>
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    <result column="was_delete" jdbcType="BOOLEAN" property="wasDelete"/>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, code, `language`, capital, universal_region, memo, create_time, update_time, 
+    id, code, `language`, capital, universal_region, memo, create_time, update_time,
     was_delete
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
+    select
+    <include refid="Base_Column_List"/>
     from country
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -33,12 +33,12 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.Country" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into country (code, `language`, capital, 
-      universal_region, memo, create_time, 
-      update_time, was_delete)
-    values (#{code,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{capital,jdbcType=VARCHAR}, 
-      #{universalRegion,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=BOOLEAN})
+    insert into country (code, `language`, capital,
+    universal_region, memo, create_time,
+    update_time, was_delete)
+    values (#{code,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{capital,jdbcType=VARCHAR},
+    #{universalRegion,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+    #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=BOOLEAN})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.Country" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -131,13 +131,13 @@
     <!--@mbg.generated-->
     update country
     set code = #{code,jdbcType=VARCHAR},
-      `language` = #{language,jdbcType=VARCHAR},
-      capital = #{capital,jdbcType=VARCHAR},
-      universal_region = #{universalRegion,jdbcType=VARCHAR},
-      memo = #{memo,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      was_delete = #{wasDelete,jdbcType=BOOLEAN}
+    `language` = #{language,jdbcType=VARCHAR},
+    capital = #{capital,jdbcType=VARCHAR},
+    universal_region = #{universalRegion,jdbcType=VARCHAR},
+    memo = #{memo,jdbcType=VARCHAR},
+    create_time = #{createTime,jdbcType=TIMESTAMP},
+    update_time = #{updateTime,jdbcType=TIMESTAMP},
+    was_delete = #{wasDelete,jdbcType=BOOLEAN}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

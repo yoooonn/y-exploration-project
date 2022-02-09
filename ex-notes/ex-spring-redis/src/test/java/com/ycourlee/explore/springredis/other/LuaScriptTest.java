@@ -18,7 +18,7 @@ public class LuaScriptTest extends SpringTestEnv {
 
     @Test
     void mainTest() {
-        String result = ;
+        String result = "";
         log.info("result: {}", result);
     }
 }

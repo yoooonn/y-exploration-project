@@ -6,6 +6,7 @@ import com.ycourlee.explore.basic.dao.model.Country;
  * @author yongjiang
  */
 public interface CountryMapper {
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Country record);

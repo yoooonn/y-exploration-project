@@ -35,11 +35,11 @@
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.Actor" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into actor (code, `name`, age,
-                       gender, birthday, memo,
-                       create_time, update_time, was_delete)
+    gender, birthday, memo,
+    create_time, update_time, was_delete)
     values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
-            #{gender,jdbcType=TINYINT}, #{birthday,jdbcType=DATE}, #{memo,jdbcType=VARCHAR},
-            #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=BOOLEAN})
+    #{gender,jdbcType=TINYINT}, #{birthday,jdbcType=DATE}, #{memo,jdbcType=VARCHAR},
+    #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=BOOLEAN})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.Actor" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -140,18 +140,23 @@
   <update id="updateByPrimaryKey" parameterType="com.ycourlee.explore.basic.dao.model.Actor">
     <!--@mbg.generated-->
     update actor
-    set code        = #{code,jdbcType=VARCHAR},
-        `name`      = #{name,jdbcType=VARCHAR},
-        age         = #{age,jdbcType=INTEGER},
-        gender      = #{gender,jdbcType=TINYINT},
-        birthday    = #{birthday,jdbcType=DATE},
-        memo        = #{memo,jdbcType=VARCHAR},
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-        was_delete  = #{wasDelete,jdbcType=BOOLEAN}
+    set code = #{code,jdbcType=VARCHAR},
+    `name` = #{name,jdbcType=VARCHAR},
+    age = #{age,jdbcType=INTEGER},
+    gender = #{gender,jdbcType=TINYINT},
+    birthday = #{birthday,jdbcType=DATE},
+    memo = #{memo,jdbcType=VARCHAR},
+    create_time = #{createTime,jdbcType=TIMESTAMP},
+    update_time = #{updateTime,jdbcType=TIMESTAMP},
+    was_delete = #{wasDelete,jdbcType=BOOLEAN}
     where id = #{id,jdbcType=BIGINT}
   </update>
-
+  <select id="selectByPrimaryKeyNoDel" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from actor
+    where id = #{id,jdbcType=BIGINT} and was_delete = 0
+  </select>
   <select id="selectByGenderAndMinAgeOpt" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>

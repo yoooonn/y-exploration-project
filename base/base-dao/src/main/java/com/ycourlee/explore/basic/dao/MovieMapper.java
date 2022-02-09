@@ -6,6 +6,7 @@ import com.ycourlee.explore.basic.dao.model.Movie;
  * @author yongjiang
  */
 public interface MovieMapper {
+
     int deleteByPrimaryKey(Long id);
 
     int insert(Movie record);

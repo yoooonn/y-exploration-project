@@ -1,9 +1,12 @@
 package com.ycourlee.explore.bootprocess;
 
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
@@ -19,7 +22,7 @@ import org.springframework.test.web.servlet.MockMvc;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringTestEnv implements ApplicationContextAware, SpringApplicationRunListener, DisposableBean {
+public class SpringTestEnv implements ApplicationContextAware {
 
     protected MockMvc mvc;
 
@@ -38,15 +41,5 @@ public class SpringTestEnv implements ApplicationContextAware, SpringApplication
         } else {
             throw new ApplicationContextException("");
         }
-    }
-
-    @Override
-    public void started(ConfigurableApplicationContext context) {
-        BootProcessApplication.initDatabaseByScript(context);
-    }
-
-    @Override
-    public void destroy() throws Exception {
-        BootProcessApplication.initDatabaseByScript(applicationContext);
     }
 }

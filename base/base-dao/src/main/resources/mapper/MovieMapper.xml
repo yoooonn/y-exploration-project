@@ -4,28 +4,28 @@
   <resultMap id="BaseResultMap" type="com.ycourlee.explore.basic.dao.model.Movie">
     <!--@mbg.generated-->
     <!--@Table movie-->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="code" jdbcType="VARCHAR" property="code" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="alias" jdbcType="VARCHAR" property="alias" />
-    <result column="director" jdbcType="VARCHAR" property="director" />
-    <result column="type" jdbcType="VARCHAR" property="type" />
-    <result column="memo" jdbcType="LONGVARCHAR" property="memo" />
-    <result column="release_datetime" jdbcType="TIMESTAMP" property="releaseDatetime" />
-    <result column="post_date" jdbcType="DATE" property="postDate" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="was_delete" jdbcType="BOOLEAN" property="wasDelete" />
+    <id column="id" jdbcType="BIGINT" property="id"/>
+    <result column="code" jdbcType="VARCHAR" property="code"/>
+    <result column="name" jdbcType="VARCHAR" property="name"/>
+    <result column="alias" jdbcType="VARCHAR" property="alias"/>
+    <result column="director" jdbcType="VARCHAR" property="director"/>
+    <result column="type" jdbcType="VARCHAR" property="type"/>
+    <result column="memo" jdbcType="LONGVARCHAR" property="memo"/>
+    <result column="release_datetime" jdbcType="TIMESTAMP" property="releaseDatetime"/>
+    <result column="post_date" jdbcType="DATE" property="postDate"/>
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    <result column="was_delete" jdbcType="BOOLEAN" property="wasDelete"/>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, code, `name`, `alias`, director, `type`, memo, release_datetime, post_date, create_time, 
+    id, code, `name`, `alias`, director, `type`, memo, release_datetime, post_date, create_time,
     update_time, was_delete
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
+    select
+    <include refid="Base_Column_List"/>
     from movie
     where id = #{id,jdbcType=BIGINT}
   </select>
@@ -36,14 +36,14 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.Movie" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into movie (code, `name`, `alias`, 
-      director, `type`, memo, 
-      release_datetime, post_date, create_time, 
-      update_time, was_delete)
-    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{alias,jdbcType=VARCHAR}, 
-      #{director,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{memo,jdbcType=LONGVARCHAR}, 
-      #{releaseDatetime,jdbcType=TIMESTAMP}, #{postDate,jdbcType=DATE}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=BOOLEAN})
+    insert into movie (code, `name`, `alias`,
+    director, `type`, memo,
+    release_datetime, post_date, create_time,
+    update_time, was_delete)
+    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{alias,jdbcType=VARCHAR},
+    #{director,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{memo,jdbcType=LONGVARCHAR},
+    #{releaseDatetime,jdbcType=TIMESTAMP}, #{postDate,jdbcType=DATE}, #{createTime,jdbcType=TIMESTAMP},
+    #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=BOOLEAN})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.Movie" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -163,16 +163,16 @@
     <!--@mbg.generated-->
     update movie
     set code = #{code,jdbcType=VARCHAR},
-      `name` = #{name,jdbcType=VARCHAR},
-      `alias` = #{alias,jdbcType=VARCHAR},
-      director = #{director,jdbcType=VARCHAR},
-      `type` = #{type,jdbcType=VARCHAR},
-      memo = #{memo,jdbcType=LONGVARCHAR},
-      release_datetime = #{releaseDatetime,jdbcType=TIMESTAMP},
-      post_date = #{postDate,jdbcType=DATE},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      was_delete = #{wasDelete,jdbcType=BOOLEAN}
+    `name` = #{name,jdbcType=VARCHAR},
+    `alias` = #{alias,jdbcType=VARCHAR},
+    director = #{director,jdbcType=VARCHAR},
+    `type` = #{type,jdbcType=VARCHAR},
+    memo = #{memo,jdbcType=LONGVARCHAR},
+    release_datetime = #{releaseDatetime,jdbcType=TIMESTAMP},
+    post_date = #{postDate,jdbcType=DATE},
+    create_time = #{createTime,jdbcType=TIMESTAMP},
+    update_time = #{updateTime,jdbcType=TIMESTAMP},
+    was_delete = #{wasDelete,jdbcType=BOOLEAN}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -4,13 +4,13 @@
   <resultMap id="BaseResultMap" type="com.ycourlee.explore.basic.dao.model.ActorCountry">
     <!--@mbg.generated-->
     <!--@Table actor_country-->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="actor_id" jdbcType="BIGINT" property="actorId" />
-    <result column="country_id" jdbcType="INTEGER" property="countryId" />
-    <result column="memo" jdbcType="VARCHAR" property="memo" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="was_delete" jdbcType="TINYINT" property="wasDelete" />
+    <id column="id" jdbcType="BIGINT" property="id"/>
+    <result column="actor_id" jdbcType="BIGINT" property="actorId"/>
+    <result column="country_id" jdbcType="INTEGER" property="countryId"/>
+    <result column="memo" jdbcType="VARCHAR" property="memo"/>
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    <result column="was_delete" jdbcType="TINYINT" property="wasDelete"/>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
@@ -18,24 +18,23 @@
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
+    select
+    <include refid="Base_Column_List"/>
     from actor_country
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--@mbg.generated-->
-    delete from actor_country
+    delete
+    from actor_country
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.ActorCountry" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into actor_country (actor_id, country_id, memo, 
-      create_time, update_time, was_delete
-      )
-    values (#{actorId,jdbcType=BIGINT}, #{countryId,jdbcType=INTEGER}, #{memo,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=TINYINT}
-      )
+    insert into actor_country (actor_id, country_id, memo,
+    create_time, update_time, was_delete)
+    values (#{actorId,jdbcType=BIGINT}, #{countryId,jdbcType=INTEGER}, #{memo,jdbcType=VARCHAR},
+    #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.ActorCountry" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -110,17 +109,17 @@
     <!--@mbg.generated-->
     update actor_country
     set actor_id = #{actorId,jdbcType=BIGINT},
-      country_id = #{countryId,jdbcType=INTEGER},
-      memo = #{memo,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      was_delete = #{wasDelete,jdbcType=TINYINT}
+    country_id = #{countryId,jdbcType=INTEGER},
+    memo = #{memo,jdbcType=VARCHAR},
+    create_time = #{createTime,jdbcType=TIMESTAMP},
+    update_time = #{updateTime,jdbcType=TIMESTAMP},
+    was_delete = #{wasDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 
   <select id="selectByCountryId" resultMap="BaseResultMap">
     select
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List"/>
     from actor_country
     where country_id = #{countryId,jdbcType=BIGINT}
   </select>

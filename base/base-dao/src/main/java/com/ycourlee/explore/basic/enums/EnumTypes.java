@@ -10,11 +10,11 @@ public class EnumTypes {
         /**
          * 男性
          */
-        MALE((byte)1, "男"),
+        MALE((byte) 1, "男"),
         /**
          * 女性
          */
-        FEMALE((byte)2, "女"),
+        FEMALE((byte) 2, "女"),
         ;
 
         private final Byte   code;

@@ -18,6 +18,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Actor {
+
     private Long id;
 
     /**

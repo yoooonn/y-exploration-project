@@ -1,11 +1,15 @@
 package com.ycourlee.explore.basic.dao;
 
-import com.ycourlee.explore.basic.dao.model.ActorCountry;import org.apache.ibatis.annotations.Param;import java.util.List;
+import com.ycourlee.explore.basic.dao.model.ActorCountry;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author yongjiang
  */
 public interface ActorCountryMapper {
+
     int deleteByPrimaryKey(Long id);
 
     int insert(ActorCountry record);

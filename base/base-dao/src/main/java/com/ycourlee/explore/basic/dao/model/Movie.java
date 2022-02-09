@@ -1,8 +1,8 @@
 package com.ycourlee.explore.basic.dao.model;
 
-import java.util.Date;
-
 import lombok.*;
+
+import java.util.Date;
 
 /**
  * @author yongjiang
@@ -18,6 +18,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Movie {
+
     private Long id;
 
     /**

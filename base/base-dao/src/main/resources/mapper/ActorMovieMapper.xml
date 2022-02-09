@@ -4,13 +4,13 @@
   <resultMap id="BaseResultMap" type="com.ycourlee.explore.basic.dao.model.ActorMovie">
     <!--@mbg.generated-->
     <!--@Table actor_movie-->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="actor_id" jdbcType="BIGINT" property="actorId" />
-    <result column="movie_id" jdbcType="BIGINT" property="movieId" />
-    <result column="memo" jdbcType="VARCHAR" property="memo" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="was_delete" jdbcType="BOOLEAN" property="wasDelete" />
+    <id column="id" jdbcType="BIGINT" property="id"/>
+    <result column="actor_id" jdbcType="BIGINT" property="actorId"/>
+    <result column="movie_id" jdbcType="BIGINT" property="movieId"/>
+    <result column="memo" jdbcType="VARCHAR" property="memo"/>
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    <result column="was_delete" jdbcType="BOOLEAN" property="wasDelete"/>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
@@ -18,8 +18,8 @@
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
+    select
+    <include refid="Base_Column_List"/>
     from actor_movie
     where id = #{id,jdbcType=BIGINT}
   </select>
@@ -30,12 +30,12 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.ActorMovie" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into actor_movie (actor_id, movie_id, memo, 
-      create_time, update_time, was_delete
-      )
-    values (#{actorId,jdbcType=BIGINT}, #{movieId,jdbcType=BIGINT}, #{memo,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=BOOLEAN}
-      )
+    insert into actor_movie (actor_id, movie_id, memo,
+    create_time, update_time, was_delete
+    )
+    values (#{actorId,jdbcType=BIGINT}, #{movieId,jdbcType=BIGINT}, #{memo,jdbcType=VARCHAR},
+    #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=BOOLEAN}
+    )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.ActorMovie" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -110,11 +110,11 @@
     <!--@mbg.generated-->
     update actor_movie
     set actor_id = #{actorId,jdbcType=BIGINT},
-      movie_id = #{movieId,jdbcType=BIGINT},
-      memo = #{memo,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      was_delete = #{wasDelete,jdbcType=BOOLEAN}
+    movie_id = #{movieId,jdbcType=BIGINT},
+    memo = #{memo,jdbcType=VARCHAR},
+    create_time = #{createTime,jdbcType=TIMESTAMP},
+    update_time = #{updateTime,jdbcType=TIMESTAMP},
+    was_delete = #{wasDelete,jdbcType=BOOLEAN}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

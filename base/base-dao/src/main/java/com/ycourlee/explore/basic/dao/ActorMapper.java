@@ -1,11 +1,15 @@
 package com.ycourlee.explore.basic.dao;
 
-import com.ycourlee.explore.basic.dao.model.Actor;import org.apache.ibatis.annotations.Param;import java.util.List;
+import com.ycourlee.explore.basic.dao.model.Actor;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author yongjiang
  */
 public interface ActorMapper {
+
     int deleteByPrimaryKey(Long id);
 
     int insert(Actor record);
