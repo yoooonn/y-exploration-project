@@ -49,7 +49,7 @@ public class Movie {
     /**
      * 描述
      */
-    private String memo;
+    private String memo = "";
 
     /**
      * 上映时间

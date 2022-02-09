@@ -31,21 +31,24 @@ public class TransactionSynchronizationManagerTest extends SpringTestEnv {
 
     @Test
     public void mainTest() {
-        Long id = null;
+        Movie temp = new Movie();;
         try {
-            id = errorTran1();
+            errorTran1(temp);
         } catch (Exception e) {
+            e.printStackTrace();
         }
-        log.info("id: {}", id);
-        Movie movie = movieMapper.selectByPrimaryKey(id);
+        log.info("id: {}", temp.getId());
+        Movie movie = movieMapper.selectByPrimaryKey(temp.getId());
         assertNull(movie);
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public Long errorTran1() {
+    public Long errorTran1(Movie movieArg) {
         Movie movie = Movie.builder().name("a").build();
         movieMapper.insertSelective(movie);
-        actorMapper.insert(Actor.builder().name("hello").build());
+        actorMapper.insertSelective(Actor.builder().name("hello").build());
+        int i = 12 / 0;
+        movieArg.setId(movie.getId());
         return movie.getId();
     }
 }
