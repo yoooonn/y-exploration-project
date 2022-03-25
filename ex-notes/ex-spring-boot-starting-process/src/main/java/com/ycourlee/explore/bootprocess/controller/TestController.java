@@ -2,7 +2,9 @@ package com.ycourlee.explore.bootprocess.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.ycourlee.explore.bootprocess.inject.InjectView;
+import com.ycourlee.explore.bootprocess.context.ApplicationEventPublisherHolder;
+import com.ycourlee.explore.bootprocess.inject.InjectValuePortal;
+import com.ycourlee.explore.bootprocess.inject.ValueViewer;
 import com.ycourlee.explore.bootprocess.model.request.BaseRequest;
 import com.ycourlee.explore.bootprocess.service.TestService;
 import com.ycourlee.root.core.domain.context.Rtm;
@@ -16,14 +18,16 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/test")
-public class TestController {
+public class TestController extends ApplicationEventPublisherHolder {
 
     private static final Logger log = LoggerFactory.getLogger(TestController.class);
 
     @Autowired
-    private TestService testService;
+    private TestService       testService;
     @Autowired
-    private InjectView injectView;
+    private InjectValuePortal injectValuePortal;
+    @Autowired
+    private ValueViewer valueViewer;
 
     @PostMapping("/{title}")
     public Rtm testTitle(@PathVariable String title) {
@@ -31,9 +35,9 @@ public class TestController {
             throw new RuntimeException("not good title.");
         }
         return Rtm.success()
-                .pin("getInvokeBeanMethod", injectView.getInvokeBeanMethod())
-                .pin("getCatConfig", injectView.getCatConfig())
-                .pin("getCat", JSON.toJSON(injectView.getCat()))
+                .pin("getListConfig", injectValuePortal.getListConfig())
+                .pin("getCatConfig", injectValuePortal.getCatConfig())
+                .pin("getCat", JSON.toJSON(valueViewer.getCat()))
                 ;
     }
 
@@ -55,7 +59,6 @@ public class TestController {
 
     @PostMapping("/eventListener")
     public Rtm eventListener(@RequestBody JSONObject json) {
-        // ApplicationContext.publishEvent(new EnvironmentChangeEvent());
         return Rtm.success();
     }
 }

@@ -17,9 +17,9 @@ import java.util.EventListener;
  * @date 2022.01.22
  */
 @Component
-public class TransactionalListenerView implements EventListener {
+public class TransactionalViewListener {
 
-    private static final Logger log = LoggerFactory.getLogger(TransactionalListenerView.class);
+    private static final Logger log = LoggerFactory.getLogger(TransactionalViewListener.class);
 
     @Autowired
     private ActorMapper actorMapper;

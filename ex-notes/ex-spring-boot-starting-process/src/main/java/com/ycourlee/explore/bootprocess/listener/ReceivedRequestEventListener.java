@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class ReceivedRequestEventListener implements ApplicationListener<ReceivedRequestEvent> {
 
-
     @Override
     public void onApplicationEvent(ReceivedRequestEvent event) {
         if (event.getSource() instanceof HttpServletRequest) {

@@ -31,6 +31,8 @@
     <module>ex-zookeeper-springboot-dubbo-consumer</module>
     <module>ex-zookeeper-springboot-dubbo-provider</module>
     <module>ex-spring-boot-h2</module>
+    <module>ex-elastic-stack</module>
+    <module>ex-kotlin</module>
   </modules>
 
   <properties>

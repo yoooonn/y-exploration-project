@@ -1,5 +1,6 @@
 package com.ycourlee.explore.java8.java.lang;
 
+import com.ycourlee.explore.java8.mocks.Cat;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,16 @@ import java.util.stream.Collectors;
 public class IntegerTest {
 
     private static final Logger log = LoggerFactory.getLogger(IntegerTest.class);
+
+    @Test
+    public void main3Test() {
+        Cat cat = new Cat();
+        Integer age = cat.getAge();
+        log.info("age: {}", age);
+        age++;
+        log.info("age: {}", age);
+        log.info("cat.getAge(): {}", cat.getAge());
+    }
 
     @Test
     public void main2Test() {

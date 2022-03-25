@@ -13,9 +13,9 @@ import org.springframework.stereotype.Component;
  * @date 2021.11.30
  */
 @Component
-public class SampleListener implements ApplicationListener<SimpleEvent> {
+public class SimpleListener implements ApplicationListener<SimpleEvent> {
 
-    private static final Logger log = LoggerFactory.getLogger(SampleListener.class);
+    private static final Logger log = LoggerFactory.getLogger(SimpleListener.class);
 
     @Override
     public void onApplicationEvent(SimpleEvent event) {

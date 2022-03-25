@@ -14,6 +14,9 @@ import lombok.ToString;
 public class Wrapper<T> {
     private T wrapped;
 
+    public Wrapper() {
+    }
+
     private Wrapper(T wrapped) {
         this.wrapped = wrapped;
     }

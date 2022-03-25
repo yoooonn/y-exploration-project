@@ -30,7 +30,7 @@ public class SpringTestEnv extends UnitTestResource {
         assertTrue("pong".equalsIgnoreCase(pong));
     }
 
-    protected String executeScript(String script, List<String> keys, List<Object> args) {
+    protected String executeScript(String script, List<String> keys, Object... args) {
         return redisTemplate.execute(new DefaultRedisScript<>(script, String.class), keys, args);
     }
 }

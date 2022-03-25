@@ -1,6 +1,6 @@
 package com.ycourlee.explore.bootprocess.org.springframework.lang;
 
-import com.ycourlee.explore.bootprocess.SpringTestEnv;
+import com.ycourlee.explore.bootprocess.BootProcessApplicationTests;
 import com.ycourlee.explore.bootprocess.test.LangNullableExplore;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * @author yongjiang
  */
-public class LangNullableExploreTest extends SpringTestEnv {
+public class LangNullableExploreTest extends BootProcessApplicationTests {
 
     @Autowired
     private LangNullableExplore langNullableExplore;

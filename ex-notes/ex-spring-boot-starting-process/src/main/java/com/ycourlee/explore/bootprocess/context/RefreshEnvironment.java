@@ -1,8 +1,8 @@
 package com.ycourlee.explore.bootprocess.context;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.context.environment.EnvironmentChangeEvent;
-import org.springframework.cloud.context.scope.refresh.RefreshScope;
+// import org.springframework.cloud.context.environment.EnvironmentChangeEvent;
+// import org.springframework.cloud.context.scope.refresh.RefreshScope;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
@@ -13,11 +13,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class RefreshEnvironment {
 
-    @Autowired
-    private RefreshScope refreshScope;
+    // @Autowired
+    // private RefreshScope refreshScope;
 
-    @EventListener
-    public void f(EnvironmentChangeEvent event) {
-        refreshScope.refreshAll();
-    }
+    // @EventListener
+    // public void f(EnvironmentChangeEvent event) {
+    //     refreshScope.refreshAll();
+    // }
 }

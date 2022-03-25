@@ -1,6 +1,6 @@
 package com.ycourlee.explore.bootprocess.controller;
 
-import com.ycourlee.explore.bootprocess.context.ApplicationContext;
+import com.ycourlee.explore.bootprocess.context.ApplicationEventPublisherHolder;
 import com.ycourlee.explore.bootprocess.event.SimpleTransactionalEvent;
 import com.ycourlee.explore.bootprocess.service.GenericService;
 import com.ycourlee.root.core.domain.context.Rtm;
@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +29,7 @@ import java.nio.charset.StandardCharsets;
  */
 @RestController
 @RequestMapping("/common")
-public class CommonUseController {
+public class CommonUseController extends ApplicationEventPublisherHolder {
 
     private static final Logger log = LoggerFactory.getLogger(CommonUseController.class);
 
@@ -42,15 +43,15 @@ public class CommonUseController {
 
         Rtm ping = genericService.ping(message);
 
-        ApplicationContext.publishEvent(new SimpleTransactionalEvent("receive an request, uri: /ping/{message}"));
-
-        ping.pin("big_decimal_0_scale", new BigDecimal("14241234.1215251").setScale(2, RoundingMode.HALF_UP));
+        publisher.publishEvent(new SimpleTransactionalEvent("receive an request, uri: /ping/{message}"));
         return ping;
     }
 
+    @SneakyThrows
     @PostMapping("/base64/encode/{plaintext}")
     public Rtm base64Encode(@NonNull @PathVariable String plaintext,
                             HttpServletRequest request, HttpServletResponse response) {
+        Thread.sleep(1000);
         return Rtm.success(Base64.encodeBase64URLSafe(plaintext.getBytes(StandardCharsets.UTF_8)));
     }
 

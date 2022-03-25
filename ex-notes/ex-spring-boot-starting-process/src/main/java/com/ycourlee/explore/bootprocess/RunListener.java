@@ -1,6 +1,5 @@
 package com.ycourlee.explore.bootprocess;
 
-import com.ycourlee.explore.bootprocess.context.ApplicationContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
@@ -8,8 +7,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
-
-import java.util.Objects;
 
 /**
  * @author yongjiang

@@ -2,6 +2,7 @@ package com.ycourlee.explore.bootprocess;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.ycourlee.explore.bootprocess.context.ApplicationContext;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.util.Assert;
 
 import java.time.LocalDateTime;
@@ -21,6 +23,7 @@ import java.util.Map;
 /**
  * @author jiangyong
  */
+@EnableAsync
 @MapperScan("com.ycourlee.explore.basic.dao")
 @SpringBootApplication
 public class BootProcessApplication {
@@ -29,6 +32,7 @@ public class BootProcessApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(BootProcessApplication.class, args);
+        InfoExposer.beans(applicationContext);
         log.info("SpringApplication run method executed");
     }
 

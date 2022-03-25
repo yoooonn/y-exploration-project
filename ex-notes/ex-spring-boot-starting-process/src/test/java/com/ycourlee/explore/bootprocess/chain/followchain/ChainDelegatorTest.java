@@ -1,6 +1,6 @@
 package com.ycourlee.explore.bootprocess.chain.followchain;
 
-import com.ycourlee.explore.bootprocess.SpringTestEnv;
+import com.ycourlee.explore.bootprocess.BootProcessApplicationTests;
 import com.ycourlee.root.core.domain.context.Rtm;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author yongjiang
  * @date 2021.11.30
  */
-public class ChainDelegatorTest extends SpringTestEnv {
+public class ChainDelegatorTest extends BootProcessApplicationTests {
 
     private static final Logger log = LoggerFactory.getLogger(ChainDelegatorTest.class);
 

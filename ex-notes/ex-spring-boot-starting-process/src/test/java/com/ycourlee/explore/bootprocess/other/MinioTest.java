@@ -1,6 +1,6 @@
 package com.ycourlee.explore.bootprocess.other;
 
-import com.ycourlee.explore.bootprocess.SpringTestEnv;
+import com.ycourlee.explore.bootprocess.BootProcessApplicationTests;
 import com.ycourlee.root.storage.FileOperation;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 /**
  * @author yongjiang
  */
-public class MinioTest extends SpringTestEnv {
+public class MinioTest extends BootProcessApplicationTests {
 
     @Autowired
     private FileOperation fileOperation;

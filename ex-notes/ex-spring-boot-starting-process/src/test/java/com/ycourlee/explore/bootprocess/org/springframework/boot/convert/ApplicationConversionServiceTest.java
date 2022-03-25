@@ -1,6 +1,6 @@
 package com.ycourlee.explore.bootprocess.org.springframework.boot.convert;
 
-import com.ycourlee.explore.bootprocess.SpringTestEnv;
+import com.ycourlee.explore.bootprocess.BootProcessApplicationTests;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +15,7 @@ import java.util.Date;
  * @author yongjiang
  * @date 2022.01.06
  */
-public class ApplicationConversionServiceTest extends SpringTestEnv {
+public class ApplicationConversionServiceTest extends BootProcessApplicationTests {
 
     private static final Logger log = LoggerFactory.getLogger(ApplicationConversionServiceTest.class);
 

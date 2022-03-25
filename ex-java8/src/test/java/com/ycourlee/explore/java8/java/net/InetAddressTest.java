@@ -24,9 +24,9 @@ public class InetAddressTest {
         String hostName = localHost.getHostName();
         NetworkInterface byInetAddress = NetworkInterface.getByInetAddress(localHost);
         byte[] hardwareAddress = byInetAddress.getHardwareAddress();
+        byte[] address = localHost.getAddress();
         log.info("Arrays.toString(hardwareAddress): {}", Arrays.toString(hardwareAddress));
-
-        log.info("Arrays.toString(localHost.getAddress()): {}", Arrays.toString(localHost.getAddress()));
+        log.info("Arrays.toString(address): {}", Arrays.toString(address));
         log.info("hostAddress: {}", hostAddress);
         log.info("canonicalHostName: {}", canonicalHostName);
         log.info("hostName: {}", hostName);

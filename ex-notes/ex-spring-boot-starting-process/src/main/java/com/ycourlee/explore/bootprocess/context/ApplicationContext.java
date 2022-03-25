@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEvent;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 /**
@@ -23,12 +24,8 @@ public class ApplicationContext implements ApplicationContextAware {
     }
 
     @Override
-    public void setApplicationContext(org.springframework.context.ApplicationContext applicationContext) throws BeansException {
+    public void setApplicationContext(@NonNull org.springframework.context.ApplicationContext applicationContext) throws BeansException {
         log.info("\"set application context\": {}", "set application context");
         ApplicationContext.applicationContext = applicationContext;
-    }
-
-    public static void publishEvent(ApplicationEvent applicationEvent) {
-        applicationContext.publishEvent(applicationEvent);
     }
 }

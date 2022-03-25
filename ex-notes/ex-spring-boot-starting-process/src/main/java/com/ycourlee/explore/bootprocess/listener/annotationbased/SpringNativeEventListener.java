@@ -1,5 +1,6 @@
-package com.ycourlee.explore.bootprocess.listener;
+package com.ycourlee.explore.bootprocess.listener.annotationbased;
 
+import com.ycourlee.explore.bootprocess.BootProcessApplication;
 import lombok.SneakyThrows;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.slf4j.Logger;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
@@ -28,16 +30,22 @@ public class SpringNativeEventListener implements DisposableBean {
 
     @EventListener
     public void applicationStartedEventListener(ApplicationStartedEvent event) {
+        log.info("\"started\": {}", "started");
         ConfigurableApplicationContext context = event.getApplicationContext();
         // BootProcessApplication.InfoExposer.beans(context);
         // BootProcessApplication.InfoExposer.systemEnvironment(context.getEnvironment());
         // BootProcessApplication.InfoExposer.systemProperty(context.getEnvironment());
         // BootProcessApplication.InfoExposer.applicationConversionService(context.getBeanFactory());
-        resotreDatabaseByScript(context);
+        restoreDatabaseByScript(context);
+    }
+
+    @EventListener
+    public void applicationContextRefreshedListener(ContextRefreshedEvent event) {
+        log.info("\"context refreshed\": {}", "context refreshed");
     }
 
     @SneakyThrows
-    public static void resotreDatabaseByScript(ApplicationContext context) {
+    public static void restoreDatabaseByScript(ApplicationContext context) {
         Connection connection = ((DataSource) context.getBean("dataSource")).getConnection();
         ScriptRunner scriptRunner = new ScriptRunner(connection);
         scriptRunner.setLogWriter(null);
@@ -50,7 +58,7 @@ public class SpringNativeEventListener implements DisposableBean {
     @Override
     public void destroy() throws Exception {
         log.info("destroying");
-        resotreDatabaseByScript(com.ycourlee.explore.bootprocess.context.ApplicationContext.get());
+        // restoreDatabaseByScript(com.ycourlee.explore.bootprocess.context.ApplicationContext.get());
         log.info("database restored");
         log.info("destroyed");
     }

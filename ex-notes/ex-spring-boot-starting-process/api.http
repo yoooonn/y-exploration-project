@@ -22,7 +22,7 @@ POST {{host}}/transaction-verify/1000000
 Content-Type: application/json
 
 ###
-POST {{host}}/common/ping/a
+POST {{host}}/common/ping/1504042494465683457
 Content-Type: application/json
 body: {{bodyBase64Encode}}
 
@@ -40,3 +40,9 @@ GET {{host}}/actuator/health
 Accept: application/json
 
 ###
+GET {{host}}/actuator/info
+Accept: application/json
+
+###
+POST {{host}}/actuator/refresh
+Accept: application/json
