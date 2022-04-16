@@ -16,6 +16,20 @@ public class ArrayTest extends AbstractTest {
     private static final Logger log = LoggerFactory.getLogger(ArrayTest.class);
 
     @Test
+    public void main2Test() {
+        print("nihao", "hello", "world");
+        print("nihao","", "world");
+        print();
+    }
+
+    private void print(String... args) {
+        log.info("args.length: {}", args.length);
+        for (String arg : args) {
+            log.info(arg.toUpperCase());
+        }
+    }
+
+    @Test
     public void mainTest() {
         Object[] objects = new Object[2];
         objects[0] = "hello";

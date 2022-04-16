@@ -4,13 +4,10 @@ import com.ycourlee.explore.springredis.SpringTestEnv;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.RedisSystemException;
-import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -69,7 +66,7 @@ public class PipelineTest extends SpringTestEnv {
     void lua1Test() {
         assertThrows(RedisSystemException.class, () -> {
             String script = "return redis.call('zpopmin', KEYS[1], ARGV[1])";
-            String result = executeScript(script, Arrays.asList("hello"), "asdf");
+            Object result = executeScript(script, String.class, Arrays.asList("hello"), "asdf");
             log.info("result: {}", result);
         });
     }

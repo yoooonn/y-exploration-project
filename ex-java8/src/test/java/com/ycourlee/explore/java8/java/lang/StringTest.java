@@ -5,6 +5,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * @author yongjiang
  * @date 2022.02.09
@@ -12,6 +16,13 @@ import org.slf4j.LoggerFactory;
 public class StringTest extends AbstractTest {
 
     private static final Logger log = LoggerFactory.getLogger(StringTest.class);
+
+    @Test
+    public void splitTest() {
+        String[] split = "55, 6, 7".split(",");
+        List<Integer> collect = Arrays.stream(split).map(s-> Integer.parseInt(s.trim())).collect(Collectors.toList());
+        log.info("collect: {}", collect);
+    }
 
     @Test
     public void formatTest() {

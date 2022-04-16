@@ -14,29 +14,35 @@
 
   <modules>
     <module>ex-doc</module>
+    <module>ex-elastic-stack</module>
     <module>ex-feign</module>
     <module>ex-google-findbugs-jsr305</module>
     <module>ex-groovy</module>
     <module>ex-java-spi</module>
     <module>ex-jmh-java-bench</module>
+    <module>ex-kotlin</module>
     <module>ex-mapstruct</module>
     <module>ex-maven-dependence</module>
     <module>ex-mybatis-3.5.x</module>
     <module>ex-okhttp</module>
+    <module>ex-scripts</module>
+    <module>ex-spring-boot</module>
     <module>ex-spring-boot-freemarker</module>
-    <module>ex-spring-boot-starting-process</module>
+    <module>ex-spring-boot-h2</module>
+    <module>ex-spring-boot-mybatisplus</module>
+    <module>ex-spring-cloud</module>
     <module>ex-spring-kafka</module>
     <module>ex-spring-redis</module>
+    <module>ex-spring-redission</module>
     <module>ex-xxl-job</module>
     <module>ex-zookeeper-springboot-dubbo-consumer</module>
     <module>ex-zookeeper-springboot-dubbo-provider</module>
-    <module>ex-spring-boot-h2</module>
-    <module>ex-elastic-stack</module>
-    <module>ex-kotlin</module>
   </modules>
 
   <properties>
     <main.basedir>${project.basedir}/..</main.basedir>
+
+    <pebble-spring-boot-starter.version>3.1.5</pebble-spring-boot-starter.version>
   </properties>
 
   <dependencyManagement>
@@ -52,6 +58,11 @@
         <version>${mapstruct.version}</version>
       </dependency>
       <dependency>
+        <groupId>io.pebbletemplates</groupId>
+        <artifactId>pebble-spring-boot-starter</artifactId>
+        <version>${pebble-spring-boot-starter.version}</version>
+      </dependency>
+      <dependency>
         <groupId>com.ycourlee.explore.solution</groupId>
         <artifactId>solution-crypto</artifactId>
         <version>${revision}</version>
@@ -61,13 +72,11 @@
         <artifactId>solution-excel</artifactId>
         <version>${revision}</version>
       </dependency>
-
       <dependency>
         <groupId>com.ycourlee.explore.notes</groupId>
         <artifactId>ex-doc</artifactId>
         <version>${revision}</version>
       </dependency>
-
       <dependency>
         <groupId>com.ycourlee.explore.notes</groupId>
         <artifactId>ex-spring-boot-freemarker</artifactId>

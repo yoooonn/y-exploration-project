@@ -26,5 +26,6 @@ public class SimpleDateFormatTests extends AbstractTest {
         Date date1 = new Date(Long.MIN_VALUE);
         log.info("dateFormat.format(date1): {}", dateFormat.format(date1));
         log.info("date1.getTime(): {}", date1.getTime());
+        System.out.println(dateFormat.format(dateFormat.parse("2022-4-13 2:00:00")));
     }
 }

@@ -1,3 +1,6 @@
+##### gradle :[taskName] -b [gradleFile]
+
+
 ##### gradlew tasks --all
 
 列出所有任务

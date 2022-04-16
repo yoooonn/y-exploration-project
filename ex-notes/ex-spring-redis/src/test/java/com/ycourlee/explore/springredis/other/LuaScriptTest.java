@@ -4,18 +4,13 @@ import com.ycourlee.explore.springredis.SpringTestEnv;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.EncodedResource;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.script.DefaultRedisScript;
-import org.springframework.lang.Nullable;
 import org.springframework.scripting.support.ResourceScriptSource;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author yongjiang
@@ -25,13 +20,10 @@ public class LuaScriptTest extends SpringTestEnv {
 
     private static final Logger log = LoggerFactory.getLogger(LuaScriptTest.class);
 
-    @Autowired
-    private StringRedisTemplate redisTemplate;
-
     @Test
     void main3Test() throws IOException {
         ResourceScriptSource source = new ResourceScriptSource(new EncodedResource(new ClassPathResource("lua/zPopMin.lua"), StandardCharsets.UTF_8));
-        String s = executeScript(source.getScriptAsString(), Arrays.asList("hello"));
+        Object s = executeScript(source.getScriptAsString(),String.class, Arrays.asList("hello"));
         log.info("s: {}", s);
     }
 
@@ -61,6 +53,7 @@ public class LuaScriptTest extends SpringTestEnv {
                         "By', KEYS[22], ARGV[2], KEYS[1]);redis.call('zIncrBy', KEYS[23], ARGV[2], KEYS[1]);redis.call('zIncrBy', KEYS[24], " +
                         "ARGV[2], KEYS[1]);redis.call('zIncrBy', KEYS[25], ARGV[2], KEYS[1]);redis.call('zIncrBy', KEYS[26], ARGV[2], KEYS[1]" +
                         ");return retCode;",
+                String.class,
                 Arrays.asList(("1001394 iscar:stock:online:88:132:20220216:18.00~19.00 iscar:stock:online:132:88:20220216:17.00~18.00 " +
                         "iscar:stock:online:132:88:20220216:18.00~19.00 iscar:stock:online:132:88:20220216:19.00~20.00 iscar:stock:onli" +
                         "ne:88:320:20220216:17.00~18.00 iscar:stock:online:88:320:20220216:16.00~17.00 iscar:stock:online:88:320:202202" +

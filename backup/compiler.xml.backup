@@ -7,38 +7,44 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ex-maven-plugin-versions-sub-a" />
+        <module name="base-dao" />
+        <module name="ex-spring-redission" />
+        <module name="ex-mapstruct" />
         <module name="solution-excel" />
         <module name="ex-spring-redis" />
-        <module name="ex-maven-plugin-versions-sub-b" />
         <module name="ex-spring-boot-h2" />
         <module name="ex-spring-boot-freemarker" />
-        <module name="ex-java-lib" />
+        <module name="ex-spring-boot" />
+        <module name="ex-groovy" />
         <module name="ex-zookeeper-springboot-dubbo-provider" />
         <module name="ex-mybatis-3.5.x" />
-        <module name="ex-java-spi-interface" />
-        <module name="ex-java-spi-portal" />
+        <module name="ex-spring-boot-mybatisplus" />
         <module name="ex-feign" />
+        <module name="ex-maven-pmd-plugin" />
+        <module name="ex-elastic-stack" />
         <module name="solution-crypto" />
         <module name="ex-doc" />
-        <module name="ex-jmh-java-bench" />
-        <module name="ex-xxl-job" />
-        <module name="ex-google-findbugs-jsr305" />
-        <module name="ex-mapstruct" />
-        <module name="ex-maven-dependence-b" />
-        <module name="ex-spring-boot-starting-process" />
-        <module name="ex-java-spi-impl-b" />
-        <module name="ex-java-spi-impl-a" />
-        <module name="ex-spring-kafka-producer" />
-        <module name="ex-groovy" />
-        <module name="ex-java8" />
-        <module name="ex-maven-dependence-a" />
-        <module name="ex-spring-kafka-consumer" />
-        <module name="ex-maven-pmd-plugin" />
         <module name="ex-asciidoctor-maven-plugin" />
+        <module name="ex-kotlin" />
         <module name="ex-maven-checkstyle-plugin" />
+        <module name="ex-jmh-java-bench" />
+        <module name="ex-scripts" />
+        <module name="ex-xxl-job" />
         <module name="ex-okhttp" />
         <module name="ex-zookeeper-springboot-dubbo-consumer" />
+        <module name="ex-google-findbugs-jsr305" />
+        <module name="ex-java-spi-impl-a" />
+        <module name="ex-java8" />
+        <module name="ex-java-spi-interface" />
+        <module name="ex-java-spi-impl-b" />
+        <module name="ex-spring-kafka-producer" />
+        <module name="ex-maven-plugin-versions-sub-b" />
+        <module name="ex-java-spi-portal" />
+        <module name="ex-spring-kafka-consumer" />
+        <module name="ex-maven-dependence-b" />
+        <module name="ex-maven-plugin-versions-sub-a" />
+        <module name="ex-java-lib" />
+        <module name="ex-maven-dependence-a" />
       </profile>
     </annotationProcessing>
   </component>
@@ -46,6 +52,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ex-asciidoctor-maven-plugin" options="-parameters" />
       <module name="ex-doc" options="-parameters" />
+      <module name="ex-elastic-stack" options="-parameters" />
       <module name="ex-feign" options="-parameters" />
       <module name="ex-google-findbugs-jsr305" options="-parameters" />
       <module name="ex-groovy" options="-parameters" />
@@ -56,6 +63,7 @@
       <module name="ex-java-spi-portal" options="-parameters" />
       <module name="ex-java8" options="-parameters" />
       <module name="ex-jmh-java-bench" options="-parameters" />
+      <module name="ex-kotlin" options="-parameters" />
       <module name="ex-mapstruct" options="-parameters" />
       <module name="ex-maven-checkstyle-plugin" options="-parameters" />
       <module name="ex-maven-dependence-a" options="-parameters" />
@@ -65,12 +73,15 @@
       <module name="ex-maven-pmd-plugin" options="-parameters" />
       <module name="ex-mybatis-3.5.x" options="-parameters" />
       <module name="ex-okhttp" options="-parameters" />
+      <module name="ex-scripts" options="-parameters" />
+      <module name="ex-spring-boot" options="-parameters" />
       <module name="ex-spring-boot-freemarker" options="-parameters" />
       <module name="ex-spring-boot-h2" options="-parameters" />
-      <module name="ex-spring-boot-starting-process" options="-parameters" />
+      <module name="ex-spring-boot-mybatisplus" options="-parameters" />
       <module name="ex-spring-kafka-consumer" options="-parameters" />
       <module name="ex-spring-kafka-producer" options="-parameters" />
       <module name="ex-spring-redis" options="-parameters" />
+      <module name="ex-spring-redission" options="-parameters" />
       <module name="ex-xxl-job" options="-parameters" />
       <module name="ex-zookeeper-springboot-dubbo-consumer" options="-parameters" />
       <module name="ex-zookeeper-springboot-dubbo-provider" options="-parameters" />
