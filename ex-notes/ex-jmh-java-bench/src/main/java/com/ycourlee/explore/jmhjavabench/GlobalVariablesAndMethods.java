@@ -2,9 +2,8 @@ package com.ycourlee.explore.jmhjavabench;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONReader;
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 import lombok.extern.slf4j.Slf4j;
-import org.openjdk.jmh.runner.options.Options;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 @Slf4j
-public abstract class GlobalVariablesAndMethods extends UnitTestResource {
+public abstract class GlobalVariablesAndMethods extends CommonConstants {
 
     protected void mkdirsIfNotExist(String filepath) {
         File file = new File(filepath);

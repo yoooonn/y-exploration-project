@@ -1,9 +1,8 @@
 package com.ycourlee.explore.solution.excel;
 
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 import org.springframework.util.Base64Utils;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.util.StreamUtils;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
@@ -13,7 +12,7 @@ import java.io.InputStream;
 /**
  * @author jiangyong
  */
-public class AbstractEnvironment extends UnitTestResource {
+public class AbstractEnvironment extends CommonConstants {
 
     protected InputStream recoveryFromEncodedString(String encodedString) {
         byte[] bytes = Base64Utils.decodeFromString(encodedString);

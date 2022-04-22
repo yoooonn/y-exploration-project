@@ -70,10 +70,5 @@
       <artifactId>tranquil-core</artifactId>
       <version>lv</version>
     </dependency>
-    <dependency>
-      <groupId>com.ycourlee.root.mocks</groupId>
-      <artifactId>yonn-handy-unit-test</artifactId>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 </project>

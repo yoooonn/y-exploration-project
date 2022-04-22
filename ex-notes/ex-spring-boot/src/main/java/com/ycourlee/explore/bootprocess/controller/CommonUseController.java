@@ -1,10 +1,11 @@
 package com.ycourlee.explore.bootprocess.controller;
 
 import com.ycourlee.explore.bootprocess.context.ApplicationEventPublisherHolder;
+import com.ycourlee.explore.bootprocess.event.FooEvent;
 import com.ycourlee.explore.bootprocess.event.FooRequestProcessingEvent;
 import com.ycourlee.explore.bootprocess.event.SimpleEvent;
 import com.ycourlee.explore.bootprocess.service.GenericService;
-import com.ycourlee.root.core.domain.context.Rtm;
+import com.ycourlee.tranquil.web.dto.Response;
 import lombok.SneakyThrows;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
@@ -37,14 +38,15 @@ public class CommonUseController extends ApplicationEventPublisherHolder {
 
     @SneakyThrows
     @PostMapping("/ping/{message}")
-    public Rtm ping(@PathVariable(required = false) String message, HttpServletRequest request, HttpServletResponse response) {
+    public Response ping(@PathVariable(required = false) String message, HttpServletRequest request, HttpServletResponse response) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        Rtm ping = genericService.ping(message);
-        CompletableFuture.runAsync(()->{
+        Response ping = genericService.ping(message);
+        CompletableFuture.runAsync(() -> {
             publisher.publishEvent(new FooRequestProcessingEvent("/common/ping/{message}", new Object[]{message}));
         });
-        publisher.publishEvent(new SimpleEvent("receive an request, uri: /ping/{message}"));
+        publisher.publishEvent(new SimpleEvent("/ping/" + message));
+        publisher.publishEvent(new FooEvent("/ping/" + message));
         stopWatch.stop();
         log.info("stopWatch.prettyPrint(): {}", stopWatch.prettyPrint());
         return ping;
@@ -52,15 +54,15 @@ public class CommonUseController extends ApplicationEventPublisherHolder {
 
     @SneakyThrows
     @PostMapping("/base64/encode/{plaintext}")
-    public Rtm base64Encode(@NonNull @PathVariable String plaintext,
+    public Response base64Encode(@NonNull @PathVariable String plaintext,
                             HttpServletRequest request, HttpServletResponse response) {
         Thread.sleep(1000);
-        return Rtm.success(Base64.encodeBase64URLSafe(plaintext.getBytes(StandardCharsets.UTF_8)));
+        return Response.success(Base64.encodeBase64URLSafe(plaintext.getBytes(StandardCharsets.UTF_8)));
     }
 
     @PostMapping("/base64/decode/{ciphertext}")
-    public Rtm base64Decode(@NonNull @PathVariable String ciphertext,
+    public Response base64Decode(@NonNull @PathVariable String ciphertext,
                             HttpServletRequest request, HttpServletResponse response) {
-        return Rtm.success(Base64.decodeBase64(ciphertext.getBytes(StandardCharsets.UTF_8)));
+        return Response.success(Base64.decodeBase64(ciphertext.getBytes(StandardCharsets.UTF_8)));
     }
 }

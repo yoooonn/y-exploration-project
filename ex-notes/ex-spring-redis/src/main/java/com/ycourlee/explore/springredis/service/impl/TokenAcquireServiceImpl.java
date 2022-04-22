@@ -1,8 +1,7 @@
 package com.ycourlee.explore.springredis.service.impl;
 
 import com.ycourlee.explore.springredis.service.TokenAcquireService;
-import com.ycourlee.root.util.Assert;
-import com.ycourlee.root.util.RandomUtil;
+import com.ycourlee.tranquil.core.util.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.util.StringUtils;
 
 import java.time.Duration;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * @author yongjiang
@@ -120,7 +120,7 @@ public class TokenAcquireServiceImpl implements TokenAcquireService {
     }
 
     private String refreshToken() {
-        return RandomUtil.nextRandomString();
+        return UUID.randomUUID().toString();
     }
 
     private String keyAccessToken() {

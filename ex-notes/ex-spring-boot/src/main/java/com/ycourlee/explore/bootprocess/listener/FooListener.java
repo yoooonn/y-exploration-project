@@ -1,12 +1,14 @@
 package com.ycourlee.explore.bootprocess.listener;
 
 import com.ycourlee.explore.bootprocess.context.ApplicationEventPublisherHolder;
+import com.ycourlee.explore.bootprocess.event.FooEvent;
 import com.ycourlee.explore.bootprocess.event.FooRequestProcessingEvent;
 import com.ycourlee.explore.bootprocess.event.FooRequestProcessingNestedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.event.TransactionalEventListener;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -32,12 +34,22 @@ public class FooListener extends ApplicationEventPublisherHolder {
             log.info("event.getUri(): {}", event.getUri());
             throw new IllegalArgumentException();
         } catch (Exception e) {
-
+            log.error("", e);
         }
     }
 
     @EventListener
     public void subscribeFooRequestProcessingNestedEvent(FooRequestProcessingNestedEvent event) {
+        log.info(event.toString());
+    }
+
+    @TransactionalEventListener
+    public void subscribeFooEventTransactional(FooEvent event) {
+        log.info(event.toString());
+    }
+
+    @EventListener
+    public void subScribeFooEvent(FooEvent event) {
         log.info(event.toString());
     }
 }

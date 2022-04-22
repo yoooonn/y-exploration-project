@@ -3,7 +3,7 @@ package com.ycourlee.explore.jmhjavabench.runner.other;
 import com.ycourlee.explore.jmhjavabench.GlobalVariablesAndMethods;
 import com.ycourlee.explore.jmhjavabench.model.RtmWrapper;
 import com.ycourlee.explore.jmhjavabench.model.User;
-import com.ycourlee.root.core.domain.context.Rtm;
+import com.ycourlee.tranquil.web.dto.Response;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -33,7 +33,7 @@ public class InvokeDeepMethodBmRunner extends GlobalVariablesAndMethods {
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
     public void codeMsgDataLinkInvokeBenchmark() {
         for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++) {
-            Rtm.blanker().code(1).msg("成功").data(USER);
+            Response.blanker().code(1).msg("成功").data(USER);
         }
     }
 
@@ -42,7 +42,7 @@ public class InvokeDeepMethodBmRunner extends GlobalVariablesAndMethods {
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
     public void successInvokeBenchmark() {
         for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++) {
-            Rtm.success(1, "成功", USER);
+            Response.success(1, "成功", USER);
         }
     }
 
@@ -51,10 +51,10 @@ public class InvokeDeepMethodBmRunner extends GlobalVariablesAndMethods {
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
     public void putInvokeBenchmark() {
         for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++) {
-            Rtm rtm = Rtm.blanker();
-            rtm.pin("code", 1);
-            rtm.pin("msg", "成功");
-            rtm.pin("data", USER);
+            Response resp = Response.blanker();
+            resp.pin("code", 1)
+            .pin("msg", "成功")
+            .pin("data", USER);
         }
     }
 
@@ -82,10 +82,10 @@ public class InvokeDeepMethodBmRunner extends GlobalVariablesAndMethods {
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
     public void putInvokeBenchmark2() {
         for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++) {
-            RtmWrapper rtm = RtmWrapper.blanker();
-            rtm.pin("code", 1);
-            rtm.pin("msg", "成功");
-            rtm.pin("data", USER);
+            RtmWrapper Response = RtmWrapper.blanker();
+            Response.pin("code", 1);
+            Response.pin("msg", "成功");
+            Response.pin("data", USER);
         }
     }
 

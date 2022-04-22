@@ -1,8 +1,7 @@
 package com.ycourlee.explore.jmhjavabench.model;
 
-
-import com.ycourlee.root.core.context.CmReturn;
-import com.ycourlee.root.core.enums.EApiCmRt;
+import com.ycourlee.tranquil.web.ApiCode;
+import com.ycourlee.tranquil.web.CodeMessage;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -30,8 +29,8 @@ public class RtmWrapper extends HashMap<String, Object> {
         }
     }
 
-    private RtmWrapper(CmReturn cmReturn, Object data) {
-        this(cmReturn.getCode(), cmReturn.getMsg(), data);
+    private RtmWrapper(CodeMessage CodeMessage, Object data) {
+        this(CodeMessage.getCode(), CodeMessage.getMsg(), data);
     }
 
     @Override
@@ -61,11 +60,11 @@ public class RtmWrapper extends HashMap<String, Object> {
     }
 
     public static RtmWrapper success() {
-        return new RtmWrapper(EApiCmRt.SUCCESS.getCode(), EApiCmRt.SUCCESS.getMsg(), null);
+        return new RtmWrapper(ApiCode.SUCCESS.getCode(), ApiCode.SUCCESS.getMsg(), null);
     }
 
     public static RtmWrapper success(Object data) {
-        return new RtmWrapper(EApiCmRt.SUCCESS.getCode(), EApiCmRt.SUCCESS.getMsg(), data);
+        return new RtmWrapper(ApiCode.SUCCESS.getCode(), ApiCode.SUCCESS.getMsg(), data);
     }
 
     public static RtmWrapper success(Integer code, String msg, Object data) {
@@ -73,10 +72,10 @@ public class RtmWrapper extends HashMap<String, Object> {
     }
 
     public static RtmWrapper error() {
-        return new RtmWrapper(EApiCmRt.ERROR.getCode(), EApiCmRt.ERROR.getMsg(), null);
+        return new RtmWrapper(ApiCode.ERROR.getCode(), ApiCode.ERROR.getMsg(), null);
     }
 
-    public static RtmWrapper error(CmReturn em) {
+    public static RtmWrapper error(CodeMessage em) {
         return new RtmWrapper(em.getCode(), em.getMsg(), null);
     }
 

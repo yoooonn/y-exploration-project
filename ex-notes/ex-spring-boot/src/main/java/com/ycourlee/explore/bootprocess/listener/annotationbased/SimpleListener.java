@@ -3,6 +3,7 @@ package com.ycourlee.explore.bootprocess.listener.annotationbased;
 import com.ycourlee.explore.bootprocess.annotation.AsyncEventListener;
 import com.ycourlee.explore.bootprocess.context.ApplicationContext;
 import com.ycourlee.explore.bootprocess.event.SimpleEvent;
+import com.ycourlee.tranquil.redisson.annotation.Lockable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.EventListener;
@@ -23,6 +24,8 @@ public class SimpleListener {
         log.debug("Thread: {}", Thread.currentThread().getName());
         Assert.notNull(ApplicationContext.get());
         log.debug("SimpleListener.subscribeSimpleEvent: {}", event);
+
+
     }
 
     @AsyncEventListener
@@ -35,5 +38,10 @@ public class SimpleListener {
         log.debug("Thread: {}", Thread.currentThread().getName());
         Assert.notNull(ApplicationContext.get());
         log.debug("SimpleListener.subscribeSimpleEventAsync: {}", event);
+    }
+
+    @Lockable(keys = "boot:lock:test:{{event}}")
+    public void lockTest(String event) {
+        log.info("event: {}", event);
     }
 }

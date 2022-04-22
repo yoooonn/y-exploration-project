@@ -4,7 +4,7 @@ import com.ycourlee.explore.bootprocess.chain.followchain.Follow;
 import com.ycourlee.explore.bootprocess.chain.followchain.FollowChain;
 import com.ycourlee.explore.bootprocess.chain.followchain.RuleData;
 import com.ycourlee.explore.bootprocess.event.SimpleEvent;
-import com.ycourlee.root.core.domain.context.Rtm;
+import com.ycourlee.tranquil.web.dto.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
@@ -25,9 +25,14 @@ public class SpringApplicationEventFollow implements Follow {
     }
 
     @Override
-    public void doExecute(Rtm rtm, RuleData ruleData, FollowChain chain) {
-        rtm.data("hello");
-        applicationEventPublisher.publishEvent(new SimpleEvent(rtm));
-        chain.doExecute(rtm, ruleData);
+    public boolean disabled() {
+        return true;
+    }
+
+    @Override
+    public void doExecute(Response resp, RuleData ruleData, FollowChain chain) {
+        resp.data("hello");
+        applicationEventPublisher.publishEvent(new SimpleEvent(resp));
+        chain.doExecute(resp, ruleData);
     }
 }

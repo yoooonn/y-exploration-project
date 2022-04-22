@@ -36,12 +36,8 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>com.ycourlee.root</groupId>
-      <artifactId>yonn-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.ycourlee.root.mocks</groupId>
-      <artifactId>yonn-handy-unit-test</artifactId>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-web</artifactId>
     </dependency>
   </dependencies>
   <dependencyManagement>

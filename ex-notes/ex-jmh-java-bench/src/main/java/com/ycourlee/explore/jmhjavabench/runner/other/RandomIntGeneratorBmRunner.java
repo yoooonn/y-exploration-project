@@ -1,6 +1,6 @@
 package com.ycourlee.explore.jmhjavabench.runner.other;
 
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-public class RandomIntGeneratorBmRunner extends UnitTestResource {
+public class RandomIntGeneratorBmRunner extends CommonConstants {
 
 
     @Benchmark

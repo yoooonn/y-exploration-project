@@ -9,22 +9,17 @@
   </parent>
 
   <artifactId>ex-eureka-server</artifactId>
-  <name>ex-eureka-server</name>
+  <name>ex eureka server</name>
   <description>ex-eureka-server</description>
 
   <properties>
-    <java.version>1.8</java.version>
-    <spring-cloud.version>2021.0.1</spring-cloud.version>
+    <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
@@ -54,6 +49,10 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>

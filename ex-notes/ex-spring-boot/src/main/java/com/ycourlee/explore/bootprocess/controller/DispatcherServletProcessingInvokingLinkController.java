@@ -1,6 +1,6 @@
 package com.ycourlee.explore.bootprocess.controller;
 
-import com.ycourlee.root.core.domain.context.Rtm;
+import com.ycourlee.tranquil.web.dto.Response;
 import org.apache.catalina.util.RequestUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,22 +20,22 @@ public class DispatcherServletProcessingInvokingLinkController {
     private HttpServletRequest request;
 
     @GetMapping("/simple-get")
-    public Rtm getString() {
-        return Rtm.success().pin("uri", RequestUtil.getRequestURL(request));
+    public Response getString() {
+        return Response.success().pin("uri", RequestUtil.getRequestURL(request));
     }
 
     @PostMapping("/simple-post")
-    public Rtm simplePost() {
-        return Rtm.success().pin("uri", RequestUtil.getRequestURL(request));
+    public Response simplePost() {
+        return Response.success().pin("uri", RequestUtil.getRequestURL(request));
     }
 
     @GetMapping("/get-with-path-variable/{uid}")
-    public Rtm getWithPathVariableUid(@PathVariable String uid) {
-        return Rtm.success().pin("uri", RequestUtil.getRequestURL(request));
+    public Response getWithPathVariableUid(@PathVariable String uid) {
+        return Response.success().pin("uri", RequestUtil.getRequestURL(request));
     }
 
     @PostMapping("/post-with-path-variable/{uid}")
-    public Rtm postWithPathVariableUid(@PathVariable String uid) {
-        return Rtm.success().pin("uri", RequestUtil.getRequestURL(request));
+    public Response postWithPathVariableUid(@PathVariable String uid) {
+        return Response.success().pin("uri", RequestUtil.getRequestURL(request));
     }
 }

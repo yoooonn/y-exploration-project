@@ -1,7 +1,7 @@
 package com.ycourlee.explore.bootprocess.chain.followchain;
 
 import com.ycourlee.explore.bootprocess.BootProcessApplicationTests;
-import com.ycourlee.root.core.domain.context.Rtm;
+import com.ycourlee.tranquil.web.dto.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -21,9 +21,9 @@ public class ChainDelegatorTest extends BootProcessApplicationTests {
 
     @Test
     void doDefaultFollowChainTest() {
-        Rtm rtm = Rtm.success();
-        chainDelegator.doExecute(rtm, new RuleData());
-        log.info("rtm: {}", rtm);
-        Assertions.assertNotNull(rtm.get("data"));
+        Response resp = Response.success();
+        chainDelegator.doExecute(resp, new RuleData());
+        log.info("rtm: {}", resp);
+        Assertions.assertNotNull(resp.get("data"));
     }
 }

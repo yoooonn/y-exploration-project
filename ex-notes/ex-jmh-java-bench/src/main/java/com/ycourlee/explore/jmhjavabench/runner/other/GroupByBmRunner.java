@@ -1,13 +1,16 @@
 package com.ycourlee.explore.jmhjavabench.runner.other;
 
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -17,7 +20,7 @@ import java.util.stream.Collectors;
  */
 @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-public class GroupByBmRunner extends UnitTestResource {
+public class GroupByBmRunner extends CommonConstants {
 
     static List<User> userList = new ArrayList<>(10000);
 

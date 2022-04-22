@@ -1,6 +1,6 @@
 package com.ycourlee.explore.springredis;
 
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ import java.util.List;
  */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class SpringTestEnv extends UnitTestResource {
+public class SpringTestEnv extends CommonConstants {
 
     @Autowired
     protected StringRedisTemplate redisTemplate;

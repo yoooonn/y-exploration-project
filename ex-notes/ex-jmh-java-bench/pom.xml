@@ -20,16 +20,12 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.esotericsoftware</groupId>
-      <artifactId>reflectasm</artifactId>
-    </dependency>
-    <dependency>
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
+      <groupId>com.ycourlee.explore.notes</groupId>
+      <artifactId>ex-spring-boot-freemarker</artifactId>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
@@ -44,16 +40,16 @@
       <artifactId>jmh-generator-annprocess</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.ycourlee.root</groupId>
-      <artifactId>yonn-core</artifactId>
+      <groupId>com.esotericsoftware</groupId>
+      <artifactId>reflectasm</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.ycourlee.root.mocks</groupId>
-      <artifactId>yonn-handy-unit-test</artifactId>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.ycourlee.explore.notes</groupId>
-      <artifactId>ex-spring-boot-freemarker</artifactId>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-web</artifactId>
     </dependency>
   </dependencies>
 

@@ -1,6 +1,6 @@
 package com.ycourlee.explore.java8.java.util.stream;
 
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 import lombok.ToString;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  * @author yongjiang
  * @date 2021.09.08
  */
-public class ToMapMergeFunctionTest extends UnitTestResource {
+public class ToMapMergeFunctionTest extends CommonConstants {
 
     private static List<Ok> data = new ArrayList<>();
 

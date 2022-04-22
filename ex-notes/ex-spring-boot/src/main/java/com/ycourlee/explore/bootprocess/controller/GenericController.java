@@ -5,7 +5,7 @@ import com.ycourlee.explore.bootprocess.chain.followchain.RuleData;
 import com.ycourlee.explore.bootprocess.model.Wrapper;
 import com.ycourlee.explore.bootprocess.model.request.FollowRequest;
 import com.ycourlee.explore.bootprocess.model.request.HeadlessRequest;
-import com.ycourlee.root.core.domain.context.Rtm;
+import com.ycourlee.tranquil.web.dto.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,13 +27,13 @@ public class GenericController {
     private ChainDelegator chainDelegator;
 
     @PostMapping("/wrapped-request-body")
-    public Rtm wrappedRequestBody(@RequestBody Wrapper<HeadlessRequest> request) {
-        return Rtm.success();
+    public Response wrappedRequestBody(@RequestBody Wrapper<HeadlessRequest> request) {
+        return Response.success();
     }
 
     @PostMapping("/follow")
-    public Rtm follow(@RequestBody FollowRequest request, HttpServletRequest servletRequest, HttpServletResponse servletResponse) {
-        Rtm response = Rtm.success();
+    public Response follow(@RequestBody FollowRequest request, HttpServletRequest servletRequest, HttpServletResponse servletResponse) {
+        Response response = Response.success();
         chainDelegator.doExecute(response, new RuleData()
                 .setRequest(request)
                 .setServletRequest(servletRequest)

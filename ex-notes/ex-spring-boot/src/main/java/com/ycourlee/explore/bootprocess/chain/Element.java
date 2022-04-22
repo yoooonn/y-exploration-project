@@ -12,6 +12,10 @@ public interface Element<Exchange, Rule, Chain extends ElementChain<Exchange, Ru
      */
     int order();
 
+    default boolean disabled() {
+        return false;
+    }
+
     /**
      *
      * @param exchange 交换体

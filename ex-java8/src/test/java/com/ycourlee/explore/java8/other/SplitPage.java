@@ -1,6 +1,6 @@
 package com.ycourlee.explore.java8.other;
 
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author yongjiang
  */
-public class SplitPage extends UnitTestResource {
+public class SplitPage extends CommonConstants {
 
     @Test
     public void aTest() {

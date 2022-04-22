@@ -1,6 +1,6 @@
 package com.ycourlee.explore.jmhjavabench.runner.java.util.stream;
 
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 import lombok.*;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-public class StreamForeachBmRunner extends UnitTestResource {
+public class StreamForeachBmRunner extends CommonConstants {
 
     static final List<Flag> flags = new ArrayList<>();
 

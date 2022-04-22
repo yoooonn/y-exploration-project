@@ -1,7 +1,7 @@
 package com.ycourlee.explore.jmhjavabench.runner.other;
 
 import com.esotericsoftware.reflectasm.MethodAccess;
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 50, time = 1, timeUnit = TimeUnit.SECONDS)
-public class ReflectionEfficiencyBmRunner extends UnitTestResource {
+public class ReflectionEfficiencyBmRunner extends CommonConstants {
 
     static SampleDecorator sampleDecorator = new SampleDecorator();
 

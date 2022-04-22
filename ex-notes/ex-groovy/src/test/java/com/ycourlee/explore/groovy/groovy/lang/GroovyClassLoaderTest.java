@@ -1,6 +1,6 @@
 package com.ycourlee.explore.groovy.groovy.lang;
 
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 import groovy.lang.GroovyClassLoader;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
  * @author yongjiang
  * @date 2021.07.06
  */
-public class GroovyClassLoaderTest extends UnitTestResource {
+public class GroovyClassLoaderTest extends CommonConstants {
 
     private static final Logger log = LoggerFactory.getLogger(GroovyClassLoaderTest.class);
 

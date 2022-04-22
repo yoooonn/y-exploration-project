@@ -1,6 +1,6 @@
 package com.ycourlee.explore.bootprocess.service;
 
-import com.ycourlee.root.core.domain.context.Rtm;
+import com.ycourlee.tranquil.web.dto.Response;
 
 /**
  * @author yongjiang
@@ -8,5 +8,5 @@ import com.ycourlee.root.core.domain.context.Rtm;
  */
 public interface GenericService {
 
-    Rtm ping(String message);
+    Response ping(String message);
 }

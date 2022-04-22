@@ -1,6 +1,6 @@
 package com.ycourlee.explore.java8;
 
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,7 +10,7 @@ import java.util.Date;
  * @author yongjiang
  * @date 2021.12.14
  */
-public abstract class AbstractTest extends UnitTestResource {
+public abstract class AbstractTest extends CommonConstants {
 
 
     protected Date timeOf(Date date, Integer hour, Integer minute, Integer second) {

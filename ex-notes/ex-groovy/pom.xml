@@ -22,13 +22,13 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>com.ycourlee.root.mocks</groupId>
-      <artifactId>yonn-handy-unit-test</artifactId>
-    </dependency>
-    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-core</artifactId>
     </dependency>
   </dependencies>
 </project>

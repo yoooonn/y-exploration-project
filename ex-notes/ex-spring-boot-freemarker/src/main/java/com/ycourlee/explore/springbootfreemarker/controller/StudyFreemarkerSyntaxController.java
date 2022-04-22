@@ -1,7 +1,7 @@
 package com.ycourlee.explore.springbootfreemarker.controller;
 
 
-import com.ycourlee.root.core.domain.context.Rtm;
+import com.ycourlee.tranquil.web.dto.Response;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,7 +17,7 @@ public class StudyFreemarkerSyntaxController {
     @RequestMapping("/syntax-use")
     public ModelAndView welcome() {
 
-        Rtm.success();
+        Response.success();
 
         return null;
     }

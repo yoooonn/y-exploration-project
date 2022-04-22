@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -24,15 +23,32 @@ public class JSONTest extends AbstractTest {
 
     @Test
     public void mainTest() {
-        A a = JSON.parseObject("", A.class);
+        A a = JSON.parseObject("{}", A.class);
+        logMethod(a);
         log.info("a: {}", a);
+    }
+
+    private void logMethod(B b) {
+        log.info("b.json: {}", JSON.toJSONString(b));
+    }
+
+
+    @Setter
+    @Getter
+    @ToString
+    static class B {
+
+        private Long baseId = 0L;
     }
 
     @Setter
     @Getter
     @ToString
-    static class A{
+    static class A extends B {
+
         private Long id;
+
+        private String name = "empty";
 
         private List<Object> list;
 

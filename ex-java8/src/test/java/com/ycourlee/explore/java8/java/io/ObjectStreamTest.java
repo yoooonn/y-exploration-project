@@ -1,6 +1,6 @@
 package com.ycourlee.explore.java8.java.io;
 
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 import lombok.*;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author yongjiang
  * @date 2021.08.24
  */
-public class ObjectStreamTest extends UnitTestResource {
+public class ObjectStreamTest extends CommonConstants {
 
     private static final Logger log = LoggerFactory.getLogger(ObjectStreamTest.class);
 

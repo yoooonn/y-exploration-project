@@ -1,7 +1,10 @@
-#!/usr/bin/env sh
-# author: yongjiang
+#!/usr/bin/env bash
+#author yooonn
 
-. color-header
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+RESET=$(tput sgr0)
 
 # functions
 printCurrentBranch() {
@@ -13,6 +16,6 @@ currentBranchName=$(git symbolic-ref --short HEAD)
 
 printCurrentBranch "${currentBranchName}"
 
-./mvnw clean -pl "$@" -am
+./mvnw clean dockerfile:build  -pl "$@" -am
 
 exit 0

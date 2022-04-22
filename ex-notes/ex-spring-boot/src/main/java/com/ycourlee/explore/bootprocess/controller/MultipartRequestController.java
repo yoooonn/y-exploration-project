@@ -1,7 +1,7 @@
 package com.ycourlee.explore.bootprocess.controller;
 
-import com.ycourlee.root.core.domain.context.Rtm;
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
+import com.ycourlee.tranquil.web.dto.Response;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,13 +19,13 @@ import java.io.IOException;
  */
 @RestController
 @RequestMapping("/multipart")
-public class MultipartRequestController extends UnitTestResource {
+public class MultipartRequestController extends CommonConstants {
 
     @PostMapping("/upload")
-    public Rtm uploadFile(@NonNull @RequestParam MultipartRequest request) {
+    public Response uploadFile(@NonNull @RequestParam MultipartRequest request) {
         MultipartFile image = request.getFile("image");
         if (image == null) {
-            return Rtm.error();
+            return Response.error();
         }
         String filename = image.getOriginalFilename();
         try {
@@ -33,6 +33,6 @@ public class MultipartRequestController extends UnitTestResource {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return Response.success();
     }
 }

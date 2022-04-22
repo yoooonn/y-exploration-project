@@ -4,9 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.ycourlee.explore.jmhjavabench.support.TemplateConverter;
 import com.ycourlee.explore.springbootfreemarker.RedisStringTemplateLoader;
-import com.ycourlee.root.mocks.UnitTestResource;
-import com.ycourlee.root.mocks.util.BufferedFileWriter;
-import com.ycourlee.root.util.RandomUtil;
+import com.ycourlee.tranquil.core.CommonConstants;
+import com.ycourlee.tranquil.core.util.BufferedWriterWrapper;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -21,10 +20,7 @@ import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -32,7 +28,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Warmup(iterations = 3, time = 1)
 @Measurement(iterations = 3, time = 1)
-public class TemplateConvert2RunnerBmRunner extends UnitTestResource {
+public class TemplateConvert2RunnerBmRunner extends CommonConstants {
 
     private static final Logger            log               = LoggerFactory.getLogger(TemplateConvert2RunnerBmRunner.class);
     private static final TemplateConverter templateConverter = new TemplateConverter();
@@ -47,11 +43,11 @@ public class TemplateConvert2RunnerBmRunner extends UnitTestResource {
 
         for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++) {
             subMap = new HashMap<>(1);
-            subMap.put("bikeSn", RandomUtil.nextRandomString(5));
+            subMap.put("bikeSn", UUID.randomUUID().toString());
             subMap.put("time", "2021-07-08 12:00:03");
-            subMap.put("qrCode", RandomUtil.nextRandomString(5));
-            subMap.put("bikeFrame", RandomUtil.nextRandomString(5));
-            subMap.put("lonLat", RandomUtil.nextRandomString(5));
+            subMap.put("qrCode", UUID.randomUUID().toString());
+            subMap.put("bikeFrame", UUID.randomUUID().toString());
+            subMap.put("lonLat", UUID.randomUUID().toString());
             mapList.add(subMap);
         }
         map.put("gpsList", mapList);
@@ -68,7 +64,7 @@ public class TemplateConvert2RunnerBmRunner extends UnitTestResource {
     public void defineSelfConverterBenchmark() throws IOException {
         JSONObject jsonObject = JSON.parseObject("{\"params\":{\"${bikes:gpsList}\":[{\"update_time\":\"${time}\",\"operate\":3,\"now\":\"${new date}\",\"qr_code\":\"${qrCode}\",\"location\":\"${lonLat}\",\"json_object\":\"${new JSONObject}\",\"json_array\":\"${new JSONArray}\",\"bike_frame\":\"${bikeFrame}\",\"timestamp\":\"${timestamp}\"}],\"update_time\":\"${time}\",\"now\":\"${new date}\",\"create\":\"${new date|yyyy-MM-dd HH:mm:ss}\",\"json_object\":\"${new JSONObject}\",\"json_array\":\"${new JSONArray}\",\"timestamp\":\"${timestamp}\",\"city_id\":\"${cityId}\",\"double\":\"${double|double}\",\"double2\":\"${double2|double}\",\"double3\":\"${double3|double}\"}}");
         JSONObject convert = templateConverter.execConvert(JSON.parseObject(jsonObject.toJSONString()), map);
-        BufferedFileWriter fileWriter = new BufferedFileWriter(TEMP_JSON_FILE_DIR + "/a.json", true);
+        BufferedWriterWrapper fileWriter = new BufferedWriterWrapper(TEMP_JSON_FILE_DIR + "/a.json", true);
         fileWriter.write(convert.toJSONString());
         fileWriter.save();
     }
@@ -82,7 +78,7 @@ public class TemplateConvert2RunnerBmRunner extends UnitTestResource {
         config.setLocalizedLookup(false);
         Template template = config.getTemplate("jy", StandardCharsets.UTF_8.name());
         String string = FreeMarkerTemplateUtils.processTemplateIntoString(template, map);
-        BufferedFileWriter fileWriter = new BufferedFileWriter(TEMP_JSON_FILE_DIR + "/b.json", true);
+        BufferedWriterWrapper fileWriter = new BufferedWriterWrapper(TEMP_JSON_FILE_DIR + "/b.json", true);
         fileWriter.write(string);
         fileWriter.save();
     }

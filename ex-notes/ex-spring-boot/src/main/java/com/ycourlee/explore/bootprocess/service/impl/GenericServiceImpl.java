@@ -1,7 +1,7 @@
 package com.ycourlee.explore.bootprocess.service.impl;
 
 import com.ycourlee.explore.bootprocess.service.GenericService;
-import com.ycourlee.root.core.domain.context.Rtm;
+import com.ycourlee.tranquil.web.dto.Response;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class GenericServiceImpl implements GenericService {
 
     @Override
-    public Rtm ping(String message) {
-        return Rtm.success("pong").pin("callback", message);
+    public Response ping(String message) {
+        return Response.success("pong").pin("callback", message);
     }
 }

@@ -1,6 +1,6 @@
 package com.ycourlee.explore.bootprocess.chain.followchain;
 
-import com.ycourlee.root.core.domain.context.Rtm;
+import com.ycourlee.tranquil.web.dto.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +24,7 @@ public class ChainDelegator implements FollowChain {
     }
 
     @Override
-    public void doExecute(Rtm rtm, RuleData ruleData) {
-        new DefaultFollowChain(follows).doExecute(rtm, ruleData);
+    public void doExecute(Response resp, RuleData ruleData) {
+        new DefaultFollowChain(follows).doExecute(resp, ruleData);
     }
 }

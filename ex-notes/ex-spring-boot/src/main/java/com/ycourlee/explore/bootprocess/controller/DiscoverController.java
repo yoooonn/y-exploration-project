@@ -1,6 +1,6 @@
 package com.ycourlee.explore.bootprocess.controller;
 
-import com.ycourlee.root.core.domain.context.Rtm;
+import com.ycourlee.tranquil.web.dto.Response;
 import lombok.SneakyThrows;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +19,8 @@ public class DiscoverController {
 
     @SneakyThrows
     @PostMapping("/big-decimal")
-    public Rtm bigDecimal() {
-        return Rtm.success().pin("big_decimal_0_scale",
+    public Response bigDecimal() {
+        return Response.success().pin("big_decimal_0_scale",
                 new BigDecimal("14241234.1215251")
                         .setScale(2, RoundingMode.HALF_UP));
     }

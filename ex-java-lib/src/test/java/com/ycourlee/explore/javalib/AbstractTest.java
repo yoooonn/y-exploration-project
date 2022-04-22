@@ -1,6 +1,6 @@
 package com.ycourlee.explore.javalib;
 
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -11,7 +11,7 @@ import java.util.Date;
  * @author yongjiang
  * @date 2021.12.14
  */
-public abstract class AbstractTest extends UnitTestResource {
+public abstract class AbstractTest extends CommonConstants {
 
     protected File newFile(String path) {
         File file = new File(path);

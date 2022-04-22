@@ -1,6 +1,6 @@
 package com.ycourlee.explore.jmhjavabench.runner.other;
 
-import com.ycourlee.root.mocks.UnitTestResource;
+import com.ycourlee.tranquil.core.CommonConstants;
 import org.apache.commons.codec.binary.Hex;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 @Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-public class ByteArrayConvertToHexStringSolutionBmRunner extends UnitTestResource {
+public class ByteArrayConvertToHexStringSolutionBmRunner extends CommonConstants {
 
     private static final Logger log = LoggerFactory.getLogger(ByteArrayConvertToHexStringSolutionBmRunner.class);
 

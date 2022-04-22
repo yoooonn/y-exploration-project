@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.convert.ConversionService;
@@ -27,6 +28,7 @@ import java.util.Map;
 @EnableAspectJAutoProxy(exposeProxy = true)
 @MapperScan("com.ycourlee.explore.basic.dao")
 @SpringBootApplication
+@EnableDiscoveryClient
 public class BootProcessApplication {
 
     private static final Logger log = LoggerFactory.getLogger(BootProcessApplication.class);

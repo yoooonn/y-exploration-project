@@ -1,6 +1,7 @@
 package com.ycourlee.explore.java8.java.lang;
 
 import com.ycourlee.explore.java8.mocks.Cat;
+import org.apache.commons.lang3.tuple.Pair;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,13 @@ import java.util.stream.Collectors;
 public class IntegerTest {
 
     private static final Logger log = LoggerFactory.getLogger(IntegerTest.class);
+
+    @Test
+    public void main4Test() {
+        List<Pair<String, Long>> list = Arrays.asList(Pair.of("1", 1L), Pair.of("3", 3L));
+        long sum = list.stream().mapToLong(Pair::getRight).sum();
+        log.info("sum: {}", sum);
+    }
 
     @Test
     public void main3Test() {

@@ -40,9 +40,8 @@
       <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.ycourlee.root.mocks</groupId>
-      <artifactId>yonn-handy-unit-test</artifactId>
-      <scope>test</scope>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-core</artifactId>
     </dependency>
   </dependencies>
 </project>

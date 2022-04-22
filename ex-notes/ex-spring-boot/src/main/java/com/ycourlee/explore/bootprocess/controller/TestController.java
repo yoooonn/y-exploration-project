@@ -7,7 +7,7 @@ import com.ycourlee.explore.bootprocess.inject.InjectValuePortal;
 import com.ycourlee.explore.bootprocess.inject.ValueViewer;
 import com.ycourlee.explore.bootprocess.model.request.BaseRequest;
 import com.ycourlee.explore.bootprocess.service.TestService;
-import com.ycourlee.root.core.domain.context.Rtm;
+import com.ycourlee.tranquil.web.dto.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +30,11 @@ public class TestController extends ApplicationEventPublisherHolder {
     private ValueViewer valueViewer;
 
     @PostMapping("/{title}")
-    public Rtm testTitle(@PathVariable String title) {
+    public Response testTitle(@PathVariable String title) {
         if (title.length() == 5) {
             throw new RuntimeException("not good title.");
         }
-        return Rtm.success()
+        return Response.success()
                 .pin("getListConfig", injectValuePortal.getListConfig())
                 .pin("getCatConfig", injectValuePortal.getCatConfig())
                 .pin("getCat", JSON.toJSON(valueViewer.getCat()))
@@ -42,23 +42,23 @@ public class TestController extends ApplicationEventPublisherHolder {
     }
 
     @PostMapping("/transaction-verify/{rid}")
-    public Rtm transactionVerify(@PathVariable Integer rid) {
-        return Rtm.success(testService.deleteStatementTransactionVerify(rid));
+    public Response transactionVerify(@PathVariable Integer rid) {
+        return Response.success(testService.deleteStatementTransactionVerify(rid));
     }
 
     @PostMapping("/oss")
-    public Rtm testOss() throws Exception {
-        return Rtm.success();
+    public Response testOss() throws Exception {
+        return Response.success();
     }
 
     @PostMapping("/concurrency")
-    public Rtm concurrency(BaseRequest request) {
+    public Response concurrency(BaseRequest request) {
         log.info("Request {} entered", request.getRid());
-        return Rtm.success();
+        return Response.success();
     }
 
     @PostMapping("/eventListener")
-    public Rtm eventListener(@RequestBody JSONObject json) {
-        return Rtm.success();
+    public Response eventListener(@RequestBody JSONObject json) {
+        return Response.success();
     }
 }

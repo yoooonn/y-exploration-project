@@ -1,9 +1,11 @@
 package com.ycourlee.explore.bootprocess.com.ycourlee.tranquil.annotation;
 
-import com.ycourlee.tranquil.redisson.cache.annotation.Lockable;
+import com.ycourlee.tranquil.redisson.annotation.Lockable;
 import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
@@ -16,6 +18,12 @@ import java.util.concurrent.TimeUnit;
 public class LockableUsages {
 
     private static final Logger log = LoggerFactory.getLogger(LockableUsages.class);
+
+    @Autowired
+    private StringRedisTemplate redisTemplate;
+
+    private static long sharedNumber  = 0;
+    private static long sharedNumber1 = 100;
 
     @Lockable(keys = "hello:lock", waitTime = 3)
     public void simple() {
@@ -42,4 +50,52 @@ public class LockableUsages {
         log.info("watch point: {}, name: {}", 40, name);
         TimeUnit.SECONDS.sleep(5);
     }
+
+    @Lockable(keys = "shared:num:incr", waitTime = 5)
+    public void incrementSharedNumberInLock() {
+        sharedNumber++;
+    }
+
+    @Lockable(keys = "shared:num1:incr", waitTime = 5)
+    public void incrementSharedNumber1InLock() {
+        sharedNumber1++;
+    }
+
+    @Lockable(keys = {
+            "shared:num:incr",
+            "shared:num1:incr",
+    }, waitTime = 5)
+    public void incrementTwoSharedNumberInLock() {
+        sharedNumber++;
+        sharedNumber1++;
+    }
+
+    public void incrementSharedNumberBySetNx() {
+        while (true) {
+            // noinspection ConstantConditions
+            if (redisTemplate.opsForValue().setIfAbsent("shared:num:incr", "1")) {
+                sharedNumber++;
+                redisTemplate.delete("shared:num:incr");
+                break;
+            }
+        }
+    }
+
+    public synchronized void incrementSharedNumberBySyncMethod() {
+        sharedNumber++;
+    }
+
+    public void incrementSharedNumber() {
+        sharedNumber++;
+    }
+
+    public Long sharedNumber() {
+        return sharedNumber;
+    }
+
+    public Long sharedNumberToZero() {
+        return sharedNumber = 0;
+    }
+
+
 }

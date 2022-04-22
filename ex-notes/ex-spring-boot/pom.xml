@@ -14,6 +14,8 @@
   <properties>
     <main.basedir>${project.basedir}/../..</main.basedir>
     <doc.name>spring-boot</doc.name>
+
+    <nacos-discovery-spring-boot.version>0.2.10</nacos-discovery-spring-boot.version>
   </properties>
 
   <dependencies>
@@ -24,6 +26,10 @@
     <dependency>
       <groupId>org.mapstruct</groupId>
       <artifactId>mapstruct-processor</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
     </dependency>
     <dependency>
       <groupId>io.pebbletemplates</groupId>
@@ -58,16 +64,8 @@
       <artifactId>tranquil-redisson-spring-boot-starter</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.ycourlee.root.mocks</groupId>
-      <artifactId>yonn-handy-unit-test</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.ycourlee.root</groupId>
-      <artifactId>yonn-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.ycourlee.root</groupId>
-      <artifactId>yonn-quick-minio</artifactId>
+      <groupId>com.ycourlee.tranquil</groupId>
+      <artifactId>tranquil-web</artifactId>
     </dependency>
     <dependency>
       <groupId>com.ycourlee.explore.base</groupId>
