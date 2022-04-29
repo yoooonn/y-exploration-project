@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-google-findbugs-jsr305</artifactId>
-  <name>ex google findbugs jsr305</name>
+  <name>::notes::google findbugs jsr305</name>
 
   <dependencies>
     <dependency>

@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-okhttp</artifactId>
-  <name>ex okhttp</name>
+  <name>::notes::okhttp</name>
   <version>${revision}</version>
 
   <dependencies>

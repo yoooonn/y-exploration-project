@@ -14,7 +14,7 @@
   </modules>
 
   <artifactId>ex-spring-kafka</artifactId>
-  <name>ex spring kafka</name>
+  <name>::notes::spring boot::kafka</name>
   <version>${revision}</version>
   <packaging>pom</packaging>
 

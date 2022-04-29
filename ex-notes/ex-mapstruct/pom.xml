@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-mapstruct</artifactId>
-  <name>ex mapstruct</name>
+  <name>::notes::mapstruct</name>
   <version>${revision}</version>
 
   <properties>

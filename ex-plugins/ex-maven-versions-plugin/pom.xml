@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>ex-maven-versions-plugin</artifactId>
-  <name>ex maven plugin versions</name>
+  <name>::plugins::maven plugin versions</name>
   <version>1.0.6-SNAPSHOT</version>
   <packaging>pom</packaging>
 

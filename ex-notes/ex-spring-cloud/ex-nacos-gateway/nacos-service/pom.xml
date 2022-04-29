@@ -4,12 +4,12 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.ycourlee.explore.notes</groupId>
-    <artifactId>ex-spring-cloud</artifactId>
+    <artifactId>ex-nacos-gateway</artifactId>
     <version>${revision}</version>
   </parent>
 
-  <artifactId>ex-nacos-service</artifactId>
-  <name>ex nacos provider</name>
+  <artifactId>nacos-service</artifactId>
+  <name>::notes::spring cloud::nacos gateway::service</name>
   <version>${revision}</version>
 
   <properties>

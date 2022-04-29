@@ -10,7 +10,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>ex-maven-checkstyle-plugin</artifactId>
-  <name>ex checkstyle maven plugin</name>
+  <name>::plugins::checkstyle maven plugin</name>
 
   <properties>
     <maven.compiler.source>8</maven.compiler.source>

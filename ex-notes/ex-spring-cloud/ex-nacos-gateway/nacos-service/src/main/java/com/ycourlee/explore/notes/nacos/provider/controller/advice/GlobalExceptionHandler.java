@@ -1,4 +1,4 @@
-package com.ycourlee.explore.notes.nacos.provider;
+package com.ycourlee.explore.notes.nacos.provider.controller.advice;
 
 import com.ycourlee.tranquil.autoconfiguration.redisson.WaitLockTimeoutException;
 import com.ycourlee.tranquil.web.ApiCode;

@@ -17,7 +17,7 @@
 
   <groupId>com.ycourlee.explore.plugins</groupId>
   <artifactId>ex-plugins</artifactId>
-  <name>ex plugins</name>
+  <name>::plugins</name>
   <version>${revision}</version>
   <packaging>pom</packaging>
 

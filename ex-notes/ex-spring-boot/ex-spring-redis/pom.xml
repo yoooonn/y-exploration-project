@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-spring-redis</artifactId>
-  <name>ex spring redis</name>
+  <name>::notes::spring boot::redis</name>
 
   <dependencies>
     <dependency>

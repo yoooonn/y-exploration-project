@@ -9,5 +9,5 @@
   </parent>
 
   <artifactId>ex-maven-plugin-versions-sub-b</artifactId>
-  <name>ex maven plugin versions sub b</name>
+  <name>::plugins::maven plugin versions::sub b</name>
 </project>

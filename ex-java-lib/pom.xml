@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-java-lib</artifactId>
-  <name>ex java lib</name>
+  <name>::java lib</name>
 
   <properties>
     <main.basedir>${project.basedir}/..</main.basedir>

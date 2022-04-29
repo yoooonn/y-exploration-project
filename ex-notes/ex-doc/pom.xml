@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-doc</artifactId>
-  <name>ex doc</name>
+  <name>::notes::doc</name>
   <version>${revision}</version>
 
   <properties>

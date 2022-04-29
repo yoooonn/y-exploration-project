@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-elastic-stack</artifactId>
-  <name>ex elastic stack</name>
+  <name>::notes::spring boot::elastic stack</name>
 
   <dependencies>
     <dependency>

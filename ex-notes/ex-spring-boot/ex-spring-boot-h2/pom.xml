@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-spring-boot-h2</artifactId>
-  <name>ex spring boot h2</name>
+  <name>::notes::spring boot::h2</name>
 
 
   <properties>

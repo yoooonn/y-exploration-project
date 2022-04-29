@@ -16,7 +16,7 @@
   <groupId>com.ycourlee.explore.notes.mavendependence</groupId>
   <artifactId>ex-maven-dependence</artifactId>
   <version>${revision}</version>
-  <name>ex maven dependence</name>
+  <name>::notes::maven dependence</name>
   <packaging>pom</packaging>
 
   <dependencyManagement>

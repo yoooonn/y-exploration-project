@@ -10,7 +10,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>ex-xxl-job</artifactId>
-  <name>ex xxl job</name>
+  <name>::notes::spring boot::xxl job</name>
   <description>exploration of xxl job</description>
 
   <dependencies>

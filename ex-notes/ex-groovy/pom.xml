@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-groovy</artifactId>
-  <name>ex groovy</name>
+  <name>::notes::groovy</name>
 
   <dependencies>
     <dependency>

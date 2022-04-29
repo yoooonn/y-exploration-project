@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-spring-boot-mybatisplus</artifactId>
-  <name>ex spring boot mybatisplus</name>
+  <name>::notes::spring boot::mybatisplus</name>
 
   <properties>
     <mybatis-plus-boot-starter.version>3.4.3.4</mybatis-plus-boot-starter.version>

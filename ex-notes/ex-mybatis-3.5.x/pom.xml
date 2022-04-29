@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>ex-mybatis-3.5.x</artifactId>
-  <name>ex mybatis 3.5.x</name>
+  <name>::notes::mybatis 3.5.x</name>
   <description>mybatis framework solo</description>
 
   <properties>

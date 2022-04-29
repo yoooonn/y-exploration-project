@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-spring-boot-web</artifactId>
-  <name>ex spring boot web</name>
+  <name>::notes::spring boot::web</name>
   <version>${revision}</version>
 
   <properties>

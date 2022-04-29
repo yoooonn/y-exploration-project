@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-spring-kafka-consumer</artifactId>
-  <name>ex spring kafka consumer</name>
+  <name>::notes::spring boot::kafka::consumer</name>
   <version>${revision}</version>
 
   <dependencies>

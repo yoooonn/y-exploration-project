@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-spring-redission</artifactId>
-  <name>ex spring redission</name>
+  <name>::notes::spring boot::redission</name>
 
   <properties>
     <redisson-spring-boot-starter.version>3.16.8</redisson-spring-boot-starter.version>

@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-asciidoctor-maven-plugin</artifactId>
-  <name>ex asciidoctor maven plugin</name>
+  <name>::plugins::asciidoctor maven plugin</name>
 
 
   <properties>

@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-spring-boot-freemarker</artifactId>
-  <name>ex spring boot freemarker</name>
+  <name>::notes::spring boot::freemarker</name>
 
   <dependencies>
     <dependency>

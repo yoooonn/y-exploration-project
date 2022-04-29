@@ -1,7 +1,22 @@
 version: "2"
 services:
+  nacos-service-gateway:
+    image: yooonn/nacos-service-gateway:1.0.0-SNAPSHOT
+    container_name: nacos-service-gateway
+    environment:
+      - NACOS_SERVER_ADDR=nacos-standalone:8849
+    ports:
+      - "8080:18085"
+    networks:
+      - nacos-common
+    depends_on:
+      nacos-service:
+        condition: service_started
+      nacos-service2:
+        condition: service_started
+
   nacos-service:
-    image: yooonn/ex-nacos-service:1.0.0-SNAPSHOT
+    image: yooonn/nacos-service:1.0.0-SNAPSHOT
     container_name: nacos-service
     environment:
       - NACOS_SERVER_ADDR=nacos-standalone:8849
@@ -23,7 +38,7 @@ services:
         condition: service_started
 
   nacos-service2:
-    image: yooonn/ex-nacos-service:1.0.0-SNAPSHOT
+    image: yooonn/nacos-service:1.0.0-SNAPSHOT
     container_name: nacos-service2
     environment:
       - NACOS_SERVER_ADDR=nacos-standalone:8849

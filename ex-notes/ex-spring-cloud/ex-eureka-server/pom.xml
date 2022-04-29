@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-eureka-server</artifactId>
-  <name>ex eureka server</name>
+  <name>::notes::spring cloud::eureka server</name>
   <description>ex-eureka-server</description>
 
   <properties>

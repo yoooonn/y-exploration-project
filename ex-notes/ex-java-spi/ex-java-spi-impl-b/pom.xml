@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-java-spi-impl-b</artifactId>
-  <name>ex java spi impl b</name>
+  <name>::notes::java spi::impl b</name>
 
   <dependencies>
     <dependency>

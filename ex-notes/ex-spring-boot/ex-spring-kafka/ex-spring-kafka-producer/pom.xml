@@ -9,6 +9,6 @@
   </parent>
 
   <artifactId>ex-spring-kafka-producer</artifactId>
-  <name>ex spring kafka producer</name>
+  <name>::notes::spring boot::kafka::producer</name>
   <version>${revision}</version>
 </project>

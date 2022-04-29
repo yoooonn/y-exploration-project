@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-spring-boot</artifactId>
-  <name>ex spring boot</name>
+  <name>::notes::spring boot</name>
   <packaging>pom</packaging>
 
   <properties>

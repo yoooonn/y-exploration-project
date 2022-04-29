@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-maven-pmd-plugin</artifactId>
-  <name>ex maven plugin pmd</name>
+  <name>::plugins::maven plugin pmd</name>
 
   <build>
     <plugins>

@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-jmh-java-bench</artifactId>
-  <name>ex jmh java bench</name>
+  <name>::notes::jmh java bench</name>
 
   <description>Java Microbenchmark Harness</description>
 

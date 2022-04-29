@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>ex-zookeeper-springboot-dubbo-provider</artifactId>
-  <name>ex zookeeper springboot dubbo provider</name>
+  <name>::notes::spring boot::zookeeper dubbo provider</name>
   <description>exploration of zookeeper springboot dubbo provider</description>
 
   <dependencies>

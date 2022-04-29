@@ -10,7 +10,7 @@
 
   <artifactId>ex-maven-dependence-a</artifactId>
   <version>${revision}</version>
-  <name>ex maven dependence a</name>
+  <name>::notes::maven dependence::a</name>
 
   <dependencies>
     <dependency>

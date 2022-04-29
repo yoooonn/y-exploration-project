@@ -15,9 +15,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @MapperScan("com.ycourlee.explore.basic.dao")
 @SpringBootApplication
 @EnableDiscoveryClient
-public class NacosServiceApplication {
+public class NacosProviderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NacosServiceApplication.class, args);
+        SpringApplication.run(NacosProviderApplication.class, args);
     }
 }

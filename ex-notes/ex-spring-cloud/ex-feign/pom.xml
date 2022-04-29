@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-feign</artifactId>
-  <name>ex feign</name>
+  <name>::notes::spring cloud::feign</name>
   <version>${revision}</version>
 
 

@@ -10,7 +10,7 @@
 
   <groupId>com.ycourlee.explore.javaspi</groupId>
   <artifactId>ex-java-spi</artifactId>
-  <name>ex java spi</name>
+  <name>::notes::java spi</name>
   <packaging>pom</packaging>
   <modules>
     <module>ex-java-spi-interface</module>

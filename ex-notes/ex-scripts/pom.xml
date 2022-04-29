@@ -9,7 +9,7 @@
   </parent>
 
   <artifactId>ex-scripts</artifactId>
-  <name>ex scripts</name>
+  <name>::notes::scripts</name>
 
   <build>
     <plugins>
