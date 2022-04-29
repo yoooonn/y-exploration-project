@@ -29,6 +29,23 @@ public class InvokeDirectlyMethodBmRunner extends GlobalVariablesAndMethods {
         USER.setName("hello");
     }
 
+    /**
+     * Benchmark                                                    Mode  Cnt   Score   Error  Units
+     * InvokeDirectlyMethodBmRunner.codeMsgDataLinkInvokeBenchmark  avgt    5  37.633 ± 4.105  us/op
+     * InvokeDirectlyMethodBmRunner.putInvokeBenchmark              avgt    5  38.523 ± 7.181  us/op
+     * InvokeDirectlyMethodBmRunner.successInvokeBenchmark          avgt    5  31.499 ± 8.235  us/op
+     *
+     * @param args args
+     * @throws RunnerException exception.
+     */
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(InvokeDirectlyMethodBmRunner.class.getSimpleName())
+                .forks(1)
+                .build();
+        new Runner(opt).run();
+    }
+
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
@@ -57,21 +74,5 @@ public class InvokeDirectlyMethodBmRunner extends GlobalVariablesAndMethods {
             Response.pin("msg", "成功");
             Response.pin("data", USER);
         }
-    }
-
-    /**
-     * Benchmark                                                    Mode  Cnt   Score   Error  Units
-     * InvokeDirectlyMethodBmRunner.codeMsgDataLinkInvokeBenchmark  avgt    5  37.633 ± 4.105  us/op
-     * InvokeDirectlyMethodBmRunner.putInvokeBenchmark              avgt    5  38.523 ± 7.181  us/op
-     * InvokeDirectlyMethodBmRunner.successInvokeBenchmark          avgt    5  31.499 ± 8.235  us/op
-     * @param args args
-     * @throws RunnerException exception.
-     */
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(InvokeDirectlyMethodBmRunner.class.getSimpleName())
-                .forks(1)
-                .build();
-        new Runner(opt).run();
     }
 }

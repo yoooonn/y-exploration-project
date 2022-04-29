@@ -14,7 +14,7 @@
     </encoder>
   </appender>
 
-  <logger name="ch.qos.logback" level="off" />
+  <logger name="ch.qos.logback" level="off"/>
   <root>
     <level value="DEBUG"/>
     <appender-ref ref="STDOUT"/>

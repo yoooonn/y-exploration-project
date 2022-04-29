@@ -33,6 +33,14 @@ public class StreamBmRunner extends GlobalVariablesAndMethods {
         }
     }
 
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(StreamBmRunner.class.getSimpleName())
+                .forks(1)
+                .build();
+        new Runner(opt).run();
+    }
+
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
@@ -49,13 +57,5 @@ public class StreamBmRunner extends GlobalVariablesAndMethods {
         List<Integer> collect = data.parallelStream().filter(entity -> entity.getField2() != null)
                 .map(MultiFieldEntity::getField1)
                 .collect(Collectors.toList());
-    }
-
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(StreamBmRunner.class.getSimpleName())
-                .forks(1)
-                .build();
-        new Runner(opt).run();
     }
 }

@@ -14,5 +14,5 @@ import lombok.*;
 public class Cat {
 
     private Integer sort;
-    private String name;
+    private String  name;
 }

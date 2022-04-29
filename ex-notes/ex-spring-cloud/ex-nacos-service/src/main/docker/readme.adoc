@@ -1,0 +1,6 @@
+
+Q&A
+
+1. no main manifest attribute, in *.jar
+
+dockerfile:build的执行在spring-boot-maven-plugin的repackage之前，导致copy了没有被spring-boot-maven-plugin shade处理的jar包，jar包内没有manifest.

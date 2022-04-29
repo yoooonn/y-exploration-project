@@ -28,6 +28,23 @@ public class InvokeDeepMethodBmRunner extends GlobalVariablesAndMethods {
         USER.setName("hello");
     }
 
+    /**
+     * Benchmark                                                Mode  Cnt   Score   Error  Units
+     * DeepInvokeMethodBmRunner.codeMsgDataLinkInvokeBenchmark  avgt    5  36.257 ± 0.293  us/op
+     * DeepInvokeMethodBmRunner.putInvokeBenchmark              avgt    5  36.678 ± 0.542  us/op
+     * DeepInvokeMethodBmRunner.successInvokeBenchmark          avgt    5  46.505 ± 2.716  us/op
+     *
+     * @param args args
+     * @throws RunnerException exception.
+     */
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(InvokeDeepMethodBmRunner.class.getSimpleName())
+                .forks(1)
+                .build();
+        new Runner(opt).run();
+    }
+
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
@@ -53,11 +70,10 @@ public class InvokeDeepMethodBmRunner extends GlobalVariablesAndMethods {
         for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++) {
             Response resp = Response.blanker();
             resp.pin("code", 1)
-            .pin("msg", "成功")
-            .pin("data", USER);
+                    .pin("msg", "成功")
+                    .pin("data", USER);
         }
     }
-
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
@@ -87,22 +103,5 @@ public class InvokeDeepMethodBmRunner extends GlobalVariablesAndMethods {
             Response.pin("msg", "成功");
             Response.pin("data", USER);
         }
-    }
-
-    /**
-     * Benchmark                                                Mode  Cnt   Score   Error  Units
-     * DeepInvokeMethodBmRunner.codeMsgDataLinkInvokeBenchmark  avgt    5  36.257 ± 0.293  us/op
-     * DeepInvokeMethodBmRunner.putInvokeBenchmark              avgt    5  36.678 ± 0.542  us/op
-     * DeepInvokeMethodBmRunner.successInvokeBenchmark          avgt    5  46.505 ± 2.716  us/op
-     *
-     * @param args args
-     * @throws RunnerException exception.
-     */
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(InvokeDeepMethodBmRunner.class.getSimpleName())
-                .forks(1)
-                .build();
-        new Runner(opt).run();
     }
 }

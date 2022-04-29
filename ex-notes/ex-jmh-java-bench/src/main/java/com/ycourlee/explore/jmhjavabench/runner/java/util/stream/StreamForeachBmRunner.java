@@ -28,6 +28,14 @@ public class StreamForeachBmRunner extends CommonConstants {
         }
     }
 
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(StreamForeachBmRunner.class.getSimpleName())
+                .forks(1)
+                .build();
+        new Runner(opt).run();
+    }
+
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
@@ -48,15 +56,6 @@ public class StreamForeachBmRunner extends CommonConstants {
             flag.setData(e.getData());
             flag.setName(e.getName());
         }
-    }
-
-
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(StreamForeachBmRunner.class.getSimpleName())
-                .forks(1)
-                .build();
-        new Runner(opt).run();
     }
 
     @Setter

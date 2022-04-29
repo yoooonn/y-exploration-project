@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
@@ -21,8 +21,6 @@
     <module>ex-java-lib</module>
     <module>ex-notes</module>
     <module>ex-plugins</module>
-    <module>ex-solution-bin</module>
-    <module>ex-starters</module>
   </modules>
   <developers>
     <developer>
@@ -78,8 +76,6 @@
     <okhttp-bom.version>4.9.1</okhttp-bom.version>
     <reflectasm.version>1.11.9</reflectasm.version>
     <spring-boot.version>2.3.6.RELEASE</spring-boot.version>
-    <spring-cloud.version>Hoxton.SR11</spring-cloud.version>
-    <spring-cloud-alibaba.version>2.2.7.RELEASE</spring-cloud-alibaba.version>
     <tranquil.version>lv</tranquil.version>
     <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
   </properties>
@@ -107,20 +103,6 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-dependencies</artifactId>
-        <version>${spring-cloud.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.alibaba.cloud</groupId>
-        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-        <version>${spring-cloud-alibaba.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
       <dependency>
         <groupId>com.ycourlee.tranquil</groupId>
         <artifactId>tranquil-dependencies</artifactId>
@@ -415,28 +397,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
           <version>${maven-shade-plugin.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>com.spotify</groupId>
-          <artifactId>dockerfile-maven-plugin</artifactId>
-          <version>${dockerfile-maven-plugin.version}</version>
-          <executions>
-            <execution>
-              <id>default</id>
-              <goals>
-                <goal>build</goal>
-                <goal>push</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <repository>yooonn/${project.artifactId}</repository>
-            <tag>${project.version}</tag>
-            <buildArgs>
-              <JAR_FILE>${project.build.directory}/${project.build.finalName}.jar</JAR_FILE>
-            </buildArgs>
-            <dockerfile>src/main/docker/Dockerfile</dockerfile>
-          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>

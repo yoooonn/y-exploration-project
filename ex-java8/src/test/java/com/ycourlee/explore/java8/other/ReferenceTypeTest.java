@@ -23,7 +23,7 @@ public class ReferenceTypeTest extends AbstractTest {
     @Test
     public void objectTest() {
 
-        Cat cat = new Cat("aa","red");
+        Cat cat = new Cat("aa", "red");
 
         setBlackColor(cat);
 

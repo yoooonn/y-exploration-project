@@ -26,6 +26,14 @@ public class SplitBmRunner extends GlobalVariablesAndMethods {
 
     static final Pattern regex = Pattern.compile("a");
 
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(SplitBmRunner.class.getSimpleName())
+                .output(outputFile(SplitBmRunner.class.getSimpleName(), CASE_AMOUNT))
+                .forks(1)
+                .build();
+        new Runner(opt).run();
+    }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
@@ -48,14 +56,5 @@ public class SplitBmRunner extends GlobalVariablesAndMethods {
                 matcher.group(i1);
             }
         }
-    }
-
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(SplitBmRunner.class.getSimpleName())
-                .output(outputFile(SplitBmRunner.class.getSimpleName(), CASE_AMOUNT))
-                .forks(1)
-                .build();
-        new Runner(opt).run();
     }
 }

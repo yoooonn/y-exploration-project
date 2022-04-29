@@ -34,7 +34,6 @@ public class JSONWriterTest {
     }
 
 
-
     @Test
     public void mainTest() {
         StringWriter out = new StringWriter();

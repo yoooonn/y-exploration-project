@@ -13,15 +13,11 @@ import java.util.Collection;
  */
 public class DefaultCell implements Cell {
 
-    private Coordinate coordinate;
-
-    private Collection<Integer> possibleNumbers = new ArrayList<>();
-
-    private volatile Integer answer;
-
-    private boolean answerIsAssumed = true;
-
     private final Character MUTEX_ANSWER = 'L';
+    private Coordinate coordinate;
+    private Collection<Integer> possibleNumbers = new ArrayList<>();
+    private volatile Integer answer;
+    private boolean answerIsAssumed = true;
 
     private DefaultCell() {
     }

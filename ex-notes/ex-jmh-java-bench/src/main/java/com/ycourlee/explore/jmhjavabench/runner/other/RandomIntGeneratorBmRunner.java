@@ -19,6 +19,14 @@ import java.util.concurrent.TimeUnit;
 public class RandomIntGeneratorBmRunner extends CommonConstants {
 
 
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(RandomIntGeneratorBmRunner.class.getSimpleName())
+                .forks(1)
+                .build();
+        new Runner(opt).run();
+    }
+
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
@@ -34,16 +42,7 @@ public class RandomIntGeneratorBmRunner extends CommonConstants {
     public void t2Benchmark() {
         Random random = new Random();
         for (int i = 0; i < TEST_CASE_ONE_MILLION; i++) {
-            double i1 = random.nextDouble() ;
+            double i1 = random.nextDouble();
         }
-    }
-
-
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(RandomIntGeneratorBmRunner.class.getSimpleName())
-                .forks(1)
-                .build();
-        new Runner(opt).run();
     }
 }

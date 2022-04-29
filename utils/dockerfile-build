@@ -1,21 +1,10 @@
 #!/usr/bin/env bash
 #author yooonn
 
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-BLUE=$(tput setaf 4)
-RESET=$(tput sgr0)
+set -eux
 
-# functions
-printCurrentBranch() {
-    echo "${GREEN}current branch: ${BLUE}$1${RESET}"
-}
+./mvnw clean package -pl "$@" -am -Pbase-include
 
-# contents
-currentBranchName=$(git symbolic-ref --short HEAD)
-
-printCurrentBranch "${currentBranchName}"
-
-./mvnw clean dockerfile:build  -pl "$@" -am
+./mvnw com.spotify:dockerfile-maven-plugin:build -f "$*""/pom.xml"
 
 exit 0

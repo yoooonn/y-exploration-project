@@ -33,6 +33,13 @@ public class GroupByBmRunner extends CommonConstants {
         }
     }
 
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(GroupByBmRunner.class.getSimpleName())
+                .forks(1)
+                .build();
+        new Runner(opt).run();
+    }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
@@ -53,14 +60,6 @@ public class GroupByBmRunner extends CommonConstants {
             map.put(user.getAge(), temp);
         }
         // System.out.println("map.size() = " + map.size());
-    }
-
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(GroupByBmRunner.class.getSimpleName())
-                .forks(1)
-                .build();
-        new Runner(opt).run();
     }
 
     static class User {

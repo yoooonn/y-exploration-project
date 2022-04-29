@@ -33,6 +33,16 @@ public class StreamToMapBmRunner extends GlobalVariablesAndMethods {
         }
     }
 
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(StreamToMapBmRunner.class.getSimpleName())
+                .forks(1)
+                .threads(50)
+                .output(outputFile(StreamToMapBmRunner.class.getSimpleName(), CASE_AMOUNT))
+                .build();
+        new Runner(opt).run();
+    }
+
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
@@ -48,16 +58,5 @@ public class StreamToMapBmRunner extends GlobalVariablesAndMethods {
         for (User user : data) {
             tempMap.put(user.getId().toString(), user);
         }
-    }
-
-
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(StreamToMapBmRunner.class.getSimpleName())
-                .forks(1)
-                .threads(50)
-                .output(outputFile(StreamToMapBmRunner.class.getSimpleName(), CASE_AMOUNT))
-                .build();
-        new Runner(opt).run();
     }
 }

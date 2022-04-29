@@ -36,11 +36,11 @@ public class ExtendTests extends AbstractTest {
         }
     }
 
-    static class Cat implements Animal{
+    static class Cat implements Animal {
 
         private String name;
 
-        private int age =1;
+        private int age = 1;
 
         @Override
         public String name() {

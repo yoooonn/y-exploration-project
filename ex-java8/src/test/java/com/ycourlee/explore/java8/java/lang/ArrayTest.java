@@ -18,7 +18,7 @@ public class ArrayTest extends AbstractTest {
     @Test
     public void main2Test() {
         print("nihao", "hello", "world");
-        print("nihao","", "world");
+        print("nihao", "", "world");
         print();
     }
 

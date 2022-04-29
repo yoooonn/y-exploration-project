@@ -1,6 +1,5 @@
 package com.ycourlee.explore.java8.java.lang;
 
-import org.apache.commons.codec.binary.Hex;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

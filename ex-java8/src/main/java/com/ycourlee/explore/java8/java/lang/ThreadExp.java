@@ -31,20 +31,6 @@ public class ThreadExp {
         });
     }
 
-    static class AddThread extends Thread {
-
-        ThreadExp obj;
-
-        public AddThread(ThreadExp obj) {
-            this.obj = obj;
-        }
-
-        @Override
-        public void run() {
-            obj.add();
-        }
-    }
-
     private void add() {
         if (obj == null) {
             synchronized (LOCK) {
@@ -59,5 +45,19 @@ public class ThreadExp {
             }
         }
         System.out.println("obj = " + obj);
+    }
+
+    static class AddThread extends Thread {
+
+        ThreadExp obj;
+
+        public AddThread(ThreadExp obj) {
+            this.obj = obj;
+        }
+
+        @Override
+        public void run() {
+            obj.add();
+        }
     }
 }

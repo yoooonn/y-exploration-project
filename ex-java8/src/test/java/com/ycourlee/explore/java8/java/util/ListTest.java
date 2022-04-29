@@ -34,6 +34,6 @@ public class ListTest extends AbstractTest {
         List<String> strings = Arrays.asList("波", "涌", "的", "次", "啊", "得");
         strings.sort(String::compareTo);
         strings.forEach(System.out::println);
-        strings.forEach(s->System.out.println());
+        strings.forEach(s -> System.out.println());
     }
 }

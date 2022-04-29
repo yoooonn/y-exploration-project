@@ -26,6 +26,11 @@ public interface NestedClassPropertyConverter {
     })
     Employee asEmployee(User user, Company company, String name);
 
+    enum Status {
+        OFFICIAL,
+        NON_OFFICIAL
+    }
+
     @Mapper
     interface CompanyConverter {
 
@@ -72,10 +77,5 @@ public interface NestedClassPropertyConverter {
         private String  name;
         private Status  status;
         private Company company;
-    }
-
-    enum Status {
-        OFFICIAL,
-        NON_OFFICIAL
     }
 }

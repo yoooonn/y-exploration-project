@@ -8,6 +8,10 @@ import org.junit.Test;
  */
 public class Base32Test {
 
+    public final String[] base32Lookup =
+            {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "b", "c", "d", "e", "f", "g", "h",
+                    "j", "k", "m", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+
     @Test
     public void xTest() {
         Base32 base32 = new Base32();
@@ -20,10 +24,6 @@ public class Base32Test {
         String s = base32Encode("11100111010010001111000001101");
         System.out.println("s = " + s);
     }
-
-    public final String[] base32Lookup =
-            {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "b", "c", "d", "e", "f", "g", "h",
-                    "j", "k", "m", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
 
     private String base32Encode(final String str) {
         String unit = "";

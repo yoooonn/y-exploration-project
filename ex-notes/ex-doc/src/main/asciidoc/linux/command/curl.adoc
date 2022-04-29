@@ -40,7 +40,6 @@ curl -O URL
 curl -o a.html URL
 ----
 
-
 发送json格式请求体的post请求
 
 [source,shell script,indent=0]

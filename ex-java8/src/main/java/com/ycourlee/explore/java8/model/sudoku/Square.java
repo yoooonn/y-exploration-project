@@ -15,15 +15,12 @@ import java.util.Objects;
 @Accessors(chain = true)
 public class Square extends Position {
 
+    private final Character mutex = 'L';
     @Getter
     @Nullable
     private volatile Integer answer;
-
     private volatile boolean unique = false;
-
     private Collection<Integer> possibleAnswers = new HashSet<>();
-
-    private final Character mutex = 'L';
 
     private Square(int x, int y) {
         super(x, y);

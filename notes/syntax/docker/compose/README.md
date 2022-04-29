@@ -2,13 +2,9 @@
 
 后台启动指定文件包含的服务
 
-
-
 ##### docker-compose -f a-docker-compose-file.yml stop
 
 停止一个compose文件中的所有服务
-
-
 
 ##### docker-compose -f a-docker-compose-file.yml down
 

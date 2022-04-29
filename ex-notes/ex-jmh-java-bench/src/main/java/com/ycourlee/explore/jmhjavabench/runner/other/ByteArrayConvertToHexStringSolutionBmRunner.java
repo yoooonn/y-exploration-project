@@ -19,9 +19,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * 将字节数组转化为16进制的实现方式效率比较.
  * <p>
- Benchmark                                                          Mode  Cnt     Score      Error  Units
- ByteArrayConvertToHexStringSolutionBmRunner.byBigIntegerBenchmark  avgt    5  7425.263 ± 1444.034  us/op
- ByteArrayConvertToHexStringSolutionBmRunner.md5AndHexBenchmark     avgt    5  6605.760 ±  493.537  us/op
+ * Benchmark                                                          Mode  Cnt     Score      Error  Units
+ * ByteArrayConvertToHexStringSolutionBmRunner.byBigIntegerBenchmark  avgt    5  7425.263 ± 1444.034  us/op
+ * ByteArrayConvertToHexStringSolutionBmRunner.md5AndHexBenchmark     avgt    5  6605.760 ±  493.537  us/op
  * </p>
  *
  * @author yongjiang
@@ -43,6 +43,13 @@ public class ByteArrayConvertToHexStringSolutionBmRunner extends CommonConstants
         }
     }
 
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(ByteArrayConvertToHexStringSolutionBmRunner.class.getSimpleName())
+                .forks(1)
+                .build();
+        new Runner(opt).run();
+    }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
@@ -61,14 +68,5 @@ public class ByteArrayConvertToHexStringSolutionBmRunner extends CommonConstants
         for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++) {
             log.info("md5Str =             {}", new BigInteger(1, base).toString(16));
         }
-    }
-
-
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(ByteArrayConvertToHexStringSolutionBmRunner.class.getSimpleName())
-                .forks(1)
-                .build();
-        new Runner(opt).run();
     }
 }

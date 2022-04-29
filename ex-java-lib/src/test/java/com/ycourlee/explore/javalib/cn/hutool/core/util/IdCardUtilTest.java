@@ -25,7 +25,8 @@ public class IdCardUtilTest extends AbstractTest {
     void isValidCard2Test() {
         String idCard = "42010119980324756X";
         boolean validCard = IdcardUtil.isValidCard(idCard);
-        log.info("IdcardUtil.getGenderByIdCard(idCard) = {}", IdcardUtil.getGenderByIdCard(idCard));;
+        log.info("IdcardUtil.getGenderByIdCard(idCard) = {}", IdcardUtil.getGenderByIdCard(idCard));
+        ;
         log.info("validCard: {}", validCard);
     }
 }

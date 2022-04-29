@@ -30,6 +30,14 @@ public class HashMapPutMethodBmRunner {
         }
     }
 
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(HashMapPutMethodBmRunner.class.getSimpleName())
+                .forks(1)
+                .build();
+        new Runner(opt).run();
+    }
+
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
@@ -48,13 +56,5 @@ public class HashMapPutMethodBmRunner {
         for (User demo : demoList) {
             testMap.put(demo.getId(), demo.getName());
         }
-    }
-
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(HashMapPutMethodBmRunner.class.getSimpleName())
-                .forks(1)
-                .build();
-        new Runner(opt).run();
     }
 }

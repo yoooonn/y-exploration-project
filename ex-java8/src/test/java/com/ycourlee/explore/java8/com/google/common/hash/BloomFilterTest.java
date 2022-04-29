@@ -13,9 +13,8 @@ import java.nio.charset.StandardCharsets;
  */
 public class BloomFilterTest {
 
-    private static final Logger log = LoggerFactory.getLogger(BloomFilterTest.class);
-
     public static final BloomFilter<String> FILTER = BloomFilter.create(Funnels.stringFunnel(StandardCharsets.UTF_8), 1000000, 0.03f);
+    private static final Logger log = LoggerFactory.getLogger(BloomFilterTest.class);
 
     @Test
     public void aTest() {

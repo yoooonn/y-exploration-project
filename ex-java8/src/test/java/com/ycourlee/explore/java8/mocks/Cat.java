@@ -1,6 +1,8 @@
 package com.ycourlee.explore.java8.mocks;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @author yongjiang

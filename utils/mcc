@@ -13,6 +13,6 @@ currentBranchName=$(git symbolic-ref --short HEAD)
 
 printCurrentBranch "${currentBranchName}"
 
-./mvnw -s ~/.m2/normal-settings.xml clean compile -pl "$@" -am
+./mvnw clean compile -pl "$@" -am
 
 exit 0

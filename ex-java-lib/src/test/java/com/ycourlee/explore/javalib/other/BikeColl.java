@@ -56,7 +56,7 @@ public class BikeColl extends AbstractTest {
             group = "(200, 400]";
         } else if (cityId <= 600) {
             group = "(400, 600]";
-        } else if(cityId <=750){
+        } else if (cityId <= 750) {
             group = "(600, 750]";
         }
         return group;

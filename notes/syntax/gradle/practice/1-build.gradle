@@ -1,5 +1,5 @@
 //task helloError << {
-    println 'Hello world!'
+println 'Hello world!'
 //    leftShift() 被弃用，这样写会报错（无法通过编译）
 //}
 

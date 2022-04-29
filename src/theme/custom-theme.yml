@@ -6,7 +6,7 @@ title-page:
     image: image:cover.png[align=center]
     top: 0%
 page:
-  margin: [0.75in, 1in, 0.75in, 1in]
+  margin: [ 0.75in, 1in, 0.75in, 1in ]
 base:
   line-height-length: 20
   font-family: NotoSerifSC

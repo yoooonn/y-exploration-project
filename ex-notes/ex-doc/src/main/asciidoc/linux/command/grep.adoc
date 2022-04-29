@@ -109,9 +109,6 @@ grep [-abcEFGhHilLnqrsvVwxy] [-A<显示列数>] [-B<显示列数>] [-C<显示列
 
 指定一个正则作为范文, 此时grep命令的PATTERN要省略, 不然会被当作文件或目录.
 
-
-
-
 附录
 
 [source,text,indent=0]

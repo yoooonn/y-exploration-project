@@ -12,11 +12,10 @@ import java.util.Objects;
  */
 public class RtmWrapper extends HashMap<String, Object> {
 
-    private static final long serialVersionUID = 1L;
-
     public static final String CODE = "code";
     public static final String MSG  = "msg";
     public static final String DATA = "data";
+    private static final long serialVersionUID = 1L;
 
     private RtmWrapper() {
     }
@@ -31,28 +30,6 @@ public class RtmWrapper extends HashMap<String, Object> {
 
     private RtmWrapper(CodeMessage CodeMessage, Object data) {
         this(CodeMessage.getCode(), CodeMessage.getMsg(), data);
-    }
-
-    @Override
-    public RtmWrapper put(String key, Object data) {
-        super.put(key, data);
-        return this;
-    }
-
-    public RtmWrapper pin(String key, Object data) {
-        return put(key, data);
-    }
-
-    public RtmWrapper code(Object code) {
-        return put(CODE, code);
-    }
-
-    public RtmWrapper msg(Object msg) {
-        return put(MSG, msg);
-    }
-
-    public RtmWrapper data(Object data) {
-        return put(DATA, data);
     }
 
     public static RtmWrapper blanker() {
@@ -81,5 +58,27 @@ public class RtmWrapper extends HashMap<String, Object> {
 
     public static RtmWrapper error(Integer code, String msg, Object data) {
         return new RtmWrapper(code, msg, data);
+    }
+
+    @Override
+    public RtmWrapper put(String key, Object data) {
+        super.put(key, data);
+        return this;
+    }
+
+    public RtmWrapper pin(String key, Object data) {
+        return put(key, data);
+    }
+
+    public RtmWrapper code(Object code) {
+        return put(CODE, code);
+    }
+
+    public RtmWrapper msg(Object msg) {
+        return put(MSG, msg);
+    }
+
+    public RtmWrapper data(Object data) {
+        return put(DATA, data);
     }
 }

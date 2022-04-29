@@ -19,9 +19,8 @@ import java.util.stream.Collectors;
  */
 public class ToMapMergeFunctionTest extends CommonConstants {
 
-    private static List<Ok> data = new ArrayList<>();
-
     private static final Logger log = LoggerFactory.getLogger(ToMapMergeFunctionTest.class);
+    private static List<Ok> data = new ArrayList<>();
 
     static {
         data.add(new Ok(1, 2));

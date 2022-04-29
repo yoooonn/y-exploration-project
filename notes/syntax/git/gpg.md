@@ -50,9 +50,7 @@ NOTE:
 
 解决乱码在上文，如果未成功 可`sudo languagesetup`输入选项English的序号1，选择English
 
-
 事实上，在设置`echo 'export LC_ALL=en_US.UTF-8' >> ~/.zshrc && source ~/.zshrc`之后再执行brew install install, 体验更好。
-
 
 ```text
 Sign commits with GPG keys

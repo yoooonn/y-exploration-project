@@ -34,7 +34,8 @@ who: her
    </includes>
    ```
 
-   经过上面操作，最终被打包的只有c.txt，d.txt两个文件。注意把directory下**所有文件**看作一个集合 A = {a, b ,c, d, e, f}。经过excludes，就是求排除的文件 {a, b} 在A中的差集 B（记得没错的话，又叫相对补集），B = {c, d, e, f}; B再经过includes，求文件集合 {a, c, d} 与 B 的交集 C，C = {c, d} 两个文件。
+   经过上面操作，最终被打包的只有c.txt，d.txt两个文件。注意把directory下**所有文件**看作一个集合 A = {a, b ,c, d, e, f}。经过excludes，就是求排除的文件 {a, b} 在A中的差集 B（记得没错的话，又叫相对补集），B = {c, d, e, f}; B再经过includes，求文件集合 {a, c,
+   d} 与 B 的交集 C，C = {c, d} 两个文件。
 
    反过来，
 
@@ -60,8 +61,6 @@ who: her
 
    是否被过滤仅取决于filtering的布尔值，是否被过滤是对经过上述选择、选中的文件，它们才是过滤行为的candidate。如果一个文件根本不会参与package这个声明周期，考虑是否会被过滤是没有意义的。
 
-
-
 Spring Boot规范
 
 ```xml
@@ -85,8 +84,6 @@ Spring Boot规范
     </resource>
 </resources>
 ```
-
-
 
 举例，对于复杂例子
 
@@ -120,8 +117,6 @@ Spring Boot规范
     </plugin>
 </plugins>
 ```
-
-
 
 例子（maven Java 项目）：pom.xml
 
@@ -163,8 +158,6 @@ Spring Boot规范
 ...
 ```
 
-
-
 文件 ${pom.basedir}/a/config.yml 内容为：
 
 ```yaml
@@ -205,14 +198,6 @@ loveyoulove
 
 结果：
 
-
-
-
-
-
-
-
-
 上面这组标签经常出现在自定义构建，当然也可以使用maven-assembly...这个plugin更自由地pack，但通常这样就够了。它声明了一组resource，这组资源位于directory下，具体又include、exclude目录下的那些文件，支持通配符（一个\*不会递归，两个\*递归）。filtering是讨论的重点，它表示是否从启动命令的Properties中选取同名的properties值来替换掉软编码的值。
 
 当资源文件中有些属性经常变化，或者是隐私、秘密性的，比如私钥。这些不能在开源库中托管，或其它原因不能硬编码。可以利用maven-resources-plugin过滤来给这样的属性赋值，前提是编写了分隔符包裹的属性变量。
@@ -235,12 +220,9 @@ loveyoulove
 
 分隔符具体是 beginToken*endToken 的形式，如果没有 \* 出现在PATTERN中，那么就假设分隔符的开始、结束token相等（\* 的位置为属性名占位）。原话：
 
->These delimiters are specified in the form beginToken*endToken. If no * is given, the delimiter is assumed to be the same for start and end.
+> These delimiters are specified in the form beginToken*endToken. If no * is given, the delimiter is assumed to be the same for start and end.
 
-也就是如果 \<delimiter\> 给了 aa\*bb 那么用法是 **aa**PROPERTY_NAME**bb**，如果给的 love，用法就是 **love**PROPERTY_NAME**love**。对，分隔符可以取字母，当token特征性很低时，需要严格规定build.resources.resource.includes和 build.resources.resource.excludes，防止污染resources目录中其他的文件。
-
-
-
-
+也就是如果 \<delimiter\> 给了 aa\*bb 那么用法是 **aa**PROPERTY_NAME**bb**，如果给的 love，用法就是 **love**PROPERTY_NAME**love**。对，分隔符可以取字母，当token特征性很低时，需要严格规定build.resources.resource.includes和
+build.resources.resource.excludes，防止污染resources目录中其他的文件。
 
 <a name="myfootnote1">1</a>: 这些文件通常是运行时需要的，或者想通过war、jar转移这些文件。比如属性文件（运行时需要），mapper文件（运行时需要），启动、关停、部署的脚本（方便和源文件一同转移到其他设备）。

@@ -46,13 +46,22 @@ public class ReflectionEfficiencyBmRunner extends CommonConstants {
         }
     }
 
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(ReflectionEfficiencyBmRunner.class.getSimpleName())
+                .forks(1)
+                .threads(3)
+                .build();
+        new Runner(opt).run();
+    }
+
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
     public void ordinaryBenchmark() {
 
         // for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++) {
-            sampleDecorator.fill(map);
+        sampleDecorator.fill(map);
 
         // }
     }
@@ -62,12 +71,12 @@ public class ReflectionEfficiencyBmRunner extends CommonConstants {
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
     public void reflectionBenchmark() {
         // for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++) {
-            Method fill = methodMap.get("fill");
-            try {
-                fill.invoke(sampleDecorator, map2);
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
-            }
+        Method fill = methodMap.get("fill");
+        try {
+            fill.invoke(sampleDecorator, map2);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
         // }
     }
 
@@ -76,18 +85,8 @@ public class ReflectionEfficiencyBmRunner extends CommonConstants {
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
     public void asmBenchmark() {
         // for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++) {
-            methodAccess.invoke(sampleDecorator, "fill", map3);
+        methodAccess.invoke(sampleDecorator, "fill", map3);
         // }
-    }
-
-
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(ReflectionEfficiencyBmRunner.class.getSimpleName())
-                .forks(1)
-                .threads(3)
-                .build();
-        new Runner(opt).run();
     }
 
     static class SampleDecorator {

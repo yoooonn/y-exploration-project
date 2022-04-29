@@ -21,11 +21,11 @@ under the License.
 
 <!-- START SNIPPET: superpom -->
 <project>
-<!--  每个maven model都会继承下面每个配置 除非将标签重写，把其覆盖-->
-<!--  maven model的版本-->
+  <!--  每个maven model都会继承下面每个配置 除非将标签重写，把其覆盖-->
+  <!--  maven model的版本-->
   <modelVersion>4.0.0</modelVersion>
 
-<!--  定义依赖的仓库，没错，就是那个中央仓库-->
+  <!--  定义依赖的仓库，没错，就是那个中央仓库-->
   <repositories>
     <repository>
       <id>central</id>
@@ -38,7 +38,7 @@ under the License.
     </repository>
   </repositories>
 
-<!--  定义找寻插件的仓库-->
+  <!--  定义找寻插件的仓库-->
   <pluginRepositories>
     <pluginRepository>
       <id>central</id>
@@ -54,7 +54,7 @@ under the License.
     </pluginRepository>
   </pluginRepositories>
 
-<!--  定义构建规则-->
+  <!--  定义构建规则-->
   <build>
     <!--
       下面标签定义时用到的属性有:
@@ -64,64 +64,64 @@ under the License.
       project.artifactId: 自引用, 但artifactId在maven model的pom.xml中才会声明
       project.version: 自引用, 声明时间同上-->
 
-<!--    定义directory标签，其实就是变量的作用，下面称为变量的作用基本同此-->
+    <!--    定义directory标签，其实就是变量的作用，下面称为变量的作用基本同此-->
     <directory>${project.basedir}/target</directory>
 
-<!--    源文件的编译产物的位置，源文件在sourceDirectory-->
+    <!--    源文件的编译产物的位置，源文件在sourceDirectory-->
     <outputDirectory>${project.build.directory}/classes</outputDirectory>
 
-<!--    定义package这个goal的产物的文件名称不包含dot和后缀-->
+    <!--    定义package这个goal的产物的文件名称不包含dot和后缀-->
     <finalName>${project.artifactId}-${project.version}</finalName>
 
-<!--    测试文件的编译产物位置，测试文件在testSourceDirectory-->
+    <!--    测试文件的编译产物位置，测试文件在testSourceDirectory-->
     <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
 
-<!--    源文件的位置，编译后的文件在outputDirectory-->
+    <!--    源文件的位置，编译后的文件在outputDirectory-->
     <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
 
-<!--    脚本源文件的位置，脚本是可执行的，不会被编译，没有对应的outputDirectory-->
+    <!--    脚本源文件的位置，脚本是可执行的，不会被编译，没有对应的outputDirectory-->
     <scriptSourceDirectory>${project.basedir}/src/main/scripts</scriptSourceDirectory>
 
-<!--    测试文件的位置，编译后的文件在testOutputDirectory-->
+    <!--    测试文件的位置，编译后的文件在testOutputDirectory-->
     <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
 
-<!--    源文件用到的资源文件，资源不需要被编译，通常按需拷贝，和其他过程（过滤）-->
+    <!--    源文件用到的资源文件，资源不需要被编译，通常按需拷贝，和其他过程（过滤）-->
     <resources>
 
-<!--      一组资源文件-->
+      <!--      一组资源文件-->
       <resource>
 
-<!--        资源文件的位置-->
+        <!--        资源文件的位置-->
         <directory>${project.basedir}/src/main/resources</directory>
 
-<!--        下面四个tag，super pom没有定义，但用法重要-->
-<!--        是否过滤，默认false，不过滤。关于过滤在./resource.filtering.md有讨论-->
-<!--        <filtering></filtering>-->
+        <!--        下面四个tag，super pom没有定义，但用法重要-->
+        <!--        是否过滤，默认false，不过滤。关于过滤在./resource.filtering.md有讨论-->
+        <!--        <filtering></filtering>-->
 
-<!--        拷贝时包含文件，指明拷贝(filtering为true时，还要过滤)哪些文件-->
-<!--        <includes></includes>-->
+        <!--        拷贝时包含文件，指明拷贝(filtering为true时，还要过滤)哪些文件-->
+        <!--        <includes></includes>-->
 
-<!--        拷贝时排除文件，指明不拷贝哪些文件，言外之意，剩下的都要拷贝-->
-<!--        <excludes></excludes>-->
+        <!--        拷贝时排除文件，指明不拷贝哪些文件，言外之意，剩下的都要拷贝-->
+        <!--        <excludes></excludes>-->
 
-<!--        拷贝到哪里 默认是${project.build.outputDirectory}，
-                    测试文件需要的资源文件默认是${project.build.testOutputDirectory}-->
-<!--        <targetPath></targetPath>-->
+        <!--        拷贝到哪里 默认是${project.build.outputDirectory}，
+                            测试文件需要的资源文件默认是${project.build.testOutputDirectory}-->
+        <!--        <targetPath></targetPath>-->
       </resource>
     </resources>
 
-<!--    测试文件用到的资源文件，资源不需要被编译，通常按需拷贝，和其他过程（过滤）-->
+    <!--    测试文件用到的资源文件，资源不需要被编译，通常按需拷贝，和其他过程（过滤）-->
     <testResources>
 
-<!--      一组资源文件-->
+      <!--      一组资源文件-->
       <testResource>
 
-<!--        用法同上-->
+        <!--        用法同上-->
         <directory>${project.basedir}/src/test/resources</directory>
       </testResource>
     </testResources>
 
-<!--    插件管理单元，只声明-->
+    <!--    插件管理单元，只声明-->
     <pluginManagement>
       <!-- NOTE: These plugins will be removed from future versions of the super POM -->
       <!-- They are kept for the moment as they are very unlikely to conflict with lifecycle mappings (MNG-4453) -->
@@ -146,14 +146,14 @@ under the License.
     </pluginManagement>
   </build>
 
-<!--  报告-->
+  <!--  报告-->
   <reporting>
 
-<!--    报告输出位置-->
+    <!--    报告输出位置-->
     <outputDirectory>${project.build.directory}/site</outputDirectory>
   </reporting>
 
-<!--  profile，默认release-profile-->
+  <!--  profile，默认release-profile-->
   <profiles>
     <!-- NOTE: The release profile will be removed from future versions of the super POM -->
     <profile>
@@ -205,4 +205,4 @@ under the License.
   </profiles>
 
 </project>
-  <!-- END SNIPPET: superpom -->
+        <!-- END SNIPPET: superpom -->

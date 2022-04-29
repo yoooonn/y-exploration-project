@@ -30,10 +30,9 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 3, time = 1)
 public class TemplateConvert2RunnerBmRunner extends CommonConstants {
 
+    static final RedisStringTemplateLoader redisStringTemplateLoader = new RedisStringTemplateLoader();
     private static final Logger            log               = LoggerFactory.getLogger(TemplateConvert2RunnerBmRunner.class);
     private static final TemplateConverter templateConverter = new TemplateConverter();
-
-    static final RedisStringTemplateLoader redisStringTemplateLoader = new RedisStringTemplateLoader();
     static       Map<String, Object>       map                       = new HashMap<>(4);
 
     static {
@@ -56,6 +55,16 @@ public class TemplateConvert2RunnerBmRunner extends CommonConstants {
         map.put("double2", "0");
         map.put("double3", "123");
         map.put("cityId", 217);
+    }
+
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(TemplateConvert2RunnerBmRunner.class.getSimpleName())
+                .forks(1)
+                .threads(5)
+                .output(TEMP_DIR + "/a.txt")
+                .build();
+        new Runner(opt).run();
     }
 
     @Benchmark
@@ -81,15 +90,5 @@ public class TemplateConvert2RunnerBmRunner extends CommonConstants {
         BufferedWriterWrapper fileWriter = new BufferedWriterWrapper(TEMP_JSON_FILE_DIR + "/b.json", true);
         fileWriter.write(string);
         fileWriter.save();
-    }
-
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(TemplateConvert2RunnerBmRunner.class.getSimpleName())
-                .forks(1)
-                .threads(5)
-                .output(TEMP_DIR+"/a.txt")
-                .build();
-        new Runner(opt).run();
     }
 }

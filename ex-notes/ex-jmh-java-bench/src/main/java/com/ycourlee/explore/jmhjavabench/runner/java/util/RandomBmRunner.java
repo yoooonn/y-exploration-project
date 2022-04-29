@@ -21,9 +21,17 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 public class RandomBmRunner extends CommonConstants {
 
+    private static final Logger log = LoggerFactory.getLogger(RandomBmRunner.class);
     static int CASE_AMOUNT = TEST_CASE_ONE_HUNDRED;
 
-    private static final Logger log = LoggerFactory.getLogger(RandomBmRunner.class);
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(RandomBmRunner.class.getSimpleName())
+                .forks(5)
+                .threads(3)
+                .build();
+        new Runner(opt).run();
+    }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
@@ -61,14 +69,5 @@ public class RandomBmRunner extends CommonConstants {
             ThreadLocalRandom current = ThreadLocalRandom.current();
             String s = new UUID(current.nextLong(), current.nextLong()).toString().replaceAll("-", "");
         }
-    }
-
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(RandomBmRunner.class.getSimpleName())
-                .forks(5)
-                .threads(3)
-                .build();
-        new Runner(opt).run();
     }
 }

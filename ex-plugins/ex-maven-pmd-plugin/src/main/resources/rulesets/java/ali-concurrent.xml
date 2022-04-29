@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
-<ruleset name="AlibabaJavaConcurrent"
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         name="AlibabaJavaConcurrent"
          xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
-    <description>AlibabaJavaConcurrent</description>
+  <description>AlibabaJavaConcurrent</description>
 
-    <rule name="ThreadPoolCreationRule"
-          language="java"
-          since="1.6"
-          message="java.concurrent.ThreadPoolCreationRule.rule.msg"
-          class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.ThreadPoolCreationRule">
-        <description>java.concurrent.ThreadPoolCreationRule.rule.desc</description>
-        <priority>1</priority>
-        <example>
-            <![CDATA[
+  <rule name="ThreadPoolCreationRule"
+        language="java"
+        since="1.6"
+        message="java.concurrent.ThreadPoolCreationRule.rule.msg"
+        class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.ThreadPoolCreationRule">
+    <description>java.concurrent.ThreadPoolCreationRule.rule.desc</description>
+    <priority>1</priority>
+    <example>
+      <![CDATA[
 Positive example 1：
     //org.apache.commons.lang3.concurrent.BasicThreadFactory
     ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(1,
         new BasicThreadFactory.Builder().namingPattern("example-schedule-pool-%d").daemon(true).build());
        ]]>
-        </example>
-        <example>
-            <![CDATA[
+    </example>
+    <example>
+      <![CDATA[
 Positive example 2：
     ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
         .setNameFormat("demo-pool-%d").build();
@@ -34,9 +34,9 @@ Positive example 2：
     pool.execute(()-> System.out.println(Thread.currentThread().getName()));
     pool.shutdown();//gracefully shutdown
        ]]>
-        </example>
-        <example>
-            <![CDATA[
+    </example>
+    <example>
+      <![CDATA[
 Positive example 3：
     <bean id="userThreadPool"
         class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
@@ -52,16 +52,16 @@ Positive example 3：
     //in code
     userThreadPool.execute(thread);
        ]]>
-        </example>
-    </rule>
-    <rule name="AvoidUseTimerRule"
-          language="java"
-          since="1.6"
-          message="java.concurrent.AvoidUseTimerRule.rule.msg"
-          class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.AvoidUseTimerRule">
-        <priority>1</priority>
-        <example>
-            <![CDATA[
+    </example>
+  </rule>
+  <rule name="AvoidUseTimerRule"
+        language="java"
+        since="1.6"
+        message="java.concurrent.AvoidUseTimerRule.rule.msg"
+        class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.AvoidUseTimerRule">
+    <priority>1</priority>
+    <example>
+      <![CDATA[
     //org.apache.commons.lang3.concurrent.BasicThreadFactory
     ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(1,
         new BasicThreadFactory.Builder().namingPattern("example-schedule-pool-%d").daemon(true).build());
@@ -72,18 +72,18 @@ Positive example 3：
         }
     },initialDelay,period, TimeUnit.HOURS);
        ]]>
-        </example>
-    </rule>
-    <rule name="AvoidManuallyCreateThreadRule"
-          language="java"
-          since="1.6"
-          message="java.concurrent.AvoidManuallyCreateThreadRule.rule.msg"
-          dfa="true"
-          class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.AvoidManuallyCreateThreadRule">
-        <description>java.concurrent.AvoidManuallyCreateThreadRule.rule.desc</description>
-        <priority>2</priority>
-        <example>
-            <![CDATA[
+    </example>
+  </rule>
+  <rule name="AvoidManuallyCreateThreadRule"
+        language="java"
+        since="1.6"
+        message="java.concurrent.AvoidManuallyCreateThreadRule.rule.msg"
+        dfa="true"
+        class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.AvoidManuallyCreateThreadRule">
+    <description>java.concurrent.AvoidManuallyCreateThreadRule.rule.desc</description>
+    <priority>2</priority>
+    <example>
+      <![CDATA[
     ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
         .setNameFormat("demo-pool-%d").build();
     ExecutorService singleThreadPool = new ThreadPoolExecutor(1, 1,
@@ -93,17 +93,17 @@ Positive example 3：
     singleThreadPool.execute(()-> System.out.println(Thread.currentThread().getName()));
     singleThreadPool.shutdown();
     ]]>
-        </example>
-    </rule>
-    <rule name="ThreadShouldSetNameRule"
-          language="java"
-          since="1.6"
-          message="java.concurrent.ThreadShouldSetNameRule.rule.msg"
-          dfa="true"
-          class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.ThreadShouldSetNameRule">
-        <priority>2</priority>
-        <example>
-            <![CDATA[
+    </example>
+  </rule>
+  <rule name="ThreadShouldSetNameRule"
+        language="java"
+        since="1.6"
+        message="java.concurrent.ThreadShouldSetNameRule.rule.msg"
+        dfa="true"
+        class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.ThreadShouldSetNameRule">
+    <priority>2</priority>
+    <example>
+      <![CDATA[
     ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
         .setNameFormat("demo-pool-%d").build();
     ExecutorService singleThreadPool = new ThreadPoolExecutor(1, 1,
@@ -113,26 +113,26 @@ Positive example 3：
     singleThreadPool.execute(()-> System.out.println(Thread.currentThread().getName()));
     singleThreadPool.shutdown();
     ]]>
-        </example>
-        <example>
-            <![CDATA[
+    </example>
+    <example>
+      <![CDATA[
     public class TimerTaskThread extends Thread {
         public TimerTaskThread(){
         super.setName("TimerTaskThread"); …
     }
        ]]>
-        </example>
-    </rule>
-    <rule name="AvoidCallStaticSimpleDateFormatRule"
-          language="java"
-          since="1.6"
-          message="java.concurrent.AvoidCallStaticSimpleDateFormatRule.rule.msg"
-          dfa="true"
-          class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.AvoidCallStaticSimpleDateFormatRule">
-        <description>java.concurrent.AvoidCallStaticSimpleDateFormatRule.rule.desc</description>
-        <priority>2</priority>
-        <example>
-            <![CDATA[
+    </example>
+  </rule>
+  <rule name="AvoidCallStaticSimpleDateFormatRule"
+        language="java"
+        since="1.6"
+        message="java.concurrent.AvoidCallStaticSimpleDateFormatRule.rule.msg"
+        dfa="true"
+        class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.AvoidCallStaticSimpleDateFormatRule">
+    <description>java.concurrent.AvoidCallStaticSimpleDateFormatRule.rule.desc</description>
+    <priority>2</priority>
+    <example>
+      <![CDATA[
 Positive example 1：
     private static final String FORMAT = "yyyy-MM-dd HH:mm:ss";
     public String getFormat(Date date){
@@ -140,9 +140,9 @@ Positive example 1：
         return sdf.format(date);
     }
         ]]>
-        </example>
-        <example>
-            <![CDATA[
+    </example>
+    <example>
+      <![CDATA[
 Positive example 2：
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public void getFormat(){
@@ -151,9 +151,9 @@ Positive example 2：
         ….;
     }
         ]]>
-        </example>
-        <example>
-            <![CDATA[
+    </example>
+    <example>
+      <![CDATA[
 Positive example 3：
     private static final ThreadLocal<DateFormat> DATE_FORMATTER = new ThreadLocal<DateFormat>() {
         @Override
@@ -162,18 +162,18 @@ Positive example 3：
         }
     };
         ]]>
-        </example>
-    </rule>
+    </example>
+  </rule>
 
-    <rule name="ThreadLocalShouldRemoveRule"
-          language="java"
-          since="1.6"
-          message="java.concurrent.ThreadLocalShouldRemoveRule.rule.msg"
-          dfa="true"
-          class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.ThreadLocalShouldRemoveRule">
-        <priority>2</priority>
-        <example>
-            <![CDATA[
+  <rule name="ThreadLocalShouldRemoveRule"
+        language="java"
+        since="1.6"
+        message="java.concurrent.ThreadLocalShouldRemoveRule.rule.msg"
+        dfa="true"
+        class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.ThreadLocalShouldRemoveRule">
+    <priority>2</priority>
+    <example>
+      <![CDATA[
     /**
      * @author caikang
      * @date 2017/04/07
@@ -213,17 +213,17 @@ Positive example 3：
         }
     }
         ]]>
-        </example>
-    </rule>
-    <rule name="AvoidConcurrentCompetitionRandomRule"
-          language="java"
-          since="1.6"
-          message="java.concurrent.AvoidConcurrentCompetitionRandomRule.rule.msg"
-          dfa="true"
-          class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.AvoidConcurrentCompetitionRandomRule">
-        <priority>3</priority>
-        <example>
-            <![CDATA[
+    </example>
+  </rule>
+  <rule name="AvoidConcurrentCompetitionRandomRule"
+        language="java"
+        since="1.6"
+        message="java.concurrent.AvoidConcurrentCompetitionRandomRule.rule.msg"
+        dfa="true"
+        class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.AvoidConcurrentCompetitionRandomRule">
+    <priority>3</priority>
+    <example>
+      <![CDATA[
 Positive example 1：
     /**
      * @author caikang
@@ -238,9 +238,9 @@ Positive example 1：
         }
     }
         ]]>
-        </example>
-        <example>
-            <![CDATA[
+    </example>
+    <example>
+      <![CDATA[
 Positive example 2：
     /**
      * @author caikang
@@ -255,18 +255,18 @@ Positive example 2：
         }
     }
         ]]>
-        </example>
-    </rule>
-    <rule name="CountDownShouldInFinallyRule"
-          language="java"
-          since="1.6"
-          message="java.concurrent.CountDownShouldInFinallyRule.rule.msg"
-          dfa="true"
-          class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.CountDownShouldInFinallyRule">
-        <description>java.concurrent.CountDownShouldInFinallyRule.rule.desc</description>
-        <priority>3</priority>
-        <example>
-            <![CDATA[
+    </example>
+  </rule>
+  <rule name="CountDownShouldInFinallyRule"
+        language="java"
+        since="1.6"
+        message="java.concurrent.CountDownShouldInFinallyRule.rule.msg"
+        dfa="true"
+        class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.CountDownShouldInFinallyRule">
+    <description>java.concurrent.CountDownShouldInFinallyRule.rule.desc</description>
+    <priority>3</priority>
+    <example>
+      <![CDATA[
     /**
      * @author caikang
      * @date 2017/04/07
@@ -283,18 +283,18 @@ Positive example 2：
         }
     }
         ]]>
-        </example>
-    </rule>
-    <rule name="LockShouldWithTryFinallyRule"
-          language="java"
-          since="1.6"
-          message="java.concurrent.LockShouldWithTryFinallyRule.rule.msg"
-          dfa="true"
-          class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.LockShouldWithTryFinallyRule">
-        <description>java.concurrent.LockShouldWithTryFinallyRule.rule.desc</description>
-        <priority>1</priority>
-        <example>
-            <![CDATA[
+    </example>
+  </rule>
+  <rule name="LockShouldWithTryFinallyRule"
+        language="java"
+        since="1.6"
+        message="java.concurrent.LockShouldWithTryFinallyRule.rule.msg"
+        dfa="true"
+        class="com.alibaba.p3c.pmd.lang.java.rule.concurrent.LockShouldWithTryFinallyRule">
+    <description>java.concurrent.LockShouldWithTryFinallyRule.rule.desc</description>
+    <priority>1</priority>
+    <example>
+      <![CDATA[
 Positive example：
     Lock lock = new XxxLock();
     // ...
@@ -306,9 +306,9 @@ Positive example：
         lock.unlock();
     }
         ]]>
-        </example>
-        <example>
-            <![CDATA[
+    </example>
+    <example>
+      <![CDATA[
 Negative example：
     Lock lock = new XxxLock();
     // ...
@@ -323,6 +323,6 @@ Negative example：
         lock.unlock();
     }
         ]]>
-        </example>
-    </rule>
+    </example>
+  </rule>
 </ruleset>

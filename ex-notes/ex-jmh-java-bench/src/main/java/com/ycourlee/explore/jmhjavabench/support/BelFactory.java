@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  * @date 2021.01.23
  */
 @Slf4j
-public class BelFactory  {
+public class BelFactory {
 
     /**
      * 匹配bel表达式
@@ -23,25 +23,25 @@ public class BelFactory  {
      * 最简单形式
      * ${happy}
      */
-    public static final Pattern PATTERN1 = Pattern.compile("^\\$\\{([\\w ]+)\\}");
+    public static final Pattern PATTERN1        = Pattern.compile("^\\$\\{([\\w ]+)\\}");
     /**
      * ${happy|00-00-00 00:00:00}等
      */
-    public static final Pattern PATTERN2 = Pattern.compile("^\\$\\{([\\w ]+)\\|([\\w\\-: ]+)\\}$");
+    public static final Pattern PATTERN2        = Pattern.compile("^\\$\\{([\\w ]+)\\|([\\w\\-: ]+)\\}$");
     /**
      * ${arr:arr_alias}
      */
-    public static final Pattern PATTERN3 = Pattern.compile("^\\$\\{([\\w]+):([\\w ]+)\\}$");
-    private final String BEL_PREFIX = "${";
-    private final String BEL_SUFFIX = "}";
-    private final String STRING = "string";
-    private final String INTEGER = "integer";
-    private final String LONG = "long";
-    private final String DOUBLE = "double";
-    private final String NEW_JSON_OBJECT = "new JSONObject";
-    private final String NEW_JSON_ARRAY = "new JSONArray";
-    private final String NEW_DATE = "new Date";
-    private final String TIMESTAMP = "timestamp";
+    public static final Pattern PATTERN3        = Pattern.compile("^\\$\\{([\\w]+):([\\w ]+)\\}$");
+    private final       String  BEL_PREFIX      = "${";
+    private final       String  BEL_SUFFIX      = "}";
+    private final       String  STRING          = "string";
+    private final       String  INTEGER         = "integer";
+    private final       String  LONG            = "long";
+    private final       String  DOUBLE          = "double";
+    private final       String  NEW_JSON_OBJECT = "new JSONObject";
+    private final       String  NEW_JSON_ARRAY  = "new JSONArray";
+    private final       String  NEW_DATE        = "new Date";
+    private final       String  TIMESTAMP       = "timestamp";
 
     public static void main(String[] args) {
         /*log.info("judge(\"${a|b}\") = {}", judge("${a|b}"));

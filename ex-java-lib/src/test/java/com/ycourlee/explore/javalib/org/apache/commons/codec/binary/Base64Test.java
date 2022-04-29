@@ -21,9 +21,8 @@ import java.util.stream.Collectors;
  */
 public class Base64Test {
 
-    List<String> data = Lists.list("123", "abc", "https://abc.com", "汉字", "哈哈aa");
-
     private static final Logger log = LoggerFactory.getLogger(Base64Test.class);
+    List<String> data = Lists.list("123", "abc", "https://abc.com", "汉字", "哈哈aa");
 
     @Test
     void getMimeDecoderTest() {

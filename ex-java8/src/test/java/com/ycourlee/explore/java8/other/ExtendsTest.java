@@ -35,7 +35,6 @@ public class ExtendsTest {
 
     /**
      * 这里itsName()执行的是Cat中的方法。
-     *
      */
     @Test
     public void extendTest() {
@@ -57,7 +56,6 @@ public class ExtendsTest {
 
     /**
      * 这里itsName()执行的是Cat中的方法。
-     *
      */
     @Test
     public void extendTest2() {

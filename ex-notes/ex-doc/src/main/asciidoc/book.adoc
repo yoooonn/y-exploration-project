@@ -8,12 +8,12 @@
 :attachmentsdir: ./assets
 
 [[book]]
-
 :numbered:
 
 == linux
 
 === command
+
 include::linux/command/curl.adoc[]
 include::linux/command/du.adoc[]
 include::linux/command/find.adoc[]
@@ -30,6 +30,7 @@ include::linux/mac-advance-keymap.adoc[]
 include::linux/user-group.adoc[]
 
 === shell
+
 include::linux/shell/shell-operator.adoc[]
 include::linux/shell/shell-param-transit.adoc[]
 

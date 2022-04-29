@@ -15,7 +15,8 @@ public enum BelTypeEnum {
     TIMESTAMP_STRING("timestamp string"),
     NOW_STRING("new Date 'format'"),
     EMPTY_ARRAY("new JSONArray"),
-    EMPTY_OBJECT("new JSONObject"),;
+    EMPTY_OBJECT("new JSONObject"),
+    ;
 
     private final String name;
 

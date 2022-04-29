@@ -18,6 +18,15 @@ public class StringTest extends AbstractTest {
     private static final Logger log = LoggerFactory.getLogger(StringTest.class);
 
     @Test
+    public void appendTest() {
+        Integer a = null;
+        Integer b = null;
+        String s = a + "-" + b;
+        log.info("s: {}", s);
+        log.info("a: {}", a);
+    }
+
+    @Test
     public void split2Test() {
         String[] split = "48,62,64,79,83,104,119,127,132,133,143,145,155,164,166,170,193,199,209,213,214,217,225,227,229,269,279,284,287,293,295,306,324,326,329,340,360,362,372,376,384,398,404,415,428,457,459,468,473,476,496,499,501,509,515,531,533,535,539,545,554,560,564,571,574,581,602,605,610,613,625,635,687,743,745,752,767,772,773,786,803,805,813,827,837,857,863,887,895".split(",");
         String s = "326,602,605,606,610,613,621,625,635,658,659,662,666,675,676,680,687,734,740,743,745,749";
@@ -39,13 +48,13 @@ public class StringTest extends AbstractTest {
         List<String> strings5 = Arrays.asList(split5);
         List<String> strings6 = Arrays.asList(split6);
 
-        Arrays.stream(split).filter(ss->{
-           return  !strings.contains(ss)&&
-            !strings3.contains(ss)&&
-            !strings4.contains(ss)&&
-            !strings5.contains(ss)&&
-            !strings5.equals("415")&&
-            !strings6.contains(ss);
+        Arrays.stream(split).filter(ss -> {
+            return !strings.contains(ss) &&
+                    !strings3.contains(ss) &&
+                    !strings4.contains(ss) &&
+                    !strings5.contains(ss) &&
+                    !strings5.equals("415") &&
+                    !strings6.contains(ss);
         }).forEach(System.out::println);
 
     }

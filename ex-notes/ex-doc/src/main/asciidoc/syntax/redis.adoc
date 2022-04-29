@@ -1,0 +1,9 @@
+=== redis
+
+==== lua script
+
+[source,lua,indent=0]
+----
+--set返回值为table
+redis.call('set', k, v)
+----

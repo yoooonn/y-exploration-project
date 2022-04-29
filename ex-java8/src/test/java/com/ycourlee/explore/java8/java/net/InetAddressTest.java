@@ -18,7 +18,7 @@ public class InetAddressTest {
 
     @Test
     public void mainTest() throws SocketException, UnknownHostException {
-        InetAddress localHost  = InetAddress.getLocalHost();
+        InetAddress localHost = InetAddress.getLocalHost();
         String hostAddress = localHost.getHostAddress();
         String canonicalHostName = localHost.getCanonicalHostName();
         String hostName = localHost.getHostName();

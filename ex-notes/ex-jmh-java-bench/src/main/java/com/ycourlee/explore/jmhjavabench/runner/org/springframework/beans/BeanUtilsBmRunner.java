@@ -41,6 +41,21 @@ public class BeanUtilsBmRunner extends GlobalVariablesAndMethods {
         }
     }
 
+    /**
+     * @param args
+     * @throws RunnerException
+     */
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(BeanUtilsBmRunner.class.getSimpleName())
+                .forks(1)
+                .threads(10)
+                .syncIterations(false)
+                .output(outputFile(BeanUtilsBmRunner.class.getSimpleName(), CASE, 10))
+                .build();
+        new Runner(opt).run();
+    }
+
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
@@ -68,20 +83,5 @@ public class BeanUtilsBmRunner extends GlobalVariablesAndMethods {
             MultiFieldEntity temp = new MultiFieldEntity();
             BeanUtils.copyProperties(data.get(i), temp);
         }
-    }
-
-    /**
-     * @param args
-     * @throws RunnerException
-     */
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(BeanUtilsBmRunner.class.getSimpleName())
-                .forks(1)
-                .threads(10)
-                .syncIterations(false)
-                .output(outputFile(BeanUtilsBmRunner.class.getSimpleName(), CASE, 10))
-                .build();
-        new Runner(opt).run();
     }
 }

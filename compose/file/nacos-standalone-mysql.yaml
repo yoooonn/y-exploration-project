@@ -1,0 +1,33 @@
+version: "2"
+services:
+  nacos:
+    image: nacos/nacos-server:${NACOS_VERSION}
+    container_name: nacos-standalone-mysql
+    env_file:
+      - ../env/nacos-standlone-mysql.env
+    volumes:
+      - ~/Docker-sharing/nacos-standalone-mysql/standalone-logs/:/home/nacos/logs
+      - ~/Docker-sharing/nacos-standalone-mysql/init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+      - "9555:9555"
+    depends_on:
+      - mysql
+    networks:
+      - nacos-standalone-mysql
+  mysql:
+      container_name: mysql
+      image: nacos/nacos-mysql:5.7
+      env_file:
+        - ../env/nacos-mysql.env
+      volumes:
+        - ~/Docker-sharing/nacos-standalone-mysql/mysql:/var/lib/mysql
+      ports:
+        - "3306:3306"
+      networks:
+        - nacos-standalone-mysql
+
+networks:
+  nacos-standalone-mysql:
+    driver: bridge

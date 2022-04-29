@@ -21,6 +21,15 @@ public class StringAppendBmRunner extends CommonConstants {
 
     static String s = "nihao %s %s hello";
 
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(StringAppendBmRunner.class.getSimpleName())
+                .forks(1)
+                .threads(6)
+                .build();
+        new Runner(opt).run();
+    }
+
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
@@ -77,7 +86,6 @@ public class StringAppendBmRunner extends CommonConstants {
         return builder.toString();
     }
 
-
     String format2(@Nullable String template, @Nullable Object... args) {
         if (Objects.isNull(template)) {
             return null;
@@ -114,15 +122,5 @@ public class StringAppendBmRunner extends CommonConstants {
         }
 
         return builder.toString();
-    }
-
-
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(StringAppendBmRunner.class.getSimpleName())
-                .forks(1)
-                .threads(6)
-                .build();
-        new Runner(opt).run();
     }
 }

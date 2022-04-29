@@ -2,7 +2,10 @@ package com.ycourlee.explore.java8.model.sudoku;
 
 import lombok.Getter;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 3*3方格矩阵

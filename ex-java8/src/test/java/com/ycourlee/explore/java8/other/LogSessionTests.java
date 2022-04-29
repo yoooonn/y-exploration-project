@@ -15,15 +15,15 @@ import java.util.concurrent.CountDownLatch;
  */
 public class LogSessionTests extends AbstractTest {
 
-    private CountDownLatch latch = new CountDownLatch(2);
-    private static final Logger log = LoggerFactory.getLogger(LogSessionTests.class);
+    private static final Logger         log   = LoggerFactory.getLogger(LogSessionTests.class);
+    private              CountDownLatch latch = new CountDownLatch(2);
 
     @Test
     public void mainTest() throws InterruptedException {
         new Thread(() -> {
             MDC.put("session_id", UUID.randomUUID().toString());
             for (int i = 0; i < 10; i++) {
-                log.info("{} {}",Thread.currentThread().getName(), i);
+                log.info("{} {}", Thread.currentThread().getName(), i);
             }
             MDC.remove("session_id");
             latch.countDown();
@@ -31,7 +31,7 @@ public class LogSessionTests extends AbstractTest {
         new Thread(() -> {
             MDC.put("session_id", UUID.randomUUID().toString());
             for (int i = 0; i < 10; i++) {
-                log.info("{} {}",Thread.currentThread().getName(), i);
+                log.info("{} {}", Thread.currentThread().getName(), i);
             }
             MDC.remove("session_id");
             latch.countDown();
@@ -39,7 +39,7 @@ public class LogSessionTests extends AbstractTest {
         new Thread(() -> {
             MDC.put("session_id", UUID.randomUUID().toString());
             for (int i = 0; i < 10; i++) {
-                log.info("{} {}",Thread.currentThread().getName(), i);
+                log.info("{} {}", Thread.currentThread().getName(), i);
             }
             MDC.remove("session_id");
             latch.countDown();

@@ -23,12 +23,11 @@ public class BloomFilterBmRunner extends CommonConstants {
     public static final BloomFilter<String> FILTER = BloomFilter.create(Funnels.stringFunnel(StandardCharsets.UTF_8), TEST_CASE_ONE_MILLION, 0.0002f);
 
 
-
     static {
 
         System.out.println("FILTER.expectedFpp() = " + FILTER.expectedFpp());
 
-        int cnt= 0 ;
+        int cnt = 0;
         for (int i = 0; i < TEST_CASE_ONE_MILLION; i++) {
             String s = composeVal(i);
             if (!FILTER.mightContain(s)) {
@@ -37,17 +36,6 @@ public class BloomFilterBmRunner extends CommonConstants {
             FILTER.put(s);
         }
         System.out.println("cnt = " + cnt);
-    }
-
-    @Benchmark
-    @BenchmarkMode(Mode.AverageTime)
-    @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void mightContainBenchmark() {
-        for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++){
-            if (!FILTER.mightContain(composeVal(new Random().nextInt(TEST_CASE_ONE_MILLION)))) {
-                System.out.println("false = " + false);
-            }
-        }
     }
 
     public static void main(String[] args) throws RunnerException {
@@ -60,5 +48,16 @@ public class BloomFilterBmRunner extends CommonConstants {
 
     public static String composeVal(int i) {
         return "qwerqwer" + i + "asd";
+    }
+
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void mightContainBenchmark() {
+        for (int i = 0; i < TEST_CASE_ONE_THOUSAND; i++) {
+            if (!FILTER.mightContain(composeVal(new Random().nextInt(TEST_CASE_ONE_MILLION)))) {
+                System.out.println("false = " + false);
+            }
+        }
     }
 }

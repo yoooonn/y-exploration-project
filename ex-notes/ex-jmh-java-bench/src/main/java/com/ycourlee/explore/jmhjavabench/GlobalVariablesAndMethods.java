@@ -13,6 +13,31 @@ import java.io.IOException;
 @Slf4j
 public abstract class GlobalVariablesAndMethods extends CommonConstants {
 
+    protected static String outputFile(String classname, long cases) {
+        return outputFile(classname, cases, 1);
+    }
+
+    protected static String outputFile(String classname, long cases, int threads) {
+        return outputFile(classname, cases, threads, 0);
+    }
+
+    protected static String outputFile(String classname, long cases, int threads, int scenes) {
+        File file = new File(TEMP_DIR);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        String caseSuffix = "_" + cases + "_cases";
+        String threadSuffix = "";
+        String sceneSuffix = "";
+        if (threads > 0) {
+            threadSuffix = "_" + threads + "_threads";
+        }
+        if (scenes > 0) {
+            sceneSuffix = "_" + scenes;
+        }
+        return TEMP_DIR + File.separator + classname + sceneSuffix + threadSuffix + caseSuffix + ".txt";
+    }
+
     protected void mkdirsIfNotExist(String filepath) {
         File file = new File(filepath);
         if (!file.exists()) {
@@ -48,30 +73,5 @@ public abstract class GlobalVariablesAndMethods extends CommonConstants {
             }
         }
         return new JSONObject(0);
-    }
-
-    protected static String outputFile(String classname, long cases) {
-        return outputFile(classname, cases, 1);
-    }
-
-    protected static String outputFile(String classname, long cases, int threads) {
-        return outputFile(classname, cases, threads, 0);
-    }
-
-    protected static String outputFile(String classname, long cases, int threads, int scenes) {
-        File file = new File(TEMP_DIR);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        String caseSuffix = "_" + cases + "_cases";
-        String threadSuffix = "";
-        String sceneSuffix = "";
-        if (threads > 0) {
-            threadSuffix = "_" + threads + "_threads";
-        }
-        if (scenes > 0) {
-            sceneSuffix = "_" + scenes;
-        }
-        return TEMP_DIR + File.separator + classname + sceneSuffix + threadSuffix + caseSuffix + ".txt";
     }
 }
