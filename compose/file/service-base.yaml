@@ -10,27 +10,6 @@ services:
       - ~/Docker-sharing/nacos-service/nacos-service-redis4014/data:/data
     networks:
       - nacos-common
-    depends_on:
-      nacos:
-        condition: service_started
-
-  nacos-service-mysql:
-    container_name: nacos-service-mysql57
-    image: nacos/nacos-mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: ssm_explore
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-    ports:
-      - "4306:3306"
-    volumes:
-      - ~/Docker-sharing/nacos-service/nacos-service-mysql57/data/db:/var/lib/mysql
-    networks:
-      - nacos-common
-    depends_on:
-      nacos:
-        condition: service_started
 
   nacos:
     image: nacos/nacos-server:${NACOS_VERSION}

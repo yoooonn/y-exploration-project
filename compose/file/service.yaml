@@ -1,20 +1,5 @@
 version: "2"
 services:
-  nacos-service-gateway:
-    image: yooonn/nacos-service-gateway:1.0.0-SNAPSHOT
-    container_name: nacos-service-gateway
-    environment:
-      - NACOS_SERVER_ADDR=nacos-standalone:8849
-    ports:
-      - "8080:18085"
-    networks:
-      - nacos-common
-    depends_on:
-      nacos-service:
-        condition: service_started
-      nacos-service2:
-        condition: service_started
-
   nacos-service:
     image: yooonn/nacos-service:1.0.0-SNAPSHOT
     container_name: nacos-service
@@ -29,13 +14,6 @@ services:
       - "9000:8000"
     networks:
       - nacos-common
-    depends_on:
-      nacos:
-        condition: service_started
-      nacos-service-redis:
-        condition: service_started
-      nacos-service-mysql:
-        condition: service_started
 
   nacos-service2:
     image: yooonn/nacos-service:1.0.0-SNAPSHOT
@@ -49,74 +27,6 @@ services:
       - DATASOURCE_PARAM=autoReconnect=true&autoUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&connectTimeout=10000&socketTimeout=10000&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
     ports:
       - "9001:8000"
-    networks:
-      - nacos-common
-    depends_on:
-      nacos:
-        condition: service_started
-      nacos-service-redis:
-        condition: service_started
-      nacos-service-mysql:
-        condition: service_started
-
-  nacos-service-redis:
-    image: redis:4.0.14-alpine
-    container_name: nacos-service-redis4014
-    command: redis-server --bind nacos-service-redis4014 --port 7379 --appendonly yes
-    ports:
-      - "7379:6379"
-    volumes:
-      - ~/Docker-sharing/nacos-service/nacos-service-redis4014/data:/data
-    networks:
-      - nacos-common
-    depends_on:
-      nacos:
-        condition: service_started
-
-  nacos-service-mysql:
-    container_name: nacos-service-mysql57
-    image: nacos/nacos-mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: ssm_explore
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-    ports:
-      - "4306:3306"
-    volumes:
-      - ~/Docker-sharing/nacos-service/nacos-service-mysql57/data/db:/var/lib/mysql
-    networks:
-      - nacos-common
-    depends_on:
-      nacos:
-        condition: service_started
-
-  nacos:
-    image: nacos/nacos-server:${NACOS_VERSION}
-    container_name: nacos-standalone
-    env_file:
-      - ../env/nacos-standlone-mysql.env
-    volumes:
-      - ~/Docker-sharing/nacos-service/nacos/standalone-logs/:/home/nacos/logs
-      - ~/Docker-sharing/nacos-service/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties
-    ports:
-      - "8849:8848"
-      - "9848:9848"
-      - "9555:9555"
-    depends_on:
-      mysql:
-        condition: service_started
-    networks:
-      - nacos-common
-  mysql:
-    container_name: mysql
-    image: nacos/nacos-mysql:5.7
-    env_file:
-      - ../env/nacos-mysql.env
-    volumes:
-      - ~/Docker-sharing/nacos-provider/mysql:/var/lib/mysql
-    ports:
-      - "3306:3306"
     networks:
       - nacos-common
 
