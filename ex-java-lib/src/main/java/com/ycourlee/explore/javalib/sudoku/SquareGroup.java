@@ -6,7 +6,9 @@ package com.ycourlee.explore.javalib.sudoku;
  */
 public interface SquareGroup {
 
-    boolean untenable();
+    boolean abnormal();
 
-    void impossible(Integer num);
+    boolean incorrect();
+
+    boolean impossible(Coordinate coordinate, Integer num);
 }

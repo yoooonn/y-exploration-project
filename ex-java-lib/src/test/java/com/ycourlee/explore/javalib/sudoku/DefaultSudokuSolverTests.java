@@ -1,0 +1,100 @@
+package com.ycourlee.explore.javalib.sudoku;
+
+import com.ycourlee.explore.javalib.AbstractTest;
+import org.junit.jupiter.api.Test;
+
+/**
+ * @author yooonn
+ * @date 2022.05.03
+ */
+public class DefaultSudokuSolverTests extends AbstractTest {
+
+    @Test
+    void mainTest() {
+        DefaultSudoku sudoku = DefaultSudoku.initFrom(
+                DefaultCell.of(1, 1, 3)
+                // , DefaultCell.of(1, 2, 5)
+                // , DefaultCell.of(1, 3, 7)
+                , DefaultCell.of(1, 4, 8)
+                // , DefaultCell.of(1, 5, 4)
+                , DefaultCell.of(1, 6, 9)
+                // , DefaultCell.of(1, 7, 6)
+                // , DefaultCell.of(1, 8, 2)
+                , DefaultCell.of(1, 9, 1)
+                , DefaultCell.of(2, 1, 4)
+                // , DefaultCell.of(2, 2, 2)
+                // , DefaultCell.of(2, 3, 1)
+                // , DefaultCell.of(2, 4, 6)
+                // , DefaultCell.of(2, 5, 3)
+                // , DefaultCell.of(2, 6, 5)
+                // , DefaultCell.of(2, 7, 9)
+                // , DefaultCell.of(2, 8, 8)
+                , DefaultCell.of(2, 9, 7)
+                // , DefaultCell.of(3, 1, 8)
+                , DefaultCell.of(3, 2, 6)
+                , DefaultCell.of(3, 3, 9)
+                // , DefaultCell.of(3, 4, 7)
+                // , DefaultCell.of(3, 5, 2)
+                // , DefaultCell.of(3, 6, 1)
+                , DefaultCell.of(3, 7, 4)
+                , DefaultCell.of(3, 8, 5)
+                // , DefaultCell.of(3, 9, 3)
+                // , DefaultCell.of(4, 1, 7)
+                // , DefaultCell.of(4, 2, 3)
+                , DefaultCell.of(4, 3, 6)
+                // , DefaultCell.of(4, 4, 2)
+                , DefaultCell.of(4, 5, 5)
+                // , DefaultCell.of(4, 6, 4)
+                , DefaultCell.of(4, 7, 8)
+                // , DefaultCell.of(4, 8, 1)
+                // , DefaultCell.of(4, 9, 9)
+                // , DefaultCell.of(5, 1, 2)
+                // , DefaultCell.of(5, 2, 9)
+                // , DefaultCell.of(5, 3, 5)
+                , DefaultCell.of(5, 4, 1)
+                // , DefaultCell.of(5, 5, 8)
+                , DefaultCell.of(5, 6, 3)
+                // , DefaultCell.of(5, 7, 7)
+                // , DefaultCell.of(5, 8, 4)
+                // , DefaultCell.of(5, 9, 6)
+                // , DefaultCell.of(6, 1, 1)
+                // , DefaultCell.of(6, 2, 4)
+                , DefaultCell.of(6, 3, 8)
+                // , DefaultCell.of(6, 4, 9)
+                , DefaultCell.of(6, 5, 7)
+                // , DefaultCell.of(6, 6, 6)
+                , DefaultCell.of(6, 7, 2)
+                // , DefaultCell.of(6, 8, 3)
+                // , DefaultCell.of(6, 9, 5)
+                // , DefaultCell.of(7, 1, 9)
+                , DefaultCell.of(7, 2, 1)
+                , DefaultCell.of(7, 3, 4)
+                // , DefaultCell.of(7, 4, 5)
+                // , DefaultCell.of(7, 5, 6)
+                // , DefaultCell.of(7, 6, 2)
+                , DefaultCell.of(7, 7, 3)
+                , DefaultCell.of(7, 8, 7)
+                // , DefaultCell.of(7, 9, 8)
+                , DefaultCell.of(8, 1, 6)
+                // , DefaultCell.of(8, 2, 7)
+                // , DefaultCell.of(8, 3, 3)
+                // , DefaultCell.of(8, 4, 4)
+                // , DefaultCell.of(8, 5, 1)
+                // , DefaultCell.of(8, 6, 8)
+                // , DefaultCell.of(8, 7, 5)
+                // , DefaultCell.of(8, 8, 9)
+                , DefaultCell.of(8, 9, 2)
+                , DefaultCell.of(9, 1, 5)
+                // , DefaultCell.of(9, 2, 8)
+                // , DefaultCell.of(9, 3, 2)
+                , DefaultCell.of(9, 4, 3)
+                // , DefaultCell.of(9, 5, 9)
+                , DefaultCell.of(9, 6, 7)
+                // , DefaultCell.of(9, 7, 1)
+                // , DefaultCell.of(9, 8, 6)
+                , DefaultCell.of(9, 9, 4)
+        );
+        DefaultSudokuSolver sudokuSolver = new DefaultSudokuSolver(sudoku, 5);
+        sudokuSolver.solve();
+    }
+}

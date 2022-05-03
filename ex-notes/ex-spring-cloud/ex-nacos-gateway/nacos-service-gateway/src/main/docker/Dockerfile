@@ -14,5 +14,6 @@ EXPOSE 18085
 
 ENTRYPOINT ["java",\
 "-Dspring.cloud.nacos.server-addr=${NACOS_SERVER_ADDR}", \
+"-Dspring.cloud.nacos.discovery.server-addr=${NACOS_SERVER_ADDR}", \
 "-jar","/home/app.jar" \
 ]
