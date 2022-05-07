@@ -1,0 +1,101 @@
+=== nginx
+
+Engine X是一个高性能的http和反向代理web服务器，完全由C语言开发。占用内存少、并发能力强，
+单机可支持高达5w并发连接数的响应。
+
+主要作用：
+
+. 反向代理
+. 负载均衡
+. 动静分离
+
+==== 主要用途
+
+===== 反向代理
+
+正向代理代理的是客户端，反向代理代理的是服务端（对客户端是无感知的）
+
+===== 负载均衡
+
+负载均衡策略有2种：
+
+* 内置策略
+
+** 轮询
+** 加权轮询
+** IP Hash（同一客户端IP总是访问同一台服务器，可以解决session不共享的问题）
+
+* 扩展策略
+
+===== 动静分离
+
+不需要后台处理的静态资源请求本地；动态网页、数据请求服务。
+
+==== 使用
+
+安装：brew install nginx，或者C源码安装
+
+启动：nginx
+
+管理：nginx -s [stop, quit, reopen, reload]，即停止、安全退出、重新打开、重新加载（配置等）
+
+
+===== 负载均衡基本配置
+
+[source,text,indent=0]
+----
+upstream name {
+    server ip:port weight 1;
+    server ip:port weight 1;
+    server ip:port weight 1;
+}
+
+server {
+    # ...
+    listen 80;
+    server_name  localhost;
+
+    # /访问
+    location = / {
+        proxy_pass http://name/your_index_uri;
+    }
+
+    # 其他访问
+    location / {
+        proxy_pass http://name;
+    }
+    # ...
+}
+----
+
+===== nginx.conf中location匹配规则
+
+优先级从高到低依次为：
+
+|===
+|关键词 |uri模式 |含义
+
+|location =
+|PATTEN
+|精准匹配
+
+|location ^~
+|PATTEN
+|带参前缀匹配
+
+|location ~
+|PATTEN
+|正则匹配（区分大小写）
+
+|location ~*
+|PATTEN
+|正则匹配（不区分大小写）
+
+|location
+|PATTEN
+|普通前缀匹配，优先级低于带参数前缀匹配。
+
+|location
+|/
+|任何没有匹配成功的，都会匹配这里处理
+|===
