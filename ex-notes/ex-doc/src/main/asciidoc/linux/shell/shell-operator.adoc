@@ -2,42 +2,145 @@
 
 Shell 运算符
 
+===== 关系运算符
+
+[cols="2,8"]
+|===
+|Operator |Meaning
+
+|-eq
+|equal
+
+|-ne
+|none equal
+
+|-gt
+|greater than
+
+|-lt
+|less than
+
+|-ge
+|greater or equal than
+
+|-le
+|less or equal than
+|===
+
+
 ===== 字符串运算符
 
--n::
+[cols="2,8"]
+|===
+|Operator |Meaning
 
-字符串长度是否不为0，不为0，返回``true``
+|-n
+|字符串长度是否不为0，不为0，返回``true``
 
--z::
+|-z
+|字符串长度是否为0，为0，返回``true``
 
-字符串长度是否为0，为0，返回``true``
+|=
+|字符串是否相等，相等，返回``true``
 
-=::
+|!=
+|字符串是否不相等，不相等，返回``true``
 
-字符串是否相等，相等，返回``true``
-
-!=::
-
-字符串是否不相等，不相等，返回``true``
-
-$::
-
-字符串是否不为空，不为空，返回``true``
+|$
+|字符串是否不为空，不为空，返回``true``
+|===
 
 ===== 文件测试运算符
 
--d::
+[cols="2,8"]
+|===
+|Operator |Meaning
 
-目录？是，返回``true``
+|-d
+|目录？是，返回``true``
 
--f::
+|-f
+|普通文件（既不是目录，也不是设备文件）？是，返回``true``
 
-普通文件（既不是目录，也不是设备文件）？是，返回``true``
+|-e
+|文件（包括目录）存在？是，返回``true``
 
--e::
+|-s
+|文件是否不为空（文件大小是否大于0）？不为空，返回``true``
+|===
 
-文件（包括目录）存在？是，返回``true``
+===== 布尔运算符
 
--s::
+条件用中括号``[]``
 
-文件是否不为空（文件大小是否大于0）？不为空，返回``true``
+[cols="2,8"]
+|===
+|Operator | Meaning
+
+|!
+|非运算
+
+|-o
+|或运算
+
+|-a
+|与运算
+|===
+
+[source,bash,indent=0]
+----
+#!/bin/bash
+
+a=10
+b=20
+
+if [ "$a" != "$b" ]
+then
+   echo "$a != $b : a 不等于 b"
+else
+   echo "$a == $b: a 等于 b"
+fi
+if [ $a -lt 100 -a $b -gt 15 ]
+then
+   echo "$a 小于 100 且 $b 大于 15 : 返回 true"
+else
+   echo "$a 小于 100 且 $b 大于 15 : 返回 false"
+fi
+----
+
+===== 逻辑运算符
+
+条件用双中括号``[[]]``
+
+[cols="2,8"]
+|===
+|Operator | Meaning
+
+|&&
+|逻辑的AND
+
+|\|\|
+|逻辑的OR
+|===
+
+[source,bash,indent=0]
+----
+#!/bin/bash
+
+a=10
+b=20
+
+if [[ "$a" -lt 100 && "$b" -gt 100 ]]
+then
+   echo "返回 true"
+else
+   echo "返回 false"
+fi
+
+if [[ "$a" -lt 100 || "$b" -gt 100 ]]
+then
+   echo "返回 true"
+else
+   echo "返回 false"
+fi
+----

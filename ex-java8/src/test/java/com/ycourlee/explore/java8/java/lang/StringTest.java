@@ -17,6 +17,16 @@ public class StringTest extends AbstractTest {
 
     private static final Logger log = LoggerFactory.getLogger(StringTest.class);
 
+    /**
+     * 由bytecode可见，Java8字符串+操作被编译为StringBuilder.append，
+     */
+    @Test
+    public void addTest() {
+        String a = null;
+        String b = a + "world";
+        log.info("b: {}", b);
+    }
+
     @Test
     public void appendTest() {
         Integer a = null;
