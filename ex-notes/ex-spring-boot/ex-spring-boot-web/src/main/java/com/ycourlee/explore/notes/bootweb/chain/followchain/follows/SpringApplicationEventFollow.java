@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.11.30
  */
 @Component

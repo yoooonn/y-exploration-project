@@ -3,7 +3,7 @@ package com.ycourlee.explore.plugins;
 import javax.annotation.Nonnull;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.11.11
  */
 public class Application {

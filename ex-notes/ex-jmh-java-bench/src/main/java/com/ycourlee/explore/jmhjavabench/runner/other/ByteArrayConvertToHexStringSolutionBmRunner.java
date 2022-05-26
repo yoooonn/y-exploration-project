@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
  * ByteArrayConvertToHexStringSolutionBmRunner.md5AndHexBenchmark     avgt    5  6605.760 ±  493.537  us/op
  * </p>
  *
- * @author yongjiang
+ * @author yooonn
  * @date 2021.07.06
  */
 @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)

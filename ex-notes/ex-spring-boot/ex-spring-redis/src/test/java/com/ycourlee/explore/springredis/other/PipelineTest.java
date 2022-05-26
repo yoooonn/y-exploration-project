@@ -15,7 +15,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.02.23
  */
 public class PipelineTest extends RedisAboutApplicationTests {

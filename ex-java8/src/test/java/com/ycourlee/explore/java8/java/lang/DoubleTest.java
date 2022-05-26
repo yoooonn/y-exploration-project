@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.08.24
  */
 public class DoubleTest {

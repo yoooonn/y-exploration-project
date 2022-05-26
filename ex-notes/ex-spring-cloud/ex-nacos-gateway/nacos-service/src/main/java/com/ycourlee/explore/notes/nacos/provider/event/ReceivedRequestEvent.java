@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationEvent;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.01.22
  */
 public class ReceivedRequestEvent extends ApplicationEvent {

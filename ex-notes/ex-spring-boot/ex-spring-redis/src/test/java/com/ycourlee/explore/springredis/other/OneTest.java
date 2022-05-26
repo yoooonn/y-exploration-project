@@ -10,7 +10,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import java.util.Arrays;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 public class OneTest extends RedisAboutApplicationTests {
 

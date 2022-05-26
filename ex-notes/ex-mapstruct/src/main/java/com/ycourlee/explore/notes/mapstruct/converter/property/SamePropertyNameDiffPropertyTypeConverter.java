@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 import java.util.Date;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.09.10
  */
 @Mapper

@@ -3,7 +3,7 @@ package com.ycourlee.explore.notes.elk.configuration;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.04
  */
 @Configuration

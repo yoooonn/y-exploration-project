@@ -6,7 +6,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.01.06
  */
 public class ConcurrentLinkedQueueTest {

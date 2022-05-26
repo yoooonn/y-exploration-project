@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.21
  */
 public class SimpleDateFormatTests extends AbstractTest {

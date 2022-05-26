@@ -7,7 +7,7 @@ import com.ycourlee.tranquil.web.dto.Response;
 import org.springframework.stereotype.Component;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.12.09
  */
 @Component

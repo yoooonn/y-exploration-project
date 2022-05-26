@@ -3,7 +3,7 @@ package com.ycourlee.explore.jmhjavabench.model;
 import lombok.*;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 @Setter
 @Getter

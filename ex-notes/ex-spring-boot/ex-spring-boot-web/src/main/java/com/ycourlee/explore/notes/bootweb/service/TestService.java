@@ -1,7 +1,7 @@
 package com.ycourlee.explore.notes.bootweb.service;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 public interface TestService {
 

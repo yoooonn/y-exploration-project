@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.05
  */
 public class SudokuTests extends AbstractTest {

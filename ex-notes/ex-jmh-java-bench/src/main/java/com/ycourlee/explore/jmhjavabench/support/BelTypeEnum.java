@@ -1,7 +1,7 @@
 package com.ycourlee.explore.jmhjavabench.support;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.01.23
  */
 public enum BelTypeEnum {

@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.01.07
  */
 public class ConsumerTest extends AbstractTest {

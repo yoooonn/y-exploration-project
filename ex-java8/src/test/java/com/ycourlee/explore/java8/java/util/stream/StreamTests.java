@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.29
  */
 public class StreamTests extends AbstractTest {

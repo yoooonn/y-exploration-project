@@ -8,7 +8,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.04.02
  */
 public class GetMultiLockTests extends RedissionSpringApplicationTests {

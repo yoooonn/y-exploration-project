@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.04.14
  */
 public class BaseTests extends RedissionSpringApplicationTests {

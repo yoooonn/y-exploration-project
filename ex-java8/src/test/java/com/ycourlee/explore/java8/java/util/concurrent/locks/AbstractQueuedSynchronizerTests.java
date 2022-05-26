@@ -4,7 +4,7 @@ import com.ycourlee.explore.java8.AbstractTest;
 import org.junit.Test;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.04.02
  */
 public class AbstractQueuedSynchronizerTests extends AbstractTest {

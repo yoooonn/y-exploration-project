@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.14
  */
 public class ComparatorTests extends AbstractTest {

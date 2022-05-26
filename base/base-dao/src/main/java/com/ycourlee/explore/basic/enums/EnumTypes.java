@@ -1,7 +1,7 @@
 package com.ycourlee.explore.basic.enums;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.03.14
  */
 public class EnumTypes {

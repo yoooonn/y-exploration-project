@@ -7,9 +7,10 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.28
  */
 public class DefaultSudokuSolver implements SudokuSolver {
@@ -21,6 +22,8 @@ public class DefaultSudokuSolver implements SudokuSolver {
     private Sudoku puzzle;
 
     private Sudoku workPuzzle;
+
+    private Sudoku answer;
 
     private boolean initSolution;
 
@@ -46,11 +49,15 @@ public class DefaultSudokuSolver implements SudokuSolver {
     public void solve() {
         StopWatch stopWatch = StopWatch.createStarted();
 
-        initSolution(this.workPuzzle);
+        initSolutionResolver(this.workPuzzle);
 
-        Set<Coordinate> visited = new HashSet<>();
-        Sudoku result = recursivelyFindAnswer(stopWatch, this.workPuzzle, visited);
-        printCurrentResult(result);
+        List<Coordinate> visited = new ArrayList<>();
+        recursivelyFindAnswer(stopWatch, this.workPuzzle, visited, 0);
+        if (answer != null) {
+            printCurrentResult(answer);
+        } else {
+            System.out.println("No answer found");
+        }
     }
 
     private void printCurrentResult(Sudoku resultPuzzle) {
@@ -69,13 +76,22 @@ public class DefaultSudokuSolver implements SudokuSolver {
         }
     }
 
-    private void initSolution(Sudoku replica) {
+    private void initSolutionResolver(Sudoku replica) {
         if (initSolution) {
             return;
         }
         addNinePossiblesIfCellNonUnique(replica);
 
         removePossiblesByCellUniqueValue(replica);
+
+        printCurrentResult(replica);
+
+        long poss = 1;
+        for (SudokuCell cell : replica.cells()) {
+            poss *= cell.possibleNumbers().size();
+        }
+
+        System.out.println("\n共" + poss + "种可能");
 
         initSolution = true;
     }
@@ -88,40 +104,47 @@ public class DefaultSudokuSolver implements SudokuSolver {
         });
     }
 
-    private Sudoku recursivelyFindAnswer(StopWatch stopWatch, Sudoku sudoku, Set<Coordinate> visited) {
-        Sudoku clone = sudoku.deepClone();
-        removePossiblesByCellUniqueValue(clone);
-        if (clone.abnormal()) {
-            return clone;
+    private void recursivelyFindAnswer(StopWatch stopWatch, Sudoku sudoku, List<Coordinate> visited, int depth) {
+        removePossiblesByCellUniqueValue(sudoku);
+        if (sudoku.correct()) {
+            answer = sudoku;
         }
-        if (clone.correct()) {
-            return clone;
+        if (sudoku.abnormal()) {
+            log.warn("{}abnormal path to solution", StringUtils.repeat(" ", Math.max(0, (depth - 1) * 2)));
+            return;
         }
-        while (stopWatch.getTime(TimeUnit.SECONDS) <= MAX_COMPUTE_TIME) {
-            SudokuCell cell = findMinimumPossibleNumberCell(clone.cells(), visited);
-            if (cell == null) {
-                log.warn("no direction!");
-                break;
-            }
+        for (SudokuCell cell : findNoAnswerCells(sudoku.cells(), visited)) {
             Collection<Integer> possibleNumbers = cell.possibleNumbers();
-            log.info("\n{}find cell {}", StringUtils.repeat(" ", visited.size() * 2), cell);
+            log.info("\n{}find cell {}", StringUtils.repeat(" ", depth * 2), cell);
             visited.add(cell.coordinate());
             for (Integer possibleNumber : possibleNumbers) {
-                log.info("{}answer cell {} with {}", StringUtils.repeat(" ", (visited.size() - 1) * 2), cell, possibleNumber);
-                cell.answer(possibleNumber);
-                return recursivelyFindAnswer(stopWatch, clone, visited);
+                log.info("{}answer cell {} with {}", StringUtils.repeat(" ", (depth) * 2), cell, possibleNumber);
+                Sudoku clone = sudoku.deepClone();
+                SudokuCell sudokuCell = clone.cell(cell.coordinate());
+                sudokuCell.answer(possibleNumber);
+                recursivelyFindAnswer(stopWatch, clone, visited, depth + 1);
             }
             visited.remove(cell.coordinate());
         }
-        return clone;
     }
 
-    private SudokuCell findMinimumPossibleNumberCell(Collection<SudokuCell> values, Set<Coordinate> excludes) {
+    private SudokuCell findMinimumPossibleNumberCell(Collection<SudokuCell> values, Collection<Coordinate> excludes) {
         return values.stream()
                 .filter(cell -> !cell.uniqueValue())
                 .filter(cell -> !excludes.contains(cell.coordinate()))
                 .min(Comparator.comparingInt(o -> o.possibleNumbers().size()))
                 .orElse(null);
+    }
+
+    private Collection<SudokuCell> findNoAnswerCells(Collection<SudokuCell> values, Collection<Coordinate> excludes) {
+        return values.stream()
+                .filter(cell -> !cell.uniqueValue())
+                .sorted(new Comparator<SudokuCell>() {
+                    @Override
+                    public int compare(SudokuCell o1, SudokuCell o2) {
+                        return o1.possibleNumbers().size() - o2.possibleNumbers().size();
+                    }
+                }).collect(Collectors.toList());
     }
 
     private void removePossiblesByCellUniqueValue(Sudoku sudoku) {

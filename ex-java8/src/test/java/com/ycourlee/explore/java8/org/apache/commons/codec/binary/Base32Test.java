@@ -4,7 +4,7 @@ import org.apache.commons.codec.binary.Base32;
 import org.junit.Test;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 public class Base32Test {
 

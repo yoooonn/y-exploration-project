@@ -14,7 +14,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.04.01
  */
 public class ZsetOperationTests extends RedisAboutApplicationTests {

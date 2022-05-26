@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 @RestController
 public class DispatcherServletProcessingInvokingLinkController {

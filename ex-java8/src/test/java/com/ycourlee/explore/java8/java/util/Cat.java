@@ -3,7 +3,7 @@ package com.ycourlee.explore.java8.java.util;
 import lombok.*;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.01.05
  */
 @Setter

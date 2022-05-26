@@ -3,7 +3,7 @@ package com.ycourlee.explore.java8.other;
 import org.junit.Test;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.08.04
  */
 public class TempTest {

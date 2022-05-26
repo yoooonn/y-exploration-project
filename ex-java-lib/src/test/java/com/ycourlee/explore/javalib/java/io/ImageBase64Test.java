@@ -6,7 +6,7 @@ import com.ycourlee.explore.javalib.AbstractTest;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.12.14
  */
 public class ImageBase64Test extends AbstractTest {

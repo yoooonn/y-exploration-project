@@ -5,7 +5,7 @@ import com.ycourlee.explore.notes.mapstruct.AbstractTests;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.10.26
  */
 public class AutomaticConversionTypeConverterTest extends AbstractTests {

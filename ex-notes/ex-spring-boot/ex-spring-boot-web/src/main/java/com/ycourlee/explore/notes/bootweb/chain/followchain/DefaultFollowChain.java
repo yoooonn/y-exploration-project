@@ -6,7 +6,7 @@ import com.ycourlee.tranquil.web.dto.Response;
 import java.util.List;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.11.30
  */
 public class DefaultFollowChain extends AbstractElementChain<Response, RuleData, Follow> implements FollowChain {

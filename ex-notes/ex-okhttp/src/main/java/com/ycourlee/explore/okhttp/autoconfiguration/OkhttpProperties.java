@@ -5,7 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.08.23
  */
 @Getter

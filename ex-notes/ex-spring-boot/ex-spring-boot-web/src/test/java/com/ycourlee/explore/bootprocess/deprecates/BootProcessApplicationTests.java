@@ -26,7 +26,7 @@ import static org.assertj.core.api.BDDAssertions.then;
 /**
  * 使用TestRestTemplate，并在本地随机端口启动服务的方式进行测试的流程
  *
- * @author yongjiang
+ * @author yooonn
  */
 // @RunWith(SpringRunner.class)
 // @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

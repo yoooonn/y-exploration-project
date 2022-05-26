@@ -9,7 +9,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.02.09
  */
 public class RunListener implements SpringApplicationRunListener, DisposableBean {

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.08
  */
 public class RestHighLevelClientTests extends ElkApplicationTests {

@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import java.time.Duration;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.07.30
  */
 @Configuration

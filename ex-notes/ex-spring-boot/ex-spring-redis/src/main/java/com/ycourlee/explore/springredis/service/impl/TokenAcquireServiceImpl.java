@@ -14,7 +14,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 @Service
 public class TokenAcquireServiceImpl implements TokenAcquireService {

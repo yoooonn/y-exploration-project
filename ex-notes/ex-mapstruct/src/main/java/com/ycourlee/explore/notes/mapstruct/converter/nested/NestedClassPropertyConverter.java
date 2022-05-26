@@ -12,7 +12,7 @@ import org.mapstruct.factory.Mappers;
 import java.util.Date;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.10.25
  */
 @Mapper(uses = NestedClassPropertyConverter.CompanyConverter.class

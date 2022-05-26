@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.30
  */
 public class UserMapperTests extends MybatisPlusBootApplicationTests {

@@ -10,7 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.12.27
  */
 public class CommonUseControllerTest extends BootProcessApplicationTests {

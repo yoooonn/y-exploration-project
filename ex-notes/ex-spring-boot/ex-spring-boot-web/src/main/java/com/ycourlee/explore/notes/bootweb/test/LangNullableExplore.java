@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 @Component
 public class LangNullableExplore {

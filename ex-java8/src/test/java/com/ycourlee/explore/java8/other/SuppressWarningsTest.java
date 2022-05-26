@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.01.22
  */
 public class SuppressWarningsTest {

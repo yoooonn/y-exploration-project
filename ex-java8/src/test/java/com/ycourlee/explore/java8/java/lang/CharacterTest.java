@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.08.24
  */
 public class CharacterTest {

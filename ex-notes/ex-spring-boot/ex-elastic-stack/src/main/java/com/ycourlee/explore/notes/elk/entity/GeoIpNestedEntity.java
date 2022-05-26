@@ -9,7 +9,7 @@ import org.springframework.data.elasticsearch.annotations.GeoPointField;
 import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.11
  */
 @Setter

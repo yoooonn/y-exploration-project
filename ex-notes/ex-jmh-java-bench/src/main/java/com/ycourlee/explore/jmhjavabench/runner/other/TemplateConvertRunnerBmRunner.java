@@ -24,7 +24,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 @Warmup(iterations = 3, time = 1)
 @Measurement(iterations = 3, time = 1)

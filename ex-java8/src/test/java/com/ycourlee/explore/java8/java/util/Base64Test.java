@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 public class Base64Test {
 

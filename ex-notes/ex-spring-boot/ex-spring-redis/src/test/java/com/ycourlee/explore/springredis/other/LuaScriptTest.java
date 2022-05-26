@@ -13,7 +13,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.02.07
  */
 public class LuaScriptTest extends RedisAboutApplicationTests {

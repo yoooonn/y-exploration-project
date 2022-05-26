@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Arrays;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.02.17
  */
 public class ArrayTest extends AbstractTest {

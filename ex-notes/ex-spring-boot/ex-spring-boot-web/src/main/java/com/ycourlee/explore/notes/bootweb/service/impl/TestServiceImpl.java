@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 @Service
 public class TestServiceImpl implements TestService {

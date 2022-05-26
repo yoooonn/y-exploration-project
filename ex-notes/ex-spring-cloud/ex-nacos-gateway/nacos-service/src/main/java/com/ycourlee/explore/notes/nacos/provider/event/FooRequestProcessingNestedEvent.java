@@ -3,7 +3,7 @@ package com.ycourlee.explore.notes.nacos.provider.event;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.04.11
  */
 public class FooRequestProcessingNestedEvent extends ApplicationEvent {

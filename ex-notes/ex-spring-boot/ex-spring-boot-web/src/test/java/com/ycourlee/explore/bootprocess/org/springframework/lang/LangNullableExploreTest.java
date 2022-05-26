@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 public class LangNullableExploreTest extends BootProcessApplicationTests {
 

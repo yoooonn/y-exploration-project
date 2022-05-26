@@ -3,7 +3,7 @@ package com.ycourlee.explore.java8.java.lang;
 import org.junit.Test;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.12.06
  */
 public class NumberTest {

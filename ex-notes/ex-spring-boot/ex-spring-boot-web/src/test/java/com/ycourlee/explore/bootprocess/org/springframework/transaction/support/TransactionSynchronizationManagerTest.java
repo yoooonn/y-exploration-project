@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.02.09
  */
 public class TransactionSynchronizationManagerTest extends BootProcessApplicationTests {

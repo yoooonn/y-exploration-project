@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.11.03
  */
 public class SimpleConverterTest extends BootProcessApplicationTests {

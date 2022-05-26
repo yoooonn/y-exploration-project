@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.nio.charset.StandardCharsets;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 public class BloomFilterTest {
 

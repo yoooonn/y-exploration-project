@@ -10,7 +10,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.04.07
  */
 public class UnlockOtherThreadLockTests extends RedissionSpringApplicationTests {

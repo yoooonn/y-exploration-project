@@ -16,7 +16,7 @@ import org.springframework.data.elasticsearch.core.index.MappingBuilder;
 import org.springframework.data.elasticsearch.core.mapping.SimpleElasticsearchMappingContext;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.10
  */
 public class ElasticsearchConverterTest extends ElkApplicationTests {

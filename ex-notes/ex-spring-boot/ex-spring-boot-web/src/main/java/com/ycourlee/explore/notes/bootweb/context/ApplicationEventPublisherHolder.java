@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.lang.NonNull;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.14
  */
 public class ApplicationEventPublisherHolder implements ApplicationEventPublisherAware {

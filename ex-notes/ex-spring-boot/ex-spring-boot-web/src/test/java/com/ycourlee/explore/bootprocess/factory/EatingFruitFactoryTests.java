@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Iterator;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.24
  */
 public class EatingFruitFactoryTests extends BootProcessApplicationTests {

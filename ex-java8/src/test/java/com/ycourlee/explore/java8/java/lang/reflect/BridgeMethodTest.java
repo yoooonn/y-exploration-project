@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.12.28
  */
 public class BridgeMethodTest extends AbstractTest {

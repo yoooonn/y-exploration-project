@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 @Warmup(iterations = 50, time = 1, timeUnit = TimeUnit.MILLISECONDS)
 @Measurement(iterations = 500, time = 1, timeUnit = TimeUnit.MILLISECONDS)

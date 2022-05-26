@@ -4,11 +4,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.04.06
  */
 public class XorOperationTests {
@@ -17,7 +16,9 @@ public class XorOperationTests {
 
     @Test
     public void main2Test() {
-        log.info(String.valueOf(1 ^ 2));
+        log.info(String.valueOf(5 ^ 5));
+        List<Integer> ans = new ArrayList<>();
+
     }
 
     @Test

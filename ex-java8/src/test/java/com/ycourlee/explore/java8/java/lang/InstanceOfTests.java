@@ -14,7 +14,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.04.12
  */
 public class InstanceOfTests extends AbstractTest {

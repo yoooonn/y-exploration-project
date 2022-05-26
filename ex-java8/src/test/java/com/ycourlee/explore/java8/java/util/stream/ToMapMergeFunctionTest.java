@@ -14,7 +14,7 @@ import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.09.08
  */
 public class ToMapMergeFunctionTest extends CommonConstants {

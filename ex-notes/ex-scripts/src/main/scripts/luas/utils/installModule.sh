@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# author: yongjiang
+# author: yooonn
 
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)

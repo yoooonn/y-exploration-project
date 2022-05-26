@@ -16,7 +16,7 @@
 
   <logger name="ch.qos.logback" level="off"/>
   <root>
-    <level value="DEBUG"/>
+    <level value="ERROR"/>
     <appender-ref ref="STDOUT"/>
     <!--    <appender-ref ref="FILE"/>-->
     <!--    <appender-ref ref="ERROR_FILE"/>-->

@@ -1,7 +1,7 @@
 package com.ycourlee.explore.jmhjavabench.model;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.04.08
  */
 public class MultiFieldEntity {

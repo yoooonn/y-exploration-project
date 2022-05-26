@@ -3,7 +3,7 @@ package com.ycourlee.explore.basic.dao;
 import com.ycourlee.explore.basic.dao.model.Country;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 public interface CountryMapper {
 

@@ -94,7 +94,7 @@ public class DefaultSudokuSolverTests extends AbstractTest {
                 // , DefaultCell.of(9, 8, 6)
                 // , DefaultCell.of(9, 9, 4)
         );
-        DefaultSudokuSolver sudokuSolver = new DefaultSudokuSolver(sudoku, 10);
+        DefaultSudokuSolver sudokuSolver = new DefaultSudokuSolver(sudoku, 600);
         sudokuSolver.solve();
     }
 }

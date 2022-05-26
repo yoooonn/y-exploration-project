@@ -1,7 +1,7 @@
 package com.ycourlee.explore.javaspi.api;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.03.30
  */
 public interface Payment {

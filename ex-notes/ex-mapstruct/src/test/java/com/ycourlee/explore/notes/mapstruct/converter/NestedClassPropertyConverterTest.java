@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Date;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.11.01
  */
 public class NestedClassPropertyConverterTest {

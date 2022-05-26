@@ -18,7 +18,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.08.05
  */
 public class LeftPushAllTest extends RedisAboutApplicationTests {

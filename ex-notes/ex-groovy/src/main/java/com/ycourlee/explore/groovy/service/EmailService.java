@@ -1,7 +1,7 @@
 package com.ycourlee.explore.groovy.service;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.07.06
  */
 public interface EmailService {

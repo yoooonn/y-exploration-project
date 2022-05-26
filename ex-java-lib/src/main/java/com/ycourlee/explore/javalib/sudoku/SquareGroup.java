@@ -1,7 +1,7 @@
 package com.ycourlee.explore.javalib.sudoku;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.28
  */
 public interface SquareGroup {

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.14
  */
 @Component(value = "com.ycourlee.explore.notes.bootweb.listener.annotationbased.SimpleListener")

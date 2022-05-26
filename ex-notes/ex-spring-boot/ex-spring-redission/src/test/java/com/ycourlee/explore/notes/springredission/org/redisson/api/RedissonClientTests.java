@@ -7,7 +7,7 @@ import org.redisson.api.RPriorityQueue;
 import org.redisson.client.codec.Codec;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.04.04
  */
 public class RedissonClientTests extends RedissionSpringApplicationTests {

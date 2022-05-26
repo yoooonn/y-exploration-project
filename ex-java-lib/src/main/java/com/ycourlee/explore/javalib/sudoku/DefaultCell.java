@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.26
  */
 public class DefaultCell implements SudokuCell {

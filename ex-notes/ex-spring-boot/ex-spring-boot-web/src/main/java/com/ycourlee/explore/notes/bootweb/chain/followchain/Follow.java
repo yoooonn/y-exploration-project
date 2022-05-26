@@ -6,7 +6,7 @@ import com.ycourlee.explore.notes.bootweb.chain.followchain.RuleData;
 import com.ycourlee.tranquil.web.dto.Response;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.11.30
  */
 public interface Follow extends Element<Response, RuleData, FollowChain> {

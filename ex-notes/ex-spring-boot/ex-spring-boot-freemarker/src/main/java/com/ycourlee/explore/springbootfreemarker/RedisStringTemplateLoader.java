@@ -9,7 +9,7 @@ import java.io.Reader;
 import java.io.StringReader;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 @Component
 public class RedisStringTemplateLoader implements TemplateLoader {

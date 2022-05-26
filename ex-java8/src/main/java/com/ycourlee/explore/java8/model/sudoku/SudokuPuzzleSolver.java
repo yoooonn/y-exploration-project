@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.05
  */
 public class SudokuPuzzleSolver {

@@ -3,7 +3,7 @@ package com.ycourlee.explore.notes.bootweb.chain;
 import com.ycourlee.explore.notes.bootweb.chain.ElementChain;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.11.19
  */
 public interface Element<Exchange, Rule, Chain extends ElementChain<Exchange, Rule>> {

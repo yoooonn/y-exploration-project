@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.02.18
  */
 public class InjectValuePortalTest extends BootProcessApplicationTests {

@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 public class SplitPage extends CommonConstants {
 

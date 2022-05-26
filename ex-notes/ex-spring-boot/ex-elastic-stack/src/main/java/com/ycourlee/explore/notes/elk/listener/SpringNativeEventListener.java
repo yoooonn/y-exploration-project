@@ -9,7 +9,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.event.EventListener;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.07
  */
 public class SpringNativeEventListener implements DisposableBean {

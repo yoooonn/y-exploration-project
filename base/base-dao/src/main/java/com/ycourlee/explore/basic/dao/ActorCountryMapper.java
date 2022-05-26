@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 public interface ActorCountryMapper {
 

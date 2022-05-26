@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Arrays;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.09.15
  */
 @SpringBootApplication

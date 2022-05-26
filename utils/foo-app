@@ -36,15 +36,11 @@ start() {
     fi
 }
 
-stop(){
+stop() {
     jps | grep "ex-foo-app" | awk '{print $1}' | xargs kill
 }
 
-
-
 set -eu
-
-
 
 serviceCount=1
 

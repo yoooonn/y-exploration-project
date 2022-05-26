@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.26
  */
 public class DefaultSudoku implements Sudoku {

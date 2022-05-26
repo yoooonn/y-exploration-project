@@ -12,7 +12,7 @@ import org.springframework.test.context.TestPropertySource;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.23
  */
 @TestPropertySource(properties = {

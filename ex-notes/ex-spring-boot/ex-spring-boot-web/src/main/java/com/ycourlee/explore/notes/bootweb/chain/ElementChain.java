@@ -1,7 +1,7 @@
 package com.ycourlee.explore.notes.bootweb.chain;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.11.19
  */
 public interface ElementChain<Exchange, Rule> {

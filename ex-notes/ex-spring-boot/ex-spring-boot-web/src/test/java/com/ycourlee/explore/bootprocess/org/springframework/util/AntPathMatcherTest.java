@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.AntPathMatcher;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 public class AntPathMatcherTest {
 

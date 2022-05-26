@@ -3,7 +3,7 @@ package com.ycourlee.explore.notes.bootweb.event;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.11.30
  */
 public class SimpleEvent extends ApplicationEvent {

@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.01.05
  */
 public class BikeColl extends AbstractTest {

@@ -1,7 +1,7 @@
 package com.ycourlee.explore.springredis.service;
 
 /**
- * @author yongjiang
+ * @author yooonn
  */
 public interface TokenAcquireService {
 

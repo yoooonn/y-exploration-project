@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.10.21
  */
 public class SamePropertyNameDiffPropertyTypeConverterTest {

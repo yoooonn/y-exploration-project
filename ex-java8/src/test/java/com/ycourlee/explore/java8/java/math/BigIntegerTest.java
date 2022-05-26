@@ -11,7 +11,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.07.06
  */
 public class BigIntegerTest {

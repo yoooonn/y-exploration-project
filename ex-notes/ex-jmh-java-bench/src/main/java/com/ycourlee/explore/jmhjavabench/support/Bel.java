@@ -7,7 +7,7 @@ import lombok.ToString;
 /**
  * bel: bus expression language.
  *
- * @author yongjiang
+ * @author yooonn
  * @date 2021.01.23
  */
 @Setter

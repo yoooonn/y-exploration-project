@@ -12,7 +12,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2021.07.06
  */
 public class GroovyClassLoaderTest extends CommonConstants {
@@ -25,8 +25,8 @@ public class GroovyClassLoaderTest extends CommonConstants {
         Class<?> aClass = groovyClassLoader.parseClass(new File(RESOURCE_DIR + "/a.txt"));
         Object instance = aClass.newInstance();
         Method sendEmail = aClass.getDeclaredMethod("sendEmail", String.class);
-        Object yongjiang = sendEmail.invoke(instance, "yongjiang");
-        log.info("yongjiang = {}", yongjiang);
+        Object yooonn = sendEmail.invoke(instance, "yooonn");
+        log.info("yooonn = {}", yooonn);
     }
 
     @Test

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.03.26
  */
 public interface SudokuCell extends Cell, Serializable {
