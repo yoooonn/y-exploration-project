@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * <a href="https://leetcode.cn/leetbook/read/top-interview-questions-easy/x2f9gg/">有效的数独</a>
  *
- * @author yongjiang
+ * @author yooonn
  * @date 2022.05.22
  */
 public class IsValidSudoku {

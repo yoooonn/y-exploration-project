@@ -1,7 +1,7 @@
 package com.ycourlee.explore.notes.leetcode;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.05.21
  */
 public class TreeNode {
