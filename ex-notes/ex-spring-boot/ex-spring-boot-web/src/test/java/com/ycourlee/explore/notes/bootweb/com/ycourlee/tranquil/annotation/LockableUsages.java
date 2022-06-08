@@ -4,9 +4,10 @@ import com.ycourlee.tranquil.redisson.annotation.Lockable;
 import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,14 +15,17 @@ import java.util.concurrent.TimeUnit;
  * @author yooonn
  * @date 2022.04.16
  */
-@Component
 public class LockableUsages {
 
     private static final Logger log = LoggerFactory.getLogger(LockableUsages.class);
     private static long sharedNumber  = 0;
     private static long sharedNumber1 = 100;
-    @Autowired
+
     private StringRedisTemplate redisTemplate;
+
+    public LockableUsages(StringRedisTemplate redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
 
     @Lockable(keys = "hello:lock", waitTime = 3)
     public void simple() {

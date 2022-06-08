@@ -5,6 +5,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,7 +34,7 @@ public class BootProcessApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(BootProcessApplication.class, args);
-        // InfoExposer.beans(applicationContext);
+        InfoExposer.beans(applicationContext);
         log.info("SpringApplication run method executed");
     }
 
@@ -49,6 +50,25 @@ public class BootProcessApplication {
             // Spring 容器管理的所有bean的name
             String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
             Arrays.stream(beanDefinitionNames).sorted().forEach(beanName -> log.debug("bean: {}", beanName));
+        }
+
+        public static void beansWithClassname(ConfigurableApplicationContext applicationContext) {
+            String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+            Arrays.stream(beanDefinitionNames).sorted().forEach(beanName -> {
+                Object bean = applicationContext.getBean(beanName);
+                log.debug("bean: {}, {}", beanName, bean.getClass());
+            });
+        }
+
+        public static void beanExist(ConfigurableApplicationContext applicationContext, String... beanNames) {
+            for (String beanName : beanNames) {
+                try {
+                    Object bean = applicationContext.getBean(beanName);
+                    log.debug("{} exist, class {}", beanName, bean);
+                } catch (BeansException e) {
+                    log.warn("{} not exist", beanName);
+                }
+            }
         }
 
         public static void systemEnvironment(ConfigurableEnvironment environment) {

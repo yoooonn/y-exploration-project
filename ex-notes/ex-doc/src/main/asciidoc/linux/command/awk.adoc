@@ -1,0 +1,16 @@
+==== awk
+
+> awk - pattern-directed scanning and processing language，模式定向扫描和处理语言
+
+USAGE: awk [ -F fs ] [ -v var=value ] [ 'prog' | -f progfile ] [ file ...  ]
+
+
+===== 内建方法
+
+length::
+
+substr(s, m [, n])::
+
+index(s, t)::
+
+match(s, r)

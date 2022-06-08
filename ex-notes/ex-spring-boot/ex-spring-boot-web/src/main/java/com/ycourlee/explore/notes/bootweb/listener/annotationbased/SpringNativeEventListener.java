@@ -1,5 +1,6 @@
 package com.ycourlee.explore.notes.bootweb.listener.annotationbased;
 
+import com.ycourlee.explore.notes.bootweb.BootProcessApplication;
 import lombok.SneakyThrows;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.slf4j.Logger;
@@ -42,7 +43,7 @@ public class SpringNativeEventListener implements DisposableBean {
     public void applicationStartedEventListener(ApplicationStartedEvent event) {
         log.info("\"started\": {}", "started");
         ConfigurableApplicationContext context = event.getApplicationContext();
-        // BootProcessApplication.InfoExposer.beans(context);
+        BootProcessApplication.InfoExposer.beansWithClassname(context);
         // BootProcessApplication.InfoExposer.systemEnvironment(context.getEnvironment());
         // BootProcessApplication.InfoExposer.systemProperty(context.getEnvironment());
         // BootProcessApplication.InfoExposer.applicationConversionService(context.getBeanFactory());

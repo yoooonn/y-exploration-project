@@ -5,6 +5,7 @@ import com.ycourlee.explore.basic.dao.ActorMapper;
 import com.ycourlee.explore.basic.dao.model.Actor;
 import com.ycourlee.explore.mybatis.EnvUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.reflection.Reflector;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
@@ -24,6 +25,7 @@ public class ActorMapperTest extends EnvUtil {
         Actor actor = actorMapper.selectByPrimaryKey(1L);
         sqlSession.commit();
         log.info(JSON.toJSONString(actor));
+        log.info("Proxy class {}", actorMapper.getClass());
     }
 
     @Test

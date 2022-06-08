@@ -1,20 +1,29 @@
 package com.ycourlee.explore.notes.bootweb;
 
+import com.ycourlee.explore.basic.dao.ActorMapper;
+import com.ycourlee.explore.basic.dao.MovieMapper;
+import com.ycourlee.explore.notes.bootweb.annotation.TimeCostLoggerUsages;
+import com.ycourlee.explore.notes.bootweb.com.ycourlee.tranquil.annotation.LockableUsages;
+import com.ycourlee.explore.notes.bootweb.org.springframework.transaction.support.Tx;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -35,8 +44,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-@EnableAspectJAutoProxy(exposeProxy = true)
-@ComponentScan("com.ycourlee.explore.notes.bootweb")
 @TestPropertySource(properties = {
         "logging.level.com.ycourlee.explore.notes.bootweb.BootProcessApplication=debug"
 })

@@ -3,16 +3,14 @@ package com.ycourlee.explore.notes.bootweb.annotation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.logging.LogLevel;
-import org.springframework.stereotype.Component;
 
 /**
  * @author yooonn
  * @date 2022.03.23
  */
-@Component
-public class TimeCostLoggerTests {
+public class TimeCostLoggerUsages {
 
-    private static final Logger log = LoggerFactory.getLogger(TimeCostLoggerTests.class);
+    private static final Logger log = LoggerFactory.getLogger(TimeCostLoggerUsages.class);
 
     @TimeCostLogger(logLevel = LogLevel.ERROR)
     public void plainUsage() {

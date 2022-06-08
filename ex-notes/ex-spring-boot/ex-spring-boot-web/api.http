@@ -46,3 +46,7 @@ Accept: application/json
 ###
 POST {{host}}/actuator/refresh
 Accept: application/json
+
+###
+GET {{host}}/actuator/conditions
+Accept: application/json

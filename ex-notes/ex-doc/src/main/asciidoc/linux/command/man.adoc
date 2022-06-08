@@ -1,0 +1,3 @@
+==== man
+
+man grep | col -b > grep.txt

@@ -1,13 +1,13 @@
 package com.ycourlee.explore.notes.bootweb.org.springframework.web.client;
 
 import com.alibaba.fastjson.JSON;
-import org.apache.http.HttpHeaders;
 import org.assertj.core.util.Maps;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.client.RestTemplate;

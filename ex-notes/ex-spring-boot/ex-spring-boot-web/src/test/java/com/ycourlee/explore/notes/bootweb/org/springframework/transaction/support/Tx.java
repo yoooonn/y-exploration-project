@@ -7,7 +7,9 @@ import com.ycourlee.explore.basic.dao.model.Movie;
 import com.ycourlee.explore.notes.bootweb.context.ApplicationContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronization;
@@ -16,15 +18,17 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SuppressWarnings("UnusedReturnValue")
-@Component
 public class Tx {
 
     private static final Logger log = LoggerFactory.getLogger(Tx.class);
 
-    @Autowired
     private MovieMapper movieMapper;
-    @Autowired
     private ActorMapper actorMapper;
+
+    public Tx(MovieMapper movieMapper, ActorMapper actorMapper) {
+        this.movieMapper = movieMapper;
+        this.actorMapper = actorMapper;
+    }
 
     @Transactional(rollbackFor = Exception.class)
     public void errorTran(Movie movieArg) {
