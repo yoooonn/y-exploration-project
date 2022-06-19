@@ -78,7 +78,6 @@
     <dependency>
       <groupId>com.ycourlee.tranquil</groupId>
       <artifactId>tranquil-core</artifactId>
-      <version>lv</version>
     </dependency>
   </dependencies>
 </project>
