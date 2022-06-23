@@ -1,10 +1,6 @@
 = 知识笔记
-
-:doctype: book
-:toclevels: 4
-:sectnums: 2
-:sectnumlevels: 4
 :toc: left
+:sectanchors:
 :attachmentsdir: ./assets
 
 [[book]]

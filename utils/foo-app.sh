@@ -15,7 +15,7 @@ start() {
     elif [ "$1" -eq 2 ]; then
         touch logs/foo/1.log
         touch logs/foo/2.log
-        echo -n "" >logs/foo/1.log
+        echo -n "" >logs/foo/1.loglkjl;jkkljjkjasdfniasdfasldfnasdifwoiqweruoiqweruioqwe10-29385092582309458102934812039481203489120-93481234120934801293480488888998877665544332211
         echo -n "" >logs/foo/2.log
         nohup java -jar ex-notes/ex-spring-boot/ex-foo-app/target/*.jar >logs/foo/1.log 2>&1 &
         nohup java -jar ex-notes/ex-spring-boot/ex-foo-app/target/*.jar --server.port=8081 >logs/foo/2.log 2>&1 &

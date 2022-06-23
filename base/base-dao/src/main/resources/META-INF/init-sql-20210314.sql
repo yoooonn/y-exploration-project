@@ -17,6 +17,8 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
+CREATE DATABASE IF NOT EXISTS `ssm_explore` DEFAULT CHARSET = utf8mb4;
+
 -- ----------------------------
 -- Table structure for actor
 -- ----------------------------
@@ -35,7 +37,6 @@ CREATE TABLE `actor`
     `was_delete`  tinyint(1)    NOT NULL DEFAULT '0' COMMENT '已删除',
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 11
   DEFAULT CHARSET = utf8mb4 COMMENT ='演员表';
 
 -- ----------------------------
@@ -79,7 +80,6 @@ CREATE TABLE `actor_country`
     `was_delete`  tinyint(4)    NOT NULL DEFAULT '0' COMMENT '记录是否删除',
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 11
   DEFAULT CHARSET = utf8mb4 COMMENT ='演员国家关系表';
 
 -- ----------------------------
@@ -123,7 +123,6 @@ CREATE TABLE `actor_movie`
     `was_delete`  tinyint(1)    NOT NULL DEFAULT '0' COMMENT '已删除',
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 12
   DEFAULT CHARSET = utf8mb4 COMMENT ='演员电影关系表';
 
 -- ----------------------------
@@ -171,7 +170,6 @@ CREATE TABLE `country`
     `was_delete`       tinyint(1)    NOT NULL DEFAULT '0' COMMENT '已删除',
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 27
   DEFAULT CHARSET = utf8mb4 COMMENT ='国家表';
 
 -- ----------------------------
@@ -202,7 +200,6 @@ CREATE TABLE `movie`
     `was_delete`       tinyint(1)   NOT NULL DEFAULT '0' COMMENT '已删除',
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 6
   DEFAULT CHARSET = utf8mb4 COMMENT ='电影表';
 
 -- ----------------------------

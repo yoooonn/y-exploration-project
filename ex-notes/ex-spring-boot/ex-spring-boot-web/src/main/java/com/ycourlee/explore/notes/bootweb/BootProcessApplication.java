@@ -34,7 +34,7 @@ public class BootProcessApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(BootProcessApplication.class, args);
-        InfoExposer.beans(applicationContext);
+        // InfoExposer.beans(applicationContext);
         log.info("SpringApplication run method executed");
     }
 

@@ -76,7 +76,7 @@
     <okhttp-bom.version>4.9.1</okhttp-bom.version>
     <reflectasm.version>1.11.9</reflectasm.version>
     <spring-boot.version>2.3.6.RELEASE</spring-boot.version>
-    <tranquil.version>1.0.0-SNAPSHOT</tranquil.version>
+    <tranquil.version>lv</tranquil.version>
     <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
     <zxing.version>3.3.0</zxing.version>
   </properties>
@@ -263,6 +263,7 @@
             </dependencies>
             <configuration>
               <sourceDocumentName>${doc.name}.adoc</sourceDocumentName>
+              <outputDirectory>${project.build.outputDirectory}/static/asciidoc</outputDirectory>
               <attributes>
                 <!--                <mapstructVersion>${project.version}</mapstructVersion>-->
                 <icons>font</icons>
