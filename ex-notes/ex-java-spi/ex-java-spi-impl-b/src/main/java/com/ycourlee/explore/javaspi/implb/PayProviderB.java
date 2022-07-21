@@ -4,7 +4,7 @@ import com.ycourlee.explore.javaspi.api.Payment;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 @Slf4j
 public class PayProviderB implements Payment {

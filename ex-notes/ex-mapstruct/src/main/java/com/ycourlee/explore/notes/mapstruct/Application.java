@@ -1,7 +1,7 @@
 package com.ycourlee.explore.notes.mapstruct;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class Application {
 

@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * redissonClient.getLock(lockName)获取的是一把可重入锁
  *
- * @author jiangyong
+ * @author yooonn
  */
 public class GetLockTests extends RedissionSpringApplicationTests {
 

@@ -1,7 +1,7 @@
 package com.ycourlee.explore.feign;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class ApplicationTests {
 }

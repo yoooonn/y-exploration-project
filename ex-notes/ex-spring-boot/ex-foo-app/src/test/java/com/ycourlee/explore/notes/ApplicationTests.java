@@ -1,7 +1,7 @@
 package com.ycourlee.explore.notes;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class ApplicationTests {
 }

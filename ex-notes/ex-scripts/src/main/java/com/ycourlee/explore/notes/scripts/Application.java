@@ -1,7 +1,7 @@
 package com.ycourlee.explore.notes.scripts;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class Application {
 

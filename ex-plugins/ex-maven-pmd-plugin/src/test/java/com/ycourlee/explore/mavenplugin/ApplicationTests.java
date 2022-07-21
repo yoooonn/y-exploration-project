@@ -1,7 +1,7 @@
 package com.ycourlee.explore.mavenplugin;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class ApplicationTests {
 }

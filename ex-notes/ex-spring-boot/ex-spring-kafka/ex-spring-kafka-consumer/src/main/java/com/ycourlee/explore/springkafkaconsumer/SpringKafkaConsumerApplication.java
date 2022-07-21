@@ -7,7 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import java.util.Arrays;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 @SpringBootApplication
 public class SpringKafkaConsumerApplication {

@@ -1,7 +1,7 @@
 package com.ycourlee.explore.javalib;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class Application {
 

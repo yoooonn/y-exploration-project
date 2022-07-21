@@ -1,7 +1,7 @@
 package com.ycourlee.explore.googlefindbugsjsr305;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class Application {
 

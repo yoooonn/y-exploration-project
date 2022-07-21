@@ -1,7 +1,7 @@
 package com.ycourlee.explore.springkafkaconsumer;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class SpringKafkaConsumerApplicationTests {
 }

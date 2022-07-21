@@ -7,7 +7,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {OkhttpAutoConfiguration.class})

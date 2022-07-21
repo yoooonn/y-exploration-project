@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 @SpringBootApplication
 @MapperScan(basePackages = "com.ycourlee.explore.notes.mybatisplusboot.mapper")

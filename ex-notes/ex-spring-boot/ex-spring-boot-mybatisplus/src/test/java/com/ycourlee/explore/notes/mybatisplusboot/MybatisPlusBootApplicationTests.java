@@ -3,7 +3,7 @@ package com.ycourlee.explore.notes.mybatisplusboot;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 @SpringBootTest
 public class MybatisPlusBootApplicationTests {

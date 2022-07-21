@@ -1,7 +1,7 @@
 package com.ycourlee.explore.notes.springbooth2;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class ApplicationTests {
 }

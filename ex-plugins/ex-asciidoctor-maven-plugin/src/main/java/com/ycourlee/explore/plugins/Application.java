@@ -1,7 +1,7 @@
 package com.ycourlee.explore.plugins;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class Application {
 

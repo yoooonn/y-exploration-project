@@ -1,7 +1,7 @@
 package com.ycourlee.explore.notes.mavendependence.a;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class ApplicationTests {
 }

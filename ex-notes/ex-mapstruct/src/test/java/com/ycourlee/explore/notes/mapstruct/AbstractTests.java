@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public abstract class AbstractTests {
 

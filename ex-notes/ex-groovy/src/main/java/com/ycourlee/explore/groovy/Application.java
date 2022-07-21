@@ -1,7 +1,7 @@
 package com.ycourlee.explore.groovy;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 // @SpringBootApplication(scanBasePackages = "com.ycourlee.explore")
 public class Application {

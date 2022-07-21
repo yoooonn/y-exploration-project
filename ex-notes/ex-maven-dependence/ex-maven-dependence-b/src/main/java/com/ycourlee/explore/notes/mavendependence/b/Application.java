@@ -4,7 +4,7 @@ import com.ycourlee.explore.notes.mavendependence.a.Helper;
 import net.dongliu.commons.lang.Strings;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class Application {
 

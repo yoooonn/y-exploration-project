@@ -1,7 +1,7 @@
 package com.ycourlee.explore.springkafkaproducer;
 
 /**
- * @author jiangyong
+ * @author yooonn
  */
 public class Application {
 
