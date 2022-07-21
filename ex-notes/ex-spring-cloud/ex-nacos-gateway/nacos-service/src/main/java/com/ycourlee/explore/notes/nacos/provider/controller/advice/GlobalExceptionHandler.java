@@ -1,6 +1,6 @@
 package com.ycourlee.explore.notes.nacos.provider.controller.advice;
 
-import com.ycourlee.tranquil.autoconfiguration.redisson.WaitLockTimeoutException;
+import com.ycourlee.tranquil.redisson.WaitLockTimeoutException;
 import com.ycourlee.tranquil.web.ApiCode;
 import com.ycourlee.tranquil.web.dto.ApiResponse;
 import org.slf4j.Logger;

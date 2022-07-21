@@ -1,12 +1,11 @@
 package com.ycourlee.explore.notes.nacos.provider.listener.annotationbased;
 
-import com.ycourlee.tranquil.autoconfiguration.redisson.WaitLockTimeoutException;
+import com.ycourlee.tranquil.redisson.WaitLockTimeoutException;
 import com.ycourlee.tranquil.redisson.annotation.Lockable;
 import lombok.SneakyThrows;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationContext;
