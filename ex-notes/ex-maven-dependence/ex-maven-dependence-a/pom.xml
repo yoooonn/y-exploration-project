@@ -9,7 +9,6 @@
   </parent>
 
   <artifactId>ex-maven-dependence-a</artifactId>
-  <version>${revision}</version>
   <name>::notes::maven dependence::a</name>
 
   <dependencies>

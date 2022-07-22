@@ -10,7 +10,6 @@
 
   <artifactId>nacos-service</artifactId>
   <name>::notes::spring cloud::nacos gateway::service</name>
-  <version>${revision}</version>
 
   <properties>
     <main.basedir>${project.basedir}/../../..</main.basedir>

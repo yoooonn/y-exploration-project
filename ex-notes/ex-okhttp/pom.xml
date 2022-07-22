@@ -10,7 +10,6 @@
 
   <artifactId>ex-okhttp</artifactId>
   <name>::notes::okhttp</name>
-  <version>${revision}</version>
 
   <dependencies>
     <dependency>

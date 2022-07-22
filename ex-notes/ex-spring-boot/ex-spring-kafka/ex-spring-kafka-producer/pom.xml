@@ -10,5 +10,4 @@
 
   <artifactId>ex-spring-kafka-producer</artifactId>
   <name>::notes::spring boot::kafka::producer</name>
-  <version>${revision}</version>
 </project>

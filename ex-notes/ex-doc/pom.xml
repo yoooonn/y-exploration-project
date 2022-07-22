@@ -10,7 +10,6 @@
 
   <artifactId>ex-doc</artifactId>
   <name>::notes::doc</name>
-  <version>${revision}</version>
 
   <properties>
     <main.basedir>${project.basedir}/../..</main.basedir>

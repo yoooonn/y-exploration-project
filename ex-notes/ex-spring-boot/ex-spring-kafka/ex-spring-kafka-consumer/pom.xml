@@ -10,7 +10,6 @@
 
   <artifactId>ex-spring-kafka-consumer</artifactId>
   <name>::notes::spring boot::kafka::consumer</name>
-  <version>${revision}</version>
 
   <dependencies>
     <dependency>

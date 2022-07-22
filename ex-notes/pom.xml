@@ -27,6 +27,7 @@
     <module>ex-spring-boot</module>
     <module>ex-spring-cloud</module>
     <module>ex-leetcode</module>
+    <module>ex-netty</module>
   </modules>
 
   <properties>

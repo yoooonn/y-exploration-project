@@ -10,7 +10,6 @@
 
   <artifactId>ex-jmh-java-bench</artifactId>
   <name>::notes::jmh java bench</name>
-
   <description>Java Microbenchmark Harness</description>
 
   <properties>

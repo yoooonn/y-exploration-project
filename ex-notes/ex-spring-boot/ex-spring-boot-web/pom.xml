@@ -10,7 +10,6 @@
 
   <artifactId>ex-spring-boot-web</artifactId>
   <name>::notes::spring boot::web</name>
-  <version>${revision}</version>
 
   <properties>
     <main.basedir>${project.basedir}/../..</main.basedir>

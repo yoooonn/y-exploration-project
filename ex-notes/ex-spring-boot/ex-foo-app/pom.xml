@@ -10,7 +10,6 @@
   <artifactId>ex-foo-app</artifactId>
   <name>::notes::spring boot::foo app</name>
 
-
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
