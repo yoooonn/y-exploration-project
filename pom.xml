@@ -47,7 +47,7 @@
     <commons-jexl3.version>3.2.1</commons-jexl3.version>
     <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
     <druid-starter.version>1.2.6</druid-starter.version>
-    <fastjson.version>1.2.72</fastjson.version>
+    <fastjson.version>1.2.83</fastjson.version>
     <findbugs.version>3.0.1</findbugs.version>
     <flatten-maven-plugin.version>1.2.4</flatten-maven-plugin.version>
     <git.connection>scm:git:git://github.com:yoooonn/y-exploration-project.git</git.connection>
