@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#author yooonn
+# author yooonn
 
 set -eux
 

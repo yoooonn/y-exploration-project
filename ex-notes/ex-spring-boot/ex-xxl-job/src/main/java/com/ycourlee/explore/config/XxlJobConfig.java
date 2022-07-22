@@ -50,7 +50,7 @@ public class XxlJobConfig {
         logger.info(">>>>>>>>>>> xxl-job config init.");
         XxlJobExecutor xxlJobExecutor = new XxlJobExecutor();
         xxlJobExecutor.setAdminAddresses(adminAddresses);
-        xxlJobExecutor.setAppName(appname);
+        xxlJobExecutor.setAppname(appname);
         xxlJobExecutor.setIp(ip);
         xxlJobExecutor.setPort(port);
         xxlJobExecutor.setAccessToken(accessToken);
