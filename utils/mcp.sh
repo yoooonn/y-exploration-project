@@ -1,7 +1,10 @@
 #!/usr/bin/env sh
 # author: yooonn
 
-. color-header
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+RESET=$(tput sgr0)
 
 # functions
 printCurrentBranch() {

@@ -1,11 +1,14 @@
 #!/usr/bin/env sh
 # author: yooonn
 
-. color-header
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+BLUE=$(tput setaf 4)
+RESET=$(tput sgr0)
 
 # functions
 printCurrentBranch() {
-    echo "${GREEN}current branch: ${BLUE}$1${RESET}"
+  echo "${GREEN}current branch: ${BLUE}$1${RESET}"
 }
 
 # contents
@@ -13,6 +16,10 @@ currentBranchName=$(git symbolic-ref --short HEAD)
 
 printCurrentBranch "${currentBranchName}"
 
-./mvnw clean compile -pl "$@" -am
+if [ "$#" -gt 0 ]; then
+  ./mvnw clean compile -pl "$@"
+else
+  ./mvnw clean compile
+fi
 
 exit 0

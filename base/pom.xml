@@ -15,6 +15,9 @@
 
   <properties>
     <lombok.version>1.18.12</lombok.version>
+    <git.connection>scm:git:git://github.com:yoooonn/y-exploration-project.git</git.connection>
+    <git.developerConnection>scm:git:ssh://git@github.com:yoooonn/y-exploration-project.git</git.developerConnection>
+    <git.url>http://github.com/yoooonn/y-exploration-project</git.url>
   </properties>
   <scm>
     <connection>${git.connection}</connection>

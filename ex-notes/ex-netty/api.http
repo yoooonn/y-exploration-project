@@ -1,0 +1,7 @@
+POST http://localhost:18888/api
+Content-Type: application/json
+
+{
+    "msg": "hello"
+}
+###

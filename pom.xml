@@ -77,7 +77,7 @@
     <okhttp-bom.version>4.9.1</okhttp-bom.version>
     <reflectasm.version>1.11.9</reflectasm.version>
     <spring-boot.version>2.3.6.RELEASE</spring-boot.version>
-    <tranquil.version>1.0.0-SNAPSHOT</tranquil.version>
+    <tranquil.version>1.1.0</tranquil.version>
     <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
     <zxing.version>3.3.0</zxing.version>
   </properties>
@@ -318,20 +318,6 @@
         <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <version>${maven-javadoc-plugin.version}</version>
-            <configuration>
-              <tags>
-                <tag>
-                  <name>date</name>
-                  <placement>t</placement>
-                  <head>Created On:</head>
-                </tag>
-              </tags>
-            </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
             <version>${maven-source-plugin.version}</version>
           </plugin>
@@ -360,18 +346,6 @@
           <layout>default</layout>
           <releases>
             <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </repository>
-        <repository>
-          <id>github</id>
-          <name>GitHub yalden Apache Maven release Packages</name>
-          <url>https://maven.pkg.github.com/yalden/package-releases</url>
-          <releases>
-            <enabled>true</enabled>
-            <updatePolicy>daily</updatePolicy>
           </releases>
           <snapshots>
             <enabled>false</enabled>
@@ -445,6 +419,20 @@
           <excludes>
             <exclude>**/Abstract*.java</exclude>
           </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${maven-javadoc-plugin.version}</version>
+        <configuration>
+          <tags>
+            <tag>
+              <name>date</name>
+              <placement>t</placement>
+              <head>Created On:</head>
+            </tag>
+          </tags>
         </configuration>
       </plugin>
     </plugins>

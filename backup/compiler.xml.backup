@@ -6,19 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ex-maven-plugin-versions-sub-a" />
         <module name="ex-eureka-server" />
+        <module name="ex-maven-plugin-versions-sub-a" />
+        <module name="ex-spring-redis" />
         <module name="ex-spring-boot-h2" />
         <module name="ex-maven-plugin-versions-sub-b" />
         <module name="ex-leetcode" />
-        <module name="ex-spring-redis" />
-        <module name="ex-java-lib" />
         <module name="ex-spring-boot-freemarker" />
+        <module name="ex-java-lib" />
         <module name="ex-zookeeper-springboot-dubbo-provider" />
         <module name="ex-mybatis-3.5.x" />
-        <module name="ex-java-spi-interface" />
         <module name="ex-java-spi-portal" />
         <module name="ex-feign" />
+        <module name="ex-java-spi-interface" />
         <module name="ex-elastic-stack" />
         <module name="ex-doc" />
         <module name="ex-jmh-java-bench" />
@@ -32,20 +32,22 @@
         <module name="ex-java-spi-impl-b" />
         <module name="ex-java-spi-impl-a" />
         <module name="ex-spring-kafka-producer" />
+        <module name="ex-spring-shell" />
+        <module name="ex-spring-boot-thymeleaf" />
+        <module name="ex-spring-redisson" />
         <module name="ex-groovy" />
         <module name="ex-java8" />
         <module name="ex-maven-dependence-a" />
         <module name="ex-spring-boot-mybatisplus" />
-        <module name="ex-maven-pmd-plugin" />
         <module name="ex-spring-kafka-consumer" />
+        <module name="ex-maven-pmd-plugin" />
         <module name="ex-maven-checkstyle-plugin" />
         <module name="ex-asciidoctor-maven-plugin" />
         <module name="ex-kotlin" />
-        <module name="ex-foo-app" />
         <module name="ex-okhttp" />
-        <module name="ex-zookeeper-springboot-dubbo-consumer" />
+        <module name="ex-foo-app" />
         <module name="ex-spring-boot-web" />
-        <module name="ex-spring-redission" />
+        <module name="ex-zookeeper-springboot-dubbo-consumer" />
       </profile>
     </annotationProcessing>
   </component>
@@ -81,11 +83,13 @@
       <module name="ex-spring-boot-freemarker" options="-parameters" />
       <module name="ex-spring-boot-h2" options="-parameters" />
       <module name="ex-spring-boot-mybatisplus" options="-parameters" />
+      <module name="ex-spring-boot-thymeleaf" options="-parameters" />
       <module name="ex-spring-boot-web" options="-parameters" />
       <module name="ex-spring-kafka-consumer" options="-parameters" />
       <module name="ex-spring-kafka-producer" options="-parameters" />
       <module name="ex-spring-redis" options="-parameters" />
-      <module name="ex-spring-redission" options="-parameters" />
+      <module name="ex-spring-redisson" options="-parameters" />
+      <module name="ex-spring-shell" options="-parameters" />
       <module name="ex-xxl-job" options="-parameters" />
       <module name="ex-zookeeper-springboot-dubbo-consumer" options="-parameters" />
       <module name="ex-zookeeper-springboot-dubbo-provider" options="-parameters" />

@@ -31,7 +31,8 @@
     <module>ex-spring-boot-web</module>
     <module>ex-spring-kafka</module>
     <module>ex-spring-redis</module>
-    <module>ex-spring-redission</module>
+    <module>ex-spring-redisson</module>
+    <module>ex-spring-shell</module>
     <module>ex-xxl-job</module>
     <module>ex-zookeeper-springboot-dubbo-consumer</module>
     <module>ex-zookeeper-springboot-dubbo-provider</module>

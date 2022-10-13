@@ -16,6 +16,6 @@ currentBranchName=$(git symbolic-ref --short HEAD)
 
 printCurrentBranch "${currentBranchName}"
 
-./mvnw clean -pl "$@" -am
+./mvnw clean compile -Pbase-include
 
 exit 0

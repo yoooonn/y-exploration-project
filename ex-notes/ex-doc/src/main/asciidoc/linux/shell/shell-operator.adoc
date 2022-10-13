@@ -4,69 +4,105 @@ Shell 运算符
 
 ===== 关系运算符
 
-[cols="2,8"]
+关系运算符只支持数字，不支持字符串，除非字符串的值是数字
+
+[cols="2,5,3"]
 |===
-|Operator |Meaning
+|Operator |Meaning |Mnemonic
 
 |-eq
+|等于
 |equal
 
 |-ne
+|不等于
 |none equal
 
 |-gt
+|大于
 |greater than
 
 |-lt
+|小于
 |less than
 
 |-ge
+|大于等于
 |greater or equal than
 
 |-le
+|小于等于
 |less or equal than
 |===
 
-
 ===== 字符串运算符
 
-[cols="2,8"]
+[cols="2,5,3"]
 |===
-|Operator |Meaning
+|Operator |Meaning |Mnemonic
 
 |-n
 |字符串长度是否不为0，不为0，返回``true``
+|-n
 
 |-z
 |字符串长度是否为0，为0，返回``true``
+|-n
 
 |=
 |字符串是否相等，相等，返回``true``
+|-n
 
 |!=
 |字符串是否不相等，不相等，返回``true``
+|-n
 
 |$
 |字符串是否不为空，不为空，返回``true``
+|-n
 |===
 
 ===== 文件测试运算符
 
-[cols="2,8"]
+[cols="2,5,3"]
 |===
-|Operator |Meaning
+|Operator |Meaning |Mnemonic
+
+|-b
+|块设备？是，返回``true``
+|block?
+
+|-c
+|字符设备？是，返回``true``
+|character?
 
 |-d
 |目录？是，返回``true``
+|directory?
 
 |-f
 |普通文件（既不是目录，也不是设备文件）？是，返回``true``
+|file?
 
 |-e
 |文件（包括目录）存在？是，返回``true``
+|exist?
 
 |-s
 |文件是否不为空（文件大小是否大于0）？不为空，返回``true``
+|size?
+
+|-r
+|文件是否可读？是，返回``true``
+|readable?
+
+|-w
+|文件是否可写？是，返回``true``
+|writable?
+
+|-x
+|文件是否可执行？是，返回``true``
+|executable?
 |===
 
 ===== 布尔运算符
