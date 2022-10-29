@@ -26,7 +26,7 @@ import java.sql.Connection;
 public class SpringNativeEventListener implements DisposableBean {
 
     private static final Logger log = LoggerFactory.getLogger(SpringNativeEventListener.class);
-    private static final String DDL = "classpath*:META-INF/init-sql-20210314.sql";
+    private static final String DDL = "classpath*:META-INF/init-sql-20221030.sql";
 
     @SneakyThrows
     public static void restoreDatabaseByScript(ApplicationContext context) {
@@ -43,11 +43,11 @@ public class SpringNativeEventListener implements DisposableBean {
     public void applicationStartedEventListener(ApplicationStartedEvent event) {
         log.info("\"started\": {}", "started");
         ConfigurableApplicationContext context = event.getApplicationContext();
-        BootProcessApplication.InfoExposer.beansWithClassname(context);
+        // BootProcessApplication.InfoExposer.beansWithClassname(context);
         // BootProcessApplication.InfoExposer.systemEnvironment(context.getEnvironment());
         // BootProcessApplication.InfoExposer.systemProperty(context.getEnvironment());
         // BootProcessApplication.InfoExposer.applicationConversionService(context.getBeanFactory());
-        restoreDatabaseByScript(context);
+        // restoreDatabaseByScript(context);
     }
 
     @EventListener

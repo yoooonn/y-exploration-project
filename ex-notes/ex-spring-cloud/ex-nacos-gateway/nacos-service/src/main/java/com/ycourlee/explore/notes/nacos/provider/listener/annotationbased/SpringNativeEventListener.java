@@ -27,7 +27,7 @@ import java.sql.Connection;
 public class SpringNativeEventListener implements DisposableBean {
 
     private static final Logger log = LoggerFactory.getLogger(SpringNativeEventListener.class);
-    private static final String DDL = "classpath*:META-INF/init-sql-20210314.sql";
+    private static final String DDL = "classpath*:META-INF/init-sql-20221030.sql";
 
     @EventListener
     public void applicationStartedEventListener(ApplicationStartedEvent event) {
