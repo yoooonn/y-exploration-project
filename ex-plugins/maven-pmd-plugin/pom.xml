@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>ex-plugins</artifactId>
+    <groupId>com.ycourlee.explore.plugins</groupId>
+    <version>${revision}</version>
+  </parent>
+
+  <artifactId>maven-pmd-plugin</artifactId>
+  <name>::plugins::maven plugin pmd</name>
+  <properties>
+    <main.basedir>${project.basedir}/../..</main.basedir>
+  </properties>
+  <scm>
+    <connection>${git.connection}</connection>
+    <developerConnection>${git.developerConnection}</developerConnection>
+    <url>${git.url}</url>
+  </scm>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.12.0</version>
+        <configuration>
+          <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+          <targetJdk>${maven.compiler.target}</targetJdk>
+          <printFailingErrors>true</printFailingErrors>
+          <rulesets>
+            <ruleset>rulesets/java/ali-comment.xml</ruleset>
+            <ruleset>rulesets/java/ali-concurrent.xml</ruleset>
+            <ruleset>rulesets/java/ali-constant.xml</ruleset>
+            <ruleset>rulesets/java/ali-exception.xml</ruleset>
+            <ruleset>rulesets/java/ali-flowcontrol.xml</ruleset>
+            <ruleset>rulesets/java/ali-naming.xml</ruleset>
+            <ruleset>rulesets/java/ali-oop.xml</ruleset>
+            <ruleset>rulesets/java/ali-orm.xml</ruleset>
+            <ruleset>rulesets/java/ali-other.xml</ruleset>
+            <ruleset>rulesets/java/ali-set.xml</ruleset>
+          </rulesets>
+          <excludes>
+            <exclude>**/FixClassTypeResolver.java</exclude>
+          </excludes>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>com.alibaba.p3c</groupId>
+            <artifactId>p3c-pmd</artifactId>
+            <version>2.0.1</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+</project>

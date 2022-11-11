@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.ycourlee.explore.notes</groupId>
+    <artifactId>ex-notes</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <modules>
+    <module>a</module>
+    <module>b</module>
+  </modules>
+
+  <groupId>com.ycourlee.explore.notes.mavendependence</groupId>
+  <artifactId>maven-dependence</artifactId>
+  <version>${revision}</version>
+  <name>::notes::maven dependence</name>
+  <packaging>pom</packaging>
+  <properties>
+    <main.basedir>${project.basedir}/../..</main.basedir>
+  </properties>
+  <scm>
+    <connection>${git.connection}</connection>
+    <developerConnection>${git.developerConnection}</developerConnection>
+    <url>${git.url}</url>
+  </scm>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.ycourlee.explore.notes.mavendependence</groupId>
+        <artifactId>a</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.explore.notes.mavendependence</groupId>
+        <artifactId>b</artifactId>
+        <version>${revision}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>

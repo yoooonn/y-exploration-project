@@ -13,21 +13,20 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>ex-doc</module>
-    <module>ex-google-findbugs-jsr305</module>
-    <module>ex-groovy</module>
-    <module>ex-java-spi</module>
-    <module>ex-jmh-java-bench</module>
-    <module>ex-kotlin</module>
-    <module>ex-mapstruct</module>
-    <module>ex-maven-dependence</module>
-    <module>ex-mybatis-3.5.x</module>
-    <module>ex-okhttp</module>
-    <module>ex-scripts</module>
-    <module>ex-spring-boot</module>
-    <module>ex-spring-cloud</module>
-    <module>ex-leetcode</module>
-    <module>ex-netty</module>
+    <module>doc</module>
+    <module>google-findbugs-jsr305</module>
+    <module>groovy</module>
+    <module>java-spi</module>
+    <module>jmh-java-bench</module>
+    <module>kotlin</module>
+    <module>mapstruct</module>
+    <module>maven-dependence</module>
+    <module>mybatis-3.5.x</module>
+    <module>netty</module>
+    <module>okhttp</module>
+    <module>scripts</module>
+    <module>spring-boot</module>
+    <module>spring-cloud</module>
   </modules>
 
   <properties>
@@ -60,12 +59,12 @@
       </dependency>
       <dependency>
         <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-doc</artifactId>
+        <artifactId>doc</artifactId>
         <version>${revision}</version>
       </dependency>
       <dependency>
         <groupId>com.ycourlee.explore.notes</groupId>
-        <artifactId>ex-spring-boot-freemarker</artifactId>
+        <artifactId>freemarker</artifactId>
         <version>${revision}</version>
       </dependency>
     </dependencies>

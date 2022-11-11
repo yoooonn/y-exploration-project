@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.ycourlee.explore.notes</groupId>
+    <artifactId>ex-notes</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <artifactId>mybatis-3.5.x</artifactId>
+  <name>::notes::mybatis 3.5.x</name>
+  <description>mybatis framework solo</description>
+
+  <properties>
+    <dynamic.mybatis.version>3.5.6</dynamic.mybatis.version>
+    <main.basedir>${project.basedir}/../..</main.basedir>
+  </properties>
+  <scm>
+    <connection>${git.connection}</connection>
+    <developerConnection>${git.developerConnection}</developerConnection>
+    <url>${git.url}</url>
+  </scm>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.ycourlee.explore.base</groupId>
+      <artifactId>base-dao</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${dynamic.mybatis.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

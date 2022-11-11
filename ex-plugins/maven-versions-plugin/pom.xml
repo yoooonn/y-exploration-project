@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.ycourlee.explore.plugins</groupId>
+    <artifactId>ex-plugins</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <artifactId>maven-versions-plugin</artifactId>
+  <name>::plugins::maven plugin versions</name>
+  <version>1.0.6-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>sub-a</module>
+    <module>sub-b</module>
+  </modules>
+
+  <properties>
+    <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
+    <main.basedir>${project.basedir}/../..</main.basedir>
+  </properties>
+  <scm>
+    <connection>${git.connection}</connection>
+    <developerConnection>${git.developerConnection}</developerConnection>
+    <url>${git.url}</url>
+  </scm>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.ycourlee.explore.mavenplugin</groupId>
+        <artifactId>sub-a</artifactId>
+        <version>1.0.6-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ycourlee.explore.mavenplugin</groupId>
+        <artifactId>sub-b</artifactId>
+        <version>1.0.6-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>${versions-maven-plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
