@@ -27,7 +27,9 @@ build/
 .vscode/
 
 ### Maven Wrapper ###
-!**/.mvn/wrapper/maven-wrapper.jar
+.mvn
+!**/.mvn/wrapper/
+!.mvn/settings.xml
 
 # Created by ycourlee
 target/

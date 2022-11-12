@@ -330,43 +330,6 @@
         <module>base</module>
       </modules>
     </profile>
-    <profile>
-      <id>mirror-repo</id>
-      <activation>
-        <property>
-          <name>mirror.repo.disable</name>
-          <value>false</value>
-        </property>
-      </activation>
-      <repositories>
-        <repository>
-          <id>public</id>
-          <name>aliyun nexus</name>
-          <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-          <layout>default</layout>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>public</id>
-          <name>aliyun nexus</name>
-          <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-          <releases>
-            <enabled>true</enabled>
-            <updatePolicy>never</updatePolicy>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </pluginRepository>
-      </pluginRepositories>
-    </profile>
   </profiles>
 
   <build>

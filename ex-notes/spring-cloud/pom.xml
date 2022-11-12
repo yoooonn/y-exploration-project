@@ -7,6 +7,7 @@
     <version>${revision}</version>
   </parent>
 
+  <groupId>com.ycourlee.explore.notes.cloud</groupId>
   <artifactId>spring-cloud</artifactId>
   <name>::notes::spring cloud</name>
   <packaging>pom</packaging>
@@ -14,6 +15,7 @@
   <modules>
     <module>eureka-server</module>
     <module>feign</module>
+    <module>nacos</module>
     <module>nacos-gateway</module>
   </modules>
 
@@ -46,7 +48,7 @@
         <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>com.ycourlee.explore.notes</groupId>
+        <groupId>com.ycourlee.explore.notes.cloud</groupId>
         <artifactId>eureka-server</artifactId>
         <version>${revision}</version>
       </dependency>

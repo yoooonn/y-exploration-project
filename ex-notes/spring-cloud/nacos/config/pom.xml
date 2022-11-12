@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.ycourlee.explore.notes.cloud</groupId>
-    <artifactId>spring-cloud</artifactId>
+    <artifactId>nacos</artifactId>
     <version>${revision}</version>
   </parent>
+  <artifactId>config</artifactId>
+  <name>::notes::spring cloud::nacos::config</name>
 
-  <artifactId>feign</artifactId>
-  <name>::notes::spring cloud::feign</name>
   <properties>
-    <main.basedir>${project.basedir}/../../..</main.basedir>
+    <main.basedir>${project.basedir}/../../../..</main.basedir>
   </properties>
   <scm>
     <connection>${git.connection}</connection>
@@ -20,8 +20,12 @@
   </scm>
   <dependencies>
     <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-openfeign</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
     </dependency>
   </dependencies>
 </project>
