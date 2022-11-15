@@ -10,3 +10,11 @@ GET {{aio}}/beans
 Accept: application/json
 
 ###
+GET {{aio}}/mappings
+Accept: application/json
+
+###
+GET {{aio}}/nacosconfig
+Accept: application/json
+
+###
