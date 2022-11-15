@@ -13,6 +13,7 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>aio</module>
     <module>eureka-server</module>
     <module>feign</module>
     <module>nacos</module>

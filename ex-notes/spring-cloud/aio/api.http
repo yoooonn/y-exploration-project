@@ -1,0 +1,12 @@
+GET {{aio}}/info
+Accept: application/json
+
+###
+GET {{aio}}/env
+Accept: application/json
+
+###
+GET {{aio}}/beans
+Accept: application/json
+
+###
