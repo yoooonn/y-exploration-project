@@ -125,7 +125,7 @@
         int a = 3;
     
         /**
-        * Some description about follow code. (Note: align '/**' comment with code)
+        * Some description about wp code. (Note: align '/**' comment with code)
         */
         int b = 4;
     }

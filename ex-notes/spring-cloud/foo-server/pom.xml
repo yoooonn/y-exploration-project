@@ -7,9 +7,10 @@
     <artifactId>spring-cloud</artifactId>
     <version>${revision}</version>
   </parent>
-  <artifactId>aio</artifactId>
-  <name>::notes::spring cloud::aio</name>
-  <description>Spring cloud debugger All In One</description>
+
+  <artifactId>foo-server</artifactId>
+  <name>::notes::spring cloud::foo-server</name>
+  <description>Spring cloud Foo Server for Remote Invoking to debug</description>
   <properties>
     <main.basedir>${project.basedir}/../../..</main.basedir>
   </properties>
@@ -18,7 +19,6 @@
     <developerConnection>${git.developerConnection}</developerConnection>
     <url>${git.url}</url>
   </scm>
-
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -37,12 +37,22 @@
       <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-openfeign</artifactId>
-    </dependency>
-    <dependency>
       <groupId>com.ycourlee.tranquil</groupId>
       <artifactId>tranquil-web</artifactId>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <image>
+            <name>docker.io/yooonn/${project.artifactId}:${project.version}</name>
+          </image>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

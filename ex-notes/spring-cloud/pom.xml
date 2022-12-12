@@ -16,6 +16,7 @@
     <module>aio</module>
     <module>eureka-server</module>
     <module>feign</module>
+    <module>foo-server</module>
     <module>nacos</module>
     <module>nacos-gateway</module>
   </modules>

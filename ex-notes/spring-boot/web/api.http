@@ -1,4 +1,4 @@
-POST {{host}}/generic/follow
+POST {{host}}/generic/wp
 Content-Type: application/json
 
 {
