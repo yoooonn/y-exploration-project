@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * @author yooonn
  * @date 2022.02.09
@@ -16,6 +18,25 @@ import java.util.stream.Collectors;
 public class StringTest extends AbstractTest {
 
     private static final Logger log = LoggerFactory.getLogger(StringTest.class);
+
+    @Test
+    public void bigNumberMultiplyTest() {
+
+    }
+
+    private String bigNumberMultiply(String n1, String n2) {
+        return "";
+    }
+
+
+    @Test
+    public void splitTest2() {
+        String[] split1 = ",".split(",");
+        assertThat(split1.length).isEqualTo(0);
+
+        String[] split = "1,2,3,".split(",");
+        assertThat(split.length).isEqualTo(3);
+    }
 
     /**
      * 由bytecode可见，Java8字符串+操作被编译为StringBuilder.append，

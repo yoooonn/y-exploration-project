@@ -1,0 +1,121 @@
+# @name env
+GET {{aio}}/a/env
+Accept: application/json
+
+###
+GET {{aio}}/a/configprops
+Accept: application/json
+
+###
+GET {{aio}}/a/conditions
+Accept: application/json
+
+###
+GET {{aio}}/a/loggers
+Accept: application/json
+
+###
+GET {{aio}}/a/info
+Accept: application/json
+
+###
+GET {{aio}}/a/beans
+Accept: application/json
+
+###
+GET {{aio}}/a/mappings
+Accept: application/json
+
+###
+GET {{aio}}/a/nacosconfig
+Accept: application/json
+
+###
+GET {{aio}}/a/health
+Accept: application/json
+
+###
+GET {{aio}}/a/auditevents
+Accept: application/json
+
+###
+GET {{aio}}/a/beans
+Accept: application/json
+
+###
+GET {{aio}}/a/caches
+Accept: application/json
+
+###
+GET {{aio}}/a/conditions
+Accept: application/json
+
+###
+GET {{aio}}/a/configprops
+Accept: application/json
+
+###
+GET {{aio}}/a/env
+Accept: application/json
+
+###
+GET {{aio}}/a/flyway
+Accept: application/json
+
+###
+GET {{aio}}/a/health
+Accept: application/json
+
+###
+GET {{aio}}/a/httptrace
+Accept: application/json
+
+###
+GET {{aio}}/a/info
+Accept: application/json
+
+###
+GET {{aio}}/a/integrationgraph
+Accept: application/json
+
+###
+GET {{aio}}/a/loggers
+Accept: application/json
+
+###
+GET {{aio}}/a/liquibase
+Accept: application/json
+
+###
+GET {{aio}}/a/metrics
+Accept: application/json
+
+###
+GET {{aio}}/a/mappings
+Accept: application/json
+
+###
+GET {{aio}}/a/quartz
+Accept: application/json
+
+###
+GET {{aio}}/a/scheduledtasks
+Accept: application/json
+
+###
+GET {{aio}}/a/sessions
+Accept: application/json
+
+###
+GET {{aio}}/a/shutdown
+Accept: application/json
+
+###
+GET {{aio}}/a/startup
+Accept: application/json
+
+###
+GET {{aio}}/a/threaddump
+Accept: application/json
+
+###

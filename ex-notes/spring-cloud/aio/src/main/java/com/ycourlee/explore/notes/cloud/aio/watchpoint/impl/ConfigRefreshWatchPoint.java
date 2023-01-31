@@ -9,17 +9,18 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 /**
- * @author yongjiang
+ * @author yooonn
  * @date 2022.11.18
  */
 @Component
 @RequiredArgsConstructor
-public class ConfigRefresh implements WatchPoint {
+public class ConfigRefreshWatchPoint implements WatchPoint {
 
     private final ParamsHolder paramsHolder;
 
     @Override
     public void doExecute(Response response, Context context, WatchPointChain chain) {
         response.pin(getClass().getCanonicalName(), paramsHolder.getStr());
+        chain.doExecute(response, context);
     }
 }

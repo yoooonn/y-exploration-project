@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * @author yooonn
  * @date 2022.01.10
@@ -11,6 +13,19 @@ import org.slf4j.LoggerFactory;
 public class BooleanTest {
 
     private static final Logger log = LoggerFactory.getLogger(BooleanTest.class);
+
+    @Test
+    public void xorTest() {
+        boolean a = false;
+        boolean b = true;
+        assertThat(a ^ b).isTrue();
+        a = false;
+        b = false;
+        assertThat(a ^ b).isFalse();
+        a = true;
+        b = true;
+        assertThat(a ^ b).isFalse();
+    }
 
     @Test
     public void mainTest() {

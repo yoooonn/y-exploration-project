@@ -11,14 +11,14 @@ start() {
     if [ "${count}" -eq 1 ]; then
         touch logs/foo/1.log
         echo -n "" >logs/foo/1.log
-        nohup java -jar ex-notes/ex-spring-boot/ex-foo-app/target/*.jar >logs/foo/1.log 2>&1 &
+        nohup java -jar ex-notes/spring-boot/foo-app/target/*.jar >logs/foo/1.log 2>&1 &
     elif [ "$1" -eq 2 ]; then
         touch logs/foo/1.log
         touch logs/foo/2.log
         echo -n "" >logs/foo/1.log
         echo -n "" >logs/foo/2.log
-        nohup java -jar ex-notes/ex-spring-boot/ex-foo-app/target/*.jar >logs/foo/1.log 2>&1 &
-        nohup java -jar ex-notes/ex-spring-boot/ex-foo-app/target/*.jar --server.port=8081 >logs/foo/2.log 2>&1 &
+        nohup java -jar ex-notes/spring-boot/foo-app/target/*.jar >logs/foo/1.log 2>&1 &
+        nohup java -jar ex-notes/spring-boot/foo-app/target/*.jar --server.port=8081 >logs/foo/2.log 2>&1 &
     elif [ "$1" -eq 3 ]; then
         touch logs/foo/1.log
         touch logs/foo/2.log
@@ -26,18 +26,18 @@ start() {
         echo -n "" >logs/foo/1.log
         echo -n "" >logs/foo/2.log
         echo -n "" >logs/foo/3.log
-        nohup java -jar ex-notes/ex-spring-boot/ex-foo-app/target/*.jar >logs/foo/1.log 2>&1 &
-        nohup java -jar ex-notes/ex-spring-boot/ex-foo-app/target/*.jar --server.port=8081 >logs/foo/2.log 2>&1 &
-        nohup java -jar ex-notes/ex-spring-boot/ex-foo-app/target/*.jar --server.port=8082 >logs/foo/3.log 2>&1 &
+        nohup java -jar ex-notes/spring-boot/foo-app/target/*.jar >logs/foo/1.log 2>&1 &
+        nohup java -jar ex-notes/spring-boot/foo-app/target/*.jar --server.port=8081 >logs/foo/2.log 2>&1 &
+        nohup java -jar ex-notes/spring-boot/foo-app/target/*.jar --server.port=8082 >logs/foo/3.log 2>&1 &
     else
         touch logs/foo/1.log
         echo -n "" >logs/foo/1.log
-        nohup java -jar ex-notes/ex-spring-boot/ex-foo-app/target/*.jar >logs/foo/1.log 2>&1 &
+        nohup java -jar ex-notes/spring-boot/foo-app/target/*.jar >logs/foo/1.log 2>&1 &
     fi
 }
 
 stop() {
-    jps | grep "ex-foo-app" | awk '{print $1}' | xargs kill
+    jps | grep "foo-app" | awk '{print $1}' | xargs kill
 }
 
 set -eu
@@ -54,7 +54,7 @@ fi
 opt=$1
 
 if [ "${opt}" = "start" ]; then
-    ./mvnw clean package -pl ex-notes/ex-spring-boot/ex-foo-app -am
+    ./mvnw clean package -pl ex-notes/spring-boot/foo-app -am
     mkdir -p logs/foo
     start "${serviceCount}"
 elif [ "${opt}" = "stop" ]; then

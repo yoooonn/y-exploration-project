@@ -5,10 +5,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.AbstractList;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -33,10 +30,28 @@ public class InstanceOfTests extends AbstractTest {
 
     @Test
     public void mainTest() {
-        List<Integer> ints = Arrays.asList(1, 2, 3);
+        Object ints = Arrays.asList(1, 2, 3);
         // noinspection ConstantConditions
         assertTrue(ints instanceof List);
+        assertTrue(ints instanceof AbstractCollection);
         assertTrue(ints instanceof AbstractList);
         assertFalse(ints instanceof ArrayList);
     }
+
+    @Test
+    public void primaryTest() {
+
+        Object a = new BB();
+        Object aa = new CC();
+        assertTrue(a instanceof A);
+        assertTrue(a instanceof B);
+        assertTrue(aa instanceof C);
+        assertTrue(aa instanceof A);
+    }
+
+    interface A {}
+    interface B extends A {}
+    interface C extends B {}
+    static class BB implements B {}
+    static class CC extends BB implements C {}
 }

@@ -1,46 +1,50 @@
-GET {{NACOS}}/nacos/v1/cs/configs?accessToken={{NACOS_ACCESS_TOKEN}}&dataId={{AIO_NACOS_DATA_ID}}&group={{AIO_NACOS_GROUP}}&namespaceId={{AIO_NACOS_NAMESPACE}}&tenant={{AIO_NACOS_NAMESPACE}}&show=all&username=nacos
+# @name watch
+POST {{aio}}/watch
+Accept: application/json
+Content-Type: application/json
+
+{
+    "prop_key": "flying.str"
+}
 
 ###
-POST {{NACOS}}/nacos/v1/cs/configs?accessToken={{NACOS_ACCESS_TOKEN}}&username=nacos
-Content-Type: application/x-www-form-urlencoded
+# @name ping
+POST {{aio}}/ping
+Accept: application/json
+Content-Type: application/json
 
-dataId={{AIO_NACOS_DATA_ID}}&group={{AIO_NACOS_GROUP}}&namespaceId={{AIO_NACOS_NAMESPACE}}&tenant={{AIO_NACOS_NAMESPACE}}&show=all&
+{
+    "params": {
+        "hello": "foo",
+        "foo": 12
+    }
+}
 
 ###
+# @name refresh nacos token
+< {%
+    client.log(client.global.get("NACOS_ACCESS_TOKEN"));
+%}
 POST {{NACOS}}/nacos/v1/auth/login
 Content-Type: application/x-www-form-urlencoded
 
 username=nacos&password=nacos
 
-> {% client.global.set("accessToken", response.body.json.accessToken); %}
+> {%
+    let token = String(response.body.accessToken)
+    client.assert(token != null && token.length > 0, "access token is empty")
+    client.log("hi :" + response.body.accessToken)
+    client.global.set("NACOS_ACCESS_TOKEN", response.body.accessToken)
+%}
 
 ###
-POST {{aio}}/watch
-Accept: application/json
-
-###
-
-GET {{aio}}/info
-Accept: application/json
-
-###
-GET {{aio}}/env
-Accept: application/json
-
-###
-GET {{aio}}/beans
-Accept: application/json
-
-###
-GET {{aio}}/mappings
-Accept: application/json
-
-###
-GET {{aio}}/nacosconfig
-Accept: application/json
-
-###
-GET {{aio}}/health
-Accept: application/json
+GET {{NACOS}}/nacos/v1/cs/configs?
+        accessToken={{NACOS_ACCESS_TOKEN}}&
+        dataId={{AIO_NACOS_DATA_ID}}&
+        group={{AIO_NACOS_GROUP}}&
+        namespaceId={{AIO_NACOS_NAMESPACE}}&
+        tenant={{AIO_NACOS_NAMESPACE}}&
+        show=all&
+        username=nacos
 
 ###

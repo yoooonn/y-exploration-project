@@ -45,6 +45,7 @@
     <asciidoctor.maven.plugin.version>2.2.1</asciidoctor.maven.plugin.version>
     <asciidoctorj.pdf.version>1.6.0</asciidoctorj.pdf.version>
     <asciidoctorj.version>2.5.2</asciidoctorj.version>
+    <cglib.version>3.3.0</cglib.version>
     <commons-jexl3.version>3.2.1</commons-jexl3.version>
     <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
     <druid-starter.version>1.2.8</druid-starter.version>
@@ -120,6 +121,11 @@
         <scope>import</scope>
       </dependency>
       <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib</artifactId>
+        <version>${cglib.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-jexl3</artifactId>
         <version>${commons-jexl3.version}</version>
@@ -189,6 +195,11 @@
       <dependency>
         <groupId>org.mybatis.spring.boot</groupId>
         <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis-spring-boot-starter.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter-test</artifactId>
         <version>${mybatis-spring-boot-starter.version}</version>
       </dependency>
       <dependency>
