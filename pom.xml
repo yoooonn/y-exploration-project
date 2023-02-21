@@ -341,6 +341,12 @@
         <module>base</module>
       </modules>
     </profile>
+    <profile>
+      <id>faste-include</id>
+      <modules>
+        <module>faste</module>
+      </modules>
+    </profile>
   </profiles>
 
   <build>

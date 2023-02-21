@@ -11,6 +11,11 @@ GET {{aio}}/a/conditions
 Accept: application/json
 
 ###
+# @name shutdown
+POST {{aio}}/a/shutdown
+Accept: application/json
+
+###
 GET {{aio}}/a/loggers
 Accept: application/json
 
@@ -104,10 +109,6 @@ Accept: application/json
 
 ###
 GET {{aio}}/a/sessions
-Accept: application/json
-
-###
-GET {{aio}}/a/shutdown
 Accept: application/json
 
 ###

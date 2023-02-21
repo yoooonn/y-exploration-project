@@ -19,6 +19,26 @@ public class IntegerTest {
     private static final Logger log = LoggerFactory.getLogger(IntegerTest.class);
 
     @Test
+    public void testIntegerCache() {
+        Integer x = 5;
+        log.info("x: {}", x);
+    }
+
+    @Test
+    public void testLowestOneBit() {
+        /*
+         *  12:     0x000000 00001100
+         * -12:     0xffffff 11110100
+         */
+        log.info("Integer.toBinaryString(12): {}", Integer.toBinaryString(12));
+        log.info("Integer.toBinaryString(-12): {}", Integer.toBinaryString(-12));
+        int i1 = Integer.lowestOneBit(12);
+        int i2 = Integer.lowestOneBit(-12);
+        log.info("i1: {}", i1);
+        log.info("i2: {}", i2);
+    }
+
+    @Test
     public void main4Test() {
         List<Pair<String, Long>> list = Arrays.asList(Pair.of("1", 1L), Pair.of("3", 3L));
         long sum = list.stream().mapToLong(Pair::getRight).sum();

@@ -16,6 +16,11 @@ public class PriorityQueueTest {
     private static final Logger log = LoggerFactory.getLogger(PriorityQueueTest.class);
 
     @Test
+    public void testManualMinimumHeap() {
+
+    }
+
+    @Test
     public void mainTest() {
         PriorityQueue<Cat> queue = new PriorityQueue<>(Comparator.comparingInt(Cat::getSort));
         queue.add(new Cat(5, "5"));
@@ -26,5 +31,9 @@ public class PriorityQueueTest {
             Cat poll = queue.poll();
             log.info("{}: {}", poll.getSort(), poll.getName());
         }
+    }
+
+    static class ManualHeap {
+        // private int[]
     }
 }

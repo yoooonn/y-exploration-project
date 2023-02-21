@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.ycourlee.explore.faste</groupId>
+  <artifactId>faste</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>faste</name>
+  <description>fast explore</description>
+  <packaging>pom</packaging>
+  <modules>
+    <module>faste-data-spring-boot-starter</module>
+  </modules>
+  <properties>
+    <java.version>1.8</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <git.connection>scm:git:git://github.com:yoooonn/y-exploration-project.git</git.connection>
+    <git.developerConnection>scm:git:ssh://git@github.com:yoooonn/y-exploration-project.git</git.developerConnection>
+    <git.url>http://github.com/yoooonn/y-exploration-project</git.url>
+
+    <mybatis.version>3.5.7</mybatis.version>
+    <springframework.version>5.2.15.RELEASE</springframework.version>
+    <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
+  </properties>
+  <scm>
+    <connection>${git.connection}</connection>
+    <developerConnection>${git.developerConnection}</developerConnection>
+    <url>${git.url}</url>
+  </scm>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>${mybatis.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok-maven-plugin</artifactId>
+          <version>1.18.20.0</version>
+          <executions>
+            <execution>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>delombok</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

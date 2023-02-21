@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ycourlee.explore.basic.dao.ActorMovieMapper">
+  <resultMap id="BaseResultMap" type="com.ycourlee.explore.basic.dao.model.ActorMovie">
+    <!--@mbg.generated-->
+    <!--@Table actor_movie-->
+    <id column="id" jdbcType="BIGINT" property="id"/>
+    <result column="actor_id" jdbcType="BIGINT" property="actorId"/>
+    <result column="movie_id" jdbcType="BIGINT" property="movieId"/>
+    <result column="memo" jdbcType="VARCHAR" property="memo"/>
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    <result column="was_delete" jdbcType="BOOLEAN" property="wasDelete"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, actor_id, movie_id, memo, create_time, update_time, was_delete
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List"/>
+    from actor_movie
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from actor_movie
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.ActorMovie" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into actor_movie (actor_id, movie_id, memo,
+    create_time, update_time, was_delete
+    )
+    values (#{actorId,jdbcType=BIGINT}, #{movieId,jdbcType=BIGINT}, #{memo,jdbcType=VARCHAR},
+    #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=BOOLEAN}
+    )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.ActorMovie" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into actor_movie
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="actorId != null">
+        actor_id,
+      </if>
+      <if test="movieId != null">
+        movie_id,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="wasDelete != null">
+        was_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="actorId != null">
+        #{actorId,jdbcType=BIGINT},
+      </if>
+      <if test="movieId != null">
+        #{movieId,jdbcType=BIGINT},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wasDelete != null">
+        #{wasDelete,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ycourlee.explore.basic.dao.model.ActorMovie">
+    <!--@mbg.generated-->
+    update actor_movie
+    <set>
+      <if test="actorId != null">
+        actor_id = #{actorId,jdbcType=BIGINT},
+      </if>
+      <if test="movieId != null">
+        movie_id = #{movieId,jdbcType=BIGINT},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wasDelete != null">
+        was_delete = #{wasDelete,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ycourlee.explore.basic.dao.model.ActorMovie">
+    <!--@mbg.generated-->
+    update actor_movie
+    set actor_id = #{actorId,jdbcType=BIGINT},
+    movie_id = #{movieId,jdbcType=BIGINT},
+    memo = #{memo,jdbcType=VARCHAR},
+    create_time = #{createTime,jdbcType=TIMESTAMP},
+    update_time = #{updateTime,jdbcType=TIMESTAMP},
+    was_delete = #{wasDelete,jdbcType=BOOLEAN}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

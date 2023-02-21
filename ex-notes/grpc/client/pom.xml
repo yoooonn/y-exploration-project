@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.ycourlee.explore.notes.grpc</groupId>
+    <artifactId>grpc</artifactId>
+    <version>${revision}</version>
+  </parent>
+
+  <artifactId>client</artifactId>
+  <name>::notes::grpc:client</name>
+  <description>a simple gRPC client</description>
+  <properties>
+    <main.basedir>${project.basedir}/../../..</main.basedir>
+    <main.class>com.ycourlee.explore.notes.grpc.client.GreetingClient</main.class>
+  </properties>
+  <scm>
+    <connection>${git.connection}</connection>
+    <developerConnection>${git.developerConnection}</developerConnection>
+    <url>${git.url}</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>com.ycourlee.explore.notes.grpc</groupId>
+      <artifactId>common</artifactId>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>

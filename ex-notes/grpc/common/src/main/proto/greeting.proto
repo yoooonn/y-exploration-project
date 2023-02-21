@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "com.ycourlee.explore.notes.grpc.simple.proto";
+
+message Request {
+    string name = 1;
+    string greeting = 2;
+}
+
+message Response {
+    string code = 1;
+}
+
+service GreetingService {
+    rpc greeting (Request) returns (Response) {}
+}
