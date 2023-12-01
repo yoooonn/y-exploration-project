@@ -19,6 +19,14 @@ public class HashMapTest extends AbstractTest {
     private static final Logger log = LoggerFactory.getLogger(HashMapTest.class);
 
     @Test
+    public void testPutMethod() {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put(null, "foo");
+        map.put(null, "bar");
+        log.info("map.get(null): {}", map.get(null));
+    }
+
+    @Test
     public void nullKeyTest() {
         Map<String, Object> map = new HashMap<>();
         map.put(null, "foo");

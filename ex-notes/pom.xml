@@ -19,6 +19,7 @@
     <module>groovy</module>
     <module>grpc</module>
     <module>java-spi</module>
+    <module>jgrapht</module>
     <module>jmh-java-bench</module>
     <module>kotlin</module>
     <module>mapstruct</module>
