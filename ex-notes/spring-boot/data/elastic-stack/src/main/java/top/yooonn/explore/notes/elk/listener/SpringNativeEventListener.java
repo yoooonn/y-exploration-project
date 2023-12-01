@@ -28,7 +28,7 @@ public class SpringNativeEventListener implements DisposableBean {
     @Override
     public void destroy() throws Exception {
         log.info("destroying");
-        // restoreDatabaseByScript(com.ycourlee.explore.bootprocess.context.ApplicationContext.get());
+        // restoreDatabaseByScript(top.yooonn.explore.bootprocess.context.ApplicationContext.get());
         log.info("database restored");
         log.info("destroyed");
     }

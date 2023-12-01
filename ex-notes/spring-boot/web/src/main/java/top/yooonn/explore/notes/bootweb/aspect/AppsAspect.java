@@ -19,8 +19,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class AppsAspect {
 
-    @Before(value = "(execution(* com.ycourlee.explore.notes.bootweb.listener..*.subscribe*(..)) ||" +
-            "execution(* com.ycourlee.explore.notes.bootweb.listener..*.on*(..))) && args(event)")
+    @Before(value = "(execution(* top.yooonn.explore.notes.bootweb.listener..*.subscribe*(..)) ||" +
+            "execution(* top.yooonn.explore.notes.bootweb.listener..*.on*(..))) && args(event)")
     public void eventListenerLogger(JoinPoint joinPoint, ApplicationEvent event) {
         ListenerLogger.log.info("{} {}", joinPoint.getSignature().toShortString(), event.toString());
     }

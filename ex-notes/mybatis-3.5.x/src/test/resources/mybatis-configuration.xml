@@ -8,7 +8,7 @@
   </settings>
 
   <typeAliases>
-    <package name="com.ycourlee.explore.basic.dao.model"/>
+    <package name="top.yooonn.explore.basic.dao.model"/>
   </typeAliases>
 
   <environments default="dev">

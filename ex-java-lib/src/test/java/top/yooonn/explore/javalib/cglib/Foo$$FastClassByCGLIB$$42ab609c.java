@@ -2,7 +2,7 @@
 //  * Decompiled with CFR.
 //  *
 //  * Could not load the following classes:
-//  *  com.ycourlee.explore.javalib.cglib.Foo
+//  *  top.yooonn.explore.javalib.cglib.Foo
 //  */
 // package top.yooonn.explore.javalib.cglib;
 //

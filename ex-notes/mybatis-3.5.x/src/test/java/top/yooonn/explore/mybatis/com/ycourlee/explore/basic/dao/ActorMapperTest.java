@@ -1,4 +1,4 @@
-package top.yooonn.explore.mybatis.com.ycourlee.explore.basic.dao;
+package top.yooonn.explore.mybatis.top.yooonn.explore.basic.dao;
 
 import com.alibaba.fastjson.JSON;
 import top.yooonn.explore.basic.dao.ActorMapper;

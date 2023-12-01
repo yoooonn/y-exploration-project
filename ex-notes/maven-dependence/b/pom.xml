@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.ycourlee.explore.notes.mavendependence</groupId>
+    <groupId>top.yooonn.explore.notes.mavendependence</groupId>
     <artifactId>maven-dependence</artifactId>
     <version>${revision}</version>
   </parent>
@@ -20,7 +20,7 @@
   </scm>
   <dependencies>
     <dependency>
-      <groupId>com.ycourlee.explore.notes.mavendependence</groupId>
+      <groupId>top.yooonn.explore.notes.mavendependence</groupId>
       <artifactId>a</artifactId>
     </dependency>
     <dependency>

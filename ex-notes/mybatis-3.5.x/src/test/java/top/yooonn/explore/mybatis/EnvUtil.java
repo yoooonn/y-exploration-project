@@ -37,7 +37,7 @@ public abstract class EnvUtil {
             inputStream = Resources.getResourceAsStream("mybatis-configuration.xml");
         } catch (IOException e) {
             e.printStackTrace();
-            log.error("com.ycourlee.explore.mybatis.EnvUtil.configuration, e: {}", e.getMessage());
+            log.error("top.yooonn.explore.mybatis.EnvUtil.configuration, e: {}", e.getMessage());
         }
         XMLConfigBuilder xmlConfigBuilder = new XMLConfigBuilder(inputStream);
         return xmlConfigBuilder.parse();

@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.ycourlee.explore.notes</groupId>
+    <groupId>top.yooonn.explore.notes</groupId>
     <artifactId>ex-notes</artifactId>
     <version>${revision}</version>
   </parent>
 
-  <groupId>com.ycourlee.explore.notes.grpc</groupId>
+  <groupId>top.yooonn.explore.notes.grpc</groupId>
   <artifactId>grpc</artifactId>
   <name>::notes::grpc</name>
   <packaging>pom</packaging>
@@ -38,17 +38,17 @@
         <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>com.ycourlee.explore.notes.grpc</groupId>
+        <groupId>top.yooonn.explore.notes.grpc</groupId>
         <artifactId>client</artifactId>
         <version>${revision}</version>
       </dependency>
       <dependency>
-        <groupId>com.ycourlee.explore.notes.grpc</groupId>
+        <groupId>top.yooonn.explore.notes.grpc</groupId>
         <artifactId>common</artifactId>
         <version>${revision}</version>
       </dependency>
       <dependency>
-        <groupId>com.ycourlee.explore.notes.grpc</groupId>
+        <groupId>top.yooonn.explore.notes.grpc</groupId>
         <artifactId>server</artifactId>
         <version>${revision}</version>
       </dependency>

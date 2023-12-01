@@ -26,7 +26,7 @@ import java.util.Map;
  */
 @EnableAsync
 @EnableAspectJAutoProxy(exposeProxy = true)
-@MapperScan("com.ycourlee.explore.basic.dao")
+@MapperScan("top.yooonn.explore.basic.dao")
 @SpringBootApplication
 public class BootProcessApplication {
 

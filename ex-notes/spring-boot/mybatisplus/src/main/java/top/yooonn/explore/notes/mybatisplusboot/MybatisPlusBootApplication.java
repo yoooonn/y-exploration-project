@@ -11,7 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
  * @author yooonn
  */
 @SpringBootApplication
-@MapperScan(basePackages = "com.ycourlee.explore.notes.mybatisplusboot.mapper")
+@MapperScan(basePackages = "top.yooonn.explore.notes.mybatisplusboot.mapper")
 public class MybatisPlusBootApplication {
 
     private static final Logger log = LoggerFactory.getLogger(MybatisPlusBootApplication.class);

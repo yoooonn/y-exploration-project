@@ -31,7 +31,7 @@ import static org.assertj.core.api.BDDAssertions.then;
 // @RunWith(SpringRunner.class)
 // @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 // @EnableAspectJAutoProxy(exposeProxy = true)
-// @ComponentScan("com.ycourlee.explore.notes.bootweb")
+// @ComponentScan("top.yooonn.explore.notes.bootweb")
 public class BootProcessApplicationTests implements ApplicationContextAware {
 
     private static final Logger           log = LoggerFactory.getLogger(BootProcessApplicationTests.class);

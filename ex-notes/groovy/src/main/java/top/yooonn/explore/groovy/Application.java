@@ -3,7 +3,7 @@ package top.yooonn.explore.groovy;
 /**
  * @author yooonn
  */
-// @SpringBootApplication(scanBasePackages = "com.ycourlee.explore")
+// @SpringBootApplication(scanBasePackages = "top.yooonn.explore")
 public class Application {
 
     public static void main(String[] args) {

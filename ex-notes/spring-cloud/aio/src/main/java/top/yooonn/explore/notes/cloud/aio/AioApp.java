@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2022.11.15
  */
 @SpringBootApplication
-@EnableFeignClients(basePackages = {"com.ycourlee.explore.notes.cloud.aio.client"})
+@EnableFeignClients(basePackages = {"top.yooonn.explore.notes.cloud.aio.client"})
 @RequiredArgsConstructor
 public class AioApp implements ApplicationContextAware {
 

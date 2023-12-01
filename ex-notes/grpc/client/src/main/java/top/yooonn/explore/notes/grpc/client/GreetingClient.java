@@ -1,7 +1,7 @@
 package top.yooonn.explore.notes.grpc.client;
 
-import com.ycourlee.explore.notes.grpc.simple.proto.Greeting;
-import com.ycourlee.explore.notes.grpc.simple.proto.GreetingServiceGrpc;
+import top.yooonn.explore.notes.grpc.simple.proto.Greeting;
+import top.yooonn.explore.notes.grpc.simple.proto.GreetingServiceGrpc;
 import io.grpc.Channel;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;

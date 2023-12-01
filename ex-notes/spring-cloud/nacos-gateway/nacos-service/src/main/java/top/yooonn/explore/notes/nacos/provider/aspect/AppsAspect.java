@@ -24,10 +24,10 @@ public class AppsAspect {
 
     private static final Logger log = LoggerFactory.getLogger(AppsAspect.class);
 
-    @Before(value = "(execution(* com.ycourlee.explore..listener..*.subscribe*(..)) ||" +
-            "execution(* com.ycourlee.explore..event..*.on*(..)) ||" +
-            "execution(* com.ycourlee.explore..listener..*.*lisener(..)) ||" +
-            "execution(* com.ycourlee.explore..listener..*.on*(..))) && args(event)")
+    @Before(value = "(execution(* top.yooonn.explore..listener..*.subscribe*(..)) ||" +
+            "execution(* top.yooonn.explore..event..*.on*(..)) ||" +
+            "execution(* top.yooonn.explore..listener..*.*lisener(..)) ||" +
+            "execution(* top.yooonn.explore..listener..*.on*(..))) && args(event)")
     public void eventListenerLogger(JoinPoint joinPoint, ApplicationEvent event) {
         String source;
         if (event.getSource() instanceof Collection) {

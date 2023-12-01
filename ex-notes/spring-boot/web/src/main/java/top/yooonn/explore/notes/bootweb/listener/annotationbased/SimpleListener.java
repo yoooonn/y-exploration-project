@@ -14,7 +14,7 @@ import org.springframework.util.Assert;
  * @author yooonn
  * @date 2022.03.14
  */
-@Component(value = "com.ycourlee.explore.notes.bootweb.listener.annotationbased.SimpleListener")
+@Component(value = "top.yooonn.explore.notes.bootweb.listener.annotationbased.SimpleListener")
 public class SimpleListener {
 
     private static final Logger log = LoggerFactory.getLogger(SimpleListener.class);

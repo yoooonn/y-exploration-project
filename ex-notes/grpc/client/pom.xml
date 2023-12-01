@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.ycourlee.explore.notes.grpc</groupId>
+    <groupId>top.yooonn.explore.notes.grpc</groupId>
     <artifactId>grpc</artifactId>
     <version>${revision}</version>
   </parent>
@@ -23,7 +23,7 @@
   </scm>
   <dependencies>
     <dependency>
-      <groupId>com.ycourlee.explore.notes.grpc</groupId>
+      <groupId>top.yooonn.explore.notes.grpc</groupId>
       <artifactId>common</artifactId>
     </dependency>
   </dependencies>

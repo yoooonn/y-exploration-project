@@ -2,7 +2,7 @@
 //  * Decompiled with CFR.
 //  *
 //  * Could not load the following classes:
-//  *  com.ycourlee.explore.notes.cloud.aio.other.DeclareByConfiguration
+//  *  top.yooonn.explore.notes.cloud.aio.other.DeclareByConfiguration
 //  */
 // package top.yooonn.explore.notes.cloud.aio.other;
 //

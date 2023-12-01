@@ -2,9 +2,9 @@
 //  * Decompiled with CFR.
 //  *
 //  * Could not load the following classes:
-//  *  com.ycourlee.explore.notes.cloud.aio.other.A
-//  *  com.ycourlee.explore.notes.cloud.aio.other.B
-//  *  com.ycourlee.explore.notes.cloud.aio.other.DeclareByConfiguration
+//  *  top.yooonn.explore.notes.cloud.aio.other.A
+//  *  top.yooonn.explore.notes.cloud.aio.other.B
+//  *  top.yooonn.explore.notes.cloud.aio.other.DeclareByConfiguration
 //  */
 // package top.yooonn.explore.notes.cloud.aio.other;
 //
@@ -43,11 +43,11 @@
 //     static void CGLIB$STATICHOOK3() {
 //         CGLIB$THREAD_CALLBACKS = new ThreadLocal();
 //         CGLIB$emptyArgs = new Object[0];
-//         Class<?> clazz = Class.forName("com.ycourlee.explore.notes.cloud.aio.other.DeclareByConfiguration$$EnhancerBySpringCGLIB$$dc9076d0");
+//         Class<?> clazz = Class.forName("top.yooonn.explore.notes.cloud.aio.other.DeclareByConfiguration$$EnhancerBySpringCGLIB$$dc9076d0");
 //         Class<?> clazz2 = Class.forName("org.springframework.beans.factory.BeanFactoryAware");
 //         CGLIB$setBeanFactory$7$Method = ReflectUtils.findMethods(new String[]{"setBeanFactory", "(Lorg/springframework/beans/factory/BeanFactory;)V"}, clazz2.getDeclaredMethods())[0];
 //         CGLIB$setBeanFactory$7$Proxy = MethodProxy.create(clazz2, clazz, "(Lorg/springframework/beans/factory/BeanFactory;)V", "setBeanFactory", "CGLIB$setBeanFactory$7");
-//         clazz2 = Class.forName("com.ycourlee.explore.notes.cloud.aio.other.DeclareByConfiguration");
+//         clazz2 = Class.forName("top.yooonn.explore.notes.cloud.aio.other.DeclareByConfiguration");
 //         Method[] methodArray = ReflectUtils.findMethods(new String[]{"b", "()Lcom/ycourlee/explore/notes/cloud/aio/other/B;", "a", "()Lcom/ycourlee/explore/notes/cloud/aio/other/A;"}, clazz2.getDeclaredMethods());
 //         CGLIB$b$1$Method = methodArray[0];
 //         CGLIB$b$1$Proxy = MethodProxy.create(clazz2, clazz, "()Lcom/ycourlee/explore/notes/cloud/aio/other/B;", "b", "CGLIB$b$1");

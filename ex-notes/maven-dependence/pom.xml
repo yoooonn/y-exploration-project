@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.ycourlee.explore.notes</groupId>
+    <groupId>top.yooonn.explore.notes</groupId>
     <artifactId>ex-notes</artifactId>
     <version>${revision}</version>
   </parent>
@@ -13,7 +13,7 @@
     <module>b</module>
   </modules>
 
-  <groupId>com.ycourlee.explore.notes.mavendependence</groupId>
+  <groupId>top.yooonn.explore.notes.mavendependence</groupId>
   <artifactId>maven-dependence</artifactId>
   <version>${revision}</version>
   <name>::notes::maven dependence</name>
@@ -36,12 +36,12 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>com.ycourlee.explore.notes.mavendependence</groupId>
+        <groupId>top.yooonn.explore.notes.mavendependence</groupId>
         <artifactId>a</artifactId>
         <version>${revision}</version>
       </dependency>
       <dependency>
-        <groupId>com.ycourlee.explore.notes.mavendependence</groupId>
+        <groupId>top.yooonn.explore.notes.mavendependence</groupId>
         <artifactId>b</artifactId>
         <version>${revision}</version>
       </dependency>

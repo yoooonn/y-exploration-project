@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
  */
 @EnableAsync
 @EnableAspectJAutoProxy(exposeProxy = true)
-@MapperScan("com.ycourlee.explore.basic.dao")
+@MapperScan("top.yooonn.explore.basic.dao")
 @SpringBootApplication
 @EnableDiscoveryClient
 public class NacosProviderApplication {

@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.ycourlee.explore.plugins</groupId>
+    <groupId>top.yooonn.explore.plugins</groupId>
     <artifactId>ex-plugins</artifactId>
     <version>${revision}</version>
   </parent>
@@ -32,12 +32,12 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>com.ycourlee.explore.mavenplugin</groupId>
+        <groupId>top.yooonn.explore.mavenplugin</groupId>
         <artifactId>sub-a</artifactId>
         <version>1.0.6-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.ycourlee.explore.mavenplugin</groupId>
+        <groupId>top.yooonn.explore.mavenplugin</groupId>
         <artifactId>sub-b</artifactId>
         <version>1.0.6-SNAPSHOT</version>
       </dependency>

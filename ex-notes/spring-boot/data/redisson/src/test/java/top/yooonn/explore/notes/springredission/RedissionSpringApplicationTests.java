@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
  */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@ComponentScan("com.ycourlee.explore.notes.springredission")
+@ComponentScan("top.yooonn.explore.notes.springredission")
 @EnableAspectJAutoProxy
 public class RedissionSpringApplicationTests implements ApplicationContextAware {
 

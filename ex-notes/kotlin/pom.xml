@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>ex-notes</artifactId>
-    <groupId>com.ycourlee.explore.notes</groupId>
+    <groupId>top.yooonn.explore.notes</groupId>
     <version>${revision}</version>
   </parent>
 
