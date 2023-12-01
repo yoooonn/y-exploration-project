@@ -1,5 +1,5 @@
 org.springframework.boot.SpringApplicationRunListener=\
-  com.ycourlee.explore.notes.bootweb.listener.RunListener
+  top.yooonn.explore.notes.bootweb.listener.RunListener
 
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.ycourlee.explore.notes.bootweb.configuration.DatasourceInitAutoConfiguration
+  top.yooonn.explore.notes.bootweb.configuration.DatasourceInitAutoConfiguration

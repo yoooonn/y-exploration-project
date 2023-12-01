@@ -41,7 +41,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>com.ycourlee.explore.notes.mavendependence.b.Application</mainClass>
+              <mainClass>top.yooonn.explore.notes.mavendependence.b.Application</mainClass>
             </manifest>
           </archive>
         </configuration>

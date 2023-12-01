@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ycourlee.explore.basic.dao.ActorMovieMapper">
-  <resultMap id="BaseResultMap" type="com.ycourlee.explore.basic.dao.model.ActorMovie">
+<mapper namespace="dao.top.yooonn.explore.basic.ActorMovieMapper">
+  <resultMap id="BaseResultMap" type="model.dao.top.yooonn.explore.basic.ActorMovie">
     <!--@mbg.generated-->
     <!--@Table actor_movie-->
     <id column="id" jdbcType="BIGINT" property="id"/>
@@ -28,7 +28,7 @@
     delete from actor_movie
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.ActorMovie" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.dao.top.yooonn.explore.basic.ActorMovie" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into actor_movie (actor_id, movie_id, memo,
     create_time, update_time, was_delete
@@ -37,7 +37,7 @@
     #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{wasDelete,jdbcType=BOOLEAN}
     )
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ycourlee.explore.basic.dao.model.ActorMovie" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.dao.top.yooonn.explore.basic.ActorMovie" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into actor_movie
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -81,7 +81,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ycourlee.explore.basic.dao.model.ActorMovie">
+  <update id="updateByPrimaryKeySelective" parameterType="model.dao.top.yooonn.explore.basic.ActorMovie">
     <!--@mbg.generated-->
     update actor_movie
     <set>
@@ -106,7 +106,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ycourlee.explore.basic.dao.model.ActorMovie">
+  <update id="updateByPrimaryKey" parameterType="model.dao.top.yooonn.explore.basic.ActorMovie">
     <!--@mbg.generated-->
     update actor_movie
     set actor_id = #{actorId,jdbcType=BIGINT},

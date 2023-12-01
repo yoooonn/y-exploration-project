@@ -13,7 +13,7 @@
   <description>a simple gRPC server</description>
   <properties>
     <main.basedir>${project.basedir}/../../..</main.basedir>
-    <main.class>com.ycourlee.explore.notes.grpc.server.GreetingServer</main.class>
+    <main.class>top.yooonn.explore.notes.grpc.server.GreetingServer</main.class>
   </properties>
   <scm>
     <connection>${git.connection}</connection>

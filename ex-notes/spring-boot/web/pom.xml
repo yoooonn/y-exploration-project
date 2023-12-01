@@ -137,7 +137,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <mainClass>com.ycourlee.explore.notes.bootweb.BootProcessApplication</mainClass>
+          <mainClass>top.yooonn.explore.notes.bootweb.BootProcessApplication</mainClass>
         </configuration>
       </plugin>
     </plugins>

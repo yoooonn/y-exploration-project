@@ -10,7 +10,6 @@
 
   <artifactId>netty</artifactId>
   <name>::notes::netty</name>
-  <packaging>pom</packaging>
   <properties>
     <main.basedir>${project.basedir}/../..</main.basedir>
   </properties>

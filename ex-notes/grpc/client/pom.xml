@@ -14,7 +14,7 @@
   <description>a simple gRPC client</description>
   <properties>
     <main.basedir>${project.basedir}/../../..</main.basedir>
-    <main.class>com.ycourlee.explore.notes.grpc.client.GreetingClient</main.class>
+    <main.class>top.yooonn.explore.notes.grpc.client.GreetingClient</main.class>
   </properties>
   <scm>
     <connection>${git.connection}</connection>
